@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Synthesis: Where This Goes · Open Models</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23b0492c'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Georgia'>O</text></svg>">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-depth="1" data-chapter="synthesis">
+<a class="skip" href="#main">Skip to content</a>
+<div class="site">
+  <nav class="sidebar" id="sidebar" aria-label="Table of contents"></nav>
+  <div class="scrim" id="scrim"></div>
+  <div class="main">
+    <div class="topbar"><a class="brand" href="../index.html"><span class="mark">O</span>Open Models</a><button class="btn" id="menu-btn">☰ Contents</button></div>
+    <main id="main"><article class="content">
+      <div class="chapter-kicker">Chapter 9 · Policy</div>
+      <h1>Synthesis: Where This Goes</h1>
+      <div class="chapter-meta" id="chapter-meta"></div>
+<p class="lede">The previous chapters covered what open models are, why they exist, where they came from, how far behind they are, and what the fights are about. This one puts the pieces together into a model of the system, states the strongest version of each side's forecast, and ends with the questions whose answers, over the next two years, will decide which forecast was right.</p>
+
+<div class="objectives"><h4>What you will be able to do</h4><ul>
+<li>Explain Lambert's "different exponentials" thesis and its three model classes.</li>
+<li>State the specialisation thesis and why the market for small specialised open models is unmet.</li>
+<li>Identify the conditions under which the 2026 equilibrium holds or breaks.</li>
+<li>Pose and defend a position on the open questions.</li>
+</ul></div>
+
+<h2 id="exponentials">1. Different exponentials</h2>
+<p>Lambert's June 2026 essay <a href="https://www.interconnects.ai/p/open-and-closed-models-are-on-different">"Open and closed models are on different exponentials"</a> resolves a paradox that runs through the book: how can open models be "perpetually behind" and also the fastest-growing part of the market? Because they are on different curves.</p>
+<ul>
+<li><b>Closed labs</b> capture the premium for the best intelligence. Coding agents proved customers will pay for it (Lambert says he would pay "$2,000/month" for his). Concentrated talent and compute make frontier labs more efficient at pushing the frontier. They will look like "a mix of Apple and Microsoft": integrated technology plus high-leverage subscriptions, with OpenAI and Anthropic plausibly worth "$2–10T" over five to ten years.</li>
+<li><b>Open models</b> capture volume. They will fix their out-of-distribution weaknesses over time, enable enterprise customisation without model replacement, and generate more total market value at lower margins, distributed across Nvidia, the inference providers (Together, Fireworks, OpenRouter), and fine-tuning platforms (Prime Intellect, Tinker).</li>
+</ul>
+<p>The March 2026 essay adds the three-class structure: <b>closed frontier models</b> for advanced knowledge work; <b>open frontier models</b> (he names GPT-OSS 120B, Nemotron 3 Super, MiniMax M2.5; by year's end it would be Kimi K3, GLM-5.3, DeepSeek V4) for anyone who needs near-frontier capability under their own control; and <b>small specialised open models</b> for "distributed intelligence" tasks, "10× faster, 100× cheaper" than the frontier.</p>
+
+<h2 id="specialisation">2. The specialisation thesis</h2>
+<p>The third class is where Lambert thinks open models are most valuable and least served. Enterprise demand for "specialized, small, fast, and cheap" models with domain capability is real, but open labs mostly chase the general frontier because that is what gets attention. Moondream (vision), olmOCR (documents) and Thomson Reuters' legal model are the exceptions. Catalini's economics (Chapter 2) predicts the same: enterprises want to own the "weights of production" tuned on their tacit knowledge, and generalist and specialist models serve different demand curves.</p>
+<div class="callout idea"><span class="label">Key idea</span><b>The strongest case for open models is not "we will beat Claude".</b> It is "there are ten thousand tasks where a 4B model tuned on your data, running on your hardware, is the right answer, and none of them will ever be a closed lab's priority."</div>
+
+<h2 id="equilibrium">3. The 2026 equilibrium and what breaks it</h2>
+<p>Putting the chapters together, the system in September 2026 looks like this:</p>
+<div class="flow">
+<div class="step"><b>US closed labs</b>hold the frontier and the product margin; worry about distillation and adoption of Chinese models.</div>
+<div class="step"><b>Chinese open labs</b>hold the open frontier and the cost frontier; ship within days; worry about chips.</div>
+<div class="step"><b>US enterprises</b>adopt Chinese open weights for cost and control; face congressional scrutiny.</div>
+<div class="step"><b>US open builders</b>(Ai2, Nvidia, Thinking Machines, Mistral in Europe) are principled or derivative, and small.</div>
+<div class="step"><b>Washington</b>debates thresholds, entity lists and supply-chain rules that mostly bind American open releases.</div>
+</div>
+<p>Four things could break it.</p>
+<ol>
+<li><b>The gap closes to zero.</b> SemiAnalysis's halving trend, if it continues, has open models at parity within two eras. Then the premium closed labs rely on shrinks to product and trust, and Lambert's prediction that the gap "will likely expand" fails.</li>
+<li><b>China closes the top of the range.</b> Commercial labs tend to close their best model as revenue arrives. Z.ai passed $1B ARR; Alibaba only just opened its largest models. If the flagship Chinese models go API-only, the open frontier collapses to whatever is second-best.</li>
+<li><b>Washington gates US open weights.</b> The "six months to live" scenario. It would not remove capability from the world, but it would end the American open frontier and cede the global default (Gurley's six billion people) to Chinese models.</li>
+<li><b>A real open-model cyber catastrophe.</b> Every 2026 incident ran through closed models or inside labs. The first large, attributed attack run on downloaded open weights would change the politics overnight, regardless of the marginal-risk analysis.</li>
+</ol>
+
+<h2 id="questions">4. Open questions</h2>
+<p>These are the questions the sources disagree about, or cannot yet answer. Each is a good essay assignment.</p>
+<ol>
+<li><b>Is the gap converging or stable?</b> SemiAnalysis says halving; Ihle says widening on private benchmarks; Lambert says compressed but persistent. Which measurement would you trust for a policy decision, and why?</li>
+<li><b>How much did illicit distillation contribute to Chinese capability?</b> Anthropic documents scale; Lambert argues the uplift is confined to SFT and dwarfed by RL. What experiment would settle it?</li>
+<li><b>Can dangerous capabilities be decoupled from general intelligence?</b> Thinking Machines bets that some hazardous knowledge depends on specific pretraining documents. If true, open releases can be filtered; if false, the launch gate is the only tool.</li>
+<li><b>Would a US-only gate accomplish anything once Chinese models exceed the threshold?</b> Saxe and Lambert say it creates asymmetric vulnerability; proponents say norms and precedent matter.</li>
+<li><b>Who funds the Western open frontier?</b> Meta left. Ai2 is a non-profit. Mistral is European. The ATOM Project proposes public investment. Is there a commercial model, or is this a public good that will be under-supplied?</li>
+<li><b>Does the data commons recover?</b> "Consent in Crisis" documents a shrinking corpus that hurts open and academic builders most. No policy on the reading list addresses it.</li>
+<li><b>What replaces benchmarks?</b> Every source in Chapter 6 says public benchmarks mislead. Adoption (the ATOM Report) and revenue are alternatives, but they measure different things. What would a good measure of "how far behind" look like?</li>
+</ol>
+
+<h2 id="reading-next">5. Where to go from here</h2>
+<p>The <a href="../reading-list.html">annotated reading list</a> catalogues every source used here, grouped as Lambert grouped them, with a sentence on what each contributes. For staying current: the <a href="https://dashboard.interconnects.ai/">Adoption Dashboard</a> for who is using what, <a href="https://artificialanalysis.ai/trends">Artificial Analysis</a> and <a href="https://epoch.ai/benchmarks">Epoch</a> for capability, and Interconnects itself for interpretation. For the technical foundations, the <a href="https://rlhfbook.com/">RLHF Book</a> covers post-training in depth, and the Olmo 3 paper is the most complete public description of how a modern open model is actually built. And the <a href="../timeline.html">timeline</a> is there to check dates when the essays disagree.</p>
+
+<details class="callout think"><summary>A closing exercise</summary>
+<p>Write a one-page memo to a US enterprise CTO in September 2026 who is deciding between building on Kimi K3 (open, cheap, Chinese), GPT-OSS (open, American, weaker), or the Claude API (closed, best, expensive). Use the marginal-risk framework, the Pareto-frontier argument, the congressional-probe record and the "six months to live" scenario. There is no single right answer; the point is to see how many chapters of this book a real decision touches.</p></details>
+
+<script type="application/json" data-quiz="synthesis">[
+{"q":"The 'different exponentials' thesis resolves which apparent contradiction?","a":["That open models are both cheap and expensive","That open models can be perpetually behind and also the fastest-growing part of the market","That China leads and trails simultaneously","That benchmarks are both useful and useless"],"c":1,"x":"Closed labs capture the premium for the best intelligence; open models capture volume and total market value at lower margins. Different curves, both rising."},
+{"q":"Which of Lambert's three model classes does he consider most underserved?","a":["Closed frontier models","Open frontier models","Small specialised open models","Image models"],"c":2,"x":"Enterprise demand for specialised, small, fast, cheap models is real and largely unmet because open labs chase the general frontier."},
+{"q":"Which of the following would NOT break the 2026 equilibrium as described?","a":["Chinese labs closing their flagship models","A US executive order gating open weights above a threshold","A new fully open 7B model from Ai2","The catch-up gap reaching zero"],"c":2,"x":"A small fully open release is business as usual. The other three change who holds the open frontier or whether one exists."},
+{"q":"Why did every 2026 cyber incident in this book matter for open-model policy even though none ran on open weights?","a":["Because they proved open weights are safe","Because they showed the capability exists and, on the catch-up trend, will reach open weights within months","Because they were fabricated","Because they were in China"],"c":1,"x":"The policy question is what to do when a capability already behind APIs reaches downloadable weights. The incidents establish the capability; Chapter 6 establishes the timeline."}
+]</script>
+      <div class="complete-row" id="complete-row"></div>
+      <nav class="chapter-nav" id="chapter-nav" aria-label="Chapter navigation"></nav>
+    </article></main>
+    <footer class="footer">Open Models: A Field Guide · Sources are linked inline and collected in the <a href="../reading-list.html">reading list</a>.</footer>
+  </div>
+</div>
+<script src="../js/data.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

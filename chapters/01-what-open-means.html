@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What 'Open' Means · Open Models</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23b0492c'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Georgia'>O</text></svg>">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-depth="1" data-chapter="openness">
+<a class="skip" href="#main">Skip to content</a>
+<div class="site">
+  <nav class="sidebar" id="sidebar" aria-label="Table of contents"></nav>
+  <div class="scrim" id="scrim"></div>
+  <div class="main">
+    <div class="topbar"><a class="brand" href="../index.html"><span class="mark">O</span>Open Models</a><button class="btn" id="menu-btn">☰ Contents</button></div>
+    <main id="main"><article class="content">
+      <div class="chapter-kicker">Chapter 1 · Primer</div>
+      <h1>What 'Open' Means</h1>
+      <div class="chapter-meta" id="chapter-meta"></div>
+<p class="lede">"Open source AI" is a phrase used by Meta's lobbyists, by Chinese state planners, by Ai2 researchers and by congressional staffers, and they do not mean the same thing. This chapter sorts the vocabulary: the release gradient, the difference between open weights and open source, licenses, and why the definitional fight is really a fight about who gets to claim the benefits.</p>
+
+<div class="objectives"><h4>What you will be able to do</h4><ul>
+<li>Place any model release on Solaiman's six-level gradient.</li>
+<li>Distinguish open weights, open source (in the OSI sense) and fully open, and say which models are which.</li>
+<li>Explain what the Llama license, MIT and Apache 2.0 each permit and why it matters for adoption.</li>
+<li>Recognise when "open" is being used as a strategic label rather than a technical description.</li>
+</ul></div>
+
+<h2 id="gradient">1. The gradient of release</h2>
+<p>In February 2023, a few months after ChatGPT, Hugging Face's Irene Solaiman published <a href="https://arxiv.org/abs/2302.04844">"The Gradient of Generative AI Release: Methods and Considerations"</a>. Its lasting contribution was to replace a binary (open vs closed) with six levels, and to insist that each level trades off concentration of power against ability to mitigate risk. Drag the slider to see each level and examples.</p>
+
+<div class="widget" id="gradient-widget">
+<h4>Interactive: the release gradient</h4>
+<input type="range" min="0" max="5" value="4" aria-label="Release level">
+<div class="levels"><span>Fully closed</span><span>Staged</span><span>Hosted</span><span>API</span><span>Downloadable</span><span>Fully open</span></div>
+<div class="panel"></div>
+</div>
+
+<p>Solaiman's observation about who sits where has held up: "closedness among large companies for powerful systems and openness among organizations founded on principles of openness". The 2026 twist is that the most powerful downloadable models now come from companies (Alibaba, Moonshot, Z.ai, DeepSeek) whose openness is strategic rather than principled, a shift Chapter 2 examines.</p>
+
+<h2 id="three-words">2. Three different things called "open"</h2>
+
+<h3>Open weights</h3>
+<p>The weights can be downloaded and run. This is the working definition in nearly all 2025–26 discourse, and it is what Llama, Qwen, DeepSeek, Kimi, GLM, GPT-OSS and Mistral all are. Lambert's writing generally says "open models" or "open weights" and avoids "open source" for exactly this reason. Open weights give you most of the practical benefits: local deployment, fine-tuning on private data, no vendor lock-in, no per-token margin paid to the lab. They do not give you the ability to reproduce or fully audit the model.</p>
+
+<h3>Open source (OSI sense)</h3>
+<p>The Open Source Initiative's definition of open source software requires, among other things, that the license not discriminate against fields of endeavour and that the "preferred form for modification" be available. Applied to models, the OSI's 2024 Open Source AI Definition requires weights, code, and enough data information to substantially recreate the system. By that standard, models under the Llama license (which restricts use by companies over 700M monthly users and bans certain applications) are not open source, and neither are most open-weights models, because their data is withheld. Meta's insistence on the phrase "open source AI" for Llama is a branding choice, and the source of a running argument with the OSI and with researchers.</p>
+
+<h3>Fully open</h3>
+<p><dfn data-term="fully-open">Fully open</dfn> means weights plus the data, training code, evaluation code and <dfn data-term="checkpoint">checkpoints</dfn>: enough to reproduce the model and to study how it learned. The reference examples are EleutherAI's Pythia suite (2023), BigScience's BLOOM (2022), and Ai2's OLMo family (2024–). The OLMo paper's justification is scientific: "the most powerful models have become closed off, gated behind proprietary interfaces", and researchers need "powerful, truly open LMs" to study behaviour, bias and risk. Olmo 3 (2025) extends this to what Ai2 calls the "entire model flow", every stage and dataset from raw text to the final Think and Instruct models.</p>
+
+<div class="callout idea"><span class="label">Key idea</span><b>Open weights is a distribution decision; fully open is a science decision.</b> Most of the economic and geopolitical debate in this book is about open weights. Most of the research value, and the ability to make evidence-based claims about what training does, comes from the much smaller set of fully open models.</div>
+
+<h2 id="licenses">3. Licenses</h2>
+<p>License terms decide who can use a model commercially and whether other companies can build products on it. The 2025–26 open-weights leaders converged on permissive licenses, which is a big part of why adoption tilted toward them.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>License</th><th>Used by</th><th>What it means</th></tr></thead>
+<tbody>
+<tr><td>MIT</td><td>DeepSeek V3/R1, GLM-4.5 onward, Kimi K2 (modified MIT)</td><td>Do anything, keep the notice. The most permissive common choice.</td></tr>
+<tr><td>Apache 2.0</td><td>Qwen (most sizes), GPT-OSS, Mistral 7B/Mixtral, OLMo, Pythia</td><td>Permissive, with an explicit patent grant. The default for "we want enterprises to use this".</td></tr>
+<tr><td>Llama Community License</td><td>Llama 2, 3, 4</td><td>Free for most, but restrictions on very large companies, an acceptable-use policy, and naming requirements. Not OSI-compliant.</td></tr>
+<tr><td>Gemma Terms</td><td>Google Gemma</td><td>Custom terms with usage restrictions Google can update.</td></tr>
+<tr><td>Research-only / non-commercial</td><td>Original LLaMA (2023), some Chinese models' largest sizes</td><td>Fine for papers, unusable for products.</td></tr>
+</tbody></table></div>
+<p>Kevin Xu's history of Chinese open source (Chapter 5) notes that the 2025 generation of Chinese labs chose MIT and Apache deliberately: DeepSeek with MIT and full chain-of-thought visibility, Qwen with Apache 2.0, GLM with MIT. Combined with prompt hosting on cloud platforms, this was a "matured commercialization instinct", not a giveaway.</p>
+
+<h2 id="why-contested">4. Why the words are contested</h2>
+<p>The definitional fight matters because the benefits people claim for "open source AI" (transparency, auditability, security through many eyes, educational access) were established for open source <em>software</em>, where the source is the preferred form for modification and anyone can read it. Whether those benefits transfer to a 400GB weights file with no data is an empirical question, and different answers favour different actors:</p>
+<ul>
+<li><b>Meta</b> (2024) wanted "open source" to mean Llama, so that the Linux analogy in Zuckerberg's letter applied.</li>
+<li><b>Ai2 and EleutherAI</b> want the distinction preserved, because their value proposition is the part Llama omits.</li>
+<li><b>Policymakers</b> in 2026 mostly use "open models" or "open-weight models" and are considering restrictions defined by capability thresholds, not by license (Chapter 8).</li>
+<li><b>Chinese labs</b> use "open source" freely and, as Xu notes, benefit from being judged "on merit" with "no licensing burden" in overseas markets.</li>
+</ul>
+
+<div class="callout debate"><span class="label">Debate</span><b>Does "open" need the data to count?</b> Lambert's 2024 "Why I Build Open Language Models" argues that one for-profit company controlling the practical definition limits the genuine benefits, and that regulators need "direct access to systems" rather than demos. Meta's position is that weights are what developers need and what delivers the ecosystem benefits. The ATOM Report's adoption data (Chapter 5) suggests developers agree with Meta about usefulness, while the scientific literature almost entirely relies on the fully open models.</div>
+
+<h2 id="taxonomy">5. A working taxonomy for this book</h2>
+<p>To keep later chapters precise, the book uses these terms consistently:</p>
+<ul>
+<li><b>Closed model</b>: API or hosted only. GPT-5.x, Claude, Gemini Pro, Grok.</li>
+<li><b>Open-weights model</b>: downloadable weights, any license. Qwen, DeepSeek, Kimi, GLM, Llama, GPT-OSS, Mistral, Gemma, Nemotron.</li>
+<li><b>Fully open model</b>: weights, data, code, checkpoints. OLMo/Olmo, Pythia, BLOOM, SmolLM.</li>
+<li><b>Frontier</b>: the best model available at a moment, regardless of openness. "Open frontier" means the best open-weights model.</li>
+<li><b>Open model ecosystem</b>: the models plus the inference providers, fine-tuning tools, derivative models and datasets built on them. This is what the ATOM Report measures.</li>
+</ul>
+
+<details class="callout think"><summary>Think about it: where would you put an encrypted-weights release?</summary>
+<p>Some 2026 proposals involve releasing weights that only run on attested hardware, or "staged" releases where fine-tuning is offered before download (the Thinking Machines framework in Chapter 3). These sit between levels 4 and 5 of the gradient and show that the gradient is a spectrum of control, not six boxes.</p></details>
+
+<script type="application/json" data-quiz="openness">[
+{"q":"A model's weights are on Hugging Face under the Llama Community License. In the OSI's sense it is:","a":["Open source","Open weights but not open source","Fully open","Closed"],"c":1,"x":"Downloadable weights make it open-weights, but the license's use restrictions and the missing data mean it does not meet the Open Source AI Definition."},
+{"q":"Which release includes intermediate training checkpoints and the pretraining corpus?","a":["DeepSeek R1","Kimi K3","Olmo 3","GPT-OSS"],"c":2,"x":"Olmo 3 releases the 'entire model flow'. The others are open-weights with permissive licenses but withhold data and checkpoints."},
+{"q":"On Solaiman's gradient, an API-only model like GPT-3 in 2020 sits at level:","a":["1 (fully closed)","2 (staged)","4 (cloud/API)","5 (downloadable)"],"c":2,"x":"API access is metered, programmatic, and monitored by the provider. It became the dominant closed business model from GPT-3 onward."},
+{"q":"Why did the 2025 Chinese labs mostly choose MIT or Apache 2.0 licenses?","a":["Chinese law requires it","To maximise overseas adoption where models are judged on merit with no licensing burden","Because they could not enforce restrictions","To comply with the OSI definition"],"c":1,"x":"Kevin Xu describes the license choices as a commercialisation strategy for expanding into markets outside China."}
+]</script>
+      <div class="complete-row" id="complete-row"></div>
+      <nav class="chapter-nav" id="chapter-nav" aria-label="Chapter navigation"></nav>
+    </article></main>
+    <footer class="footer">Open Models: A Field Guide · Sources are linked inline and collected in the <a href="../reading-list.html">reading list</a>.</footer>
+  </div>
+</div>
+<script src="../js/data.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

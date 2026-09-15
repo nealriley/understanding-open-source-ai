@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Models: A Field Guide to Open-Source AI</title>
+<meta name="description" content="An interactive textbook on open-source AI and open language models: the science, the history, the US–China competition, and the policy fights, built from Nathan Lambert's Interconnects reading list.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23b0492c'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Georgia'>O</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-depth="0">
+<a class="skip" href="#main">Skip to content</a>
+<div class="site">
+  <nav class="sidebar" id="sidebar" aria-label="Table of contents"></nav>
+  <div class="scrim" id="scrim"></div>
+  <div class="main">
+    <div class="topbar"><a class="brand" href="index.html"><span class="mark">O</span>Open Models</a><button class="btn" id="menu-btn">☰ Contents</button></div>
+    <main id="main">
+      <section class="hero">
+        <div class="chapter-kicker">An interactive textbook · 2026 edition</div>
+        <h1>Open Models: A Field Guide to Open-Source AI</h1>
+        <p class="lede">A structured course on open language models: how they work, why anyone builds them, where they came from, how far behind the frontier they really are, and why Washington and Beijing both care. Ten chapters, an interactive timeline, a glossary, and an annotated bibliography of the sources.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.5rem"><a class="btn btn-primary" id="continue-btn" href="chapters/00-primer.html">Start reading</a><a class="btn" href="timeline.html">Explore the timeline</a><a class="btn" href="reading-list.html">Reading list</a></div>
+
+        <div class="stat-row">
+          <div class="stat"><b>~1,500</b><span>mainline open models tracked by the ATOM Report (Apr 2026)</span></div>
+          <div class="stat"><b>Summer 2025</b><span>when Chinese open models overtook US ones in adoption</span></div>
+          <div class="stat"><b>4–10 mo</b><span>estimated open–closed capability gap, depending on who measures</span></div>
+          <div class="stat"><b>~190M</b><span>Claude exchanges Anthropic attributes to illicit distillation by seven labs (Sep 2026)</span></div>
+        </div>
+
+        <h2>How to use this book</h2>
+        <p>Read it front to back if you are new to the field: the two <b>Primer</b> chapters give you the vocabulary, and everything after that builds on them. If you already know how transformers and RLHF work, start at Chapter 2. Each chapter ends with a short quiz and a completion toggle; progress is saved in your browser only. Hover any <dfn data-term="distillation">dotted term</dfn> for a definition.</p>
+        <p>The spine of the book is <a href="https://www.interconnects.ai/p/open-source-ai-reading-list">Nathan Lambert's open-source AI reading list</a> (Interconnects, updated 13 September 2026). Every link on that list is covered somewhere here and catalogued in the <a href="reading-list.html">annotated reading list</a>. Where the list's sources are summarised, the book cites them; where the book adds primary sources (papers, model cards, press releases) for context, those are cited too. Claims about events after mid-2026 lean on the reading list's own sources and are flagged where the underlying documents were only partially accessible.</p>
+
+        <div class="card-grid" id="chapter-cards"></div>
+
+        <h2>Who this is for</h2>
+        <ul>
+          <li><b>Engineers and product people</b> deciding whether to build on Qwen, Kimi, GLM, Llama or a closed API, who want the strategic picture rather than a benchmark table.</li>
+          <li><b>Policy staff and journalists</b> who need the technical grounding to evaluate claims about distillation, cyber risk and "banning" open models.</li>
+          <li><b>Students and researchers</b> who want a narrative map of the field before diving into the papers.</li>
+        </ul>
+        <div class="callout source"><span class="label">A note on voice</span>Much of the source material is opinionated essay writing, especially Lambert's. This book tries to separate three things clearly: what happened (dated events), what the evidence shows (papers and measurements), and what particular authors argue. Callouts marked <em>Debate</em> present positions the field has not settled.</div>
+      </section>
+    </main>
+    <footer class="footer">Built from the Interconnects open-source AI reading list and cited primary sources. Content is educational commentary; quotations are attributed and kept short. Reading progress is stored locally in your browser.</footer>
+  </div>
+</div>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Distillation and Synthetic Data · Open Models</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23b0492c'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Georgia'>O</text></svg>">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-depth="1" data-chapter="distillation">
+<a class="skip" href="#main">Skip to content</a>
+<div class="site">
+  <nav class="sidebar" id="sidebar" aria-label="Table of contents"></nav>
+  <div class="scrim" id="scrim"></div>
+  <div class="main">
+    <div class="topbar"><a class="brand" href="../index.html"><span class="mark">O</span>Open Models</a><button class="btn" id="menu-btn">☰ Contents</button></div>
+    <main id="main"><article class="content">
+      <div class="chapter-kicker">Chapter 7 · Science</div>
+      <h1>Distillation and Synthetic Data</h1>
+      <div class="chapter-meta" id="chapter-meta"></div>
+<p class="lede">In 2015 distillation was a compression trick from a Google paper. In 2023 it was how a Stanford lab built a chatbot for $600. In February 2026 it was an accusation, in September a 154-page threat report, and by the summer the word had become shorthand in Washington for "China cheats". This chapter separates the technique from the politics: what distillation is, how much it actually helps, what the evidence of misuse shows, and why the choice of word matters for what gets regulated.</p>
+
+<div class="objectives"><h4>What you will be able to do</h4><ul>
+<li>Define knowledge distillation, on-policy distillation, and synthetic-data pipelines precisely.</li>
+<li>Explain where in the training stack distillation helps and where it cannot (RL).</li>
+<li>Summarise Anthropic's February and September 2026 disclosures and the "stealing reasoning traces" attack.</li>
+<li>State Lambert's case that the problem is jailbreaking and fraud, not distillation, and why the framing matters for open models.</li>
+</ul></div>
+
+<h2 id="technique">1. The technique</h2>
+<p>The <a href="https://rlhfbook.com/c/12-synthetic-data">RLHF Book's synthetic data chapter</a> gives the working definitions. <dfn data-term="synthetic-data">Synthetic data</dfn> is model-generated training data; "the leading models need synthetic data to reach the best performance". <dfn data-term="distillation">Distillation</dfn> is "using the outputs from a stronger model to train a smaller model". The variants:</p>
+<ul>
+<li><b>Knowledge distillation (Hinton et al., 2015).</b> The student is trained to match the teacher's full output distribution (logits), not just its chosen tokens. Requires white-box access to the teacher. This is how Gemini Flash is made from Gemini Pro and how frontier labs make their small models.</li>
+<li><b>Sequence-level / text distillation.</b> Generate answers with the teacher, fine-tune the student on them. Only needs API access. This is Alpaca (52K examples from text-davinci-003), Zephyr, and the ordinary way every open lab seeds <dfn data-term="sft">SFT</dfn>.</li>
+<li><b><dfn data-term="on-policy-distillation">On-policy distillation</dfn>.</b> The student generates; the teacher scores or corrects. Reduces the mismatch between training data and what the student actually produces, so the student learns to recover from its own errors.</li>
+<li><b>Constitutional AI and rubric-based feedback.</b> Use a model to critique and rank outputs against principles or prompt-specific rubrics, replacing human labellers and extending RL to non-verifiable tasks.</li>
+</ul>
+<p>Scale has grown fifty-fold: Alpaca's 52K prompts (2023), Tülu 3's million-plus samples (2024), OpenThoughts 3's ~10B tokens (2025). Lambert's 2024 "Frontiers in Synthetic Data" essay documented the pattern early: regenerating an old dataset with a newer model produced improvements worth roughly 100 Chatbot Arena points; filtering prevents "self-consuming models going mad" (Llama 2 filtered Llama 3's synthetic data); Nvidia's Nemotron found aligned students can surpass their teachers; and licensing restrictions on using GPT-4 or Claude outputs disadvantaged big companies more than hobbyists.</p>
+
+<div class="callout idea"><span class="label">Key idea</span><b>Everyone distils.</b> Frontier labs distil their own big models into small ones. Nvidia distils Chinese open models into Nemotron. Ai2 distils a mix of open and closed models into Olmo. xAI, Lambert notes, "threads the grey area" with competitors. The question in 2026 was never whether distillation happens; it was whether specific labs obtained the teacher outputs by fraud, and how much that bought them.</div>
+
+<h2 id="how-much">2. How much does it actually buy?</h2>
+<p>Lambert's three 2026 essays on the question converge on an answer that is more nuanced than either side of the political debate.</p>
+<p><b>Where it helps.</b> Distillation is the standard way to seed SFT and <dfn data-term="midtraining">midtraining</dfn>: roughly a million prompts with excellent completions, teaching format, style and baseline skill. Chinese labs, GPU-constrained, are probably better at squeezing value from it than anyone. The July 2026 essay <a href="https://natolambert.substack.com/p/how-distillation-is-used-today-and">"How distillation is used today"</a> reports that the imprint is visible: models trained on distilled data learn token clusters that produce artifacts like answering "I'm Claude" when asked who they are.</p>
+<p><b>Where it cannot.</b> <dfn data-term="rlvr">RL</dfn> is now the largest and most important post-training stage, and in RL "generation is the majority of the compute cost … and it can't be generations from another model". The student must produce its own trajectories in its own environments and be scored. You cannot download that from an API. This is why "the evidence in post-training is that distillation is becoming less impactful" as RL's share grows, and why Lambert argues that the GLM-5.3 result (a 750B model matching the frontier via post-training) is evidence of engineering, not copying. A related empirical oddity: "the best teacher models aren't normally the easiest to integrate", and smaller, unexpected teachers sometimes work better.</p>
+<p><b>The numbers.</b> The February 2026 essay <a href="https://www.interconnects.ai/p/how-much-does-distillation-really">"How much does distillation really matter for Chinese LLMs?"</a> put Anthropic's first disclosure in perspective: ~24,000 fraudulent accounts and 16M+ exchanges across DeepSeek (~150K), Moonshot (~3.4M) and MiniMax (~13M), roughly 150–400B tokens in total. That is a meaningful SFT corpus and a rounding error against a multi-trillion-token pretraining run or an RL budget. His policy conclusion: if the goal is slowing Chinese labs, restricting GPU shipments works; restricting API access does not, because "API access is inevitable for frontier labs".</p>
+
+<h2 id="deepseek-o1">3. The original accusation: did R1 distil o1?</h2>
+<p>The claim that DeepSeek R1 was built by copying OpenAI's o1 circulated within days of R1's release in January 2025. Lambert's contemporaneous analysis (in the essay section <a href="https://www.interconnects.ai/i/156272283/did-deepseek-distill-openais-o1-model-hint-no">"Did DeepSeek distill OpenAI's o1 model? Hint: no"</a>) rejected it on two grounds: o1's chains of thought "were not visible to the users", so there was nothing to copy at scale without detection; and DeepSeek's published RL training curves showed the recipe working, which would have been "harder to create" than a distillation shortcut. He conceded the ordinary caveat: distillation from OpenAI outputs in earlier SFT stages was "very likely", because that is what everyone did. DeepSeek's own paper then showed the converse, distilling R1 into small Qwen and Llama models, and found that "applying RL to these distilled models yields significant further gains". The episode set the pattern for 2026: an accusation about the headline capability, a concession about the boring stage, and a public that could not tell them apart.</p>
+
+<h2 id="anthropic">4. Anthropic's disclosures</h2>
+<h3>February 23, 2026</h3>
+<p>Anthropic's post "Detecting and preventing distillation attacks" accused DeepSeek, Moonshot AI and MiniMax of "industrial-scale" campaigns: fraudulent accounts created at scale, shared payment methods, coordinated "load-balanced" timing, and highly repetitive prompts targeting agentic reasoning, coding, and "censorship-safe" outputs. It warned that illicitly distilled models could lack safety training and could enable "authoritarian governments to deploy frontier AI for offensive cyber operations, disinformation campaigns, and mass surveillance". The disclosure came with account terminations and became a citation in the executive-order discussions of the following months.</p>
+<h3>September 10, 2026</h3>
+<p>The <a href="https://www.anthropic.com/threat-intelligence-report-september-2026">September threat report</a>, covering December 2025 to August 2026 across seven harm areas, contains a dedicated illicit-distillation section. Per contemporary coverage of the report (the section itself was only partially accessible when this book was written): seven China-based labs, including Alibaba, Moonshot, DeepSeek, Z.ai, Xiami and MiniMax, generated roughly 190 million exchanges, with Alibaba alone accounting for more than 151 million. The playbook: thousands of fake accounts, stolen credit cards and API keys, residential proxy networks so traffic looked like scattered individual users. The report also notes that none of its misuse cases involved Claude Fable or Mythos-class models except one illicit-distillation case.</p>
+<div class="stat-row">
+<div class="stat"><b>~24,000</b><span>fraudulent accounts (Feb 2026, 3 labs)</span></div>
+<div class="stat"><b>16M+</b><span>exchanges (Feb 2026)</span></div>
+<div class="stat"><b>7 labs</b><span>named (Sep 2026)</span></div>
+<div class="stat"><b>~190M</b><span>exchanges (Sep 2026), 151M+ from Alibaba</span></div>
+</div>
+
+<h2 id="traces">5. Stealing reasoning traces</h2>
+<p>The most technically striking 2026 finding is <a href="https://arxiv.org/abs/2608.09867">"Stealing Reasoning Traces from Proprietary LLM APIs"</a> (Panfilov, Schmotz, Shumailov, Beurer-Kellner, Schaeffer, Prabhu, Geiping, Andriushchenko; August 2026). Closed labs hide <dfn data-term="chain-of-thought">chains of thought</dfn> to prevent exactly the distillation described above, but return them to clients as encrypted blocks so a conversation can be continued. The authors found those blocks are "fully compatible and interchangeable across different sessions, users, and models": inject a strong model's encrypted trace into a weaker, less-protected model and it decodes the reasoning in plaintext. Consequences: anti-distillation protections at Anthropic, OpenAI and Google could be bypassed; 315,320 reasoning blocks were decoded from publicly shared session logs, yielding 367 pieces of personal information and 182 credentials; hazardous content hidden in reasoning but absent from final answers was exposed; and encrypted payloads could carry invisible prompt injections. The paper is the strongest evidence that "the API is safe, the weights are dangerous" is an oversimplification, a point Lambert's "6 months to live" essay makes with reference to the Discord Sleuths' access to Mythos.</p>
+
+<h2 id="panic">6. The panic and the word</h2>
+<p>Lambert's May 2026 essay <a href="https://www.interconnects.ai/p/the-distillation-panic">"The distillation panic"</a> argues that terminology is doing political work. Distillation is "an industry standard technique" used by everyone; what the Chinese labs did wrong was "less the distillation and more the means of attack": fraud, identity spoofing, and <dfn data-term="jailbreak">jailbreaking</dfn> to obtain outputs (such as reasoning traces) the provider did not intend to expose. Call it that. Because if Congress or an executive order targets "distillation", the collateral damage is every open-weights model built with distilled data, which is all of them, including olmOCR, Nemotron and Olmo, and the "long-tail of AI uses" that depends on them. In the July "6 months to live" essay he goes further, calling Anthropic's advocacy on the issue regulatory capture: detect foreign API use, restrict it, then push for policy "with minimal technical evidence" that benefits the incumbent's competitive position.</p>
+
+<div class="callout debate"><span class="label">Debate</span><b>Three positions, all partly right.</b> <em>Anthropic</em>: the campaigns were real, fraudulent, at enormous scale, and the resulting models lack safety training. <em>Lambert</em>: true, but the uplift is confined to SFT-stage skills, RL cannot be distilled, the honest name is fraud and jailbreaking, and a ban on "distillation" would harm US open models more than Chinese labs. <em>Panfilov et al.</em>: the technical barriers closed labs rely on are weaker than advertised, so policy built on "the API is secure" rests on sand. A coherent policy would enforce against fraud at the account level, fix the encryption flaw, and leave the technique alone.</div>
+
+<details class="callout think"><summary>Think about it: what would prove or disprove "distillation is why Chinese models are good"?</summary>
+<p>A controlled experiment: take a fully open model like Olmo 3, run its published post-training recipe with and without a frontier-model-distilled SFT set, and measure the delta on agentic benchmarks after RL. Ai2 is one of the few labs positioned to run it, which is one of the arguments for funding fully open models (Chapter 2). Lambert's prediction, from the July essay, is that the delta after RL is small.</p></details>
+
+<script type="application/json" data-quiz="distillation">[
+{"q":"Which training stage cannot be shortcut by distilling a stronger model's outputs, according to Lambert?","a":["Supervised fine-tuning","Midtraining","Reinforcement learning, because the student must generate its own trajectories","Tokenizer training"],"c":2,"x":"'Generation is the majority of the compute cost for RL and it can't be generations from another model.' As RL's share grows, distillation's leverage shrinks."},
+{"q":"Anthropic's September 2026 report attributed roughly how many illicit-distillation exchanges to Alibaba alone?","a":["150,000","3.4 million","16 million","More than 151 million"],"c":3,"x":"Seven labs, ~190M exchanges in total, with Alibaba over 151M, per coverage of the report. The February disclosure had covered three labs and 16M+ exchanges."},
+{"q":"The 'Stealing Reasoning Traces' attack works because:","a":["Reasoning traces are sent in plaintext","Encrypted reasoning blocks are interchangeable across models, so a weaker model can be made to decode a stronger model's trace","Labs publish their traces on Hugging Face","Users can disable encryption"],"c":1,"x":"315,320 blocks were decoded from public logs, exposing PII and credentials as well as hidden reasoning."},
+{"q":"Why does Lambert insist on calling the campaigns 'jailbreaking' and fraud rather than 'distillation'?","a":["Because distillation is illegal","Because a policy targeting 'distillation' would ban every open model built with distilled data, including US ones","Because jailbreaking is more technical","Because Anthropic asked him to"],"c":1,"x":"Distillation is universal and legitimate; the wrong was the means of access. Words determine what a law or executive order ends up covering."},
+{"q":"Lambert's 2025 argument that R1 did not distil o1 rested on:","a":["DeepSeek's denial","o1's hidden chains of thought and DeepSeek's published RL training curves","OpenAI's confirmation","R1's license"],"c":1,"x":"Nothing visible to copy at scale, and evidence that the RL recipe worked. He conceded SFT-stage distillation from OpenAI outputs was 'very likely', as was standard practice."}
+]</script>
+      <div class="complete-row" id="complete-row"></div>
+      <nav class="chapter-nav" id="chapter-nav" aria-label="Chapter navigation"></nav>
+    </article></main>
+    <footer class="footer">Open Models: A Field Guide · Sources are linked inline and collected in the <a href="../reading-list.html">reading list</a>.</footer>
+  </div>
+</div>
+<script src="../js/data.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

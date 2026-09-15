@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>US–China Competition · Open Models</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23b0492c'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Georgia'>O</text></svg>">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-depth="1" data-chapter="us-china">
+<a class="skip" href="#main">Skip to content</a>
+<div class="site">
+  <nav class="sidebar" id="sidebar" aria-label="Table of contents"></nav>
+  <div class="scrim" id="scrim"></div>
+  <div class="main">
+    <div class="topbar"><a class="brand" href="../index.html"><span class="mark">O</span>Open Models</a><button class="btn" id="menu-btn">☰ Contents</button></div>
+    <main id="main"><article class="content">
+      <div class="chapter-kicker">Chapter 5 · History</div>
+      <h1>US–China Competition</h1>
+      <div class="chapter-meta" id="chapter-meta"></div>
+<p class="lede">American commentary tends to date Chinese open-source AI to January 2025. Kevin Xu's history dates it to a database migration at Alibaba twenty years earlier. This chapter reconstructs how China built an open-source culture, why its labs now lead open weights, what an American counter-strategy looks like, and how, in 2026, using a Chinese model became a matter for congressional committees.</p>
+
+<div class="objectives"><h4>What you will be able to do</h4><ul>
+<li>Narrate the six acts of Chinese open source from De-IOE to the 2025 AI generation.</li>
+<li>State Xu's three structural advantages and evaluate each.</li>
+<li>Describe what the ATOM Report measured and what it found.</li>
+<li>Explain the ATOM Project's policy proposal and the Lambert–Xu case against a ban.</li>
+<li>Recount the 2025–26 sequence of events: Perplexity, Apple–Alibaba, the House probes, Thomson Reuters.</li>
+</ul></div>
+
+<h2 id="history">1. Six acts: how China learned open source</h2>
+<p>Kevin Xu's March 2026 essay <a href="https://interconnect.substack.com/p/chinese-open-source-a-definitive">"Chinese Open Source: A Definitive History"</a> argues that China's embrace of open source came from "organic technical necessity rather than top-down mandate". The government arrived late and mostly ratified what engineers had already done.</p>
+<ol>
+<li><b>Takers and consumers (mid-2000s).</b> Alibaba, hitting the limits of its IBM–Oracle–EMC stack, tasked Wang Jian with the "De-IOE" campaign: commodity x86 servers and a home-grown MySQL replaced the proprietary stack over five years, finishing by 2013 in time for Singles Day scale. JD.com adopted Kubernetes in 2016, months after Google open-sourced it.</li>
+<li><b>Community builders (2010s).</b> Kaiyuanshe (the Open Source Society, October 2014) ran conferences, taught licensing norms, and secured Mulan (2019), the first bilingual OSI-approved license. Grassroots culture grew around 1024 Programmers' Day and, in 2019, the 996.ICU GitHub campaign, which contributed to the Supreme People's Court declaring the 996 schedule illegal in August 2021.</li>
+<li><b>Creators and contributors (mid-2010s).</b> Venture-backed projects reached global foundations: Apache Kylin (2015), PingCAP's TiDB (2015), Alibaba's OceanBase (open-sourced 2021), Baidu's Apollo autonomous-driving platform (2017), Alibaba's T-Head RISC-V cores, BYD's D++ vehicle platform (2018).</li>
+<li><b>Huawei's shadow (2019).</b> The May 15, 2019 US blacklist forced Huawei into self-reliance: openEuler (2019), openGauss and MindSpore (2020), the government-backed OpenAtom Foundation (September 2020), HarmonyOS NEXT (October 2024). By December 2022 Huawei was the top corporate contributor to the Linux kernel.</li>
+<li><b>Government embrace (2021).</b> The 14th Five-Year Plan mentioned open source 27 times and targeted "two to three open source communities with global influence" by 2025. Xu notes the contradictions: Gitee's designation as the "preferred" platform created a maintenance burden while real activity stayed on GitHub.</li>
+<li><b>The AI generation (2025).</b> DeepSeek (MIT, visible chains of thought, a week of daily releases), Qwen (Apache 2.0), Kimi (founder AMAs on Reddit), GLM (MIT). Xu emphasises their "matured commercialization instincts": hosted versions on cloud platforms within days.</li>
+</ol>
+<p>Xu's underlying drivers: engineering pragmatism, the talent pipeline ("there is no technical talent pipeline without access to open source"), global credibility against the "they just steal" narrative, sanctions pressure, and the need to sell abroad as domestic growth slows, where open source carries "no licensing burden" and is judged on merit.</p>
+
+<h2 id="advantage">2. Three structural advantages</h2>
+<p>Xu's June 2025 essay <a href="https://interconnect.substack.com/p/chinas-structural-advantage-in-open">"China's Structural Advantage in Open Source AI"</a> proposes why the lead may persist:</p>
+<ul>
+<li><b>Expertise.</b> Roughly 47% of top-tier AI research talent (by undergraduate origin) is Chinese, with domain depth from manufacturing and biotech that is valuable for RL environments.</li>
+<li><b>Data.</b> Vertical industrial data from 5G/IoT deployments, plus the global internet, plus the Chinese internet that American labs "self-selected out of" (OpenAI never offered ChatGPT in China).</li>
+<li><b>Culture.</b> Academia–industry linkage that defaults to open publication, versus a US ecosystem where, Xu argues, six companies spend $365B a year on redundant infrastructure rather than sharing artifacts.</li>
+</ul>
+<p>Lambert's May 2026 <a href="https://www.interconnects.ai/p/notes-from-inside-chinas-ai-labs">"Notes from inside China's AI labs"</a>, written after visiting Z.ai, Moonshot, Tsinghua, Meituan, Xiaomi, Alibaba, Ant, ByteDance, DeepSeek and others in 36 hours, adds texture. Chinese labs employ more students as core contributors, spend less energy on personal brand or philosophical debate, and are oriented toward "meticulous work" across the stack. Companies like Meituan and Xiaomi build their own models out of a "technology ownership mentality". Constraints are real: Nvidia supply is the binding bottleneck (Huawei accelerators are used for inference), the data-labelling industry is underdeveloped, and government help is "real but unclear how big". Developers there use Claude heavily despite nominal restrictions and rarely mention Codex.</p>
+
+<div class="callout debate"><span class="label">Debate</span><b>Advantage or artefact?</b> An alternative reading is that China leads open weights because its labs cannot win closed: they lack the compute to serve a premium API at frontier scale and lack access to Western enterprise customers, so open weights are the rational distribution channel. Both readings can be true. What matters for policy is that the lead is structural in either case, and that Xu's culture argument implies it would survive tighter chip controls.</div>
+
+<h2 id="atom-report">3. What the ATOM Report measured</h2>
+<p><a href="https://arxiv.org/abs/2604.07190">"The ATOM Report: Measuring the Open Language Model Ecosystem"</a> (Lambert and Florian Brand, April 2026, revised May 2026) is the first attempt to measure adoption rather than benchmark scores. It examines roughly 1,500 mainline open models and combines Hugging Face downloads, counts of derivative models (fine-tunes, quantisations, merges), inference-market share, and benchmark performance. Its headline: "Chinese models overtook their counterparts built in the U.S." in summer 2025 and extended the lead afterward. The companion <a href="https://dashboard.interconnects.ai/">Adoption Dashboard</a> and <a href="https://artifactshub.ai/">Artifacts Hub</a> keep the series current.</p>
+<p>Why adoption rather than capability? Because, as Chapter 6 shows, capability gaps are contested and benchmark-dependent, whereas which base model people fine-tune and serve is an observable fact with direct security and economic consequences. When Cursor builds Composer 2 on Kimi and Airbnb runs support on Qwen, the "gap" is beside the point.</p>
+
+<h2 id="atom-project">4. The American counter-proposal</h2>
+<p>The <a href="http://atomproject.ai">ATOM Project</a> (American Truly Open Models), launched by Lambert in August 2025, argues the US needs deliberate investment in open models: not to beat Chinese labs at their own game, but because a domestic research ecosystem cannot run on foreign weights, because enterprises and government cannot standardise on models from a strategic rival, and because open models are where the next generation of researchers learns. The June 2026 Lambert–Xu essay <a href="https://www.interconnects.ai/p/banning-open-source-ai-would-be-a">"Banning Open Source AI Would Be A Mistake"</a> frames the case around three values: <b>education</b> (students learn from what they can inspect), <b>innovation</b> (the dorm-room builder needs free tools and no litigation fear), and <b>competition</b> (Linux and Android prevented monopolies; the current Anthropic–OpenAI concentration is a competition problem). They cite the standard figures: over 90% of software depends on open source, roughly $8T of economic value, 90% of cloud infrastructure on Linux.</p>
+
+<h2 id="events">5. 2025–26: when a model choice became a political act</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Date</th><th>Event</th><th>Significance</th></tr></thead>
+<tbody>
+<tr><td>Jan 28, 2025</td><td>Perplexity adds DeepSeek R1 to its search product, hosted in the US</td><td>The first mainstream US consumer product on a Chinese open model, eight days after release (Forbes)</td></tr>
+<tr><td>May 2025</td><td>Trump administration reported to be concerned about Apple's deal to use Alibaba's Qwen for Apple Intelligence in China</td><td>First sign that the executive branch saw Chinese model adoption by US firms as a policy issue (Reuters, citing NYT)</td></tr>
+<tr><td>Apr 29, 2026</td><td>House Homeland Security and China Select Committees (Reps. Garbarino and Moolenaar) send letters to Airbnb and Anysphere</td><td>Anysphere's Composer 2 built on Kimi; Airbnb's support agent on Qwen. Moolenaar: the models "introduce hidden vulnerabilities" (Bloomberg, Semafor)</td></tr>
+<tr><td>Jul 31, 2026</td><td>Same committees probe DoorDash after founder Andy Fang posted about delegating lower-level coding work to Kimi K2.6</td><td>Third company; documents due Aug 14, in-person briefings by Aug 21 (CNBC)</td></tr>
+<tr><td>Aug 25, 2026</td><td>Thomson Reuters launches "Thomson", built on "Snowdon", a Qwen derivative reworked with Imperial College London, for ~$40M over two years</td><td>A major Western enterprise building on Chinese weights explicitly to depend less on Anthropic, while keeping Claude for CoCounsel (Business Insider and others)</td></tr>
+</tbody></table></div>
+<p>The pattern is the one Gurley predicted: US firms adopt Chinese open models because they are good and cheap; Congress responds with national-security framing; the framing, if it became law, would leave US closed models as the only permitted option. Lambert's Kimi K3 essay lists the tools under discussion in mid-2026: adding Chinese labs to the Commerce Department's <dfn data-term="entity-list">Entity List</dfn>, NSA advisories against using Chinese models, executive orders requiring security guarantees for hosting them, and draft Commerce rules using supply-chain authorities against open-source models. Chapter 8 covers the resulting fight.</p>
+
+<div class="callout idea"><span class="label">Key idea</span><b>The competition is asymmetric in kind, not just degree.</b> The US leads closed frontier models and the products around them. China leads open weights and, increasingly, the global default for anyone who cannot or will not pay US API prices. Each side's strength is the other's policy problem: US labs worry about distillation and adoption; Chinese labs worry about chips. Neither "winning" looks like the other's.</div>
+
+<details class="callout think"><summary>Think about it: what would a US firm's due diligence on a Chinese open model actually check?</summary>
+<p>Weights are inert numbers; they cannot "phone home". The real questions are: is the model served in-house or via a Chinese API (data exposure)? Does it carry training-time behaviours (censorship, backdoors) that matter for the use case? Is there a supported path off it if policy changes? Thomson Reuters' answer was to rework Qwen with a university partner to make it "ethically and politically de-biased and safe to use". Whether that would satisfy the House committees is an open question.</p></details>
+
+<script type="application/json" data-quiz="us-china">[
+{"q":"Xu's central claim about the origin of Chinese open source is that it was:","a":["Mandated by the 14th Five-Year Plan","Driven by engineering necessity, starting with Alibaba's De-IOE migration","Copied from Silicon Valley in 2023","A response to DeepSeek"],"c":1,"x":"Government embrace came in 2021, after fifteen years of bottom-up adoption, community building and contribution."},
+{"q":"The ATOM Report measured open-model leadership primarily by:","a":["Benchmark scores","Adoption: downloads, derivative models and inference share across ~1,500 models","Parameter counts","Press coverage"],"c":1,"x":"Adoption is observable and has direct economic and security consequences, whereas capability gaps are benchmark-dependent."},
+{"q":"Which company was the third to be probed by the House committees over Chinese model use?","a":["Perplexity","Thomson Reuters","DoorDash","Apple"],"c":2,"x":"Airbnb and Anysphere received letters on April 29, 2026; DoorDash followed on July 31 after its founder posted about using Kimi K2.6."},
+{"q":"According to Lambert's lab visits, the binding constraint on Chinese labs is:","a":["Talent","Nvidia chip supply","Government interference","Lack of open-source culture"],"c":1,"x":"Huawei accelerators are used for inference, but training remains GPU-limited. This is also why Lambert argues chip controls matter more than anti-distillation measures."}
+]</script>
+      <div class="complete-row" id="complete-row"></div>
+      <nav class="chapter-nav" id="chapter-nav" aria-label="Chapter navigation"></nav>
+    </article></main>
+    <footer class="footer">Open Models: A Field Guide · Sources are linked inline and collected in the <a href="../reading-list.html">reading list</a>.</footer>
+  </div>
+</div>
+<script src="../js/data.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

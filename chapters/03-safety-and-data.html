@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Risk, Safety and the Data Commons · Open Models</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23b0492c'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Georgia'>O</text></svg>">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-depth="1" data-chapter="safety">
+<a class="skip" href="#main">Skip to content</a>
+<div class="site">
+  <nav class="sidebar" id="sidebar" aria-label="Table of contents"></nav>
+  <div class="scrim" id="scrim"></div>
+  <div class="main">
+    <div class="topbar"><a class="brand" href="../index.html"><span class="mark">O</span>Open Models</a><button class="btn" id="menu-btn">☰ Contents</button></div>
+    <main id="main"><article class="content">
+      <div class="chapter-kicker">Chapter 3 · Foundations</div>
+      <h1>Risk, Safety and the Data Commons</h1>
+      <div class="chapter-meta" id="chapter-meta"></div>
+<p class="lede">Every argument for restricting open models rests on a risk claim: that a downloadable model enables harm a closed API would prevent. This chapter lays out the framework the research community uses to evaluate that claim, the evidence as of 2026, the strongest arguments on both sides, the staged-release approach one lab has proposed, and a different kind of risk: the disappearance of the data the whole field trains on.</p>
+
+<div class="objectives"><h4>What you will be able to do</h4><ul>
+<li>Apply the marginal-risk framework of Kapoor et al. to a proposed release.</li>
+<li>State Toner's argument against nonproliferation and the "adaptation buffer" alternative.</li>
+<li>Summarise what the misuse record shows about closed versus open models.</li>
+<li>Describe Thinking Machines' two-front framework and staged release.</li>
+<li>Explain why the "data commons" is shrinking and who it hurts.</li>
+</ul></div>
+
+<h2 id="marginal-risk">1. Marginal risk</h2>
+<p>The foundational text is <a href="https://arxiv.org/abs/2403.07918">"On the Societal Impact of Open Foundation Models"</a> (Kapoor, Bommasani, Klyman, Longpre and 21 co-authors from Princeton, Stanford, and across the field, February 2024). Its contribution is a question rather than an answer: what is the <dfn data-term="marginal-risk">marginal risk</dfn> of an open release, meaning the risk beyond what is already achievable with existing tools (search engines, textbooks, closed APIs, earlier open models)?</p>
+<p>The framework asks, for each misuse vector (cyberattacks, bioweapons, disinformation, non-consensual imagery, and so on): What is the threat? What existing defences apply? What does the open model add that a closed one or a web search does not? And how would the release change defenders' capabilities too? Running the analysis, the authors found that for text models the documented marginal risk was "marginal" in the ordinary sense as well: for most vectors, the evidence that open weights meaningfully increased harm was thin, and the research could not adequately measure comparative risk. They were careful to note distinctive properties of open models that make monitoring harder and customisation easier, cutting in both directions.</p>
+
+<div class="callout idea"><span class="label">Key idea</span><b>Ask "compared to what?"</b> Most of the disagreements in the 2024–26 safety debate come from different unstated baselines. If the baseline is "no AI", every model looks dangerous. If it is "the closed API that is already jailbroken in one prompt", the open model's marginal contribution is often small. Kapoor et al.'s lasting contribution is to force the baseline into the open.</div>
+
+<h2 id="nonproliferation">2. Nonproliferation and its alternative</h2>
+<p>Helen Toner's April 2025 essay <a href="https://helentoner.substack.com/p/nonproliferation-is-the-wrong-approach">"Nonproliferation is the wrong approach to AI misuse"</a> is notable because Toner, a former OpenAI board member and a serious safety voice, accepts most of the safety argument's premises: AI is advancing fast, capabilities get cheaper, bad actors exist, current defences are inadequate. She rejects the conclusion that nonproliferation, meaning keeping capabilities out of the wrong hands indefinitely, can work.</p>
+<p>The reason is the difference between a <em>frontier</em> target and a <em>fixed-capability</em> target. You can perhaps slow the spread of the very best models. But any particular dangerous capability, once it exists, gets cheaper every year: "it's often only a couple of years between when you need a world-class computing cluster to do something and when you can run it on a high-end gaming chip on your laptop." Uranium enrichment does not get cheaper like that, which is why the nuclear analogy fails.</p>
+<p>Her alternative is to maximise the <dfn data-term="adaptation-buffer">adaptation buffer</dfn>: the window between a capability appearing at the frontier and its wide availability. Use that window to build defences. For cyber: capacity-building for critical infrastructure, defensive tools built on frontier models, crisis planning. For bio: screening of synthesis orders, medical countermeasures, detection infrastructure. She concedes the strategy could be overwhelmed if AI progresses extremely quickly, and that it addresses misuse, not loss-of-control scenarios.</p>
+<p>Toner's essay is the intellectual bridge between the safety community and the open-model community. Lambert's Kimi K3 essay makes the same structural point from the other direction: a modest, stable gap between closed and open models "serves as a prudent risk buffer", and strong restrictions on open models "paradoxically decrease ecosystem safety" by leaving defenders without access to the capabilities attackers already have via Chinese models.</p>
+
+<h2 id="record">3. What the misuse record shows</h2>
+<p>Florian Brand's June 2026 post <a href="https://florianbrand.com/posts/open-model-safety">"The Myth of unsafe Open Source AI"</a> assembles the incident record and reaches a stark conclusion: in the documented cases, closed models are used for malicious purposes more often than open ones, because they are more capable and easily accessible via API, and because their guardrails "are easily bypassed with a single prompt".</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Incident</th><th>When</th><th>Models used</th><th>Scale</th></tr></thead>
+<tbody>
+<tr><td>Mexican government breach</td><td>Dec 2025 – Feb 2026</td><td>Claude, GPT-4.1</td><td>~195M records exfiltrated</td></tr>
+<tr><td>"Bissa" scanner</td><td>2026</td><td>Claude Sonnet 4.6 via OpenClaw</td><td>Thousands of records</td></tr>
+<tr><td>FortiGate exploitation</td><td>2026</td><td>Claude, DeepSeek</td><td>Hundreds of gateways</td></tr>
+<tr><td>LameHug (APT28)</td><td>Mid-2025</td><td>Qwen2.5 via Hugging Face API</td><td>State-sponsored malware</td></tr>
+</tbody></table></div>
+<p>Anthropic's own September 2026 threat report (Chapter 8) is consistent with this: the cyber, influence and surveillance cases it disrupted ran on Claude Haiku, Sonnet and Opus through the API. That is partly a selection effect, since Anthropic can only see misuse of Anthropic models, and it cuts the other way too: a provider can <em>detect and disrupt</em> API misuse, and cannot do anything about a downloaded model. The honest summary is that as of 2026 the observed misuse frontier is closed models, and the theoretical worst cases (autonomous cyber at scale, bio uplift) remain mostly theoretical for open models, in part because open models have lagged the frontier.</p>
+
+<div class="callout debate"><span class="label">Debate</span><b>Is the lag doing the safety work?</b> If open models are safe mostly because they are six months behind, then the SemiAnalysis finding that catch-up time halves each era (Chapter 6) is also a safety finding. The 2026 policy fight (Chapter 8) is largely about whether to keep that buffer by regulation once the market stops providing it.</div>
+
+<h2 id="staged">4. A staged path: Thinking Machines</h2>
+<p>Thinking Machines Lab's July 2026 post <a href="https://thinkingmachines.ai/blog/a-safe-path-to-open-weights/">"A Safe Path to Open Weights"</a>, published alongside its Inkling and Inkling-Small models (July 31, 2026), is the most concrete attempt by a frontier-adjacent US lab to reconcile open weights with the 2026 threat picture. It treats open weights as public goods that make training choices "inspectable and revisable" and prevent AI expertise from concentrating, while taking the misuse risk seriously, citing Anthropic's report that Claude Mythos Preview found thousands of vulnerabilities and wrote exploits autonomously.</p>
+<p>The framework has two fronts:</p>
+<ol>
+<li><b>Model safety.</b> Robust testing across harmful domains (four external red-teaming organisations, 17 languages, adversarial fine-tuning), plus research into whether "dangerous capabilities can be decoupled from general intelligence". Early evidence suggests some hazardous knowledge depends on specific pretraining documents rather than general reasoning, which would make selective filtering possible.</li>
+<li><b>Ecosystem readiness.</b> Because open weights can have their refusal behaviour removed by fine-tuning, refusals cannot be the primary safeguard. Instead, release in stages, monitored API, then a fine-tuning platform, then weights, advancing only when evidence supports it.</li>
+</ol>
+<p>This is Solaiman's gradient (Chapter 1) turned into an operating procedure. It is also, implicitly, a critique of both the "release everything" and the "ban above a threshold" positions.</p>
+
+<h2 id="data-commons">5. The shrinking data commons</h2>
+<p>A different kind of risk to open models is losing the raw material. <a href="https://arxiv.org/abs/2407.14933">"Consent in Crisis: The Rapid Decline of the AI Data Commons"</a> (Longpre and 48 co-authors, July 2024) is the first longitudinal audit of how websites are responding to AI crawling. Across 14,000 domains, the authors tracked robots.txt and terms of service over time.</p>
+<div class="stat-row">
+<div class="stat"><b>~5%</b><span>of all tokens in C4 fully restricted within one year</span></div>
+<div class="stat"><b>28%</b><span>of the most actively maintained, critical sources fully restricted</span></div>
+<div class="stat"><b>45%</b><span>of C4 restricted by terms of service</span></div>
+<div class="stat"><b>14,000</b><span>domains audited</span></div>
+</div>
+<p>Two structural problems follow. First, the protocols were never designed for this: robots.txt and terms of service frequently contradict each other, and a crawler cannot know which governs. Second, restrictions fall hardest on those who honour them. A frontier lab with licensing deals and legal cover keeps its data; a university or a fully open project that respects robots.txt watches its corpus shrink. The authors warn this threatens the "diversity, freshness, and scaling" of general-purpose models and hits academic and non-commercial developers hardest.</p>
+<p>The asymmetry has a geopolitical edge. Kevin Xu (Chapter 5) argues Chinese labs have "unfettered access to global internet data" plus Chinese-language data US labs avoid. Whether Chinese labs honour robots.txt is not something the audit could measure. Lambert's observation from inside Chinese labs is that their <em>domestic</em> data industry is underdeveloped, so they build environments in-house. The data commons is one of the few areas where the open-science community, US frontier labs and policymakers have an aligned interest in reform, and it is largely absent from the 2026 policy agenda.</p>
+
+<details class="callout think"><summary>Think about it: run the marginal-risk analysis on a 2026 open model</summary>
+<p>Take Kimi K3. Threat: automated vulnerability discovery. Existing defences: patching cadence, EDR, the fact that Mythos-class capability already exists behind an API. Marginal contribution of open weights: attackers lose the API's monitoring and rate limits, but Saxe (Chapter 8) argues serious attackers already access frontier capability through "dark inference providers". Defender uplift: every blue team can now run K3 locally on their own code. The analysis does not settle the question, but it makes clear what evidence would.</p></details>
+
+<script type="application/json" data-quiz="safety">[
+{"q":"The marginal-risk framework asks about the risk of an open model:","a":["In absolute terms","Relative to what is already achievable with existing tools and closed models","Only for bioweapons","Only after deployment"],"c":1,"x":"Kapoor et al. (2024) insist on a baseline: what does the open release add beyond search engines, textbooks and jailbroken APIs?"},
+{"q":"Toner's central objection to nonproliferation is that:","a":["AI is not actually dangerous","The cost of a fixed capability falls fast, so indefinite control is unrealistic and increasingly invasive","Nuclear analogies are always wrong","Governments lack authority"],"c":1,"x":"A frontier target might be slowed; a fixed-capability target becomes runnable on consumer hardware within a couple of years. Use the buffer to adapt instead."},
+{"q":"In the incident record Brand assembles, the models most used in documented attacks were:","a":["Small open models","Closed API models such as Claude and GPT-4.1","Image models","None; AI was not involved"],"c":1,"x":"Capability and accessibility, not openness, predict misuse. This is also why API providers can detect and disrupt it, which downloaded weights do not allow."},
+{"q":"Why does the Thinking Machines framework say refusal training cannot be the primary safeguard for open weights?","a":["Refusals are too expensive","Fine-tuning can remove refusal behaviour from downloadable weights","Users find refusals annoying","Regulators forbid it"],"c":1,"x":"Hence the two-front approach: decouple dangerous capabilities where possible, and stage the release so the ecosystem is ready."},
+{"q":"'Consent in Crisis' found that within one year roughly what share of C4's most actively maintained sources became fully restricted?","a":["2%","28%","50%","90%"],"c":1,"x":"About 5% of all C4 tokens and 28% of the critical, actively maintained sources. Terms-of-service restrictions cover ~45%."}
+]</script>
+      <div class="complete-row" id="complete-row"></div>
+      <nav class="chapter-nav" id="chapter-nav" aria-label="Chapter navigation"></nav>
+    </article></main>
+    <footer class="footer">Open Models: A Field Guide · Sources are linked inline and collected in the <a href="../reading-list.html">reading list</a>.</footer>
+  </div>
+</div>
+<script src="../js/data.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

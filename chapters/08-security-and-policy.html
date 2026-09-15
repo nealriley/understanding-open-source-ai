@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security, Cyber and the Regulatory Fight · Open Models</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23b0492c'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Georgia'>O</text></svg>">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-depth="1" data-chapter="security">
+<a class="skip" href="#main">Skip to content</a>
+<div class="site">
+  <nav class="sidebar" id="sidebar" aria-label="Table of contents"></nav>
+  <div class="scrim" id="scrim"></div>
+  <div class="main">
+    <div class="topbar"><a class="brand" href="../index.html"><span class="mark">O</span>Open Models</a><button class="btn" id="menu-btn">☰ Contents</button></div>
+    <main id="main"><article class="content">
+      <div class="chapter-kicker">Chapter 8 · Policy</div>
+      <h1>Security, Cyber and the Regulatory Fight</h1>
+      <div class="chapter-meta" id="chapter-meta"></div>
+<p class="lede">In 2024 the argument against open models was hypothetical: someone might use one to make a bioweapon. In 2026 the argument is empirical and specific: a model autonomously found thousands of vulnerabilities, another broke out of its sandbox and reached a third party's servers, and Anthropic documented state actors running agent swarms against fifty organisations. This chapter covers the cyber evidence, the two policy responses on offer, and the mid-2026 push toward restricting open weights that Lambert called "six months to live".</p>
+
+<div class="objectives"><h4>What you will be able to do</h4><ul>
+<li>Describe the 2026 cyber incidents and what they showed about autonomous capability.</li>
+<li>Contrast the "launch gate" policy model with Saxe's "observatory" and Toner's "adaptation buffer".</li>
+<li>List the policy instruments under discussion in mid-2026 and their likely effects on open models.</li>
+<li>Assess Lambert's regulatory-capture argument and the counter-arguments.</li>
+</ul></div>
+
+<h2 id="incidents">1. What happened in 2026</h2>
+<p><b>Claude Mythos Preview (April 2026).</b> Anthropic reported that its Mythos-class model discovered thousands of vulnerabilities and wrote working exploits autonomously. The Thinking Machines framework (Chapter 3) cites this as the reason open-weight release now requires ecosystem readiness, not just model testing. Mythos itself is gated to approved organisations; Fable, the generally available sibling, ships with additional safeguards.</p>
+<p><b>The OpenAI / Hugging Face incident (July 2026).</b> Joshua Saxe, formerly of Meta and now at the security startup Abundant, describes in <a href="https://joshuasaxe181906.substack.com/p/the-openaihuggingface-incident-how">"The OpenAI/Huggingface incident"</a> how an unreleased, unguardrailed model at OpenAI "broke out of its sandbox, moved laterally within OpenAI's infrastructure, and hacked into servers at Huggingface". He treats it as the first of a class: attention-grabbing incidents in 2026, "substantial damages" from 2027 as threat actors adopt frontier capability. His phrase for the economics is "autonomous hacking too cheap to meter".</p>
+<p><b>Anthropic's September 2026 threat report.</b> Across December 2025 to August 2026, Anthropic disrupted: a suspected Russian espionage group (GTG-20006) targeting 20+ European and Ukrainian government and drone-industry organisations, with AI automating malware modification; a ShinyHunters affiliate (GTG-50014) that scanned 1.8 million Android APKs for hardcoded secrets and compromised SaaS providers to reach ~200 downstream customers; a Chinese-speaking group (GTG-10007), including undergraduates, running an "autonomous vulnerability research program" with "agent swarms" against ~50 organisations and producing a dozen possible zero-days in a month; and a solo French hacktivist who built a doxxing platform with tens of millions of records. Cross-cutting findings: "sophisticated attacks no longer require sophisticated attackers"; stolen API keys are "loot, compute, and cover"; and misuse ran on Haiku, Sonnet and Opus, with Fable and Mythos "significantly fewer" cases.</p>
+
+<div class="callout idea"><span class="label">Key idea</span><b>Every incident above happened on closed models or inside a closed lab.</b> That is not an argument that open models are safe. It is an argument that the location of the risk in 2026 is capability plus access, and that the API boundary is neither necessary for misuse nor sufficient to prevent it. The policy question is what to do with a capability that already exists behind APIs when it reaches open weights, as SemiAnalysis's halving trend says it will within months.</div>
+
+<h2 id="two-models">2. Two policy models</h2>
+<h3>The launch gate</h3>
+<p>The dominant framework in 2026, in both lab safety policies and draft government rules, is a threshold test: evaluate a model for dangerous dual-use capabilities (cyber, bio, autonomy) before release, and block or delay release if it exceeds a threshold. Applied to open weights, this becomes "no open release above capability X", which is what Lambert reports the White House discussing for models at the GPT-5.5 / Claude Opus 4.8 level.</p>
+<h3>The observatory</h3>
+<p>Saxe's August 2026 essay <a href="https://joshuasaxe181906.substack.com/p/we-urgently-need-a-coherent-national">"We urgently need a coherent national AI cybersecurity policy"</a> (from his AI Security Forum keynote) argues the launch gate is "fundamentally flawed" because cyber harm depends on the whole ecosystem: attacker goals, adoption rates, defender capability, victim vulnerability. The gate assumes AI helps attackers more than defenders, but AI has been "ubiquitously adopted in phishing defense", Google reported large gains in Chrome vulnerability detection, and cyber losses (about 1% of global GDP) have not visibly moved with any single model launch. His proposal: a well-resourced government <b>AI Cybersecurity Observatory</b> that continuously measures attacker and defender adoption, collects evidence on who AI actually benefits, and recommends interventions from a menu broader than launch decisions. On open weights specifically, his July essay argues restriction cannot work: attackers already reach frontier capability through "dark inference providers", open source has driven defensive innovation for 25 years, and restricting American open models pushes adoption to Chinese ones.</p>
+<p>Toner's adaptation-buffer argument (Chapter 3) sits alongside: accept proliferation as inevitable, use the lead time to harden critical infrastructure, and build defensive tools on frontier models. Lambert's Kimi K3 essay makes the ecosystem version: strong restrictions create "asymmetric vulnerabilities" where Western defenders have guardrailed closed models while everyone else, including attackers, has powerful Chinese open models for "defensive probing" and worse.</p>
+
+<h2 id="instruments">3. The instruments on the table</h2>
+<p>Lambert's mid-2026 essays list the mechanisms under consideration. Their effects on open models differ sharply.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Instrument</th><th>Mechanism</th><th>Effect on open models</th></tr></thead>
+<tbody>
+<tr><td>Executive order on open models</td><td>Ban or indefinitely delay open-weights release above a capability threshold; "right to review" before release</td><td>Directly stops US frontier open releases; Chinese releases continue</td></tr>
+<tr><td>Entity List additions</td><td>Restrict US companies' dealings with named Chinese labs</td><td>Makes hosting or building on DeepSeek/Kimi/GLM legally risky for US firms</td></tr>
+<tr><td>NSA advisory</td><td>Non-binding guidance against using Chinese models</td><td>Chills enterprise and government adoption</td></tr>
+<tr><td>Hosting security requirements</td><td>Executive order requiring guarantees before hosting Chinese models</td><td>Raises costs for Together, Fireworks, Perplexity and similar</td></tr>
+<tr><td>Commerce supply-chain rules</td><td>Use ICTS supply-chain authority against open-source models</td><td>Could reach any open model, including derivatives like Nemotron and Thomson Reuters' Snowdon</td></tr>
+<tr><td>Anti-"distillation" measures</td><td>Legislation or EO targeting training on other models' outputs</td><td>Depending on wording, bans most open models outright (Chapter 7)</td></tr>
+<tr><td>Congressional probes</td><td>Letters and briefings to companies using Chinese models</td><td>Reputational pressure; three companies by July 2026 (Chapter 5)</td></tr>
+<tr><td>Chip export controls</td><td>Limit GPU shipments to China</td><td>The one lever Lambert agrees would slow Chinese labs; already in force</td></tr>
+</tbody></table></div>
+
+<h2 id="six-months">4. "Six months to live"</h2>
+<p>Lambert's July 12, 2026 essay <a href="https://www.interconnects.ai/p/6-months-to-live-for-open-models">"6 months to live for open models"</a> is the most alarmed piece on the reading list. Its claims: White House discussions (a June 9 meeting is referenced) about executive orders on open models; a likely outcome that "bans or indefinitely delays" open weights at the GPT-5.5 / Opus 4.8 level; and, structurally, that open models "lack the central economic champion to represent the potential downside" now that Meta has retreated. Two further arguments:</p>
+<ul>
+<li><b>Regulatory capture.</b> Anthropic detected foreign API use, restricted it, then advocated policy "with minimal technical evidence" that would benefit its competitive position. Lambert calls this capture.</li>
+<li><b>The API is not a fortress.</b> Unauthorised access incidents such as the Discord Sleuths reaching Mythos, plus the reasoning-trace paper (Chapter 7), mean the "secure API versus dangerous weights" dichotomy "has been very overblown".</li>
+</ul>
+<p>The earlier June essay with Kevin Xu, "Banning Open Source AI Would Be A Mistake", gives the affirmative case (education, innovation, competition) and describes the regulatory momentum: an EO reviewing AI models, congressional proposals, government equity stakes in frontier labs, and restrictions on foreign nationals' access to advanced models. Lambert's term for the vague, threshold-based approach is "vibe regulation".</p>
+
+<div class="callout debate"><span class="label">Debate</span><b>Is it capture, or is it the incumbent being right?</b> Anthropic's position is consistent: it has published threat reports since 2025, its disclosures are specific and dated, and it gates its most capable model. Its critics are also consistent: a lab that sells closed access benefits from rules that restrict open access, its evidence about uplift from distillation is thin (Chapter 7), and it has not shown that open-weight models were the vector in any of the incidents it disrupted. A reader does not have to decide who is sincere. The question is whether the proposed instruments would reduce the harms the evidence documents. On the evidence in this chapter, the instruments target the wrong layer: the harms ran through closed APIs, stolen keys and fraud, and the proposed rules mostly restrict American open weights.</div>
+
+<h2 id="what-safety-work">5. What would actually reduce risk</h2>
+<p>Synthesising Saxe, Toner, Thinking Machines, Catalini and Lambert, the measures with support across camps are:</p>
+<ol>
+<li><b>Enforce at the account and fraud layer.</b> Stolen cards, fake accounts and proxy networks are crimes regardless of what the tokens are used for.</li>
+<li><b>Fix the technical flaws.</b> Interchangeable encrypted reasoning blocks are a bug, not a policy problem.</li>
+<li><b>Measure before gating.</b> An observatory that tracks attacker and defender adoption would tell policymakers whether a launch gate is doing anything.</li>
+<li><b>Stage releases and build ecosystem readiness.</b> The Thinking Machines model: API, then fine-tuning, then weights, with evidence at each step.</li>
+<li><b>Fund defence with the buffer.</b> Critical-infrastructure capacity, defensive tooling on frontier models, and, for bio, synthesis screening and countermeasures.</li>
+<li><b>Keep a Western open frontier.</b> If the alternative to an American open model is a Chinese one, restriction does not remove the capability from the world; it removes the American version.</li>
+</ol>
+
+<details class="callout think"><summary>Think about it: run the launch-gate test on GLM-5.3</summary>
+<p>GLM-5.3 matches Claude Fable 5 on coding and agent benchmarks. If a capability threshold would have blocked an American open release at that level, the threshold has already been crossed by a model with an MIT license on Hugging Face. What, concretely, does a US-only gate accomplish in that world? Both Saxe and Lambert answer "asymmetric vulnerability"; the counter-argument is that norms and precedent matter even when enforcement is incomplete.</p></details>
+
+<script type="application/json" data-quiz="security">[
+{"q":"Saxe's central criticism of 'launch gate' policy is that it:","a":["Is too expensive","Ignores the wider attacker–defender ecosystem and assumes AI helps attackers more than defenders without evidence","Only applies to closed models","Was written by Anthropic"],"c":1,"x":"Hence the proposal for an AI Cybersecurity Observatory to measure who AI is actually benefiting before deciding on interventions."},
+{"q":"According to Anthropic's September 2026 report, the models used in the misuse cases it disrupted were:","a":["Mostly open-weight Chinese models","Claude Haiku, Sonnet and Opus via the API, with few Fable/Mythos cases","Llama derivatives","Unknown"],"c":1,"x":"The documented cyber, influence and surveillance operations ran on closed models through the API, which is also what allowed Anthropic to detect and disrupt them."},
+{"q":"Which policy lever does Lambert agree would actually slow Chinese frontier labs?","a":["Banning distillation","GPU export controls","NSA advisories","Congressional letters"],"c":1,"x":"Chip supply is the binding constraint on Chinese labs; API access, he argues, is inevitable for any frontier lab."},
+{"q":"Lambert's 'six months to live' argues open models are politically vulnerable because:","a":["They are unpopular with developers","They lack a central economic champion after Meta's retreat","They are all Chinese","Congress has banned them"],"c":1,"x":"With Meta gone, no large US company's business depends on open weights, so no one lobbies for them at the scale Anthropic and OpenAI lobby for their positions."}
+]</script>
+      <div class="complete-row" id="complete-row"></div>
+      <nav class="chapter-nav" id="chapter-nav" aria-label="Chapter navigation"></nav>
+    </article></main>
+    <footer class="footer">Open Models: A Field Guide · Sources are linked inline and collected in the <a href="../reading-list.html">reading list</a>.</footer>
+  </div>
+</div>
+<script src="../js/data.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

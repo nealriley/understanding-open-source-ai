@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Language Models Work · Open Models</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23b0492c'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Georgia'>O</text></svg>">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-depth="1" data-chapter="primer">
+<a class="skip" href="#main">Skip to content</a>
+<div class="site">
+  <nav class="sidebar" id="sidebar" aria-label="Table of contents"></nav>
+  <div class="scrim" id="scrim"></div>
+  <div class="main">
+    <div class="topbar"><a class="brand" href="../index.html"><span class="mark">O</span>Open Models</a><button class="btn" id="menu-btn">☰ Contents</button></div>
+    <main id="main"><article class="content">
+      <div class="chapter-kicker">Chapter 0 · Primer</div>
+      <h1>How Language Models Work</h1>
+      <div class="chapter-meta" id="chapter-meta"></div>
+<p class="lede">Before you can argue about whether a model should be "open", you need to know what a model is: which files exist, which stages of training produced them, and what each stage costs. This chapter is the vocabulary the rest of the book assumes. Skip it if you already know what RLVR and a mixture-of-experts router are.</p>
+
+<div class="objectives"><h4>What you will be able to do</h4><ul>
+<li>Explain what a language model actually is (a function from token sequences to a probability distribution) and what its "weights" are.</li>
+<li>Describe the three training stages, pretraining, post-training and reinforcement learning on verifiable tasks, and what each produces.</li>
+<li>Explain why inference economics, not training cost, decide who wins a deployed model market.</li>
+<li>Define distillation and synthetic data precisely enough to follow Chapter 7.</li>
+</ul></div>
+
+<h2 id="what-a-model-is">1. What a model is</h2>
+<p>A large language model is a very large mathematical function. It takes a sequence of <dfn data-term="token">tokens</dfn> (word fragments, roughly three-quarters of an English word each) and returns a probability for every possible next token. "Generating text" means sampling from that distribution, appending the sampled token, and running the function again. Everything a chatbot does, from writing code to refusing a request, is that loop.</p>
+<p>The function has two parts. The <em>architecture</em> is the shape of the computation: how many layers, how wide, how attention is wired. For every model in this book the architecture is a <dfn data-term="transformer">transformer</dfn>, the design introduced in 2017's "Attention Is All You Need". The <em>parameters</em> (or <dfn data-term="parameters">weights</dfn>) are the billions of numbers inside that shape which training adjusts. A "7B model" has seven billion of them; Kimi K3 has 2.8 trillion. When a lab "releases the weights", it publishes those numbers as a file, typically tens to hundreds of gigabytes, that anyone with enough GPU memory can load and run.</p>
+
+<div class="callout def"><span class="label">Definition</span><b>Model = architecture + weights.</b> The architecture is a few hundred lines of code and is almost never secret. The weights are the expensive artifact. What is left out of most "open" releases is a third thing: the <em>data and recipe</em> that produced the weights. Chapter 1 is about that gap.</div>
+
+<h3>Attention and the context window</h3>
+<p><dfn data-term="attention">Attention</dfn> is the operation that lets each token look at every previous token and decide which ones matter for predicting the next. It is what allows a model to answer a question about page 3 of a document while reading page 40. Its cost grows with the square of sequence length, which is why the <dfn data-term="context-window">context window</dfn> (the maximum tokens a model can attend to at once) was a hard limit for years: 2,048 tokens for GPT-3 in 2020, 128K for most 2024 models, a million for DeepSeek V4 Flash in 2026. Much of the architectural innovation in Chinese open models, including Kimi K3's "Kimi Delta Attention", is about making attention cheaper at long context.</p>
+
+<h3>Mixture of experts</h3>
+<p>Nearly every frontier open model since DeepSeek V3 uses a <dfn data-term="moe">mixture-of-experts</dfn> (MoE) design. Instead of one big feed-forward block per layer, there are many parallel "experts" and a small router that picks a handful for each token. This decouples two numbers you will see constantly:</p>
+<ul>
+<li><b>Total parameters</b>: everything stored on disk and in memory. Kimi K3: 2.8T. DeepSeek V4 Flash: 284B.</li>
+<li><b>Active parameters</b>: what actually runs per token. Kimi K3 activates 16 of 896 experts. DeepSeek V4 Flash activates 13B of its 284B.</li>
+</ul>
+<p>Total parameters set the model's knowledge capacity and hardware footprint; active parameters set the cost of each token. MoE is why a model can be both enormous and cheap to serve, and it is the main reason open models dominate the cheap end of the cost-capability frontier (Chapter 6).</p>
+
+<h2 id="training">2. How a model is trained</h2>
+<div class="flow">
+<div class="step"><span class="n">1</span><b>Pretraining</b>Next-token prediction on trillions of tokens of web, code and books. Produces a base model. 90%+ of compute.</div>
+<div class="step"><span class="n">2</span><b>Midtraining</b>A final stretch of pretraining on a smaller, cleaner mix: math, code, instructions, synthetic data.</div>
+<div class="step"><span class="n">3</span><b>Supervised fine-tuning</b>Train on curated prompt→answer pairs so the model learns to be an assistant. Often seeded by distillation.</div>
+<div class="step"><span class="n">4</span><b>Preference tuning</b>RLHF or DPO: learn from comparisons of which answer humans (or models) prefer.</div>
+<div class="step"><span class="n">5</span><b>RL with verifiable rewards</b>Reinforcement learning where a checker (tests, answer keys, agent environments) scores outputs. Produces reasoning and agentic skill.</div>
+</div>
+
+<h3>Pretraining</h3>
+<p><dfn data-term="pretraining">Pretraining</dfn> is the stage everyone pictures: a cluster of thousands of GPUs running for months, predicting the next token over a corpus of trillions of tokens scraped from the web. The result is a <dfn data-term="base-model">base model</dfn>, which is a superb autocomplete and a poor assistant. Ask it a question and it may continue with three more questions, because that is what text on the internet looks like.</p>
+<p><dfn data-term="scaling-laws">Scaling laws</dfn> (Kaplan et al., 2020; the Chinchilla paper, 2022) showed that pretraining loss falls smoothly and predictably as you add compute, data and parameters. Two consequences matter for this book. First, frontier capability became a capital-allocation problem, which favours the richest labs. Second, because the relationship is predictable, a lab with less compute can reliably reproduce last year's frontier, which is the mechanism behind "perpetual catch-up" (Chapter 6).</p>
+<p>Pretraining is also where the data question bites. The data commons is shrinking: Longpre et al. found that between 2023 and 2024 roughly 5% of all tokens in the C4 corpus and 28% of the most actively maintained sources became fully restricted to AI crawlers (Chapter 3). Chinese labs, Kevin Xu argues, have a structural advantage here because they train on both the global and the Chinese-language internet while US labs mostly avoid the latter (Chapter 5).</p>
+
+<h3>Post-training</h3>
+<p><dfn data-term="post-training">Post-training</dfn> is everything after the base model, and in 2025–26 it is where the open/closed gap mostly lives. Z.ai's summary of GLM-5.3 was blunt: "Scaling post-training is all we did." The stages, in the order most labs run them:</p>
+<ol>
+<li><b><dfn data-term="sft">Supervised fine-tuning (SFT)</dfn></b>. Train on tens of thousands to millions of high-quality prompt/answer pairs. This teaches format and style. It is the stage most commonly seeded with outputs from a stronger model, which is what people mean by <dfn data-term="distillation">distillation</dfn> in the loose sense.</li>
+<li><b>Preference tuning</b>. <dfn data-term="rlhf">RLHF</dfn> (InstructGPT, 2022) trains a reward model on human comparisons of two answers and then optimises the policy against it. Direct Preference Optimisation (DPO, 2023) collapses the two steps into one and made preference tuning practical for open labs like Hugging Face's Zephyr team.</li>
+<li><b><dfn data-term="rlvr">Reinforcement learning with verifiable rewards (RLVR)</dfn></b>. Instead of a learned reward model, use an automatic checker: does the code pass the tests, is the math answer right, did the agent complete the task in the environment? OpenAI's o1 (September 2024) showed this produces models that "think" in long <dfn data-term="chain-of-thought">chains of thought</dfn>; DeepSeek R1 (January 2025) published the recipe. RLVR is now the largest post-training compute item at frontier labs and, as Chapter 7 explains, the stage that is hardest to shortcut by distillation.</li>
+</ol>
+
+<div class="callout idea"><span class="label">Key idea</span><b>Post-training is compute-light but data- and infrastructure-heavy.</b> A strong SFT dataset is roughly a million prompts with excellent completions. A strong RL setup is hundreds of "environments" (sandboxed tasks with graders), each of which can cost millions of dollars to build. Lambert reports US labs spending $10M+ on single training environments. This is why the debate about whether Chinese labs "just distil" is really a debate about which of these stages can be copied.</div>
+
+<h2 id="inference">3. Inference: where the money is</h2>
+<p><dfn data-term="inference">Inference</dfn> is running the trained model. It is where the economics of open versus closed diverge. A closed lab sells inference through an <dfn data-term="api">API</dfn> at a margin; an open-weights model can be served by anyone, so dozens of providers (Together, Fireworks, DeepInfra, OpenRouter, the labs themselves) compete the price down toward the cost of electricity and GPUs. Two facts from the sources:</p>
+<ul>
+<li>Fireworks was serving roughly 40 trillion tokens a day by mid-2026, about twice the OpenAI API's volume at the end of March (SemiAnalysis, August 2026).</li>
+<li>DeepSeek V4 Flash 0731 is priced at $0.14 per million input tokens with a 98% discount on cached tokens, roughly 60% cheaper than the comparably capable GPT-5.6 Luna even after OpenAI's 80% price cut (Artificial Analysis, July 2026).</li>
+</ul>
+<p>This is the engine behind Lambert's "different exponentials" argument (Chapter 9): closed labs capture the premium where people will pay for the very best intelligence, while open models capture volume everywhere price matters.</p>
+
+<h2 id="reasoning-agents">4. Reasoning models and agents</h2>
+<p>Two capability shifts define the 2024–26 period and set the terms of every gap measurement in Chapter 6.</p>
+<p><b>Reasoning models</b> (o1, R1, and everything since) spend extra tokens thinking before answering. The chain of thought is often the most valuable output a model produces, which is why closed labs hide it, encrypt it, or summarise it, and why the "Stealing Reasoning Traces" paper (Chapter 7) matters.</p>
+<p><b><dfn data-term="agent">Agents</dfn></b> are models run in a loop with tools: a terminal, a browser, a code editor, an API. The loop makes the model's judgement compound over dozens of steps. Coding agents (Claude Code, Codex, Cursor's Composer) became the first product category where customers demonstrably pay a premium for the best model. It is also the category where open models were judged in 2026: GLM-5.2 was called "the first open model that feels right in coding harnesses as a general agent", and Kimi K3 was benchmarked on agentic tasks first.</p>
+
+<h2 id="distillation-synthetic">5. Distillation and synthetic data, briefly</h2>
+<p>Two terms carry a lot of weight later, so define them now.</p>
+<p><b><dfn data-term="synthetic-data">Synthetic data</dfn></b> is training data written by a model rather than a person. The RLHF Book's chapter on the subject observes that by the GPT-4 era "language models were far superior to humans for generating answers", and dataset sizes reflect it: Alpaca (2023) had 52K prompts; Tülu 3 (2024) over a million samples; OpenThoughts 3 (2025) about 10 billion tokens. Nearly all modern post-training data is synthetic or model-filtered.</p>
+<p><b>Distillation</b> is the special case where the synthetic data comes from a stronger "teacher" and is used to train a "student". In the strict 2015 sense (Hinton et al.) the student matches the teacher's full probability distribution; in the everyday sense it means fine-tuning on the teacher's text. Google has said Gemini Flash is distilled from Gemini Pro; Anthropic's small models are widely assumed to be distilled from its large ones; Nvidia's Nemotron models are distilled partly from Chinese open weights. It is, in Lambert's phrase, "arguably the single most useful method" for improving a model on any given day. Chapter 7 is about what happens when that ordinary technique meets terms of service, fraud, and geopolitics.</p>
+
+<h2 id="files">6. What is actually in a release</h2>
+<p>When you download a model from Hugging Face you typically get: a config file (architecture), the weight shards, a tokenizer, and a model card. What you usually do not get is the pretraining corpus, the post-training datasets, the RL environments, the training code, the evaluation harness, or the intermediate checkpoints. The next chapter is about why those omissions matter and who fills them.</p>
+
+<div class="table-wrap"><table class="openness-matrix">
+<thead><tr><th>Artifact</th><th>What it lets you do</th><th>Typical open-weights release</th><th>Fully open (OLMo, Pythia)</th></tr></thead>
+<tbody>
+<tr><td>Weights</td><td>Run, fine-tune, quantize, serve</td><td class="y">Yes</td><td class="y">Yes</td></tr>
+<tr><td>Architecture code</td><td>Understand and modify the model</td><td class="y">Yes</td><td class="y">Yes</td></tr>
+<tr><td>Tokenizer</td><td>Encode text the way the model expects</td><td class="y">Yes</td><td class="y">Yes</td></tr>
+<tr><td>Pretraining data</td><td>Audit, reproduce, study contamination</td><td class="n">No</td><td class="y">Yes</td></tr>
+<tr><td>Post-training data</td><td>Reproduce assistant behaviour; study distillation</td><td class="p">Rarely</td><td class="y">Yes</td></tr>
+<tr><td>Training code and recipe</td><td>Retrain; learn the engineering</td><td class="p">Sometimes (DeepSeek, Z.ai publish parts)</td><td class="y">Yes</td></tr>
+<tr><td>Intermediate checkpoints</td><td>Study how capabilities emerge</td><td class="n">No</td><td class="y">Yes</td></tr>
+<tr><td>Evaluation code</td><td>Verify claimed benchmark numbers</td><td class="p">Sometimes</td><td class="y">Yes</td></tr>
+</tbody></table></div>
+
+<details class="callout think"><summary>Think about it: why would a lab release weights but not data?</summary>
+<p>Three reasons recur in the sources. Data carries legal risk (copyright, terms of service, the "Consent in Crisis" problem). Data carries competitive information (a good midtraining mix is a trade secret). And data is large and annoying to host. Ai2 is the notable exception, and its models are also the ones most often used to answer scientific questions about what training does, which is precisely the argument the OLMo paper makes.</p></details>
+
+<script type="application/json" data-quiz="primer">[
+{"q":"A model is described as '2.8T parameters, 16 of 896 experts active'. What does this tell you?","a":["It has 2.8 trillion parameters and all of them run on every token","It is a mixture-of-experts model whose per-token cost is set by a small fraction of its total parameters","It was trained on 2.8 trillion tokens","It has 896 layers"],"c":1,"x":"Total parameters (2.8T) set memory and knowledge capacity; the router activates only 16 experts per token, so inference cost is a small fraction of what a dense 2.8T model would cost. This is Kimi K3."},
+{"q":"Which training stage is hardest to shortcut by copying a stronger model's outputs?","a":["Supervised fine-tuning","Preference tuning","Reinforcement learning with verifiable rewards","Tokenizer training"],"c":2,"x":"In RL, the model must generate its own samples in environments and be scored; the generations cannot come from another model. That is why Lambert argues distillation's leverage falls as RL becomes a larger share of post-training."},
+{"q":"Why can open-weights models push inference prices so low?","a":["They are smaller than closed models","Anyone can serve them, so many providers compete on price","They do not use attention","Governments subsidise them"],"c":1,"x":"Once weights are public, serving becomes a commodity business. Fireworks alone was serving ~40T tokens/day by mid-2026."},
+{"q":"What does a typical open-weights release usually NOT include?","a":["The tokenizer","The architecture config","The pretraining data and intermediate checkpoints","The weight files"],"c":2,"x":"Weights, config and tokenizer are standard. Data, recipe and checkpoints are what distinguish 'fully open' releases like OLMo and Pythia."}
+]</script>
+      <div class="complete-row" id="complete-row"></div>
+      <nav class="chapter-nav" id="chapter-nav" aria-label="Chapter navigation"></nav>
+    </article></main>
+    <footer class="footer">Open Models: A Field Guide · Sources are linked inline and collected in the <a href="../reading-list.html">reading list</a>.</footer>
+  </div>
+</div>
+<script src="../js/data.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
