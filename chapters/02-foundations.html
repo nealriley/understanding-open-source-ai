@@ -18,88 +18,49 @@
       <div class="chapter-kicker">Chapter 2 · Foundations</div>
       <h1>Why Anyone Builds Open Models</h1>
       <div class="chapter-meta" id="chapter-meta"></div>
-<p class="lede">Training a frontier model costs hundreds of millions of dollars. Giving the result away looks irrational until you notice that Google gave away Android, Meta gave away its data-centre designs, and IBM paid $34 billion for a Linux company. This chapter explains the four distinct motives behind open models, and why the mix of motives has shifted from principle to strategy.</p>
+<p>A free download can be part of a profitable business, a research programme or a strategy against a rival. These explanations can coexist. The hard part is deciding what the evidence establishes about a particular release.</p>
+<p><b>Prerequisite check.</b> Complete the four-part release description from Chapter 1. Explain why permission to download tells you little about how the releasing organisation earns money.</p>
+<section class="objectives" id="learning-outcomes"><h2>By the end</h2><ul><li id="outcome-1">Compare two explanations for a release decision using evidence and alternatives.</li><li id="outcome-2">Distinguish an author’s strategic argument from a documented action or private motive.</li><li id="outcome-3">Identify an observation that would change a preferred explanation.</li></ul></section><p><small>Real-world cases reviewed 16 September 2026. Publication dates identify historical evidence, not current rankings or rules. Practice cases are fictional.</small></p>
+<h2 id="four-motives">Follow the benefit, then test the story</h2>
+<p>Think of a fictional company, Lantern, which gives away model weights and sells managed deployment. One explanation is that wider adoption increases demand for its hosting. Another is that publication helps recruit researchers. A third is that a common model weakens a rival’s proprietary platform. None follows simply from the download button. You need evidence about customers, hiring, product integration or the competitive setting.</p>
+<p>Motives are not mutually exclusive. A researcher can care about scientific access while an employer values cheaper infrastructure. An organisation can change priorities after a leadership or budget change. Resist explanations that make every possible outcome count as confirmation: if both continuing and stopping releases prove the same theory, the theory needs a more specific test.</p>
 
-<div class="objectives"><h4>What you will be able to do</h4><ul>
-<li>Apply Bill Gurley's "open source strategy" lens (commoditise, neutralise, standardise) to AI.</li>
-<li>Reconstruct Zuckerberg's Linux argument and identify where it broke down for Meta.</li>
-<li>Explain Catalini's claim that openness changes the <em>direction</em> of innovation, not the level.</li>
-<li>Distinguish the strategic, economic, scientific and values cases, and say which actors hold which.</li>
-</ul></div>
+<h2 id="gurley">Gurley: openness as corporate strategy</h2>
+<p>In <a data-claim="CL-13" href="https://p3institute.substack.com/p/from-open-source-software-to-open">Bill Gurley’s May 2026 essay</a>, open-source strategy can weaken a stronger competitor, commoditise an input or coordinate an ecosystem. His historical analogies invite us to look beyond revenue from selling the released component itself. The claim is an interpretive framework, not proof that every open-model release follows one motive.</p>
+<p>The useful question is where value moves. Lantern might sacrifice model-access revenue while gaining hosting customers. A rival might also host the same weights, limiting Lantern’s capture of that value. To assess the strategy, look for distribution, support, integration or other advantages that remain scarce after the model is shared. Openness alone does not explain who profits.</p>
+<p>A competing explanation is straightforward demand: customers may require local operation, so releasing weights makes a product usable at all. That can produce the same observable release decision as an attempt to weaken a rival. A strong essay comparison identifies this overlap instead of treating the most dramatic motive as the only one.</p>
 
-<h2 id="four-motives">1. Four motives, four kinds of actor</h2>
-<p>Lambert's March 2026 essay "What comes next with open models" makes a point that is easy to miss: "few companies have genuine economic incentives to build open models; most do so for influence or principle." Sorting the field by motive clarifies who will keep releasing and who will stop.</p>
-<div class="table-wrap"><table>
-<thead><tr><th>Motive</th><th>Logic</th><th>Who</th><th>Failure mode</th></tr></thead>
-<tbody>
-<tr><td><b>Strategic</b></td><td>Commoditise a competitor's product; prevent a rival from owning the platform</td><td>Meta (2023–25), Google (Gemma), Nvidia (Nemotron), OpenAI (GPT-OSS)</td><td>Stops the moment the strategy changes (Meta, 2026)</td></tr>
-<tr><td><b>Commercial</b></td><td>Open weights as distribution: expand the market, then sell hosting, enterprise deals, coding plans</td><td>DeepSeek, Qwen, Moonshot, Z.ai, Mistral</td><td>Pressure to close the best models once revenue arrives</td></tr>
-<tr><td><b>Scientific</b></td><td>You cannot study what you cannot inspect</td><td>Ai2, EleutherAI, BigScience, Hugging Face</td><td>Chronic underfunding; "years behind" on frontier techniques</td></tr>
-<tr><td><b>National / values</b></td><td>Distribute power; keep expertise from concentrating; win the global default</td><td>Chinese government policy; the ATOM Project; European sovereignty efforts</td><td>Captured by whichever actor writes the definition</td></tr>
-</tbody></table></div>
+<h2 id="zuckerberg">Zuckerberg: a stated company rationale</h2>
+<p>In his <a data-claim="CL-14" href="https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/">23 July 2024 letter</a>, Mark Zuckerberg argues that an open ecosystem can give Meta control over its technological dependencies and attract complementary tools. This is a stated rationale from a decision-maker, stronger evidence of the public strategy than an outsider’s guess. It is still advocacy, and its predictions about ecosystem outcomes need separate testing.</p>
+<p>A Linux analogy helps readers picture shared infrastructure. It does not establish that language-model training, data access and release licences behave like every software project. Compare the actual artefacts and permissions before extending the analogy. A company can support broad use while retaining restrictions or unreleased components.</p>
 
-<h2 id="gurley">2. Open source as strategy: Gurley's six cases</h2>
-<p>Bill Gurley's May 2026 essay <a href="https://p3institute.substack.com/p/from-open-source-software-to-open">"From Open Source Software to Open Source Strategy"</a> is the best single account of why profit-seeking companies give software away. Twenty-seven years after his 1999 piece on the rising impact of open source, his thesis is that open source "has evolved beyond a development methodology into a strategic corporate weapon". Most plays are defensive: thwart a threat, erode a competitor's pricing power, or align an industry on a standard nobody owns.</p>
-<div class="table-wrap"><table>
-<thead><tr><th>Case</th><th>Year</th><th>Threat being countered</th><th>Outcome</th></tr></thead>
-<tbody>
-<tr><td>Android</td><td>2007</td><td>iPhone owning mobile</td><td>~73% of smartphones, 3.9B devices; Google kept control via Play, Search, Maps</td></tr>
-<tr><td>Open Compute Project</td><td>2011</td><td>Expensive proprietary data-centre hardware</td><td>400+ members; $132B of OCP spend in 2025, projected $295B by 2029</td></tr>
-<tr><td>Kubernetes</td><td>2014</td><td>AWS lock-in</td><td>82% of organisations run it in production; AWS became a top contributor</td></tr>
-<tr><td>LF Networking</td><td>2017</td><td>Telecom vendor margins (Cisco 60%+)</td><td>Mixed: Cisco margins held, but the equipment market shrank 11% in 2024</td></tr>
-<tr><td>RISC-V</td><td>2010</td><td>Intel/ARM licensing</td><td>4,600+ members, ~25% penetration, a Chinese national priority since 2025</td></tr>
-<tr><td>Overture Maps</td><td>2022</td><td>Google Maps dominance</td><td>Meta, Microsoft, Uber, Esri all migrated</td></tr>
-</tbody></table></div>
-<p>Gurley then applies the lens to AI. The frontier is closed and American (OpenAI, Anthropic); the open frontier is Chinese (DeepSeek, Qwen, Kimi, GLM), a fact Demis Hassabis has publicly acknowledged; the closest Western open contender is Mistral; and Meta, the company that wrote the strategy playbook, has "retreated": Llama 4 Behemoth was shelved, the April 2026 Muse Spark model was closed, and Zuckerberg has said Meta will not release superintelligence openly. His warning is that a single regulatory cycle restricting Chinese open models "conveniently" leaves only US closed "cathedrals", and that by 2030 the six billion people outside the US would default to Chinese open models anyway.</p>
+<h2 id="catalini">Catalini: who finances innovation and who applies it?</h2>
+<p><a data-claim="CL-15" href="https://www.a16z.news/p/some-simple-economics-of-open-versus">Christian Catalini’s August 2026 essay</a> frames the debate around diffusion, investment incentives and complementary assets. He suggests that openness can change where innovation occurs and who captures its returns. This is an economic argument applied to AI, not an experimentally established law that openness leaves total investment unchanged.</p>
+<p>The tension is real as a decision problem. If sharing makes imitation easier, some investment may be harder to recover. If sharing lowers entry barriers, more organisations may develop useful applications. Both effects can occur. The conclusion depends on where scarcity remains: proprietary data, distribution, engineering, customer relationships or a further frontier advance.</p>
+<p>For Lantern, ask whether a managed service solves enough deployment work to earn revenue even when competitors have the weights. Then ask whether those revenues can sustain the release programme. A download count answers neither question. Evidence about retention and willingness to pay would be more directly relevant.</p>
 
-<div class="callout idea"><span class="label">Key idea</span><b>Open source strategy needs a neutral referee.</b> Every durable case in Gurley's list involved a foundation (Linux Foundation, CNCF, Apache) that stopped the sponsor from recapturing the project. AI has no equivalent. That is one reason Meta could reverse course in a year, and one reason the ATOM Project (Chapter 5) argues for institution-building rather than just more model releases.</div>
+<h2 id="ai2">Lambert: research access as an end</h2>
+<p>Nathan Lambert’s <a data-claim="CL-16" href="https://www.interconnects.ai/p/why-i-build-open-language-models">“Why I build open language models” (October 2024)</a> emphasises a documented foundation on which researchers can build, and access that helps external scrutiny. This values argument should be evaluated on its own terms. A release can be valuable to science without maximising the releasing lab’s model-access revenue.</p>
+<p>The counterpoint is practical: available materials do not make experiments affordable for everyone. Documentation, compute, maintenance and researcher skills all affect usable access. Nor does a values-based mission guarantee that a programme will persist indefinitely. Ask what capabilities the release enables and what resources a new participant still needs.</p>
 
-<h2 id="zuckerberg">3. The Linux analogy and where it broke</h2>
-<p>Zuckerberg's July 2024 letter <a href="https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/">"Open Source AI Is the Path Forward"</a>, published with Llama 3.1 405B ("the first frontier-level open source AI model"), is the clearest statement of the strategic case from the inside. The argument has three parts:</p>
-<ol>
-<li><b>Good for developers</b>: train on your own data, avoid lock-in, protect sensitive information, cut costs (running 405B was claimed to be ~50% cheaper than GPT-4o).</li>
-<li><b>Good for Meta</b>: Meta does not sell model access, so open weights cost it no revenue; open weights prevent a repeat of being trapped inside Apple's platform rules; the Open Compute Project saved billions by the same logic.</li>
-<li><b>Good for the world</b>: wider access, less concentration of power, more safety through transparency, and a democratic ecosystem that out-competes adversaries rather than one that tries to lock them out.</li>
-</ol>
-<p>The historical analogy was Unix versus Linux: proprietary Unix variants lost to an open kernel that was cheaper, modifiable, and had a better ecosystem. The analogy is strong on economics and weak on one point. Linux was never "the best operating system at the frontier"; it won on cost and adaptability, which is precisely the position open models hold in 2026 (Chapter 6). What changed for Meta was not the argument but the strategy: once Meta decided it wanted to compete at the closed frontier for its own products, the calculus Zuckerberg described no longer applied.</p>
+<h2 id="china-motive">Keep the actor specific</h2>
+<p>“China wants” and “the open community wants” compress many actors into one intention. Companies, universities, maintainers, customers and governments can favour the same release for different reasons. Chapter 5 will examine national comparisons, but the unit of analysis here is the actual decision-maker and release.</p>
 
-<h2 id="catalini">4. The economics: direction, not level</h2>
-<p>Christian Catalini's August 2026 essay <a href="https://www.a16z.news/p/some-simple-economics-of-open-versus">"Some Simple Economics of Open versus Closed AI"</a> brings the innovation-economics literature to bear. Its central move is to say that openness affects the <em>direction</em> of investment rather than its <em>level</em>, citing Petra Moser's study of 15,000 inventions from 1851–1876 exhibitions, which found patent systems changed where inventors focused, not how much they invented.</p>
-<p>Several findings from the literature transfer directly:</p>
-<ul>
-<li><b>Ideas are non-excludable.</b> Once weights are shared, the marginal cost of copying is zero (Arrow, Nelson). This is the tension between incentivising creation and maximising diffusion.</li>
-<li><b>Complementary assets capture value, not the IP.</b> Surveys consistently rank patents low among the ways firms protect innovation; lead time, learning, secrecy and complementary assets rank high. AI labs behave accordingly: they lock in customers through the application layer (Catalini names Claude Cowork, Claude Tag and ChatGPT computer use).</li>
-<li><b>Cumulativeness favours openness.</b> Genes sequenced by Celera under IP restrictions attracted 20–30% less follow-on research; AT&T's forced transistor licensing raised inventive activity 17% in five years; accessible biotech inputs boosted cumulativeness by 57–135%.</li>
-<li><b>Training runs are only 10–23% of AI R&D compute.</b> The rest is experimentation, which openness accelerates.</li>
-<li><b>Innovators capture roughly 2.2% of the social surplus they create.</b> The rest goes to users and follow-on innovators, which is why the diffusion side of the tradeoff is so heavily weighted.</li>
-</ul>
-<p>Catalini also flags that the safety calculus is domain-specific: cyber defence is distributed, so openness helps defenders; biology's bottleneck is physical synthesis, so closed models offer less protection than they seem to. Chapter 3 picks this up.</p>
+<details class="technical"><summary>Optional depth: turning a motive into a testable explanation</summary><p>Write: “If ecosystem adoption is the main commercial mechanism, we expect investment in deployment integrations and evidence that users convert to complementary services.” Then name an alternative that predicts the same observation. Recruiting and ecosystem strategies can both produce public developer events; customer conversion would distinguish them better than event attendance.</p>
+</details>
+<h2 id="practice">Put the argument to work</h2>
+<p>For fictional Lantern, compare the hosting-demand explanation with the recruiting explanation. Use one named author’s framework and one limitation of it. Specify the evidence you would seek, a plausible counterargument and a condition under which you would revise your preferred explanation.</p>
 
-<div class="callout debate"><span class="label">Debate</span><b>Do enterprises actually want open weights?</b> Catalini reports that enterprises increasingly want to own the "weights of production", meaning models tuned on their proprietary data and tacit knowledge, as protection against being disintermediated by a frontier lab. Thomson Reuters' August 2026 launch of an in-house model built on Qwen for about $40M is a case in point. Lambert's counter-observation (Chapter 9) is that the market for specialised small open models is real but "largely unmet", because most open labs chase the general frontier instead.</div>
+<details id="practice-feedback"><summary>Compare your reasoning with the feedback</summary><p>A defensible comparison states that managed hosting and recruitment are hypotheses, not observed motives. Product revenue linked to released models would support the hosting explanation; hiring outcomes and research collaboration would support recruitment. Either may coexist with competitive strategy. The best answer identifies evidence that separates explanations and acknowledges what public statements cannot reveal. Agreement with Gurley, Zuckerberg, Catalini or Lambert is not a grading criterion.</p>
+</details><p>Use the same separation of action and interpretation in <a href="04-lineage.html">Chapter 4’s historical comparisons</a>.</p>
+<h2 id="knowledge-check">Check and explain</h2>
+<p>Choose an answer, then read why. The application above is the main assessment; these questions diagnose common errors.</p>
 
-<h2 id="ai2">5. The scientific and values case from Ai2</h2>
-<p>Nathan Lambert's October 2024 essay <a href="https://www.interconnects.ai/p/why-i-build-open-language-models">"Why I Build Open Language Models"</a> is the personal statement of someone whose lab (Ai2) sits in the "scientific" row of the table. His reasons are not commercial:</p>
-<ul>
-<li><b>Power.</b> Open models reduce the concentration of a technology that increasingly mediates people's relationships, not just their tools.</li>
-<li><b>Security through inspection.</b> Community oversight catches problems that a closed lab's red team may not.</li>
-<li><b>Regulatory access.</b> Policymakers need "direct access to systems" rather than company-run demonstrations.</li>
-<li><b>Evidence over prediction.</b> The predicted harms from open models, "disinformation, biosecurity risks, phishing", have in his reading "been disproven" by events since 2023.</li>
-</ul>
-<p>He is candid about the cost. Ai2 was "years behind" closed labs on RLHF, its best preference dataset was over a year old, and much of the work is "white rice research": foundational, unglamorous, enabling. That candour is what makes the ATOM Report and the gap measurements in Chapter 6 credible; the same author documents both the case for open models and the size of their disadvantage.</p>
-
-<h2 id="china-motive">6. The national motive</h2>
-<p>The fourth motive is where 2026 differs most from 2024. China's 14th and 15th Five-Year Plans enshrine open source as national strategy; the 2026 Government Work Report calls for Chinese AI models to lead the global open-source ecosystem; and Lambert's Kimi K3 essay notes that Xi Jinping used a World AI Conference address to commit the country explicitly to open-source AI. On the US side, the ATOM Project and the Lambert–Xu essay "Banning Open Source AI Would Be A Mistake" (June 2026) make the mirror-image argument: education, innovation and competition are "core American values", over 90% of global software already depends on open source, and the current concentration between Anthropic and OpenAI is itself a competition problem. Chapter 5 tells the story in full.</p>
-
-<details class="callout think"><summary>Think about it: which motive is most durable?</summary>
-<p>Strategic openness lasts only as long as the strategy (Meta). Commercial openness tends to close at the top as revenue arrives (Z.ai's flagship was closed in 2024 before DeepSeek changed the calculus; Alibaba kept Qwen Max closed until 2026). Scientific openness is durable but underfunded. National openness depends on the state's continued interest. The safest bet for a builder in 2026 is probably an open model backed by more than one of these motives at once, which is one way to read the Chinese labs' position.</p></details>
-
-<script type="application/json" data-quiz="foundations">[
-{"q":"In Gurley's framing, most open-source strategy plays are:","a":["Offensive attempts to dominate a market","Defensive moves to neutralise a threat or commoditise an input","Charitable","Required by regulators"],"c":1,"x":"Android countered the iPhone, Kubernetes countered AWS, OCP commoditised hardware. Open source is mostly a way to stop someone else from owning the platform."},
-{"q":"Catalini's core economic claim is that openness changes:","a":["The total amount of innovation","The direction of innovation, not its level","Only the price of inference","Nothing measurable"],"c":1,"x":"Following Moser's study of 19th-century inventions, patent regimes redirected inventors' attention without changing the level of invention."},
-{"q":"Which part of Zuckerberg's argument stopped applying to Meta by 2026?","a":["Open weights cost Meta no API revenue","Developers want to avoid lock-in","Meta does not want to compete at the closed frontier for its own products","Linux beat proprietary Unix"],"c":2,"x":"Once Meta pursued frontier closed models (Muse Spark, and Zuckerberg's statement that superintelligence would not be released openly), the 'we don't sell access anyway' logic no longer held."},
-{"q":"Why does Lambert describe Ai2's work as 'white rice research'?","a":["It is bland and unimportant","It is foundational and enabling rather than headline-grabbing","It is funded by agriculture grants","It only trains small models"],"c":1,"x":"The point is that reproducible baselines, open datasets and published recipes are what the rest of the field builds on."}
-]</script>
-      <div class="complete-row" id="complete-row"></div>
+<script type="application/json" data-quiz="foundations-v2">[{"q": "Lantern releases weights and sells hosting. What is justified?", "a": ["Hosting demand is a plausible strategic explanation to investigate.", "Its sole motive is proved."], "c": 0, "x": "An observed business model suggests a mechanism, but does not uniquely establish intent."}, {"q": "A chief executive describes the release strategy. How should you use it?", "a": ["As evidence of the public rationale, with outcomes checked separately.", "As proof every predicted benefit occurred."], "c": 0, "x": "Statements of intent and observations of results are different evidence."}, {"q": "Which strengthens a comparison of motives?", "a": ["A label such as altruistic or defensive.", "An observation that could distinguish the explanations."], "c": 1, "x": "A testable distinction makes the argument vulnerable to evidence rather than merely persuasive."}]</script>
+<noscript><details><summary>Lantern releases weights and sells hosting. What is justified?</summary><p>Hosting demand is a plausible strategic explanation to investigate.. An observed business model suggests a mechanism, but does not uniquely establish intent.</p>
+</details><details><summary>A chief executive describes the release strategy. How should you use it?</summary><p>As evidence of the public rationale, with outcomes checked separately.. Statements of intent and observations of results are different evidence.</p>
+</details><details><summary>Which strengthens a comparison of motives?</summary><p>An observation that could distinguish the explanations.. A testable distinction makes the argument vulnerable to evidence rather than merely persuasive.</p>
+</details></noscript>      <div class="complete-row" id="complete-row"></div>
       <nav class="chapter-nav" id="chapter-nav" aria-label="Chapter navigation"></nav>
     </article></main>
     <footer class="footer">Open Models: A Field Guide · Sources are linked inline and collected in the <a href="../reading-list.html">reading list</a>.</footer>

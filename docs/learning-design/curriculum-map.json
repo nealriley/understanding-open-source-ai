@@ -61,13 +61,22 @@
         "openness"
       ],
       "outcome_id": "O-02",
-      "outcome": "Compare explanations for why an organisation releases a model.",
+      "outcome": "Compare two explanations for a release decision using evidence and alternatives.",
       "activity_id": "A-02",
-      "activity": "Choose two arguments in the chapter. For each, name the actor, proposed benefit, supporting evidence, and an alternative explanation.",
-      "criteria": "Attribute an argument to its author. A plausible business motive is not proof of an organisation’s internal intention.",
+      "activity": "For fictional Lantern, compare the hosting-demand explanation with the recruiting explanation. Use one named author’s framework and one limitation of it. Specify the evidence you would seek, a plausible counterargument and a condition under which you would revise your preferred explanation.",
+      "criteria": "A defensible comparison states that managed hosting and recruitment are hypotheses, not observed motives. Product revenue linked to released models would support the hosting explanation; hiring outcomes and research collaboration would support recruitment. Either may coexist with competitive strategy. The best answer identifies evidence that separates explanations and acknowledges what public statements cannot reveal. Agreement with Gurley, Zuckerberg, Catalini or Lambert is not a grading criterion.",
       "output_path": "study-guide.html",
       "output_anchor": "unit-foundations",
-      "status": "study_task_added_existing_chapter_not_fully_revised"
+      "status": "revised",
+      "quiz_id": "foundations-v2",
+      "preparation_anchor": "learning-outcomes",
+      "task_anchor": "practice",
+      "feedback_anchor": "practice-feedback",
+      "outcomes": [
+        "Compare two explanations for a release decision using evidence and alternatives.",
+        "Distinguish an author’s strategic argument from a documented action or private motive.",
+        "Identify an observation that would change a preferred explanation."
+      ]
     },
     {
       "id": "safety",
@@ -97,13 +106,22 @@
         "openness"
       ],
       "outcome_id": "O-04",
-      "outcome": "Explain a historical change using dated release evidence.",
+      "outcome": "Compare two historical milestones using dated primary documents.",
       "activity_id": "A-04",
-      "activity": "Select two releases discussed in the chapter. Inspect their original announcements or papers and compare the artefacts they made available.",
-      "criteria": "Record versions and dates. Identify one documented difference without treating later commentary as a contemporary release record.",
+      "activity": "Compare Pythia and OLMo using the linked abstracts. Make a two-row record with initial paper date, inspected version date, reported artefacts, one enabled investigation and one remaining constraint. Then write a sentence about what changed without asserting that either project is universally more open.",
+      "criteria": "Pythia’s first paper date is 3 April 2023; the inspected revision is 31 May. OLMo’s first paper date is 1 February 2024; the inspected revision is 7 June. Pythia highlights a controlled suite and intermediate checkpoints; OLMo describes data and training/evaluation code with weights. Both support research beyond a hosted interface. Resource needs and version-specific permissions still need checking. Credit any well-supported comparison; do not grade by a ranking of the projects.",
       "output_path": "study-guide.html",
       "output_anchor": "unit-lineage",
-      "status": "study_task_added_existing_chapter_not_fully_revised"
+      "status": "revised",
+      "quiz_id": "lineage-v2",
+      "preparation_anchor": "learning-outcomes",
+      "task_anchor": "practice",
+      "feedback_anchor": "practice-feedback",
+      "outcomes": [
+        "Compare two historical milestones using dated primary documents.",
+        "Explain what an artefact release enabled and what it left unknown.",
+        "Distinguish a publication date, a release date and later retrospective interpretation."
+      ]
     },
     {
       "id": "us-china",
@@ -115,13 +133,22 @@
         "lineage"
       ],
       "outcome_id": "O-05",
-      "outcome": "Evaluate an adoption or geopolitical claim without conflating the measures.",
+      "outcome": "Critique an adoption claim by identifying its denominator, coverage and date.",
       "activity_id": "A-05",
-      "activity": "Choose one claim from the chapter and identify its measure, sampled population, date, source, and a plausible alternative interpretation.",
-      "criteria": "Distinguish downloads, usage, revenue, capability, and nationality. State when the source cannot establish causation or market-wide coverage.",
+      "activity": "Rewrite the Bridge headline into a defensible two-sentence claim. Identify the measure, population and dates. Give one quality-based explanation and one alternative, then propose an observation that would help distinguish them. Explain why neither statement determines a country’s overall technical lead.",
+      "criteria": "A defensible claim says Eastbank-developed models represented 60% of Bridge’s measured June token volume, compared with 40% in May, under stated counting rules. The source does not cover global use. Quality gains could attract users; discounts and defaults could also change the mix. Compare task-level outcomes and adoption where prices/defaults were unchanged. Credit clear scope, a counterargument and a useful next check; no preferred national conclusion is required.",
       "output_path": "study-guide.html",
       "output_anchor": "unit-us-china",
-      "status": "study_task_added_existing_chapter_not_fully_revised"
+      "status": "revised",
+      "quiz_id": "us-china-v2",
+      "preparation_anchor": "learning-outcomes",
+      "task_anchor": "practice",
+      "feedback_anchor": "practice-feedback",
+      "outcomes": [
+        "Critique an adoption claim by identifying its denominator, coverage and date.",
+        "Compare a structural explanation with a plausible alternative.",
+        "Separate nationality, capability, commercial adoption and policy status."
+      ]
     },
     {
       "id": "gap",
