@@ -36,6 +36,7 @@ The writing has completed an author editorial pass for conceptual coverage, expl
 - Kept the unsupported drop-box answer tied to that same notice so the difference can be checked directly.
 - Corrected the four-step diagram's caption and removed a left-to-right instruction that would be misleading on the stacked mobile layout.
 - Pinned the real release documents rather than relying on mutable `main` links.
+- Updated inherited claim-register locations after moving the architecture, compute and MIT discussions; removed an OLMo paper reference from the chapter section that no longer discusses that paper.
 - Corrected the training source's gradient-descent section number after passage inspection.
 - Replaced advanced-method and cost-trivia quiz questions with generation, training, tools, artefacts, permissions and practical-fit cases.
 

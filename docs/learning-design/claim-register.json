@@ -540,7 +540,6 @@
       "reviewed_on": "2026-09-16",
       "as_of": "2024-06-07",
       "affected_locations": [
-        "chapters/01-what-open-means.html#three-words",
         "chapters/04-lineage.html#phase3",
         "timeline.html#timeline",
         "js/data.js#timeline"
@@ -622,7 +621,7 @@
       "reviewed_on": "2026-09-16",
       "as_of": "2017-06-12",
       "affected_locations": [
-        "chapters/00-primer.html#what-a-model-is",
+        "chapters/00-primer.html#inside-model",
         "timeline.html#timeline",
         "js/data.js#timeline"
       ],
@@ -638,7 +637,7 @@
       "reviewed_on": "2026-09-16",
       "as_of": "2022-03-29",
       "affected_locations": [
-        "chapters/00-primer.html#inference"
+        "chapters/00-primer.html#limits"
       ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
@@ -892,7 +891,6 @@
       "reviewed_on": "2026-09-16",
       "as_of": "2023-02-09",
       "affected_locations": [
-        "chapters/01-what-open-means.html#gradient",
         "chapters/01-what-open-means.html#gradient"
       ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
@@ -935,7 +933,7 @@
       "reviewed_on": "2026-09-16",
       "as_of": null,
       "affected_locations": [
-        "chapters/01-what-open-means.html#licenses"
+        "chapters/01-what-open-means.html#worked-example"
       ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
