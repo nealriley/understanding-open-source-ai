@@ -26,6 +26,11 @@ def main():
             pattern=r'(<div class="widget" id="'+('gap-widget' if c['id']=='task-scores' else 'catchup-widget')+r'"[\s\S]*?<div class="data-table">)</div>'
             new=re.sub(pattern,lambda m:m[1]+replacement+'</div>',new)
     outputs={path:new}
+    primer=ROOT/'chapters/00-primer.html'
+    example=next(e for e in records('teachingExamples') if e['id']=='next-token')
+    start='<!-- teaching:next-token -->';end='<!-- /teaching:next-token -->'
+    table='<div class="table-scroll" role="region" aria-label="Fictional next-token probabilities" tabindex="0"><table><caption>One fictional prediction after “'+escape(example['context'])+'”</caption><thead><tr><th scope="col">Possible next token</th><th scope="col">Probability</th></tr></thead><tbody>'+''.join('<tr><th scope="row">'+escape(r['label'])+'</th><td>'+str(r['value'])+'%</td></tr>' for r in example['rows'])+'</tbody></table></div>'
+    outputs[primer]=re.sub(re.escape(start)+r'[\s\S]*?'+re.escape(end),lambda _:start+table+end,primer.read_text())
     def replace(file, start, end, content):
         page=ROOT/file; original=page.read_text(); a=original.index(start)+len(start);b=original.index(end,a)
         outputs[page]=original[:a]+content+original[b:]

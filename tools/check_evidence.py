@@ -47,6 +47,11 @@ def check(pages):
                     for field in ('preparation','task','feedback'):
                         filename,anchor=mapping[field].split('#')
                         if filename not in pages or anchor not in pages[filename].ids: errors.append(f'{u["id"]}: broken {field} mapping')
+                    if u['status']=='revised_opening' and mapping['preparation'].endswith('#learning-outcomes'):
+                        errors.append(f'{u["id"]}: preparation points to an objective rather than instruction')
+                    for section in mapping.get('preparation_sections',[]):
+                        filename,anchor=section.split('#')
+                        if filename not in pages or anchor not in pages[filename].ids: errors.append(f'{u["id"]}: broken additional preparation section')
                 valid={x['outcome_id'] for x in u['learning_mappings']}
                 for quiz in page.quizzes:
                     for question in quiz:
@@ -64,6 +69,13 @@ def check(pages):
         cid=event.get('claim_id')
         if cid not in claims or claims[cid]['status'] in ('unresolved','retired'): errors.append('Timeline has unsupported claim reference')
         if not event.get('source','').startswith('https://') or not event.get('reviewed_on'): errors.append('Timeline provenance incomplete')
+    for example in records('teachingExamples'):
+        if example['kind']!='fictional' or not example['provenance']: errors.append('Teaching example missing fictional provenance')
+        date.fromisoformat(example['reviewed_on'])
+        if example['id']=='next-token':
+            values=[r['value'] for r in example['rows']]
+            if any(v<0 or v>100 for v in values) or sum(values)!=100: errors.append('Next-token probabilities must sum to 100%')
+            if '<!-- teaching:next-token -->' not in (ROOT/'chapters/00-primer.html').read_text(): errors.append('Missing static teaching table')
     for c in claims.values():
         if c['status'] in ('unresolved','retired'): continue
         if not c['affected_locations']: errors.append(f'{c["id"]}: no affected locations')

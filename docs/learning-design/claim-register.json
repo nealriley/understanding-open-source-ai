@@ -352,6 +352,106 @@
       "reviewed_on": "2026-09-16",
       "kind": "essay",
       "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E36",
+      "title": "Hugging Face, Text generation",
+      "url": "https://huggingface.co/docs/transformers/llm_tutorial",
+      "publication_date": null,
+      "passage": "Text generation; Default generate; Generation configuration; Common Options: tokenisation, repeated token generation and sampling settings.",
+      "reviewed_on": "2026-09-16",
+      "kind": "reference",
+      "inspection": "Named source passage inspected directly during the opening-chapter revision. Authored examples remain labelled fictional."
+    },
+    {
+      "id": "E37",
+      "title": "Dive into Deep Learning, Linear Regression",
+      "url": "https://d2l.ai/chapter_linear-regression/linear-regression.html",
+      "publication_date": null,
+      "passage": "Sections 3.1.1.2 Loss Function and 3.1.1.4 Minibatch Stochastic Gradient Descent.",
+      "reviewed_on": "2026-09-16",
+      "kind": "reference",
+      "inspection": "Named source passage inspected directly during the opening-chapter revision. Authored examples remain labelled fictional."
+    },
+    {
+      "id": "E38",
+      "title": "Carlini et al., Extracting Training Data from Large Language Models",
+      "url": "https://arxiv.org/abs/2012.07805v2",
+      "publication_date": "2021-06-15",
+      "passage": "Abstract: extraction of verbatim training sequences by querying GPT-2.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named source passage inspected directly during the opening-chapter revision. Authored examples remain labelled fictional."
+    },
+    {
+      "id": "E39",
+      "title": "Lewis et al., Retrieval-Augmented Generation",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "publication_date": "2021-04-12",
+      "passage": "Abstract: a retriever and document index combined with a pretrained generator.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named source passage inspected directly during the opening-chapter revision. Authored examples remain labelled fictional."
+    },
+    {
+      "id": "E40",
+      "title": "Open Source Initiative, The Open Source Definition",
+      "url": "https://opensource.org/osd",
+      "publication_date": null,
+      "passage": "Sections 1–3, 5–6: redistribution, source code, derived works and non-discrimination.",
+      "reviewed_on": "2026-09-16",
+      "kind": "reference",
+      "inspection": "Named source passage inspected directly during the opening-chapter revision. Authored examples remain labelled fictional."
+    },
+    {
+      "id": "E41",
+      "title": "Ai2, OLMo-7B model card at 0f605aa",
+      "url": "https://huggingface.co/allenai/OLMo-7B/blob/0f605aa2bf7f9585bcedfa9b419326f15b453ddd/README.md",
+      "publication_date": null,
+      "passage": "Model Details: base model and checkpoint revisions, note on lost revisions; Data: link to Dolma. Inspected immutable revision 0f605aa2bf7f9585bcedfa9b419326f15b453ddd.",
+      "reviewed_on": "2026-09-16",
+      "kind": "reference",
+      "inspection": "Named source passage inspected directly during the opening-chapter revision. Authored examples remain labelled fictional."
+    },
+    {
+      "id": "E42",
+      "title": "Ai2, OLMo-7B files at 0f605aa",
+      "url": "https://huggingface.co/allenai/OLMo-7B/tree/0f605aa2bf7f9585bcedfa9b419326f15b453ddd",
+      "publication_date": null,
+      "passage": "Repository listing: README.md, config.json, model.safetensors, pytorch_model.bin and tokenizer.json.",
+      "reviewed_on": "2026-09-16",
+      "kind": "reference",
+      "inspection": "Named source passage inspected directly during the opening-chapter revision. Authored examples remain labelled fictional."
+    },
+    {
+      "id": "E43",
+      "title": "Hugging Face, How do Transformers work?",
+      "url": "https://huggingface.co/learn/llm-course/en/chapter1/4",
+      "publication_date": null,
+      "passage": "Attention layers; Architectures vs. checkpoints.",
+      "reviewed_on": "2026-09-16",
+      "kind": "reference",
+      "inspection": "Named source passage inspected directly during the opening-chapter revision. Authored examples remain labelled fictional."
+    },
+    {
+      "id": "E44",
+      "title": "Hugging Face, Chat templates",
+      "url": "https://huggingface.co/docs/transformers/chat_templating",
+      "publication_date": null,
+      "passage": "Opening explanation and Using apply_chat_template: message history is converted into a token sequence.",
+      "reviewed_on": "2026-09-16",
+      "kind": "reference",
+      "inspection": "Named source passage inspected directly during the opening-chapter revision. Authored examples remain labelled fictional."
+    },
+    {
+      "id": "E45",
+      "title": "Hugging Face, Quantization overview",
+      "url": "https://huggingface.co/docs/transformers/quantization/overview",
+      "publication_date": null,
+      "passage": "Overview: lower-precision representations and memory requirements.",
+      "reviewed_on": "2026-09-16",
+      "kind": "reference",
+      "inspection": "Named source passage inspected directly during the opening-chapter revision. Authored examples remain labelled fictional."
     }
   ],
   "claims": [
@@ -365,7 +465,7 @@
       "reviewed_on": "2026-09-16",
       "as_of": "2022-03-04",
       "affected_locations": [
-        "chapters/00-primer.html#training",
+        "chapters/00-primer.html#post-training",
         "timeline.html#timeline",
         "js/data.js#timeline"
       ],
@@ -381,7 +481,7 @@
       "reviewed_on": "2026-09-16",
       "as_of": "2024-07-29",
       "affected_locations": [
-        "chapters/00-primer.html#training"
+        "chapters/00-primer.html#post-training"
       ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
@@ -792,6 +892,7 @@
       "reviewed_on": "2026-09-16",
       "as_of": "2023-02-09",
       "affected_locations": [
+        "chapters/01-what-open-means.html#gradient",
         "chapters/01-what-open-means.html#gradient"
       ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
@@ -968,6 +1069,164 @@
       ],
       "decision": "Use as attributed historical evidence; do not infer universal safety or current status.",
       "as_of": null
+    },
+    {
+      "id": "CL-36",
+      "statement": "Generation selects successive tokens conditioned on available text, with choices controlled by decoding settings.",
+      "source_ids": [
+        "E36"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [
+        "chapters/00-primer.html#generation",
+        "reading-list.html#opening-sources"
+      ],
+      "decision": "Explain the bounded concept in original prose, with concrete authored examples. Do not treat the example as observed performance or the source as a guarantee of practical suitability."
+    },
+    {
+      "id": "CL-37",
+      "statement": "Loss measures fit to an objective and optimisation updates parameters; the chapter applies this general training idea to an authored language example.",
+      "source_ids": [
+        "E37"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [
+        "chapters/00-primer.html#training",
+        "reading-list.html#opening-sources"
+      ],
+      "decision": "Explain the bounded concept in original prose, with concrete authored examples. Do not treat the example as observed performance or the source as a guarantee of practical suitability."
+    },
+    {
+      "id": "CL-38",
+      "statement": "The study demonstrates that a language model can reproduce some training passages; it does not establish that every answer retrieves an original passage.",
+      "source_ids": [
+        "E38"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2021-06-15",
+      "affected_locations": [
+        "chapters/00-primer.html#training",
+        "reading-list.html#opening-sources"
+      ],
+      "decision": "Explain the bounded concept in original prose, with concrete authored examples. Do not treat the example as observed performance or the source as a guarantee of practical suitability."
+    },
+    {
+      "id": "CL-39",
+      "statement": "Retrieval and a trained generator can be combined; the library example is an authored illustration, not a reproduction of the study.",
+      "source_ids": [
+        "E39"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2021-04-12",
+      "affected_locations": [
+        "chapters/00-primer.html#inference",
+        "reading-list.html#opening-sources"
+      ],
+      "decision": "Explain the bounded concept in original prose, with concrete authored examples. Do not treat the example as observed performance or the source as a guarantee of practical suitability."
+    },
+    {
+      "id": "CL-40",
+      "statement": "The software definition includes source availability, modification and redistribution, and does not allow restrictions on fields of endeavour.",
+      "source_ids": [
+        "E40"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [
+        "chapters/01-what-open-means.html#software",
+        "reading-list.html#opening-sources"
+      ],
+      "decision": "Explain the bounded concept in original prose, with concrete authored examples. Do not treat the example as observed performance or the source as a guarantee of practical suitability."
+    },
+    {
+      "id": "CL-41",
+      "statement": "The inspected card describes a base model, checkpoint revisions, lost revisions and a link to training-data documentation.",
+      "source_ids": [
+        "E41"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [
+        "chapters/01-what-open-means.html#real-release",
+        "reading-list.html#opening-sources"
+      ],
+      "decision": "Explain the bounded concept in original prose, with concrete authored examples. Do not treat the example as observed performance or the source as a guarantee of practical suitability."
+    },
+    {
+      "id": "CL-42",
+      "statement": "These runtime files and documentation are present in the inspected repository snapshot; presence alone is not a complete reuse assessment.",
+      "source_ids": [
+        "E42"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [
+        "chapters/01-what-open-means.html#real-release",
+        "reading-list.html#opening-sources"
+      ],
+      "decision": "Explain the bounded concept in original prose, with concrete authored examples. Do not treat the example as observed performance or the source as a guarantee of practical suitability."
+    },
+    {
+      "id": "CL-43",
+      "statement": "Architecture describes operations and structure; checkpoints supply learned weights. Attention combines information from token positions.",
+      "source_ids": [
+        "E43"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [
+        "chapters/00-primer.html#inside-model",
+        "reading-list.html#opening-sources"
+      ],
+      "decision": "Explain the bounded concept in original prose, with concrete authored examples. Do not treat the example as observed performance or the source as a guarantee of practical suitability."
+    },
+    {
+      "id": "CL-44",
+      "statement": "An application can provide earlier messages as model input; the current conversation is not itself a weight update.",
+      "source_ids": [
+        "E44"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [
+        "chapters/00-primer.html#inference",
+        "reading-list.html#opening-sources"
+      ],
+      "decision": "Explain the bounded concept in original prose, with concrete authored examples. Do not treat the example as observed performance or the source as a guarantee of practical suitability."
+    },
+    {
+      "id": "CL-45",
+      "statement": "Lower numerical precision can reduce model memory requirements; the chapter does not infer complete serving cost from precision.",
+      "source_ids": [
+        "E45"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [
+        "chapters/00-primer.html#limits",
+        "reading-list.html#opening-sources"
+      ],
+      "decision": "Explain the bounded concept in original prose, with concrete authored examples. Do not treat the example as observed performance or the source as a guarantee of practical suitability."
+    }
+  ],
+  "teaching_examples": [
+    {
+      "id": "next-token",
+      "location": "js/data.js#teachingExamples",
+      "status": "fictional",
+      "decision": "Four probability categories sum to 100%; static table generated from shared record. No real tokenizer or model measurement is implied."
     }
   ]
 }
