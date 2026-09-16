@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "reviewed": "2026-09-16",
-  "basis_commit": "2e88d1d",
+  "basis_commit": "d6a4c73a9c0be5ea5e1e8cbd652cc77b349d7558",
   "note": "All ten units revised. Each outcome maps to preparation, application and feedback. Assess interpretive work by evidence and reasoning; learner effectiveness remains untested.",
   "units": [
     {
@@ -11,43 +11,55 @@
       "source_path": "chapters/00-primer.html",
       "prerequisites": [],
       "outcome_id": "O-00",
-      "outcome": "Annotate a pipeline with data, learned parameters, post-training and inference.",
+      "outcome": "Explain how training changes a model and how that model generates an answer.",
       "activity_id": "A-00",
-      "activity": "Draw or write Alder’s pipeline: broad data → pretraining → base checkpoint → optional adaptation → released checkpoint → inference with a retrieved manual → response. Mark which steps change weights. Add a tokenizer, an evaluation step, and two artefacts needed by a researcher that an end user might never download.",
-      "criteria": "Pretraining and adaptation change weights; ordinary inference and retrieval do not. The tokenizer maps text to model inputs. Evaluation measures behaviour rather than necessarily updating weights. Training-data documentation and intermediate checkpoints help investigate development. If you put RL after every post-training stage, revise it to a possible method within adaptation. If your diagram labels the entire assistant “the model,” separate retrieval and permissions.",
+      "activity": "Trace one answer through tokenisation and generation, then propose changes for new Sunday hours, brief answers and live catalogue availability. Explain where information goes, whether parameters change, required materials and a test. Add one material needed to investigate original training.",
+      "criteria": "Explain the generation loop and fixed weights during ordinary inference. Distinguish request context, retrieval, training and tool execution; connect each intervention to necessary materials and an appropriate test. Explain a researcher’s additional need.",
       "output_path": "study-guide.html",
       "output_anchor": "unit-primer",
-      "status": "revised",
-      "quiz_id": "primer-v2",
-      "preparation_anchor": "learning-outcomes",
+      "status": "revised_opening",
+      "quiz_id": "primer-v3",
+      "preparation_anchor": "training",
       "task_anchor": "practice",
       "feedback_anchor": "practice-feedback",
       "outcomes": [
-        "Annotate a pipeline with data, learned parameters, post-training and inference.",
-        "Distinguish a training objective from a deployment feature.",
-        "Identify which release artefacts support running, adapting or investigating a model."
+        "Explain how training changes a model and how that model generates an answer.",
+        "Trace how prompts, retrieved documents and tools contribute to an application.",
+        "Identify the components and release materials needed to run, adapt or investigate a model."
       ],
       "learning_mappings": [
         {
           "outcome_id": "O-00-1",
-          "outcome": "Annotate a pipeline with data, learned parameters, post-training and inference.",
-          "preparation": "chapters/00-primer.html#learning-outcomes",
+          "outcome": "Explain how training changes a model and how that model generates an answer.",
+          "preparation": "chapters/00-primer.html#training",
           "task": "chapters/00-primer.html#practice",
-          "feedback": "chapters/00-primer.html#practice-feedback"
+          "feedback": "chapters/00-primer.html#practice-feedback",
+          "preparation_sections": [
+            "chapters/00-primer.html#generation",
+            "chapters/00-primer.html#inside-model",
+            "chapters/00-primer.html#post-training"
+          ]
         },
         {
           "outcome_id": "O-00-2",
-          "outcome": "Distinguish a training objective from a deployment feature.",
-          "preparation": "chapters/00-primer.html#learning-outcomes",
+          "outcome": "Trace how prompts, retrieved documents and tools contribute to an application.",
+          "preparation": "chapters/00-primer.html#inference",
           "task": "chapters/00-primer.html#practice",
-          "feedback": "chapters/00-primer.html#practice-feedback"
+          "feedback": "chapters/00-primer.html#practice-feedback",
+          "preparation_sections": [
+            "chapters/00-primer.html#reasoning-agents",
+            "chapters/00-primer.html#limits"
+          ]
         },
         {
           "outcome_id": "O-00-3",
-          "outcome": "Identify which release artefacts support running, adapting or investigating a model.",
-          "preparation": "chapters/00-primer.html#learning-outcomes",
+          "outcome": "Identify the components and release materials needed to run, adapt or investigate a model.",
+          "preparation": "chapters/00-primer.html#files",
           "task": "chapters/00-primer.html#practice",
-          "feedback": "chapters/00-primer.html#practice-feedback"
+          "feedback": "chapters/00-primer.html#practice-feedback",
+          "preparation_sections": [
+            "chapters/00-primer.html#training"
+          ]
         }
       ]
     },
@@ -60,43 +72,53 @@
         "primer"
       ],
       "outcome_id": "O-01",
-      "outcome": "Assess access, artefacts, permissions, and missing evidence for a specific release.",
+      "outcome": "Distinguish a model release from a hosted application or model service.",
       "activity_id": "A-01",
-      "activity": "Complete the Rowan release assessment in Chapter 1 before revealing its feedback.",
-      "criteria": "Separate what is downloadable from what is permitted. Distinguish missing materials from uninspected documents; name a concrete next check.",
+      "activity": "Assess Cedar and Rowan against the library’s adaptation and sharing requirements. Recommend a deployment route, cite the supplied terms, identify an unresolved practical question and a revision condition.",
+      "criteria": "Trace who operates the model; cite permissions and restrictions; distinguish absent from uninspected information; explain practical fit and a feasible next check.",
       "output_path": "study-guide.html",
       "output_anchor": "unit-openness",
-      "status": "revised_pilot_retained",
-      "quiz_id": "openness-v2",
-      "preparation_anchor": "learning-outcomes",
+      "status": "revised_opening",
+      "quiz_id": "openness-v3",
+      "preparation_anchor": "access",
       "task_anchor": "practice",
       "feedback_anchor": "practice-feedback",
       "outcomes": [
-        "Describe access, artefacts and permissions separately.",
-        "Assess the difference between downloadable weights and the OSI definition.",
-        "Write a qualified release assessment with missing evidence and a next check."
+        "Distinguish a model release from a hosted application or model service.",
+        "Assess release materials and terms, including open weights and open-source AI.",
+        "Recommend a release and deployment route for a purpose, with unresolved checks."
       ],
       "learning_mappings": [
         {
           "outcome_id": "O-01-1",
-          "outcome": "Describe access, artefacts and permissions separately.",
-          "preparation": "chapters/01-what-open-means.html#learning-outcomes",
+          "outcome": "Distinguish a model release from a hosted application or model service.",
+          "preparation": "chapters/01-what-open-means.html#access",
           "task": "chapters/01-what-open-means.html#practice",
-          "feedback": "chapters/01-what-open-means.html#practice-feedback"
+          "feedback": "chapters/01-what-open-means.html#practice-feedback",
+          "preparation_sections": [
+            "chapters/01-what-open-means.html#software"
+          ]
         },
         {
           "outcome_id": "O-01-2",
-          "outcome": "Assess the difference between downloadable weights and the OSI definition.",
-          "preparation": "chapters/01-what-open-means.html#learning-outcomes",
+          "outcome": "Assess release materials and terms, including open weights and open-source AI.",
+          "preparation": "chapters/01-what-open-means.html#three-words",
           "task": "chapters/01-what-open-means.html#practice",
-          "feedback": "chapters/01-what-open-means.html#practice-feedback"
+          "feedback": "chapters/01-what-open-means.html#practice-feedback",
+          "preparation_sections": [
+            "chapters/01-what-open-means.html#release-materials",
+            "chapters/01-what-open-means.html#worked-example"
+          ]
         },
         {
           "outcome_id": "O-01-3",
-          "outcome": "Write a qualified release assessment with missing evidence and a next check.",
-          "preparation": "chapters/01-what-open-means.html#learning-outcomes",
+          "outcome": "Recommend a release and deployment route for a purpose, with unresolved checks.",
+          "preparation": "chapters/01-what-open-means.html#worked-example",
           "task": "chapters/01-what-open-means.html#practice",
-          "feedback": "chapters/01-what-open-means.html#practice-feedback"
+          "feedback": "chapters/01-what-open-means.html#practice-feedback",
+          "preparation_sections": [
+            "chapters/01-what-open-means.html#why-contested"
+          ]
         }
       ]
     },

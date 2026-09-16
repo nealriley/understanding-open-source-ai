@@ -22,11 +22,12 @@ const server = http.createServer((req,res) => {
     page.on('pageerror',e=>errors.push(e.message));
     await page.goto(base); const chapters=await page.evaluate(()=>OMT.chapters);
     // Simulate an earlier edition's scores; completion must survive.
-    await page.evaluate(()=>localStorage.setItem('omt-progress',JSON.stringify({primer:true,'quiz-primer':'4/4','quiz-openness-v2':'4/4'})));
+    await page.evaluate(()=>localStorage.setItem('omt-progress',JSON.stringify({primer:true,openness:true,'quiz-primer':'4/4','quiz-primer-v2':'3/3','quiz-openness-v2':'4/4'})));
     await page.reload();
     assert.match(await page.locator('#chapter-cards a').first().innerText(),/done/);
     assert.doesNotMatch(await page.locator('#chapter-cards a').first().innerText(),/quiz/);
-    assert.match(await page.locator('#chapter-cards a').nth(1).innerText(),/quiz 4\/4/);
+    assert.match(await page.locator('#chapter-cards a').nth(1).innerText(),/done/);
+    assert.doesNotMatch(await page.locator('#chapter-cards a').nth(1).innerText(),/quiz/);
     await page.getByRole('searchbox',{name:'Search',exact:true}).fill('distillation');
     assert(await page.locator('#search-results a').count()>0);
     await page.locator('#search-results a').first().click();
@@ -56,7 +57,8 @@ const server = http.createServer((req,res) => {
     assert.equal(await page.evaluate(()=>document.activeElement.className),'explain');
     await page.locator('#complete-btn').click();
     await page.reload();assert.match(await page.locator('#complete-row').innerText(),/marked this chapter complete/);
-    await page.goto(base);assert.match(await page.locator('#chapter-cards a').first().innerText(),/quiz 3\/3/);
+    const primerQuestions=JSON.parse(fs.readFileSync(path.join(root,chapters[0].file),'utf8').match(/<script type="application\/json" data-quiz="[^"]+">([\s\S]*?)<\/script>/)[1]);
+    await page.goto(base);assert.match(await page.locator('#chapter-cards a').first().innerText(),new RegExp(`quiz ${primerQuestions.length}/${primerQuestions.length}`));
     await page.getByRole('button',{name:'◐ Theme'}).click();assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
     await page.reload();assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
     await page.goto(base+'/chapters/06-measuring-the-gap.html');
@@ -66,11 +68,31 @@ const server = http.createServer((req,res) => {
     await page.goto(base+'/timeline.html');const before=await page.locator('.tl-item:not(.hidden)').count();
     await page.getByRole('button',{name:'Models',exact:true}).click();assert(await page.locator('.tl-item:not(.hidden)').count()<before);
     await page.goto(base+'/glossary.html#distillation');assert(await page.locator('#distillation').isVisible());
+    // Opening explanations and worked documents remain readable in both themes.
+    for (const c of chapters.slice(0,2)) {
+      await page.goto(base+'/'+c.file);
+      await page.locator('.concept-figure').first().screenshot({path:`/tmp/opening-${c.id}-desktop-light.png`});
+      await page.getByRole('button',{name:'◐ Theme'}).click();
+      await page.locator('.concept-figure').first().screenshot({path:`/tmp/opening-${c.id}-desktop-dark.png`});
+      await page.getByRole('button',{name:'◐ Theme'}).click();
+      const q=page.locator('.quiz .q').first();
+      const quiz=JSON.parse(fs.readFileSync(path.join(root,c.file),'utf8').match(/<script type="application\/json" data-quiz="[^"]+">([\s\S]*?)<\/script>/)[1]);
+      await q.locator('input').nth((quiz[0].c+1)%quiz[0].a.length).check();
+      assert.equal(await q.locator('.wrong').count(),1);
+      assert(await q.locator('.explain').isVisible());
+      assert(await q.locator('input').first().isDisabled());
+    }
     // Mobile overflow, keyboard menu and disclosure.
     await page.setViewportSize({width:390,height:844});
     for (const file of [...chapters.map(c=>c.file),'index.html','study-guide.html','timeline.html','glossary.html','reading-list.html']) {
       await page.goto(base+'/'+file);
       assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`mobile overflow: ${file}`);
+    }
+    for (const c of chapters.slice(0,2)) {
+      await page.goto(base+'/'+c.file);
+      await page.locator('.concept-figure').first().screenshot({path:`/tmp/opening-${c.id}-mobile.png`});
+      await page.locator('#practice-feedback summary').focus();await page.keyboard.press('Enter');
+      assert(await page.locator('#practice-feedback').evaluate(e=>e.open));
     }
     await page.goto(base+'/chapters/06-measuring-the-gap.html');
     await page.locator('#menu-btn').focus();await page.keyboard.press('Enter');
