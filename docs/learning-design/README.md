@@ -8,6 +8,14 @@ The active draft contains the two approved foundations chapters and three concep
 - [Two teaching trials](sequence-trials.md): original samples, critique and sequence selection.
 - [Chapter briefs](next-section-briefs.md): scope, prerequisites, tasks and deliberate deferrals.
 - [Section review and validation](validation-concept-section.md).
+- [Approved merges and live publication verification](deployment-concept-rebuild.md).
+
+## Next section in preparation
+
+- [Operating Models and Economics: research, dependencies and three chapter briefs](operating-section-plan.md).
+- [Two teaching trials and editorial selection](operating-section-trials.md).
+
+These are authoring records. The three planned chapters are not yet part of the available draft.
 
 ## Authoring records
 
