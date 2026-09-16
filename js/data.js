@@ -2,36 +2,110 @@
 window.OMT = window.OMT || {};
 
 OMT.chapters = [
-  { id: "primer",   num: "0", part: "Primer",     file: "chapters/00-primer.html",        title: "How Language Models Work", minutes: 25,
-    blurb: "Tokens, transformers, pretraining, post-training, inference and what a 'model' actually is. The vocabulary every later chapter assumes.",
-    keywords: "tokens transformer attention pretraining post-training RLHF RLVR scaling laws inference weights mixture of experts reasoning distillation synthetic data" },
-  { id: "openness", quizId: "openness-v2", num: "1", part: "Primer",     file: "chapters/01-what-open-means.html", title: "What 'Open' Means", minutes: 20,
-    blurb: "Assess a release through access, artefacts, permissions, and missing evidence. Worked and practice cases distinguish open weights, OSI requirements, and research transparency.",
-    keywords: "open weights open source fully open license gradient of release Solaiman OSI MIT Apache Llama license staged release API" },
-  { id: "foundations", num: "2", part: "Foundations", file: "chapters/02-foundations.html", title: "Why Anyone Builds Open Models", minutes: 30,
-    blurb: "Strategy, economics and values: Gurley's open-source strategy, Zuckerberg's Linux analogy, Catalini's innovation economics, and the case from inside Ai2.",
-    keywords: "Gurley open source strategy Android Kubernetes Zuckerberg Linux Catalini economics complementary assets Lambert why I build Ai2 commoditize" },
-  { id: "safety", num: "3", part: "Foundations", file: "chapters/03-safety-and-data.html", title: "Risk, Safety and the Data Commons", minutes: 30,
-    blurb: "Marginal risk, the nonproliferation debate, staged releases, whether open models are actually less safe, and the shrinking pool of training data.",
-    keywords: "marginal risk Kapoor societal impact Toner nonproliferation adaptation buffer Thinking Machines safe path Brand myth unsafe Consent in Crisis robots.txt data commons" },
-  { id: "lineage", num: "4", part: "History",     file: "chapters/04-lineage.html", title: "The Lineage of Open Models", minutes: 35,
-    blurb: "From GPT-2's staged release through Pythia, Llama, OLMo, DeepSeek R1, and the 2026 Chinese frontier: who released what, when, and why it mattered.",
-    keywords: "Pythia EleutherAI BLOOM Llama Mistral OLMo Olmo 2 Olmo 3 DeepSeek V3 R1 Qwen Kimi K2 K3 GLM-4.5 GLM-5 GPT-OSS Nemotron Muse Spark Meta retreat timeline" },
-  { id: "us-china", num: "5", part: "History",     file: "chapters/05-us-china.html", title: "US–China Competition", minutes: 35,
-    blurb: "How China's open-source culture was built over twenty years, why Chinese labs now lead open weights, the ATOM Project, and the congressional probes of 2026.",
-    keywords: "China open source history Alibaba De-IOE Huawei Kaiyuanshe Kevin Xu structural advantage ATOM project Moolenaar Garbarino Airbnb Anysphere Cursor DoorDash Perplexity Thomson Reuters Apple Alibaba" },
-  { id: "gap", num: "6", part: "Science",       file: "chapters/06-measuring-the-gap.html", title: "Measuring the Gap", minutes: 30,
-    blurb: "How far behind are open models, really? SemiAnalysis's three eras, the LessWrong threshold study, benchmark saturation, and the difference between a benchmark and a product.",
-    keywords: "gap months behind SemiAnalysis eras Ihle LessWrong Epoch Artificial Analysis Intelligence Index benchmark saturation Pareto frontier cost DeepSeek V4 Flash" },
-  { id: "distillation", num: "7", part: "Science", file: "chapters/07-distillation.html", title: "Distillation and Synthetic Data", minutes: 35,
-    blurb: "The technique, the panic, and the evidence. What distillation does and does not buy you, Anthropic's disclosures, the stolen reasoning traces paper, and the policy fight.",
-    keywords: "distillation synthetic data knowledge distillation on-policy Anthropic fraudulent accounts 16 million 190 million reasoning traces Panfilov RLHF book Zephyr Alpaca jailbreak regulatory capture" },
-  { id: "security", num: "8", part: "Policy",      file: "chapters/08-security-and-policy.html", title: "Security, Cyber and the Regulatory Fight", minutes: 30,
-    blurb: "The OpenAI/Hugging Face incident, autonomous hacking, Saxe's observatory proposal, executive-order threats, and Lambert's 'six months to live'.",
-    keywords: "cybersecurity OpenAI Hugging Face incident Saxe observatory autonomous hacking Mythos executive order entity list six months to live vibe regulation ban" },
-  { id: "synthesis", num: "9", part: "Policy",     file: "chapters/09-synthesis.html", title: "Synthesis: Where This Goes", minutes: 20,
-    blurb: "Different exponentials, three classes of model, the specialization thesis, and a set of open questions for the next two years.",
-    keywords: "different exponentials three classes specialization small models adoption dashboard what comes next open questions" }
+  {
+    "id": "primer",
+    "num": "0",
+    "part": "Primer",
+    "file": "chapters/00-primer.html",
+    "title": "How Language Models Work",
+    "minutes": 7,
+    "blurb": "A model release is easier to understand when you can follow what changes during training and what stays fixed when someone uses it. The useful starting point is a pipeline, not a leaderboard.",
+    "keywords": "Annotate a pipeline with data, learned parameters, post-training and inference. Distinguish a training objective from a deployment feature. Identify which release artefacts support running, adapting or investigating a model.  A model is an artefact inside a system \n Imagine a fictional library assistant, Alder. The application receives a question, retrieves a passage from a manual, sends both to a language model and displays a response. The model is one component: retrieval chooses material, the application decides permissions, and the interface decides what readers see. If a response improves after replacing the search index, that is not evidence that the model learned new weights. \n Text is represented as tokens: units selected by a tokenizer. Training adjusts numerical parameters so the model performs better under an objective. In an autoregressive language model, generation repeatedly predicts a next token from the available context. A convincing continuation is not a guarantee that a statement is true. A system may add tools, retrieval, verification and human review around that loop. \n  Vaswani and coll",
+    "quizId": "primer-v2"
+  },
+  {
+    "id": "openness",
+    "quizId": "openness-v2",
+    "num": "1",
+    "part": "Primer",
+    "file": "chapters/01-what-open-means.html",
+    "title": "What 'Open' Means",
+    "minutes": 20,
+    "blurb": "Assess a release through access, artefacts, permissions, and missing evidence. Worked and practice cases distinguish open weights, OSI requirements, and research transparency.",
+    "keywords": "open weights open source fully open license gradient of release Solaiman OSI MIT Apache Llama license staged release API"
+  },
+  {
+    "id": "foundations",
+    "num": "2",
+    "part": "Foundations",
+    "file": "chapters/02-foundations.html",
+    "title": "Why Anyone Builds Open Models",
+    "minutes": 30,
+    "blurb": "Strategy, economics and values: Gurley's open-source strategy, Zuckerberg's Linux analogy, Catalini's innovation economics, and the case from inside Ai2.",
+    "keywords": "Gurley open source strategy Android Kubernetes Zuckerberg Linux Catalini economics complementary assets Lambert why I build Ai2 commoditize"
+  },
+  {
+    "id": "safety",
+    "num": "3",
+    "part": "Foundations",
+    "file": "chapters/03-safety-and-data.html",
+    "title": "Risk, Safety and the Data Commons",
+    "minutes": 30,
+    "blurb": "Marginal risk, the nonproliferation debate, staged releases, whether open models are actually less safe, and the shrinking pool of training data.",
+    "keywords": "marginal risk Kapoor societal impact Toner nonproliferation adaptation buffer Thinking Machines safe path Brand myth unsafe Consent in Crisis robots.txt data commons"
+  },
+  {
+    "id": "lineage",
+    "num": "4",
+    "part": "History",
+    "file": "chapters/04-lineage.html",
+    "title": "The Lineage of Open Models",
+    "minutes": 35,
+    "blurb": "From GPT-2's staged release through Pythia, Llama, OLMo, DeepSeek R1, and the 2026 Chinese frontier: who released what, when, and why it mattered.",
+    "keywords": "Pythia EleutherAI BLOOM Llama Mistral OLMo Olmo 2 Olmo 3 DeepSeek V3 R1 Qwen Kimi K2 K3 GLM-4.5 GLM-5 GPT-OSS Nemotron Muse Spark Meta retreat timeline"
+  },
+  {
+    "id": "us-china",
+    "num": "5",
+    "part": "History",
+    "file": "chapters/05-us-china.html",
+    "title": "US–China Competition",
+    "minutes": 35,
+    "blurb": "How China's open-source culture was built over twenty years, why Chinese labs now lead open weights, the ATOM Project, and the congressional probes of 2026.",
+    "keywords": "China open source history Alibaba De-IOE Huawei Kaiyuanshe Kevin Xu structural advantage ATOM project Moolenaar Garbarino Airbnb Anysphere Cursor DoorDash Perplexity Thomson Reuters Apple Alibaba"
+  },
+  {
+    "id": "gap",
+    "num": "6",
+    "part": "Science",
+    "file": "chapters/06-measuring-the-gap.html",
+    "title": "Measuring the Gap",
+    "minutes": 6,
+    "blurb": "“How far behind?” sounds like one question. It can mean a score difference, a delay to a threshold, or a gap in useful work at a given cost. A good comparison begins by choosing which question matters.",
+    "keywords": "Calculate a score and a threshold delay from a small documented example. Explain how evaluation and aggregation choices change a comparison. Specify evidence needed before applying a benchmark result to a decision.  Choose the quantity before choosing the chart \n A benchmark is a task collection and scoring rule. A result also belongs to a model version, prompt format, sampling configuration and environment. Giving one model tools or more attempts changes the comparison. A careful record includes those choices, the evaluation date, missing results and uncertainty. The country or licence of a model cannot substitute for this information. \n A difference of ten percentage points is not a delay of ten months. A delay needs a threshold and dated observations. A cost comparison needs units: per token, per attempt, per successful task or full operating expenditure. If different tasks have different error costs, an average can hide the failure you most care about. \n\n SemiAnalysis: compare within an era \n  SemiAnalysis’s “Are Open Models Catching Up?”  divides its analysis into early scaling, reasoning and ",
+    "quizId": "gap-v2"
+  },
+  {
+    "id": "distillation",
+    "num": "7",
+    "part": "Science",
+    "file": "chapters/07-distillation.html",
+    "title": "Distillation and Synthetic Data",
+    "minutes": 7,
+    "blurb": "Distillation describes an information flow. The same word can cover authorised model compression, synthetic training examples and allegations of abusive access. Keep the mechanism, the permission question and the measured benefit separate.",
+    "keywords": "Trace teacher–student information flow and locate the training stage. Separate a company allegation from demonstrated causal uplift. Design a controlled comparison of teacher-assisted training.  A teacher supplies a training signal \n  Hinton, Vinyals and Dean’s 2015 paper  develops compression from an ensemble into a single model. The broader teacher–student idea asks what information one model supplies to another. It does not require the student to copy the teacher’s architecture, and it does not by itself specify how the teacher was accessed. \n In a response-based workflow, prompts go to a teacher; selected answers become examples used to train a student. In probability matching, the student learns from a teacher’s distribution over outputs rather than only a selected answer. Access to those probabilities need not mean access to the teacher’s weights: the interface might expose them. Conversely, a text-only service may not expose the information a particular method needs. \n Synthetic data is the wider category. It can supply questions, answers, preferences, tests or candidate",
+    "quizId": "distillation-v2"
+  },
+  {
+    "id": "security",
+    "num": "8",
+    "part": "Policy",
+    "file": "chapters/08-security-and-policy.html",
+    "title": "Security, Cyber and the Regulatory Fight",
+    "minutes": 30,
+    "blurb": "The OpenAI/Hugging Face incident, autonomous hacking, Saxe's observatory proposal, executive-order threats, and Lambert's 'six months to live'.",
+    "keywords": "cybersecurity OpenAI Hugging Face incident Saxe observatory autonomous hacking Mythos executive order entity list six months to live vibe regulation ban"
+  },
+  {
+    "id": "synthesis",
+    "num": "9",
+    "part": "Policy",
+    "file": "chapters/09-synthesis.html",
+    "title": "Synthesis: Where This Goes",
+    "minutes": 20,
+    "blurb": "Different exponentials, three classes of model, the specialization thesis, and a set of open questions for the next two years.",
+    "keywords": "different exponentials three classes specialization small models adoption dashboard what comes next open questions"
+  }
 ];
 
 OMT.extraPages = [
@@ -224,4 +298,53 @@ OMT.timeline = [
   { d: "2026-08", cat: "business", t: "Thomson Reuters ships 'Thomson'", p: "Built on 'Snowdon', a reworked Qwen, for ~$40M over two years, to depend less on Anthropic." },
   { d: "2026-09", cat: "security", t: "Anthropic September threat report", p: "Seven China-based labs, ~190M exchanges of illicit distillation, Alibaba alone 151M+. Also autonomous cyber campaigns and influence-as-a-service." },
   { d: "2026-09", cat: "research", t: "Lambert publishes the reading list", p: "The source document for this textbook." }
+];
+
+OMT.charts = [
+  {
+    "id": "task-scores",
+    "kind": "fictional",
+    "title": "Fictional correct answers out of ten per task",
+    "provenance": "Authored teaching data; Alder and Birch are fictional, not aliases for real models.",
+    "reviewed_on": "2026-09-16",
+    "unit": "percent correct",
+    "transformation": "100 * correct / total; weighted = w * manuals + (1-w) * arithmetic",
+    "rows": [
+      {
+        "label": "Alder",
+        "manuals": 8,
+        "arithmetic": 4,
+        "total": 10
+      },
+      {
+        "label": "Birch",
+        "manuals": 6,
+        "arithmetic": 8,
+        "total": 10
+      }
+    ]
+  },
+  {
+    "id": "threshold-delay",
+    "kind": "fictional",
+    "title": "Fictional first crossings of fixed task thresholds",
+    "provenance": "Authored teaching data; Harbor and Meadow are fictional. Months are offsets, not calendar release dates.",
+    "reviewed_on": "2026-09-16",
+    "unit": "months",
+    "transformation": "Meadow crossing month minus Harbor crossing month",
+    "rows": [
+      {
+        "label": "Manual task",
+        "threshold": 70,
+        "harbor": 0,
+        "meadow": 4
+      },
+      {
+        "label": "Arithmetic task",
+        "threshold": 70,
+        "harbor": 1,
+        "meadow": 7
+      }
+    ]
+  }
 ];

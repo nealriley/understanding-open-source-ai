@@ -18,88 +18,49 @@
       <div class="chapter-kicker">Chapter 6 · Science</div>
       <h1>Measuring the Gap</h1>
       <div class="chapter-meta" id="chapter-meta"></div>
-<p class="lede">"How far behind are open models?" sounds like a question with a number for an answer. In 2026 the honest answers range from three months to eighteen, and the spread is not sloppiness: it depends on which benchmarks you trust, whether you measure from release date or training date, and whether you think a benchmark measures anything a customer cares about. This chapter walks through the three serious measurement efforts and what each one is actually measuring.</p>
+<p>“How far behind?” sounds like one question. It can mean a score difference, a delay to a threshold, or a gap in useful work at a given cost. A good comparison begins by choosing which question matters.</p>
+<p><b>Prerequisite check.</b> Using Chapters 0 and 1, distinguish a checkpoint from a hosted product and weights access from capability. Explain why changing a tool harness could change an evaluation result.</p>
+<section class="objectives" id="learning-outcomes"><h2>By the end</h2><ul><li id="outcome-1">Calculate a score and a threshold delay from a small documented example.</li><li id="outcome-2">Explain how evaluation and aggregation choices change a comparison.</li><li id="outcome-3">Specify evidence needed before applying a benchmark result to a decision.</li></ul></section><p><small>Real-world cases reviewed 16 September 2026. Publication dates identify historical evidence, not current rankings or rules. Practice cases are fictional.</small></p>
+<h2 id="why-hard">Choose the quantity before choosing the chart</h2>
+<p>A benchmark is a task collection and scoring rule. A result also belongs to a model version, prompt format, sampling configuration and environment. Giving one model tools or more attempts changes the comparison. A careful record includes those choices, the evaluation date, missing results and uncertainty. The country or licence of a model cannot substitute for this information.</p>
+<p>A difference of ten percentage points is not a delay of ten months. A delay needs a threshold and dated observations. A cost comparison needs units: per token, per attempt, per successful task or full operating expenditure. If different tasks have different error costs, an average can hide the failure you most care about.</p>
 
-<div class="objectives"><h4>What you will be able to do</h4><ul>
-<li>Explain SemiAnalysis's three-era method and its headline result.</li>
-<li>Explain Ihle's threshold method and why private benchmarks show a bigger gap.</li>
-<li>Reconcile these with Lambert's "perpetual catch-up" and "different exponentials" positions.</li>
-<li>Explain benchmark saturation, hill-climbing and the product-versus-benchmark distinction.</li>
-</ul></div>
+<h2 id="semianalysis">SemiAnalysis: compare within an era</h2>
+<p><a data-claim="CL-19" href="https://newsletter.semianalysis.com/p/are-open-models-catching-up">SemiAnalysis’s “Are Open Models Catching Up?”</a> divides its analysis into early scaling, reasoning and agentic periods. Its method uses selected benchmarks and model versions; the authors normalise scores and combine them within an era. They also caution that benchmark results need not match their own product preferences. This is a methodological argument for suitable tests, not proof of a universal halving law.</p>
+<p>Changing the benchmark set may make each period more meaningful while preventing a straightforward comparison of the numerical indices across periods. Ask whether a reported trend survives different model selections, weights and baseline dates. The teaching data below are entirely fictional and are not a reconstruction of that article.</p>
 
-<h2 id="why-hard">1. Why the number is contested</h2>
-<p>Three methodological choices drive most of the disagreement.</p>
-<ol>
-<li><b>Which benchmarks.</b> Public <dfn data-term="benchmark">benchmarks</dfn> can be contaminated (the test data leaks into training) and hill-climbed (labs tune for them). Lambert's example: SWE-bench is "almost 3/4 Django", so a model can look like a great software engineer by being a great Django engineer. Private benchmarks avoid this but are fewer and harder to audit.</li>
-<li><b>Which dates.</b> A closed model is typically trained months before release (GPT-4: 218 days). Measuring from release date flatters open models, whose Chinese builders ship within days of finishing training.</li>
-<li><b>Which direction.</b> Do you ask "when did an open model first reach the level a closed model reached on date X?" or "on the day an open model was released, how old was the closed model it matched?" Ihle argues the second (backward-looking) is less biased.</li>
-</ol>
+<h2 id="practice-data">A transparent fictional comparison</h2>
+<p>Alder and Birch are fictional systems tested on ten manual questions and ten arithmetic questions, with one attempt each. Alder answers 8 manual and 4 arithmetic questions correctly; Birch answers 6 and 8. On an equally weighted average, Alder scores 60% and Birch 70%. For a manual-heavy workflow, weighting manuals at 80% gives Alder 72% and Birch 64%. The ranking reverses because the objective changes, not because either measurement changed.</p>
+<div class="widget" id="gap-widget" data-chart="task-scores"><h3>Fictional task weighting</h3><div class="chart-controls"></div><div class="bars" aria-hidden="true"></div><p class="note" aria-live="polite"></p><div class="data-table"><!-- data:task-scores --><div class="table-scroll"><table><caption>Fictional correct answers out of ten per task</caption><thead><tr><th scope="col">Fictional system</th><th scope="col">Manual correct / total</th><th scope="col">Arithmetic correct / total</th><th scope="col">Equal mean (%)</th><th scope="col">80% manual mean (%)</th></tr></thead><tbody><tr><th scope="row">Alder</th><td>8 / 10</td><td>4 / 10</td><td>60</td><td>72</td></tr><tr><th scope="row">Birch</th><td>6 / 10</td><td>8 / 10</td><td>70</td><td>64</td></tr></tbody></table></div><p class="small">Authored teaching data; Alder and Birch are fictional, not aliases for real models. Reviewed 2026-09-16. Calculation: 100 * correct / total; weighted = w * manuals + (1-w) * arithmetic.</p><!-- /data:task-scores --></div></div><p>Ten questions per task are a small teaching sample, not a reliable estimate of deployment performance. These exact percentages describe the invented results only. A real study needs representative held-out questions, repeated runs where outputs vary, and an account of sampling uncertainty. A higher mean does not establish that a small difference is robust.</p>
 
-<h2 id="semianalysis">2. SemiAnalysis: three eras, halving catch-up</h2>
-<p>SemiAnalysis's August 2026 analysis <a href="https://newsletter.semianalysis.com/p/are-open-models-catching-up">"Are Open Models Catching Up?"</a> picks representative models and era-appropriate benchmarks, normalises for difficulty, and computes composite scores with open models run on vLLM and closed models pinned to API versions. Use the widget to explore each era.</p>
+<h2 id="ihle">Ihle: match a threshold across release dates</h2>
+<p><a data-claim="CL-20" href="https://www.lesswrong.com/posts/rJcCrXyEsJKmmDpWG/how-far-behind-are-open-models">Håvard Tveit Ihle’s 28 May 2026 analysis</a> measures time between closed and open models crossing selected score thresholds. He distinguishes backward-looking gaps from predictions about when a present leader will be matched. His caveats include missing model tests and possible serving-provider degradation. His results and SemiAnalysis’s era composites need not answer the same question.</p>
+<p>In the fictional record below, Harbor reaches a fixed threshold in month 0; Meadow first reaches it in month 4. That is a four-month observed delay. On a different task, the first crossings are month 1 and month 7: six months. Their equal average is five months, but a manuals-only user cares about the four-month result. “Not yet observed” would be missing or censored data, never a zero-month gap.</p>
+<div class="widget" id="catchup-widget" data-chart="threshold-delay"><h3>Fictional threshold crossings</h3><div class="bars" aria-hidden="true"></div><div class="data-table"><!-- data:threshold-delay --><div class="table-scroll"><table><caption>Fictional first crossings of fixed task thresholds</caption><thead><tr><th scope="col">Fictional task</th><th scope="col">Threshold (%)</th><th scope="col">Harbor first month</th><th scope="col">Meadow first month</th><th scope="col">Delay (months)</th></tr></thead><tbody><tr><th scope="row">Manual task</th><td>70</td><td>0</td><td>4</td><td>4</td></tr><tr><th scope="row">Arithmetic task</th><td>70</td><td>1</td><td>7</td><td>6</td></tr></tbody></table></div><p class="small">Authored teaching data; Harbor and Meadow are fictional. Months are offsets, not calendar release dates. Reviewed 2026-09-16. Calculation: Meadow crossing month minus Harbor crossing month.</p><!-- /data:threshold-delay --></div></div>
+<h2 id="lambert">Interpretation is another layer</h2>
+<p>A claim of perpetual catch-up can refer to a moving frontier: each time one model reaches an old threshold, another release moves ahead. A fixed-threshold study can report shorter delays while users still prefer a newer product. Before declaring two authors inconsistent, write their quantities as sentences with units, dates and populations. Then identify what evidence would actually contradict each sentence.</p>
 
-<div class="widget" id="gap-widget">
-<h4>Interactive: composite scores by era (SemiAnalysis, Aug 2026)</h4>
-<div class="toggle-row"><button data-era="era1">Era 1 · Scaling</button><button data-era="era2">Era 2 · Reasoning</button><button data-era="era3">Era 3 · Agentic</button></div>
-<div class="era-title sans" style="font-weight:600;margin-bottom:.6rem"></div>
-<div class="bars"></div>
-<div class="legend"><span><i style="background:var(--accent-2)"></i>Closed</span><span><i style="background:var(--accent)"></i>Open weights</span></div>
-<p class="note small muted" style="margin-top:.8rem"></p>
-</div>
+<details class="technical"><summary>Optional depth: normalisation, uncertainty and missing data</summary><p>For task scores x and y, a weighted mean is w×x + (1−w)×y. The fictional slider varies w, not the underlying observations. Normalising each benchmark by its observed maximum creates an index whose denominator changes if a stronger model enters the comparison. Do not interpret such an index as percent of all possible intelligence. Confidence intervals require a stated sampling procedure; invented error bars would be worse than an explicit limitation.</p>
+</details>
+<h2 id="dashboards">Read a dashboard as a dated method</h2>
+<p>A live dashboard can help locate candidate models, but preserve a snapshot and read its method before using a result in a memo. Record the evaluation version, inclusion rules, update date and price assumptions. This book does not load live results. Its fictional exercises remain reproducible as the market changes.</p>
 
-<p>The headline is that the time for open models to reach the closed frontier "halves with each new era": roughly 18 months in the scaling era (Llama-3.1-405B vs GPT-4o), 8.5 months in the reasoning era (R1-0528 vs the o1 line), and 4.8–6 months in the agentic era (Kimi K2.6 and GLM-5.2 vs Claude Opus 4.5). This happened even though frontier labs accelerated: the average interval between frontier releases fell to 51 days from 120–213. Two further claims matter for the rest of the book. First, the early open catch-ups (Llama 2, even R1) produced little economic value, whereas GLM-5.3 and Kimi K3 are "genuinely capable" at paid coding and agent work. Second, product beats benchmarks: Anthropic's ARR grew to "north of $65B" after Claude Code's May 2025 launch despite Kimi K3 matching or beating Claude on several benchmarks.</p>
-<p>The authors' own caveats: benchmarks suffer memorisation and hill-climbing, are weak proxies for real work, and closed labs' safety-testing delays can inflate apparent catch-up speed.</p>
+<h2 id="pareto">Choose for the task</h2>
+<p>Suppose one option is cheaper but makes more consequential errors. Neither is automatically best. A Pareto comparison identifies options that another option does not beat on every chosen objective; the decision still requires priorities. Evaluate cost per acceptable completed task and the burden of review. A model that leads a broad index might be unsuitable for a local, sensitive-document workflow.</p>
 
-<h2 id="ihle">3. Ihle: thresholds on 17 benchmarks</h2>
-<p>Håvard Tveit Ihle's May 2026 LessWrong post <a href="https://www.lesswrong.com/posts/rJcCrXyEsJKmmDpWG/how-far-behind-are-open-models">"How far behind are open models?"</a> uses a different method. Across 17 benchmarks from the Epoch AI Benchmarking Hub (about 110 data points; 8 private, 9 public), he sets score thresholds at 5% intervals and measures the time between a closed model first crossing each threshold and an open model doing so, assigning each gap to the open model's release date.</p>
-<div class="stat-row">
-<div class="stat"><b>8–10 mo</b><span>gap on private benchmarks</span></div>
-<div class="stat"><b>4–6 mo</b><span>gap on public benchmarks</span></div>
-<div class="stat"><b>Jan 2025</b><span>when the gap was smallest (R1)</span></div>
-<div class="stat"><b>~50%</b><span>by which public benchmarks may understate the gap</span></div>
-</div>
-<p>The public/private split is the key finding: on evaluations labs cannot see, the gap is roughly double what the leaderboards show, and it has widened since the R1 moment. Ihle also notes that third-party inference providers sometimes serve open models in degraded configurations, and that on real-world tasks the gap is probably larger still, because open developers "may inadvertently optimize for benchmark-like tasks". He discloses that Claude Opus 4.7 assisted with code and research.</p>
+<h2 id="practice">Put the argument to work</h2>
+<p>Recalculate the equal and 80%-manual averages for Alder and Birch. Calculate both threshold delays. Explain why “Birch wins” and “Alder fits our manual-heavy workload better” can both follow from these data. Propose one further evaluation and one limitation that would enter your memo.</p>
 
-<h2 id="lambert">4. Lambert: perpetual catch-up, then compression</h2>
-<p>Lambert's position moved during 2026, which is itself informative.</p>
-<ul>
-<li><b>February ("Open models in perpetual catch-up")</b>: after GLM-5, the gap is a stable ~6 months and open models "are not meaningfully accelerating towards matching the best closed models in absolute performance". Public benchmarks compress complexity and the true gap is larger. Open models would need a 100×+ cost advantage to win the frontier outright.</li>
-<li><b>March ("What comes next with open models")</b>: "6–18 months behind", likely to widen, because modern AI is a system (tools, inference stack, interface) that closed labs vertically integrate. The opportunity is specialised small models, "10× faster, 100× cheaper", not frontier chasing.</li>
-<li><b>June (GLM-5.2)</b>: 6–9 months, but GLM-5.2 is the first open model that "feels right" as a coding agent, which changes the economics.</li>
-<li><b>July (Kimi K3)</b>: "compressed from 6–9 months to approximately 3–5 months".</li>
-</ul>
+<details id="practice-feedback"><summary>Compare your reasoning with the feedback</summary><p>Equal means are Alder 60 and Birch 70. Manual-heavy means are 0.8×80+0.2×40=72 and 0.8×60+0.2×80=64. Delays are 4−0=4 and 7−1=6 months. The ranking depends on the task weights; the delays answer another question entirely. Test held-out manuals representative of your organisation, inspect consequential errors and repeat unstable runs. The invented sample cannot justify a claim about real models or market trends.</p>
+</details><p>Use these comparison rules in <a href="07-distillation.html">Chapter 7</a> to distinguish observed improvement from a causal effect.</p>
+<h2 id="knowledge-check">Check and explain</h2>
+<p>Choose an answer, then read why. The application above is the main assessment; these questions diagnose common errors.</p>
 
-<div class="widget" id="catchup-widget">
-<h4>Interactive: every estimate of the gap in one place (months)</h4>
-<div class="bars"></div>
-<p class="small muted" style="margin-top:.6rem">Bars show the midpoint where a source gives a range. Sources: SemiAnalysis (Aug 2026), Ihle (May 2026), Lambert (Feb–Jul 2026).</p>
-</div>
-
-<p>The reconciliation is that the three sources measure different things. SemiAnalysis measures time-to-parity on era-defining public benchmarks, where Chinese labs' speed and benchmark focus show to best advantage. Ihle measures across a broad benchmark set including private ones, where hill-climbing is impossible. Lambert measures the felt experience of using the models in products, which lagged benchmarks until GLM-5.2 and then caught up fast. All three agree on the shape: a gap that shrank sharply at R1, widened during 2025, and compressed again in mid-2026 on the agentic axis specifically.</p>
-
-<h2 id="dashboards">5. The live dashboards</h2>
-<p>Three public trackers let you check the current state rather than trusting an essay:</p>
-<ul>
-<li><a href="https://artificialanalysis.ai/trends#progress-in-open-weights-vs-proprietary-intelligence">Artificial Analysis</a> maintains an Intelligence Index and plots open-weights versus proprietary progress and <a href="https://artificialanalysis.ai/trends?country=us%2Ccn#frontier-language-model-intelligence-by-country-over-time">US versus China</a> over time. In its July 2026 evaluation, DeepSeek V4 Flash 0731 scored 50, one point behind GPT-5.6 Luna, tied with Gemini 3.6 Flash, and seven behind Kimi K3 (57), at $0.14 per million input tokens.</li>
-<li><a href="https://epoch.ai/benchmarks/eci?view=graph&tab=release-date&subset-view=graph&subset-tab=Software+engineering&showFrontierTrend=true&colorCategorization=Accessibility">Epoch AI's ECI benchmark</a> can be filtered by accessibility (open vs closed) and by software-engineering tasks.</li>
-<li>The <a href="https://dashboard.interconnects.ai/">Interconnects Adoption Dashboard</a> tracks the ATOM Report's adoption series.</li>
-</ul>
-
-<h2 id="pareto">6. Frontier versus Pareto frontier</h2>
-<p>The reading list's own summary captures the resolution: open models "achieve the <dfn data-term="pareto-frontier">Pareto cost frontier</dfn>, not the absolute performance frontier". At any capability level below the very top, the cheapest way to get it is an open model served competitively. This is a stable equilibrium as long as (a) closed labs keep a lead worth paying for on the hardest tasks, and (b) open labs keep releasing. Chapter 9 asks what happens to each condition.</p>
-
-<div class="callout idea"><span class="label">Key idea</span><b>Benchmarks measure catch-up; revenue measures the frontier.</b> Kimi K3 matched or beat Claude on several leaderboards in July 2026. Anthropic's revenue kept growing. The difference is the product, the harness, the reliability on long agentic tasks, and trust, none of which a static benchmark captures. Any gap estimate that ignores this will make open models look closer than customers feel they are.</div>
-
-<details class="callout think"><summary>Think about it: what would falsify "perpetual catch-up"?</summary>
-<p>Lambert's thesis predicts open models never lead in absolute terms. It would be falsified by an open model topping a broad, private, contamination-resistant evaluation for a sustained period, or by a closed lab exiting the frontier. SemiAnalysis's halving trend, extrapolated, reaches zero within two eras; whether the trend continues or floors at the safety-testing delay is the empirical question to watch.</p></details>
-
-<script type="application/json" data-quiz="gap">[
-{"q":"SemiAnalysis's headline finding is that open-model catch-up time:","a":["Is constant at six months","Roughly halves each era, from ~18 months to ~5","Is increasing","Cannot be measured"],"c":1,"x":"Era 1 (~18 mo, Llama-3.1-405B), Era 2 (~8.5 mo, R1-0528), Era 3 (~4.8–6 mo, K2.6/GLM-5.2), despite frontier labs shipping every ~51 days."},
-{"q":"Why does Ihle find a larger gap on private benchmarks?","a":["Private benchmarks are harder","Open developers cannot hill-climb on evaluations they cannot see","Closed labs cheat on public ones","Private benchmarks favour English"],"c":1,"x":"8–10 months private vs 4–6 public. Public benchmarks may understate the true gap by about half."},
-{"q":"Lambert's 'perpetual catch-up' thesis claims:","a":["Open models will overtake closed ones by 2027","Open models track the frontier at a roughly stable lag and do not accelerate toward matching it in absolute terms","The gap is zero","Benchmarks are meaningless"],"c":1,"x":"Written after GLM-5 in February 2026; by July he judged the lag had compressed to 3–5 months on the agentic axis, but still a lag."},
-{"q":"'Open models own the Pareto cost frontier' means:","a":["Open models are the best at everything","At most capability levels, the cheapest way to get that capability is an open model","Open models are always cheaper to train","Closed models are never used"],"c":1,"x":"Closed models hold the absolute top; open models hold the price-performance frontier below it, because anyone can serve them."}
-]</script>
-      <div class="complete-row" id="complete-row"></div>
+<script type="application/json" data-quiz="gap-v2">[{"q": "Alder scores 80 on manuals and 40 on arithmetic. What is its 80%-manual average?", "a": ["60", "72", "80"], "c": 1, "x": "0.8×80 + 0.2×40 = 72. The weight expresses the intended task mix."}, {"q": "One threshold is first reached in months 1 and 7. What is the observed delay?", "a": ["6 months", "7 months", "A prediction that all gaps close in 6 months"], "c": 0, "x": "7−1=6 for this threshold and observed pair; this does not predict future releases."}, {"q": "Two models were tested with different tool access. What is the next step?", "a": ["Treat the score difference as an intrinsic model gap.", "Match the conditions or explicitly compare the full systems."], "c": 1, "x": "Tool access is part of the intervention; a model-only claim needs controlled conditions."}]</script>
+<noscript><details><summary>Alder scores 80 on manuals and 40 on arithmetic. What is its 80%-manual average?</summary><p>72. 0.8×80 + 0.2×40 = 72. The weight expresses the intended task mix.</p>
+</details><details><summary>One threshold is first reached in months 1 and 7. What is the observed delay?</summary><p>6 months. 7−1=6 for this threshold and observed pair; this does not predict future releases.</p>
+</details><details><summary>Two models were tested with different tool access. What is the next step?</summary><p>Match the conditions or explicitly compare the full systems.. Tool access is part of the intervention; a model-only claim needs controlled conditions.</p>
+</details></noscript>      <div class="complete-row" id="complete-row"></div>
       <nav class="chapter-nav" id="chapter-nav" aria-label="Chapter navigation"></nav>
     </article></main>
     <footer class="footer">Open Models: A Field Guide · Sources are linked inline and collected in the <a href="../reading-list.html">reading list</a>.</footer>

@@ -263,11 +263,24 @@
 
   function setupGapWidget() {
     const w = document.getElementById("gap-widget"); if (!w) return;
-    w.innerHTML = '<p>Historical numerical series withdrawn pending provenance review. The revised exercise will distinguish reported measurements from fictional practice data.</p>';
+    const data = OMT.charts.find(c => c.id === "task-scores");
+    w.querySelector(".chart-controls").innerHTML = '<label for="manual-weight">Manual-task weight: <output id="weight-value">50%</output></label><input id="manual-weight" type="range" min="0" max="100" step="10" value="50">';
+    const input = w.querySelector("input");
+    function render() {
+      const weight = Number(input.value) / 100;
+      w.querySelector("output").textContent = input.value + "%";
+      input.setAttribute("aria-valuetext", input.value + "% manuals, " + (100-Number(input.value)) + "% arithmetic");
+      const scores = data.rows.map(r => ({label:r.label, value:100 * (weight*r.manuals+(1-weight)*r.arithmetic)/r.total}));
+      w.querySelector(".bars").innerHTML = scores.map(r => `<div class="bar open"><span>${r.label}</span><div class="track"><div class="fill" style="width:${r.value}%"></div></div><span class="val">${r.value.toFixed(1)}%</span></div>`).join("");
+      w.querySelector(".note").textContent = `Fictional weighted means (${input.value}% manuals): ` + scores.map(r => `${r.label} ${r.value.toFixed(1)}%`).join("; ") + ". The underlying observations are unchanged; the static table gives the two worked examples.";
+    }
+    input.addEventListener("input", render); render();
   }
   function setupCatchupWidget() {
-    const w = document.getElementById("catchup-widget");
-    if (w) w.innerHTML = '<p>Do not average estimates that answer different questions. See the evidence register for the retired series.</p>';
+    const w = document.getElementById("catchup-widget"); if (!w) return;
+    const data = OMT.charts.find(c => c.id === "threshold-delay");
+    const max = Math.max(...data.rows.map(r => r.meadow-r.harbor));
+    w.querySelector(".bars").innerHTML = data.rows.map(r => `<div class="bar open"><span>${r.label}</span><div class="track"><div class="fill" style="width:${100*(r.meadow-r.harbor)/max}%"></div></div><span class="val">${r.meadow-r.harbor} mo</span></div>`).join("");
   }
 
   /* ---- init ---- */

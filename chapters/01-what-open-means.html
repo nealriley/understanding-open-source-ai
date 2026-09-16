@@ -18,6 +18,7 @@
       <div class="chapter-kicker">Chapter 1 · Primer</div>
       <h1>What 'Open' Means</h1>
       <div class="chapter-meta" id="chapter-meta"></div>
+<p><small>Release documents and historical cases reviewed 16 September 2026. Assess the exact version; permissions and available artefacts can change.</small></p>
 <p class="lede">A team says its model is “open.” Can you run it yourself, change it, share it, or investigate how it was trained? Those are different questions. This chapter teaches you to turn the label into a checkable description of a particular release.</p>
 
 <section class="objectives" aria-labelledby="learning-outcomes"><h2 id="learning-outcomes">What you will be able to do</h2><ul>
@@ -31,7 +32,7 @@
 </ul></nav>
 
 <h2 id="gradient">1. Start with access</h2>
-<p>Irene Solaiman's <a href="https://arxiv.org/abs/2302.04844">2023 release framework</a> describes six access levels, from a system kept inside a lab to a fully open release. It helps us ask who can interact with a system and how much control the provider retains. The levels describe release arrangements, not a ranking of model quality or a licence certification.</p>
+<p>Irene Solaiman's <a data-claim="CL-28" href="https://arxiv.org/abs/2302.04844">2023 release framework</a> describes six access levels, from a system kept inside a lab to a fully open release. It helps us ask who can interact with a system and how much control the provider retains. The levels describe release arrangements, not a ranking of model quality or a licence certification.</p>
 <div class="widget" id="gradient-widget">
 <h3>Explore the release gradient</h3>
 <p>Move the slider with the arrow keys or pointer. The descriptions below are teaching summaries; real releases can combine arrangements.</p>
@@ -46,10 +47,10 @@
 <h3>Open weights: a distribution description</h3>
 <p>In this book, <dfn data-term="open-weights">open weights</dfn> means that trained parameters are available to download. Check separately whether the release includes what is needed to run them, what its terms permit, and what hardware is required. A weights file alone does not disclose the training process.</p>
 <h3>Open Source AI: a specified definition</h3>
-<p>The <a href="https://opensource.org/ai/open-source-ai-definition">OSI Open Source AI Definition 1.0</a> combines freedoms to use, study, modify, and share with access to the preferred form for modification. For machine-learning systems, it specifies data information, code, and parameters, with requirements on their terms. A permissive licence on one file does not establish that the complete release meets the definition.</p>
-<p>The data requirement is more precise than “publish every raw training file.” OSI's <a href="https://opensource.org/ai/faq">FAQ on data</a> distinguishes shareable, public, obtainable, and unshareable data. It also explains that the definition does not mandate full reproducibility. Check the actual disclosures against the definition; neither a missing raw dataset nor a marketing label is a sufficient assessment.</p>
+<p>The <a data-claim="CL-29" href="https://opensource.org/ai/open-source-ai-definition">OSI Open Source AI Definition 1.0</a> combines freedoms to use, study, modify, and share with access to the preferred form for modification. For machine-learning systems, it specifies data information, code, and parameters, with requirements on their terms. A permissive licence on one file does not establish that the complete release meets the definition.</p>
+<p>The data requirement is more precise than “publish every raw training file.” OSI's <a data-claim="CL-30" href="https://opensource.org/ai/faq">FAQ on data</a> distinguishes shareable, public, obtainable, and unshareable data. It also explains that the definition does not mandate full reproducibility. Check the actual disclosures against the definition; neither a missing raw dataset nor a marketing label is a sufficient assessment.</p>
 <h3>Research transparency: ask what can be studied</h3>
-<p>The <a href="https://arxiv.org/abs/2402.00838">OLMo paper</a> describes releasing training data and training and evaluation code alongside weights. <a href="https://arxiv.org/abs/2304.01373">Pythia</a> provides checkpoints across training and tools to reconstruct the training data order. These artefacts support investigations that final weights alone cannot support. They do not remove the need for computing resources or a reproducible environment.</p>
+<p>The <a data-claim="CL-06" href="https://arxiv.org/abs/2402.00838">OLMo paper</a> describes releasing training data and training and evaluation code alongside weights. <a data-claim="CL-07" href="https://arxiv.org/abs/2304.01373">Pythia</a> provides checkpoints across training and tools to reconstruct the training data order. These artefacts support investigations that final weights alone cannot support. They do not remove the need for computing resources or a reproducible environment.</p>
 <p><dfn data-term="fully-open">Fully open</dfn> is used here as shorthand for a broadly documented research release. Always list the actual artefacts. It is not a separate certification, and material transparency and permission to reuse remain separate questions.</p>
 
 <h2 id="licenses">3. Read the permissions for the exact release</h2>
@@ -58,9 +59,9 @@
 <caption>What to inspect in common licence examples</caption>
 <thead><tr><th scope="col">Example</th><th scope="col">Key reading task</th><th scope="col">What it does not establish</th></tr></thead>
 <tbody>
-<tr><th scope="row"><a href="https://opensource.org/license/mit">MIT</a></th><td>Identify the broad grant and the requirement to retain copyright and permission notices.</td><td>That every component in a release uses MIT.</td></tr>
-<tr><th scope="row"><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a></th><td>Read the copyright and patent grants and redistribution conditions, including notices and marking changes.</td><td>That a model's training data and code are available.</td></tr>
-<tr><th scope="row"><a href="https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE">Llama 3.1 Community License</a></th><td>Inspect attribution, incorporated acceptable-use terms, and additional commercial terms. Section 2 ties its 700-million-user condition to the version release date and preceding month.</td><td>That terms for another Llama version are identical.</td></tr>
+<tr><th scope="row"><a data-claim="CL-31" href="https://opensource.org/license/mit">MIT</a></th><td>Identify the broad grant and the requirement to retain copyright and permission notices.</td><td>That every component in a release uses MIT.</td></tr>
+<tr><th scope="row"><a data-claim="CL-32" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a></th><td>Read the copyright and patent grants and redistribution conditions, including notices and marking changes.</td><td>That a model's training data and code are available.</td></tr>
+<tr><th scope="row"><a data-claim="CL-33" href="https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE">Llama 3.1 Community License</a></th><td>Inspect attribution, incorporated acceptable-use terms, and additional commercial terms. Section 2 ties its 700-million-user condition to the version release date and preceding month.</td><td>That terms for another Llama version are identical.</td></tr>
 </tbody></table></div>
 <p>These are reading prompts, not complete summaries of the agreements. “Free to download,” “commercial use permitted,” and “meets a named open-source definition” are different claims.</p>
 

@@ -264,3 +264,12 @@ figcaption { font-family: var(--sans); font-size: .85rem; color: var(--ink-3); m
 .scrim { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 45; display: none; }
 .scrim.open { display: block; }
 @media print { .sidebar, .topbar, .chapter-nav, .complete-row, .sidebar-tools { display: none !important; } .site { display: block; } }
+
+/* Learning activities and static data remain available without scripting. */
+.technical, #practice-feedback { margin:1.4rem 0; padding:1rem; border:1px solid var(--line); border-radius:.4rem; }
+summary { cursor:pointer; font-weight:600; }
+summary:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.table-scroll { overflow-x:auto; max-width:100%; }
+table caption { text-align:left; font-weight:600; padding:.6rem 0; }
+.compat-anchor { display:block; scroll-margin-top:2rem; }
+.chart-controls label { display:block; }
