@@ -15,7 +15,7 @@ def chart_table(c):
     else:
         heads=['Fictional task','Threshold (%)','Harbor first month','Meadow first month','Delay (months)']
         rows=[[r['label'],r['threshold'],r['harbor'],r['meadow'],r['meadow']-r['harbor']] for r in c['rows']]
-    return '<div class="table-scroll"><table><caption>'+escape(c['title'])+'</caption><thead><tr>'+''.join('<th scope="col">'+h+'</th>' for h in heads)+'</tr></thead><tbody>'+''.join('<tr><th scope="row">'+escape(str(r[0]))+'</th>'+''.join('<td>'+escape(str(v))+'</td>' for v in r[1:])+'</tr>' for r in rows)+'</tbody></table></div><p class="small">'+escape(c['provenance'])+' Reviewed '+c['reviewed_on']+'. Calculation: '+escape(c['transformation'])+'.</p>'
+    return '<div class="table-scroll" role="region" aria-label="Scrollable data table" tabindex="0"><table><caption>'+escape(c['title'])+'</caption><thead><tr>'+''.join('<th scope="col">'+h+'</th>' for h in heads)+'</tr></thead><tbody>'+''.join('<tr><th scope="row">'+escape(str(r[0]))+'</th>'+''.join('<td>'+escape(str(v))+'</td>' for v in r[1:])+'</tr>' for r in rows)+'</tbody></table></div><p class="small">'+escape(c['provenance'])+' Reviewed '+c['reviewed_on']+'. Calculation: '+escape(c['transformation'])+'.</p>'
 def main():
     path=ROOT/'chapters/06-measuring-the-gap.html'; text=path.read_text(); new=text
     for c in records('charts'):
@@ -25,8 +25,17 @@ def main():
         else:
             pattern=r'(<div class="widget" id="'+('gap-widget' if c['id']=='task-scores' else 'catchup-widget')+r'"[\s\S]*?<div class="data-table">)</div>'
             new=re.sub(pattern,lambda m:m[1]+replacement+'</div>',new)
+    outputs={path:new}
+    def replace(file, start, end, content):
+        page=ROOT/file; original=page.read_text(); a=original.index(start)+len(start);b=original.index(end,a)
+        outputs[page]=original[:a]+content+original[b:]
+    glossary=''.join('<dt id="'+k+'">'+escape(v[0])+'</dt><dd>'+escape(v[1])+'</dd>' for k,v in sorted(records('glossary').items(),key=lambda kv:kv[1][0]))
+    replace('glossary.html','<dl class="glossary" id="glossary-list">','</dl>',glossary)
+    timeline=''.join('<div class="tl-item cat-'+e['cat']+'" data-claim="'+e['claim_id']+'"><span class="date">'+e['d']+'</span><b>'+escape(e['t'])+'</b><p>'+escape(e['p'])+' <a href="'+e['source']+'">Source</a> · reviewed '+e['reviewed_on']+'</p></div>' for e in records('timeline'))
+    replace('timeline.html','<div class="timeline" id="timeline">','</div>\n    </article>',timeline)
     if '--check' in sys.argv:
-        if new!=text: raise SystemExit('Chart tables are stale: run python3 tools/render_data.py')
-        print('PASS: chart tables match shared records')
-    else: path.write_text(new)
+        if any(p.read_text()!=value for p,value in outputs.items()): raise SystemExit('Static data views are stale: run python3 tools/render_data.py')
+        print('PASS: chart tables, glossary and timeline match shared records')
+    else:
+        for page,value in outputs.items(): page.write_text(value)
 if __name__=='__main__': main()

@@ -273,3 +273,6 @@ summary:focus-visible, a:focus-visible, button:focus-visible, input:focus-visibl
 table caption { text-align:left; font-weight:600; padding:.6rem 0; }
 .compat-anchor { display:block; scroll-margin-top:2rem; }
 .chart-controls label { display:block; }
+@media (max-width:600px) {
+  .table-scroll::before { content:"Table: scroll sideways for more columns."; display:block; font-size:.8rem; color:var(--ink-2); margin-bottom:.4rem; }
+}

@@ -1,38 +1,21 @@
-# Learning-design application
+# Full-book learning design
 
-First application · 16 September 2026 · baseline `bdb4ed0`
+Revision reviewed 16 September 2026, based on merged pilot commit `2e88d1d`.
 
-This pack applies our reusable source-to-learning framework to the existing textbook. It uses the compact content-model form: brief → source inventory → content decisions → outcomes and activities → output coverage → review. The website remains the learner-facing output.
+All ten chapters now have preparation, outcomes, application and feedback. The essay-led narrative distinguishes authors’ arguments from factual support; technical depth is optional. The original pilot records remain historical documents rather than current descriptions of whole-book status.
 
-## Deliverables
+## Authoring records
 
-| File | Use |
-| --- | --- |
-| [Intake](intake.md) | Audience, task, source authority, assumptions, constraints |
-| [Curriculum map](curriculum-map.json) | Ten units, dependencies, outcomes, application tasks, criteria, and output anchors |
-| [Source audit](source-audit.md) | What was inspected, what was verified, and what still needs review |
-| [Source inventory](source-inventory.json) | Baseline chapter sections, objectives, quiz counts, and external links; not a verification certificate |
-| [Pilot map](pilot-map.md) | Chapter 1 source decisions and outcome-to-assessment coverage |
-| [Authoring guide](authoring.md) | Reusable conventions for the next chapter |
-| [Validation](validation.md) | Actual checks and limitations |
+- [Claim register](claim-register.json): stable IDs, source URLs, inspected passages, dates, status, affected locations and decisions.
+- [Cross-book audit](cross-book-audit.md): consequential corrections and review limits.
+- [Curriculum map](curriculum-map.json): dependencies, outcome/task/feedback mappings and quiz versions.
+- [Authoring guide](authoring.md): writing, source and accessibility conventions.
+- [Baseline inventory](source-inventory.json), [pilot source audit](source-audit.md), [pilot map](pilot-map.md) and [pilot validation](validation.md): retained history.
+- Batch validation: [1](validation-01.md), [2](validation-02.md), [3](validation-03.md), [4](validation-04.md), [5](validation-05.md).
+- [Learner-pilot protocol](learner-pilot.md) and [observation sheet](learner-observation.md): prepared for separate recruitment and sessions.
 
-## Reader-facing results
+## Limits and licensing
 
-- [Study guide](../../study-guide.html): routes, ten application tasks with self-checks, and a decision memo.
-- [Chapter 1](../../chapters/01-what-open-means.html): revised explanation, source citations, worked and independent cases, feedback, and application questions.
-- [Chapter 9](../../chapters/09-synthesis.html#decision-memo): points readers to the common final assessment.
+Passage-level source review is not independent replication. The register retains unresolved investigation topics outside learner-facing factual claims and answer keys. Browser and structural checks do not establish accessibility conformance or learner effectiveness. No learner sessions have been conducted for this revision.
 
-## Scope
-
-Chapter 1 is the full pilot. The book-wide map and tasks do not mean the other chapters have received equivalent factual review or pedagogical revision. Their source claims, including changing 2026 events, remain candidates for targeted review. No learner effectiveness result or accessibility conformance is claimed.
-
-No content licence has been chosen on the owner's behalf. Repository hosting alone does not establish open-textbook reuse terms. Choose explicit terms for original prose, code, and any third-party material before describing the book as openly licensed.
-
-## Next application
-
-1. Review the primer's training-stage distinctions and Chapter 7's claims about distillation limits together.
-2. Review Chapter 6's numerical examples against its sources and distinguish illustrative data from reported results.
-3. Verify date-sensitive history and policy claims against original documents before expanding their exercises.
-4. Observe intended readers using Chapter 1 and the final memo; revise based on their explanations, source checks, and navigation problems.
-
-The order follows dependency and evidence needs. It does not require a wholesale rewrite before the existing book can be used for critical reading.
+Content licensing is unchanged. No licence has been selected on the owner’s behalf; public repository hosting does not itself grant open-textbook reuse permissions.

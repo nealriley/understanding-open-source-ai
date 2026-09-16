@@ -1,8 +1,8 @@
 {
-  "version": "0.1",
+  "version": "1.0",
   "reviewed": "2026-09-16",
-  "basis_commit": "bdb4ed0",
-  "note": "Compact application of the common content model. Tasks and criteria are authored additions; source_path identifies the existing textbook unit, not independently verified external evidence. Prerequisites are recommended dependencies. Only Chapter 1 has a complete source-reviewed transformation.",
+  "basis_commit": "2e88d1d",
+  "note": "All ten units revised. Each outcome maps to preparation, application and feedback. Assess interpretive work by evidence and reasoning; learner effectiveness remains untested.",
   "units": [
     {
       "id": "primer",
@@ -26,6 +26,29 @@
         "Annotate a pipeline with data, learned parameters, post-training and inference.",
         "Distinguish a training objective from a deployment feature.",
         "Identify which release artefacts support running, adapting or investigating a model."
+      ],
+      "learning_mappings": [
+        {
+          "outcome_id": "O-00-1",
+          "outcome": "Annotate a pipeline with data, learned parameters, post-training and inference.",
+          "preparation": "chapters/00-primer.html#learning-outcomes",
+          "task": "chapters/00-primer.html#practice",
+          "feedback": "chapters/00-primer.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-00-2",
+          "outcome": "Distinguish a training objective from a deployment feature.",
+          "preparation": "chapters/00-primer.html#learning-outcomes",
+          "task": "chapters/00-primer.html#practice",
+          "feedback": "chapters/00-primer.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-00-3",
+          "outcome": "Identify which release artefacts support running, adapting or investigating a model.",
+          "preparation": "chapters/00-primer.html#learning-outcomes",
+          "task": "chapters/00-primer.html#practice",
+          "feedback": "chapters/00-primer.html#practice-feedback"
+        }
       ]
     },
     {
@@ -49,7 +72,32 @@
       "task_anchor": "practice",
       "feedback_anchor": "practice-feedback",
       "outcomes": [
-        "Assess access, artefacts, permissions, and missing evidence for a specific release."
+        "Describe access, artefacts and permissions separately.",
+        "Assess the difference between downloadable weights and the OSI definition.",
+        "Write a qualified release assessment with missing evidence and a next check."
+      ],
+      "learning_mappings": [
+        {
+          "outcome_id": "O-01-1",
+          "outcome": "Describe access, artefacts and permissions separately.",
+          "preparation": "chapters/01-what-open-means.html#learning-outcomes",
+          "task": "chapters/01-what-open-means.html#practice",
+          "feedback": "chapters/01-what-open-means.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-01-2",
+          "outcome": "Assess the difference between downloadable weights and the OSI definition.",
+          "preparation": "chapters/01-what-open-means.html#learning-outcomes",
+          "task": "chapters/01-what-open-means.html#practice",
+          "feedback": "chapters/01-what-open-means.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-01-3",
+          "outcome": "Write a qualified release assessment with missing evidence and a next check.",
+          "preparation": "chapters/01-what-open-means.html#learning-outcomes",
+          "task": "chapters/01-what-open-means.html#practice",
+          "feedback": "chapters/01-what-open-means.html#practice-feedback"
+        }
       ]
     },
     {
@@ -76,6 +124,29 @@
         "Compare two explanations for a release decision using evidence and alternatives.",
         "Distinguish an author’s strategic argument from a documented action or private motive.",
         "Identify an observation that would change a preferred explanation."
+      ],
+      "learning_mappings": [
+        {
+          "outcome_id": "O-02-1",
+          "outcome": "Compare two explanations for a release decision using evidence and alternatives.",
+          "preparation": "chapters/02-foundations.html#learning-outcomes",
+          "task": "chapters/02-foundations.html#practice",
+          "feedback": "chapters/02-foundations.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-02-2",
+          "outcome": "Distinguish an author’s strategic argument from a documented action or private motive.",
+          "preparation": "chapters/02-foundations.html#learning-outcomes",
+          "task": "chapters/02-foundations.html#practice",
+          "feedback": "chapters/02-foundations.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-02-3",
+          "outcome": "Identify an observation that would change a preferred explanation.",
+          "preparation": "chapters/02-foundations.html#learning-outcomes",
+          "task": "chapters/02-foundations.html#practice",
+          "feedback": "chapters/02-foundations.html#practice-feedback"
+        }
       ]
     },
     {
@@ -103,6 +174,29 @@
         "Analyse a release against an explicit baseline and threat model.",
         "Distinguish observed misuse, capability tests and marginal risk.",
         "Evaluate data-access constraints without confusing availability with permission."
+      ],
+      "learning_mappings": [
+        {
+          "outcome_id": "O-03-1",
+          "outcome": "Analyse a release against an explicit baseline and threat model.",
+          "preparation": "chapters/03-safety-and-data.html#learning-outcomes",
+          "task": "chapters/03-safety-and-data.html#practice",
+          "feedback": "chapters/03-safety-and-data.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-03-2",
+          "outcome": "Distinguish observed misuse, capability tests and marginal risk.",
+          "preparation": "chapters/03-safety-and-data.html#learning-outcomes",
+          "task": "chapters/03-safety-and-data.html#practice",
+          "feedback": "chapters/03-safety-and-data.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-03-3",
+          "outcome": "Evaluate data-access constraints without confusing availability with permission.",
+          "preparation": "chapters/03-safety-and-data.html#learning-outcomes",
+          "task": "chapters/03-safety-and-data.html#practice",
+          "feedback": "chapters/03-safety-and-data.html#practice-feedback"
+        }
       ]
     },
     {
@@ -130,6 +224,29 @@
         "Compare two historical milestones using dated primary documents.",
         "Explain what an artefact release enabled and what it left unknown.",
         "Distinguish a publication date, a release date and later retrospective interpretation."
+      ],
+      "learning_mappings": [
+        {
+          "outcome_id": "O-04-1",
+          "outcome": "Compare two historical milestones using dated primary documents.",
+          "preparation": "chapters/04-lineage.html#learning-outcomes",
+          "task": "chapters/04-lineage.html#practice",
+          "feedback": "chapters/04-lineage.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-04-2",
+          "outcome": "Explain what an artefact release enabled and what it left unknown.",
+          "preparation": "chapters/04-lineage.html#learning-outcomes",
+          "task": "chapters/04-lineage.html#practice",
+          "feedback": "chapters/04-lineage.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-04-3",
+          "outcome": "Distinguish a publication date, a release date and later retrospective interpretation.",
+          "preparation": "chapters/04-lineage.html#learning-outcomes",
+          "task": "chapters/04-lineage.html#practice",
+          "feedback": "chapters/04-lineage.html#practice-feedback"
+        }
       ]
     },
     {
@@ -157,6 +274,29 @@
         "Critique an adoption claim by identifying its denominator, coverage and date.",
         "Compare a structural explanation with a plausible alternative.",
         "Separate nationality, capability, commercial adoption and policy status."
+      ],
+      "learning_mappings": [
+        {
+          "outcome_id": "O-05-1",
+          "outcome": "Critique an adoption claim by identifying its denominator, coverage and date.",
+          "preparation": "chapters/05-us-china.html#learning-outcomes",
+          "task": "chapters/05-us-china.html#practice",
+          "feedback": "chapters/05-us-china.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-05-2",
+          "outcome": "Compare a structural explanation with a plausible alternative.",
+          "preparation": "chapters/05-us-china.html#learning-outcomes",
+          "task": "chapters/05-us-china.html#practice",
+          "feedback": "chapters/05-us-china.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-05-3",
+          "outcome": "Separate nationality, capability, commercial adoption and policy status.",
+          "preparation": "chapters/05-us-china.html#learning-outcomes",
+          "task": "chapters/05-us-china.html#practice",
+          "feedback": "chapters/05-us-china.html#practice-feedback"
+        }
       ]
     },
     {
@@ -184,6 +324,29 @@
         "Calculate a score and a threshold delay from a small documented example.",
         "Explain how evaluation and aggregation choices change a comparison.",
         "Specify evidence needed before applying a benchmark result to a decision."
+      ],
+      "learning_mappings": [
+        {
+          "outcome_id": "O-06-1",
+          "outcome": "Calculate a score and a threshold delay from a small documented example.",
+          "preparation": "chapters/06-measuring-the-gap.html#learning-outcomes",
+          "task": "chapters/06-measuring-the-gap.html#practice",
+          "feedback": "chapters/06-measuring-the-gap.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-06-2",
+          "outcome": "Explain how evaluation and aggregation choices change a comparison.",
+          "preparation": "chapters/06-measuring-the-gap.html#learning-outcomes",
+          "task": "chapters/06-measuring-the-gap.html#practice",
+          "feedback": "chapters/06-measuring-the-gap.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-06-3",
+          "outcome": "Specify evidence needed before applying a benchmark result to a decision.",
+          "preparation": "chapters/06-measuring-the-gap.html#learning-outcomes",
+          "task": "chapters/06-measuring-the-gap.html#practice",
+          "feedback": "chapters/06-measuring-the-gap.html#practice-feedback"
+        }
       ]
     },
     {
@@ -211,6 +374,29 @@
         "Trace teacher–student information flow and locate the training stage.",
         "Separate a company allegation from demonstrated causal uplift.",
         "Design a controlled comparison of teacher-assisted training."
+      ],
+      "learning_mappings": [
+        {
+          "outcome_id": "O-07-1",
+          "outcome": "Trace teacher–student information flow and locate the training stage.",
+          "preparation": "chapters/07-distillation.html#learning-outcomes",
+          "task": "chapters/07-distillation.html#practice",
+          "feedback": "chapters/07-distillation.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-07-2",
+          "outcome": "Separate a company allegation from demonstrated causal uplift.",
+          "preparation": "chapters/07-distillation.html#learning-outcomes",
+          "task": "chapters/07-distillation.html#practice",
+          "feedback": "chapters/07-distillation.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-07-3",
+          "outcome": "Design a controlled comparison of teacher-assisted training.",
+          "preparation": "chapters/07-distillation.html#learning-outcomes",
+          "task": "chapters/07-distillation.html#practice",
+          "feedback": "chapters/07-distillation.html#practice-feedback"
+        }
       ]
     },
     {
@@ -238,6 +424,29 @@
         "Classify an incident report, proposal, enacted rule and forecast separately.",
         "Compare two policy approaches against the same objective.",
         "Specify success measures, displacement risks and a revision trigger."
+      ],
+      "learning_mappings": [
+        {
+          "outcome_id": "O-08-1",
+          "outcome": "Classify an incident report, proposal, enacted rule and forecast separately.",
+          "preparation": "chapters/08-security-and-policy.html#learning-outcomes",
+          "task": "chapters/08-security-and-policy.html#practice",
+          "feedback": "chapters/08-security-and-policy.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-08-2",
+          "outcome": "Compare two policy approaches against the same objective.",
+          "preparation": "chapters/08-security-and-policy.html#learning-outcomes",
+          "task": "chapters/08-security-and-policy.html#practice",
+          "feedback": "chapters/08-security-and-policy.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-08-3",
+          "outcome": "Specify success measures, displacement risks and a revision trigger.",
+          "preparation": "chapters/08-security-and-policy.html#learning-outcomes",
+          "task": "chapters/08-security-and-policy.html#practice",
+          "feedback": "chapters/08-security-and-policy.html#practice-feedback"
+        }
       ]
     },
     {
@@ -254,13 +463,45 @@
         "security"
       ],
       "outcome_id": "O-09",
-      "outcome": "Defend a conditional model-selection recommendation using evidence and counterarguments.",
+      "outcome": "Integrate release, evaluation, cost and risk evidence into a conditional recommendation.",
       "activity_id": "A-09",
-      "activity": "Write the decision memo below, then revise the weakest-supported sentence.",
-      "criteria": "A strong response connects the task to release terms, evaluation, costs, risks, alternatives, and a condition that would change the decision. More than one recommendation can be defensible.",
+      "activity": "Write the memo for the study-guide case, score it against the rubric and revise its weakest-supported sentence. Add a paragraph explaining how the revision did or did not change your recommendation. Include one competing argument from the named authors without using their authority as a substitute for task evidence.",
+      "criteria": "A complete memo chooses a feasible next step, respects the sensitive-data constraint, separates known release facts from unknown quality and cost, and proposes a test with a stopping rule. It fairly states a competing option and a condition that would change the choice. The recommendation may favour a bounded local pilot, a public-content hosted pilot, or deferral if justified. Evaluate reasoning and evidence, not agreement with an example response.",
       "output_path": "study-guide.html",
       "output_anchor": "unit-synthesis",
-      "status": "study_task_added_existing_chapter_not_fully_revised"
+      "status": "revised",
+      "quiz_id": "synthesis-v2",
+      "preparation_anchor": "learning-outcomes",
+      "task_anchor": "practice",
+      "feedback_anchor": "practice-feedback",
+      "outcomes": [
+        "Integrate release, evaluation, cost and risk evidence into a conditional recommendation.",
+        "Represent a serious counterargument without treating a forecast as a conclusion.",
+        "Review and revise a decision memo using explicit criteria."
+      ],
+      "learning_mappings": [
+        {
+          "outcome_id": "O-09-1",
+          "outcome": "Integrate release, evaluation, cost and risk evidence into a conditional recommendation.",
+          "preparation": "chapters/09-synthesis.html#learning-outcomes",
+          "task": "chapters/09-synthesis.html#practice",
+          "feedback": "chapters/09-synthesis.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-09-2",
+          "outcome": "Represent a serious counterargument without treating a forecast as a conclusion.",
+          "preparation": "chapters/09-synthesis.html#learning-outcomes",
+          "task": "chapters/09-synthesis.html#practice",
+          "feedback": "chapters/09-synthesis.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-09-3",
+          "outcome": "Review and revise a decision memo using explicit criteria.",
+          "preparation": "chapters/09-synthesis.html#learning-outcomes",
+          "task": "chapters/09-synthesis.html#practice",
+          "feedback": "chapters/09-synthesis.html#practice-feedback"
+        }
+      ]
     }
   ]
 }

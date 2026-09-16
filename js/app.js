@@ -65,8 +65,10 @@
     const side = document.getElementById("sidebar");
     const scrim = document.getElementById("scrim");
     if (!btn || !side) return;
-    const close = () => { side.classList.remove("open"); scrim && scrim.classList.remove("open"); };
-    btn.onclick = () => { side.classList.toggle("open"); scrim && scrim.classList.toggle("open"); };
+    const close = () => { side.classList.remove("open"); scrim && scrim.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); };
+    btn.setAttribute("aria-expanded", "false"); btn.setAttribute("aria-controls", "sidebar");
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && side.classList.contains("open")) { close(); btn.focus(); } });
+    btn.onclick = () => { side.classList.toggle("open"); scrim && scrim.classList.toggle("open"); btn.setAttribute("aria-expanded", String(side.classList.contains("open"))); if (side.classList.contains("open")) side.querySelector("a").focus(); };
     scrim && (scrim.onclick = close);
   }
 
@@ -131,7 +133,7 @@
       qs.forEach((q, i) => {
         html += `<div class="q" data-i="${i}" role="radiogroup" aria-labelledby="${qid}-question-${i}"><p class="stem" id="${qid}-question-${i}">${i + 1}. ${q.q}</p>`;
         q.a.forEach((opt, j) => { html += `<label><input type="radio" name="${qid}-${i}" value="${j}"> <span>${opt}</span></label>`; });
-        html += `<div class="explain">${q.x}</div></div>`;
+        html += `<div class="explain" tabindex="-1">${q.x}</div></div>`;
       });
       html += `<div class="score" id="${qid}-score" role="status"></div>`;
       box.innerHTML = html; s.replaceWith(box);
@@ -145,6 +147,7 @@
             if (ok) correct++;
             qel.querySelectorAll("label").forEach((l, k) => { if (k === qs[i].c) l.classList.add("correct"); else if (k === j) l.classList.add("wrong"); });
             qel.querySelectorAll("input").forEach(x => x.disabled = true);
+            qel.querySelector(".explain").focus();
             const sc = box.querySelector(".score");
             sc.textContent = `Score: ${correct} / ${answered}${answered === qs.length ? " · " + (correct === qs.length ? "Perfect." : correct >= qs.length * .7 ? "Solid." : "Worth a re-read.") : ""}`;
             if (answered === qs.length) { const p = getProgress(); p["quiz-" + qid] = correct + "/" + qs.length; setProgress(p); }
@@ -187,15 +190,15 @@
     const cats = { model: "Models", research: "Research & essays", policy: "Policy", security: "Security", business: "Business" };
     const on = new Set(Object.keys(cats));
     const filters = document.getElementById("tl-filters");
-    filters.innerHTML = Object.entries(cats).map(([k, v]) => `<button class="on" data-cat="${k}">${v}</button>`).join("");
-    filters.querySelectorAll("button").forEach(b => b.onclick = () => { const k = b.dataset.cat; on.has(k) ? on.delete(k) : on.add(k); b.classList.toggle("on"); render(); });
+    filters.innerHTML = Object.entries(cats).map(([k, v]) => `<button class="on" data-cat="${k}" aria-pressed="true">${v}</button>`).join("");
+    filters.querySelectorAll("button").forEach(b => b.onclick = () => { const k = b.dataset.cat; on.has(k) ? on.delete(k) : on.add(k); b.classList.toggle("on"); b.setAttribute("aria-pressed", String(on.has(k))); render(); });
     const fmt = d => { const [y, m] = d.split("-"); return new Date(+y, +m - 1, 1).toLocaleString("en-US", { month: "short", year: "numeric" }); };
     function render() {
       let year = "", html = "";
       OMT.timeline.forEach(e => {
         const y = e.d.slice(0, 4);
         if (y !== year) { year = y; html += `<div class="tl-year">${y}</div>`; }
-        html += `<div class="tl-item cat-${e.cat} ${on.has(e.cat) ? "" : "hidden"}"><span class="date">${fmt(e.d)}</span><span class="cat">${cats[e.cat]}</span><b>${e.t}</b><p>${e.p}</p></div>`;
+        html += `<div class="tl-item cat-${e.cat} ${on.has(e.cat) ? "" : "hidden"}"><span class="date">${fmt(e.d)}</span><span class="cat">${cats[e.cat]}</span><b>${e.t}</b><p>${e.p} <a href="${e.source}">Source</a> · reviewed ${e.reviewed_on}</p></div>`;
       });
       host.innerHTML = html;
     }

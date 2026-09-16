@@ -364,7 +364,11 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2022-03-04",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/00-primer.html#training",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -376,7 +380,9 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-07-29",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/00-primer.html#training"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -388,7 +394,9 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2015-03-09",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/07-distillation.html#technique"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -400,7 +408,9 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-01-17",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/07-distillation.html#deepseek-o1"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -412,7 +422,12 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2025-01-22",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/04-lineage.html#phase4",
+        "chapters/07-distillation.html#deepseek-o1",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -424,7 +439,12 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-06-07",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/01-what-open-means.html#three-words",
+        "chapters/04-lineage.html#phase3",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -436,7 +456,12 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2023-05-31",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/01-what-open-means.html#three-words",
+        "chapters/04-lineage.html#phase2",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -448,7 +473,11 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-02-27",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/03-safety-and-data.html#marginal-risk",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -460,7 +489,11 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-07-24",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/03-safety-and-data.html#data-commons",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -472,7 +505,11 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-05-25",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/05-us-china.html#atom-report",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -484,7 +521,11 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2017-06-12",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/00-primer.html#what-a-model-is",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -496,7 +537,9 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2022-03-29",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/00-primer.html#inference"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -508,7 +551,11 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-05-09",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/02-foundations.html#gurley",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -520,7 +567,12 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-07-23",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/02-foundations.html#zuckerberg",
+        "chapters/04-lineage.html#meta",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -532,7 +584,11 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-08-11",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/02-foundations.html#catalini",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -544,7 +600,11 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-10-30",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/02-foundations.html#ai2",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -556,7 +616,11 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-03-06",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/05-us-china.html#history",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -568,7 +632,11 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2025-06-25",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/05-us-china.html#advantage",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -580,7 +648,11 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-08-21",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/06-measuring-the-gap.html#semianalysis",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -592,7 +664,11 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-05-28",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/06-measuring-the-gap.html#ihle",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -604,7 +680,9 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-05-04",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/07-distillation.html#panic"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -616,7 +694,12 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-02-23",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/07-distillation.html#anthropic",
+        "chapters/08-security-and-policy.html#incidents",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -628,7 +711,11 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2025-04-05",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/03-safety-and-data.html#nonproliferation",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -640,7 +727,11 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-07-31",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/03-safety-and-data.html#staged",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -652,7 +743,11 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-08-13",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/08-security-and-policy.html#two-models",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -664,7 +759,11 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-07-12",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/08-security-and-policy.html#six-months",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -676,7 +775,11 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-06-01",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/09-synthesis.html#exponentials",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -688,7 +791,9 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2023-02-09",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/01-what-open-means.html#gradient"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -700,7 +805,9 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": null,
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/01-what-open-means.html#three-words"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -712,7 +819,9 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": null,
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/01-what-open-means.html#three-words"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -724,7 +833,9 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": null,
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/01-what-open-means.html#licenses"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -736,7 +847,9 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": null,
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/01-what-open-means.html#licenses"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -748,7 +861,10 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-07-23",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/01-what-open-means.html#licenses",
+        "chapters/04-lineage.html#meta"
+      ],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
     {
@@ -831,7 +947,11 @@
       ],
       "status": "attributed",
       "reviewed_on": "2026-09-16",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/04-lineage.html#phase1",
+        "timeline.html#timeline",
+        "js/data.js#timeline"
+      ],
       "decision": "Use as attributed historical evidence; do not infer universal safety or current status.",
       "as_of": "2019-11-05"
     },
@@ -843,7 +963,9 @@
       ],
       "status": "attributed",
       "reviewed_on": "2026-09-16",
-      "affected_locations": [],
+      "affected_locations": [
+        "chapters/03-safety-and-data.html#record"
+      ],
       "decision": "Use as attributed historical evidence; do not infer universal safety or current status.",
       "as_of": null
     }

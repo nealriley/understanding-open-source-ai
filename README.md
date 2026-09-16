@@ -2,7 +2,7 @@
 
 An interactive, GitHub-Pages-hosted textbook on open-source AI and open language models: how they work, why anyone builds them, where they came from, how far behind the closed frontier they are, the US–China dynamic, distillation, security and the 2026 regulatory fight.
 
-The spine is [Nathan Lambert's Open-Source AI & Open Models Reading List](https://www.interconnects.ai/p/open-source-ai-reading-list) (Interconnects). Every link on that list is covered and catalogued in the annotated reading list, with additional primary sources where they strengthen the narrative.
+The spine is [Nathan Lambert's Open-Source AI & Open Models Reading List](https://www.interconnects.ai/p/open-source-ai-reading-list) (Interconnects). The annotated reading list distinguishes inspected source passages from further-reading leads. Primary sources support bounded factual claims; essays preserve the authors’ competing arguments.
 
 ## Structure
 
@@ -23,11 +23,11 @@ Plus an interactive timeline, a glossary with hover definitions, and the annotat
 
 ## Learning design
 
-The [study guide](study-guide.html) provides entry points, one application task per chapter, self-check criteria, and a final decision memo. [Chapter 1](chapters/01-what-open-means.html) is the first fully revised learning-design pilot: source review, worked example, practice, feedback, and assessment.
+All ten chapters have preparation checks, observable outcomes, an application task and feedback. The [study guide](study-guide.html) connects them to a final decision memo, review rubric and contrasting example responses. Chapter 1 retains the reviewed pilot with terminology alignment.
 
-The [authoring pack](docs/learning-design/README.md) records the intake, curriculum map, source inventory, pilot coverage, and review limits. The remaining chapters have study tasks but have not all received this source review or rewrite. The website remains plain HTML, CSS, and JavaScript with no build step.
+The [authoring pack](docs/learning-design/README.md) includes the claim register, curriculum map, source inspection limits, validation records and a protocol for a future learner pilot. The book remains plain HTML/CSS/JavaScript with no deployment build. Educational effectiveness has not been tested with learners.
 
-Validate local links, chapter quizzes, and curriculum mappings with:
+Validate with:
 
 ```bash
 python3 tools/check_learning.py
@@ -35,12 +35,14 @@ node --check js/app.js
 node --check js/data.js
 ```
 
+Optional browser regression checks use Playwright (1.62.1), supplied separately through `NODE_PATH`, and `node tools/check_browser.cjs`. Set `BOOK_BROWSER_PATH` to a local Chrome executable if not using Playwright's installed Chromium. GitHub Actions runs the same checks in a temporary dependency directory.
+
 ## Features
 
 - Zero build step: plain HTML, CSS and JavaScript. Works from `file://` and on GitHub Pages.
 - Reading progress and quiz scores saved in `localStorage` (browser-only, no backend).
 - Per-chapter quizzes with explanations, glossary tooltips, chapter search, dark mode.
-- Interactive widgets: release-gradient slider, era-by-era gap explorer, catch-up estimate comparison, filterable timeline.
+- Interactive widgets: release-gradient slider, fictional task-weighting exercise, fictional threshold-delay comparison, filterable timeline.
 
 ## Local preview
 
@@ -57,3 +59,12 @@ Settings → Pages → Source: "Deploy from a branch" → Branch `main`, folder 
 ## Editing
 
 Chapter bodies are wrapped by `tools/wrap.sh`, which adds the shared header, sidebar and footer. To add a chapter, add an entry to `OMT.chapters` in `js/data.js` and create the HTML file in `chapters/`. Glossary terms and timeline events also live in `js/data.js`.
+
+
+## Editing shared data and evidence
+
+`js/data.js` contains chart records and provenance, glossary and timeline records. After editing these, run `python3 tools/render_data.py` to refresh their committed static HTML views, then validate. The generation utility is an authoring convenience; GitHub Pages serves the committed files directly. Chart tables and core reference content work without JavaScript.
+
+`docs/learning-design/claim-register.json` records sources, inspected passages, dates, status and affected locations. Unresolved entries must not become facts or quiz keys. Material quiz revisions require a new `quizId` in the chapter, manifest and curriculum map. Keep chapter IDs unchanged to preserve reading completion.
+
+The five review branches form a dependent stack. Merge in order: evidence foundation → technical core → strategy/history → risk/policy → synthesis/integration. No branch is auto-merged or independently deployed.
