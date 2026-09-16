@@ -1,6 +1,13 @@
 # Concept rebuild: authoring records
 
-The active draft contains the two approved foundations chapters. Chapters 2–9 and the full-book timeline/assessment are withdrawn. The [archive index](archive-index.md) records the immutable snapshot and reuse decisions. Earlier batch reviews below document historical editions, not the current active sequence.
+The active draft contains the two approved foundations chapters and three concept chapters: data, adaptation and evaluation. The old Chapters 2–9 and full-book timeline/assessment are withdrawn. The [archive index](archive-index.md) records the immutable snapshot and reuse decisions. Earlier batch reviews below document historical editions, not the current active sequence.
+
+## Current section
+
+- [Comparative research](next-section-research.md): eight educational sources with inspected passages and limits.
+- [Two teaching trials](sequence-trials.md): original samples, critique and sequence selection.
+- [Chapter briefs](next-section-briefs.md): scope, prerequisites, tasks and deliberate deferrals.
+- [Section review and validation](validation-concept-section.md).
 
 ## Authoring records
 

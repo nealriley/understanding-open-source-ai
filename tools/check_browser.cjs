@@ -28,6 +28,11 @@ const server = http.createServer((req,res) => {
     assert.doesNotMatch(await page.locator('#chapter-cards a').first().innerText(),/quiz/);
     assert.match(await page.locator('#chapter-cards a').nth(1).innerText(),/done/);
     assert.doesNotMatch(await page.locator('#chapter-cards a').nth(1).innerText(),/quiz/);
+    for(let i=2;i<chapters.length;i++){
+      const card=await page.locator('#chapter-cards a').nth(i).innerText();
+      assert.doesNotMatch(card,/done|quiz \d/);
+    }
+    assert.match(await page.locator('#sidebar').innerText(),new RegExp(`2 of ${chapters.length} chapters complete`));
     await page.getByRole('searchbox',{name:'Search',exact:true}).fill('distillation');
     assert(await page.locator('#search-results a').count()>0);
     await page.locator('#search-results a').first().click();
@@ -45,6 +50,15 @@ const server = http.createServer((req,res) => {
       assert.match(await page.locator('.score').innerText(),new RegExp(`${questions.length} / ${questions.length}`));
       assert.equal(await page.evaluate(id=>JSON.parse(localStorage.getItem('omt-progress'))['quiz-'+id],c.quizId),`${questions.length}/${questions.length}`);
       assert(await page.locator('.chapter-nav a').count());
+      await page.reload();
+      const wrong=page.locator('.quiz .q').first();
+      await wrong.locator('input').nth((questions[0].c+1)%questions[0].a.length).check();
+      assert.equal(await wrong.locator('.wrong').count(),1);
+      assert(await wrong.locator('.explain').isVisible());
+      assert.equal(await page.evaluate(()=>document.activeElement.className),'explain');
+      // Finish with a fresh complete correct attempt so persistence checks below apply.
+      await page.reload();
+      for(let i=0;i<questions.length;i++) await page.locator('.quiz .q').nth(i).locator('input').nth(questions[i].c).check();
     }
     const evaluation=chapters.find(c=>c.id==='evaluation');
     if(evaluation){
@@ -53,6 +67,17 @@ const server = http.createServer((req,res) => {
       for(let i=0;i<3;i++) await page.keyboard.press('ArrowRight');
       assert.match(await page.locator('#gap-widget .note').innerText(),/Alder 72.0%; Birch 64.0%/);
       assert.match(await page.locator('#gap-widget table').innerText(),/72/);
+      const chart=await page.evaluate(()=>OMT.charts.find(c=>c.id==='task-scores'));
+      assert.equal(await page.locator('#gap-widget table tbody tr').count(),chart.rows.length);
+      for(const weight of [0,20,50,80,100]){
+        await page.locator('#manual-weight').fill(String(weight));
+        const shown=await page.locator('#gap-widget .val').allTextContents();
+        assert.deepEqual(shown,chart.rows.map(r=>(100*(weight/100*r.manuals+(1-weight/100)*r.arithmetic)/r.total).toFixed(1)+'%'));
+      }
+      const expectedTable=chart.rows.map(r=>[r.label,`${r.manuals} / ${r.total}`,`${r.arithmetic} / ${r.total}`,String(50*(r.manuals+r.arithmetic)/r.total),String(100*(.8*r.manuals+.2*r.arithmetic)/r.total)]);
+      const table=await page.locator('#gap-widget table tbody tr').evaluateAll(rows=>rows.map(r=>[...r.cells].map(c=>c.textContent)));
+      assert.deepEqual(table,expectedTable);
+      await page.locator('#manual-weight').fill('80');
     }
     await page.goto(base+'/'+chapters[0].file);
     await page.locator('#complete-btn').click();
@@ -101,15 +126,22 @@ const server = http.createServer((req,res) => {
       assert(await q.locator('.explain').isVisible());
       assert(await q.locator('input').first().isDisabled());
     }
+    for(const c of chapters.slice(2)){
+      await page.goto(base+'/'+c.file);
+      await page.screenshot({path:`/tmp/concept-${c.id}-desktop-light.png`});
+      await page.getByRole('button',{name:'◐ Theme'}).click();
+      await page.locator('.concept-figure, table').first().screenshot({path:`/tmp/concept-${c.id}-desktop-dark.png`});
+      await page.getByRole('button',{name:'◐ Theme'}).click();
+    }
     // Mobile overflow, keyboard menu and disclosure.
     await page.setViewportSize({width:390,height:844});
     for (const file of [...chapters.map(c=>c.file),'index.html','study-guide.html','glossary.html','reading-list.html']) {
       await page.goto(base+'/'+file);
       assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`mobile overflow: ${file}`);
     }
-    for (const c of chapters.slice(0,2)) {
+    for (const c of chapters) {
       await page.goto(base+'/'+c.file);
-      await page.locator('.concept-figure').first().screenshot({path:`/tmp/opening-${c.id}-mobile.png`});
+      await page.locator('.concept-figure, table').first().screenshot({path:`/tmp/opening-${c.id}-mobile.png`});
       await page.locator('#practice-feedback summary').focus();await page.keyboard.press('Enter');
       assert(await page.locator('#practice-feedback').evaluate(e=>e.open));
     }
@@ -129,6 +161,18 @@ const server = http.createServer((req,res) => {
     if(evaluation){await nojs.goto(base+'/'+evaluation.file);assert.equal(await nojs.locator('#gap-widget table tbody tr').count(),2);}
     await nojs.goto(base+'/'+chapters[0].file);
     await nojs.locator('#practice-feedback summary').click();assert(await nojs.locator('#practice-feedback').evaluate(e=>e.open));
+    for(const file of retired){
+      await nojs.goto(base+'/'+file);
+      assert.match(await nojs.locator('main').innerText(),/withdrawn/);
+      assert(await nojs.locator('#sidebar a').count()>=chapters.length+3);
+      assert(await nojs.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+    }
+    if(evaluation){
+      await page.goto(base+'/'+evaluation.file);
+      await page.locator('#gap-widget .table-scroll').focus();await page.keyboard.press('ArrowRight');
+      await page.waitForFunction(()=>document.querySelector('#gap-widget .table-scroll').scrollLeft>0);
+      await page.locator('#gap-widget').screenshot({path:'/tmp/concept-evaluation-mobile-widget.png'});
+    }
     assert.deepEqual(errors,[]);
     console.log(`PASS: ${chapters.length} active quizzes; correct/incorrect feedback; versioned scores/completion; active search/navigation; withdrawn URLs; reordering; keyboard, mobile, themes, no-JS and tables; no page errors.`);
   } finally { await browser.close(); }

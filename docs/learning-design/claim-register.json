@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "reviewed_on": "2026-09-16",
-  "scope": "Decision-relevant claims retained in this revision and consequential retired claim families. Passage-level review, not independent replication or an exhaustive sentence inventory.",
+  "scope": "Active foundations and concept-section claims, plus preserved historical and unresolved families. Active and archived locations are distinct. Passage review is not independent replication.",
   "sources": [
     {
       "id": "E01",
@@ -452,6 +452,116 @@
       "reviewed_on": "2026-09-16",
       "kind": "reference",
       "inspection": "Named source passage inspected directly during the opening-chapter revision. Authored examples remain labelled fictional."
+    },
+    {
+      "id": "E46",
+      "title": "Soldaini et al., Dolma",
+      "url": "https://arxiv.org/html/2402.00159v2",
+      "publication_date": "2024-06-06",
+      "passage": "Sections 5.4–5.5: ordering URL/document deduplication, filtering and paragraph deduplication; explanation of content-analysis interaction. Version date verified in arXiv submission history: v2, 6 June 2024.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage inspected directly during the concept-section research. No independent replication or whole-source review claimed."
+    },
+    {
+      "id": "E47",
+      "title": "Ai2, Dolma dataset card",
+      "url": "https://huggingface.co/datasets/allenai/dolma",
+      "publication_date": null,
+      "passage": "Versions and Summary Statistics: version names, source provenance and processing descriptions. Release prose and version table disagree on the v1.7 release day.",
+      "reviewed_on": "2026-09-16",
+      "kind": "dataset-card",
+      "inspection": "Named passage inspected directly during the concept-section research. No independent replication or whole-source review claimed."
+    },
+    {
+      "id": "E48",
+      "title": "Google ML Crash Course, Dividing the original dataset",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "publication_date": "2025-12-03",
+      "passage": "Training, validation, and test sets; repeated test use and duplicate-example exercises, including feedback.",
+      "reviewed_on": "2026-09-16",
+      "kind": "educational",
+      "inspection": "Named passage inspected directly during the concept-section research. No independent replication or whole-source review claimed."
+    },
+    {
+      "id": "E49",
+      "title": "Nathan Lambert, Instruction Fine-Tuning",
+      "url": "https://rlhfbook.com/c/04-instruction-tuning",
+      "publication_date": null,
+      "passage": "Opening and Chat Templates and the Structure of Instructions: role formatting and training records. No adoption of perfect-consistency assertion.",
+      "reviewed_on": "2026-09-16",
+      "kind": "educational",
+      "inspection": "Named passage inspected directly during the concept-section research. No independent replication or whole-source review claimed."
+    },
+    {
+      "id": "E50",
+      "title": "Ouyang et al., InstructGPT method",
+      "url": "https://arxiv.org/html/2203.02155v1",
+      "publication_date": "2022-03-04",
+      "passage": "Section 3.1 and its three step descriptions; introduction limitation paragraph on simple mistakes.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage inspected directly during the concept-section research. No independent replication or whole-source review claimed."
+    },
+    {
+      "id": "E51",
+      "title": "Rafailov et al., DPO method",
+      "url": "https://arxiv.org/html/2305.18290v3",
+      "publication_date": "2024-07-29",
+      "passage": "Introduction and Figure 1: direct preference objective, reference comparison and no separately fitted reward model/RL loop.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage inspected directly during the concept-section research. No independent replication or whole-source review claimed."
+    },
+    {
+      "id": "E52",
+      "title": "Hinton, Vinyals and Dean, distillation method",
+      "url": "https://arxiv.org/html/1503.02531",
+      "publication_date": "2015-03-09",
+      "passage": "Section 2: probability distributions as soft targets, in contrast to selected hard targets.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage inspected directly during the concept-section research. No independent replication or whole-source review claimed."
+    },
+    {
+      "id": "E53",
+      "title": "Agarwal et al., on-policy distillation method",
+      "url": "https://arxiv.org/html/2306.13649v3",
+      "publication_date": "2024-01-17",
+      "passage": "Introduction, section 3 and Algorithm 1: student-generated sequences with token-level teacher probabilities.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage inspected directly during the concept-section research. No independent replication or whole-source review claimed."
+    },
+    {
+      "id": "E54",
+      "title": "Stanford CS336, evaluation lecture 12",
+      "url": "https://github.com/stanford-cs336/spring2025-lectures/blob/main/lecture_12.py",
+      "publication_date": "2025-05-08",
+      "passage": "how_to_think_about_evaluation and what_are_we_evaluating: inputs, interaction, scoring, interpretation and models versus systems.",
+      "reviewed_on": "2026-09-16",
+      "kind": "educational",
+      "inspection": "Named passage inspected directly during the concept-section research. No independent replication or whole-source review claimed."
+    },
+    {
+      "id": "E55",
+      "title": "Zhang et al., Generalization",
+      "url": "https://d2l.ai/chapter_linear-regression/generalization.html",
+      "publication_date": null,
+      "passage": "Sections 3.6.1 and 3.6.3: training versus generalisation error, independent held-out estimation and model selection. Documentation 1.0.3.",
+      "reviewed_on": "2026-09-16",
+      "kind": "educational",
+      "inspection": "Named passage inspected directly during the concept-section research. No independent replication or whole-source review claimed."
+    },
+    {
+      "id": "E56",
+      "title": "Liang et al., Holistic Evaluation of Language Models",
+      "url": "https://arxiv.org/html/2211.09110v2",
+      "publication_date": "2023-10-01",
+      "passage": "Section 1.1: incompleteness, multi-metric measurement, standardisation, caveats about training resources and overlap. Inspected v2, whose date is recorded in arXiv submission history.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage inspected directly during the concept-section research. No independent replication or whole-source review claimed."
     }
   ],
   "claims": [
@@ -1510,6 +1620,171 @@
         "reading-list.html#opening-sources"
       ],
       "decision": "Explain the bounded concept in original prose, with concrete authored examples. Do not treat the example as observed performance or the source as a guarantee of practical suitability."
+    },
+    {
+      "id": "CL-46",
+      "statement": "The Dolma paper documents a staged data-curation pipeline and explains why processing order matters.",
+      "source_ids": [
+        "E46"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-09-16",
+      "affected_locations": [
+        "chapters/data-and-datasets.html#dolma",
+        "reading-list.html#source-E46"
+      ],
+      "decision": "Retain a bounded conceptual or methodological claim. Original library examples are fictional; no current performance or legal conclusion is inferred."
+    },
+    {
+      "id": "CL-47",
+      "statement": "The Dolma card distinguishes dataset versions and describes processing changes; this book does not resolve its inconsistent April release-day entries.",
+      "source_ids": [
+        "E47"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-09-16",
+      "affected_locations": [
+        "chapters/data-and-datasets.html#dolma",
+        "reading-list.html#source-E47"
+      ],
+      "decision": "Retain a bounded conceptual or methodological claim. Original library examples are fictional; no current performance or legal conclusion is inferred."
+    },
+    {
+      "id": "CL-48",
+      "statement": "Test results used repeatedly to change a design influence development even without direct training on the test records.",
+      "source_ids": [
+        "E48"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-09-16",
+      "affected_locations": [
+        "chapters/data-and-datasets.html#splits",
+        "reading-list.html#source-E48"
+      ],
+      "decision": "Retain a bounded conceptual or methodological claim. Original library examples are fictional; no current performance or legal conclusion is inferred."
+    },
+    {
+      "id": "CL-49",
+      "statement": "Chat templates organise role-labelled messages into the format used for model processing; formatting does not guarantee obedience.",
+      "source_ids": [
+        "E49"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-09-16",
+      "affected_locations": [
+        "chapters/model-adaptation.html#demonstrations",
+        "reading-list.html#source-E49"
+      ],
+      "decision": "Retain a bounded conceptual or methodological claim. Original library examples are fictional; no current performance or legal conclusion is inferred."
+    },
+    {
+      "id": "CL-50",
+      "statement": "InstructGPT describes demonstrations, reward modelling from comparisons and reinforcement learning; the paper also notes remaining mistakes.",
+      "source_ids": [
+        "E50"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-09-16",
+      "affected_locations": [
+        "chapters/model-adaptation.html#instructgpt",
+        "reading-list.html#source-E50"
+      ],
+      "decision": "Retain a bounded conceptual or methodological claim. Original library examples are fictional; no current performance or legal conclusion is inferred."
+    },
+    {
+      "id": "CL-51",
+      "statement": "DPO optimises from preference data without a separately trained reward model and the conventional RL loop; this is not a correctness guarantee.",
+      "source_ids": [
+        "E51"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-09-16",
+      "affected_locations": [
+        "chapters/model-adaptation.html#preferences",
+        "reading-list.html#source-E51"
+      ],
+      "decision": "Retain a bounded conceptual or methodological claim. Original library examples are fictional; no current performance or legal conclusion is inferred."
+    },
+    {
+      "id": "CL-52",
+      "statement": "The described distillation method trains with teacher probability distributions as soft targets.",
+      "source_ids": [
+        "E52"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-09-16",
+      "affected_locations": [
+        "chapters/model-adaptation.html#probability-distillation",
+        "reading-list.html#source-E52"
+      ],
+      "decision": "Retain a bounded conceptual or methodological claim. Original library examples are fictional; no current performance or legal conclusion is inferred."
+    },
+    {
+      "id": "CL-53",
+      "statement": "On-policy GKD uses student-generated sequences and teacher probabilities as guidance. No numerical gain is reproduced here.",
+      "source_ids": [
+        "E53"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-09-16",
+      "affected_locations": [
+        "chapters/model-adaptation.html#probability-distillation",
+        "reading-list.html#source-E53"
+      ],
+      "decision": "Retain a bounded conceptual or methodological claim. Original library examples are fictional; no current performance or legal conclusion is inferred."
+    },
+    {
+      "id": "CL-54",
+      "statement": "Evaluation purpose and model/system boundaries determine how to interpret an observed result.",
+      "source_ids": [
+        "E54"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-09-16",
+      "affected_locations": [
+        "chapters/model-evaluation.html#contract",
+        "reading-list.html#source-E54"
+      ],
+      "decision": "Retain a bounded conceptual or methodological claim. Original library examples are fictional; no current performance or legal conclusion is inferred."
+    },
+    {
+      "id": "CL-55",
+      "statement": "Training error and performance on a target distribution are distinct; finite evaluation cases support bounded estimates.",
+      "source_ids": [
+        "E55"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-09-16",
+      "affected_locations": [
+        "chapters/model-evaluation.html#uncertainty",
+        "reading-list.html#source-E55"
+      ],
+      "decision": "Retain a bounded conceptual or methodological claim. Original library examples are fictional; no current performance or legal conclusion is inferred."
+    },
+    {
+      "id": "CL-56",
+      "statement": "HELM makes scenarios, multiple metrics, standardised conditions and missing coverage explicit, with limitations.",
+      "source_ids": [
+        "E56"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-09-16",
+      "affected_locations": [
+        "chapters/model-evaluation.html#helm",
+        "reading-list.html#source-E56"
+      ],
+      "decision": "Retain a bounded conceptual or methodological claim. Original library examples are fictional; no current performance or legal conclusion is inferred."
     }
   ],
   "teaching_examples": [

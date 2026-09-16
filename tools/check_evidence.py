@@ -28,11 +28,19 @@ def check(pages):
             for question in quiz:
                 for cid in question.get('claim_ids',[]):
                     if cid not in claims or claims[cid]['status']!='supported': errors.append(f'{name}: unsupported quiz key {cid}')
-    manifest={c['id']:c for c in records('chapters')}
+                    elif not any(loc.split('#')[0]==name for loc in claims[cid]['affected_locations']): errors.append(f'{name}: quiz claim lacks active chapter location {cid}')
+    chapter_records=records('chapters')
+    manifest={c['id']:c for c in chapter_records}
+    if len(manifest)!=len(chapter_records): errors.append('Duplicate active chapter IDs')
+    if len({c['file'] for c in chapter_records})!=len(chapter_records): errors.append('Duplicate active chapter URLs')
+    if len({c['quizId'] for c in chapter_records})!=len(chapter_records): errors.append('Duplicate active quiz identities')
     model=json.loads((ROOT/'docs/learning-design/curriculum-map.json').read_text())
+    if set(manifest)!={u['id'] for u in model['units']}: errors.append('Manifest/curriculum unit mismatch')
     outcome_ids=set()
     for u in model['units']:
+        if u['id'] not in manifest or u['source_path'] not in pages: continue
         c=manifest[u['id']]; page=pages[u['source_path']]
+        if c['file']!=u['source_path'] or str(u['chapter'])!=c['num']: errors.append(f'{u["id"]}: manifest/learning path or number mismatch')
         if page.quiz_ids!=[c.get('quizId',c['id'])]: errors.append(f'{u["id"]}: manifest/quiz version mismatch')
         if u['status'].startswith('revised'):
             if u.get('quiz_id')!=c.get('quizId'): errors.append(f'{u["id"]}: learning/quiz version mismatch')
@@ -57,6 +65,7 @@ def check(pages):
                     for question in quiz:
                         if not question.get('outcome_ids') or not set(question['outcome_ids'])<=valid: errors.append(f'{u["id"]}: quiz outcome mapping invalid')
     for c in records('charts'):
+        if c.get('target') not in {x['file'] for x in manifest.values()}: errors.append('Chart target is not active')
         if c['kind'] not in ('fictional','reported') or not c['provenance'] or not c['transformation'] or not c['unit']: errors.append('Chart provenance incomplete')
         date.fromisoformat(c['reviewed_on'])
         if c['kind']=='reported' and (not c.get('source_ids') or any(x not in sources for x in c['source_ids'])): errors.append('Reported chart missing sources')
@@ -96,6 +105,7 @@ def check(pages):
     ordered=list(manifest)
     if len({c['num'] for c in manifest.values()})!=len(manifest): errors.append('Duplicate display numbers')
     for u in model['units']:
+        if u['id'] not in manifest: continue
         if any(ordered.index(dep)>=ordered.index(u['id']) for dep in u['prerequisites'] if dep in ordered):
             errors.append(f'{u["id"]}: prerequisite follows chapter')
     for name in records('retiredPages'):
@@ -103,6 +113,8 @@ def check(pages):
         if not page or page.chapter or page.quizzes: errors.append('Withdrawn page contains active learning content: '+name)
     from render_navigation import outputs
     if any(p.read_text()!=value for p,value in outputs().items()): errors.append('Static navigation differs from active manifest')
+    from render_learning import outputs as learning_outputs
+    if any(p.read_text()!=value for p,value in learning_outputs().items()): errors.append('Study/reference views differ from active maps')
     # Compare committed fallback table with output of the shared-record renderer.
     import sys
     old=sys.argv;sys.argv=['render_data.py','--check']
