@@ -147,8 +147,8 @@
       "id": "E15",
       "title": "Christian Catalini, Some Simple Economics of Open versus Closed AI",
       "url": "https://www.a16z.news/p/some-simple-economics-of-open-versus",
-      "publication_date": null,
-      "passage": "Discussion of direction of innovation, diffusion, R&D incentives and complementary assets; publication date not established in this review.",
+      "publication_date": "2026-08-11",
+      "passage": "Discussion of direction of innovation, diffusion, R&D incentives and complementary assets",
       "reviewed_on": "2026-09-16",
       "kind": "essay",
       "inspection": "Named passage read directly; no claim of independent replication."
@@ -187,8 +187,8 @@
       "id": "E19",
       "title": "SemiAnalysis, Are Open Models Catching Up?",
       "url": "https://newsletter.semianalysis.com/p/are-open-models-catching-up",
-      "publication_date": null,
-      "passage": "How we measured; Era 1 normalization paragraph and Looking forward caveats; publication date not established in this review.",
+      "publication_date": "2026-08-21",
+      "passage": "How we measured; Era 1 normalization paragraph and Looking forward caveats",
       "reviewed_on": "2026-09-16",
       "kind": "measurement",
       "inspection": "Named passage read directly; no claim of independent replication."
@@ -227,8 +227,8 @@
       "id": "E23",
       "title": "Helen Toner, Nonproliferation is the wrong approach to AI misuse",
       "url": "https://helentoner.substack.com/p/nonproliferation-is-the-wrong-approach",
-      "publication_date": null,
-      "passage": "Adaptation buffer discussion and conclusion; publication date not established in this review.",
+      "publication_date": "2025-04-05",
+      "passage": "Adaptation buffer discussion and conclusion",
       "reviewed_on": "2026-09-16",
       "kind": "essay",
       "inspection": "Named passage read directly; no claim of independent replication."
@@ -331,6 +331,26 @@
       "passage": "Sections 1–2, including release-specific additional commercial terms; pilot audit S06.",
       "reviewed_on": "2026-09-16",
       "kind": "licence",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E34",
+      "title": "OpenAI, GPT-2: 1.5B release",
+      "url": "https://openai.com/index/gpt-2-1-5b-release/",
+      "publication_date": "2019-11-05",
+      "passage": "Opening: final release of the staged process, model and detector materials.",
+      "reviewed_on": "2026-09-16",
+      "kind": "company report",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E35",
+      "title": "Florian Brand, The Myth of unsafe Open Source AI",
+      "url": "https://florianbrand.com/posts/open-model-safety",
+      "publication_date": null,
+      "passage": "Incident survey and conclusion; argument about observed reports, not a population-normalised safety estimate.",
+      "reviewed_on": "2026-09-16",
+      "kind": "essay",
       "inspection": "Named passage read directly; no claim of independent replication."
     }
   ],
@@ -505,13 +525,13 @@
     },
     {
       "id": "CL-15",
-      "statement": "Discussion of direction of innovation, diffusion, R&D incentives and complementary assets; publication date not established in this review.",
+      "statement": "Discussion of direction of innovation, diffusion, R&D incentives and complementary assets",
       "source_ids": [
         "E15"
       ],
       "status": "attributed",
       "reviewed_on": "2026-09-16",
-      "as_of": null,
+      "as_of": "2026-08-11",
       "affected_locations": [],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
@@ -553,13 +573,13 @@
     },
     {
       "id": "CL-19",
-      "statement": "How we measured; Era 1 normalization paragraph and Looking forward caveats; publication date not established in this review.",
+      "statement": "How we measured; Era 1 normalization paragraph and Looking forward caveats",
       "source_ids": [
         "E19"
       ],
       "status": "attributed",
       "reviewed_on": "2026-09-16",
-      "as_of": null,
+      "as_of": "2026-08-21",
       "affected_locations": [],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
@@ -601,13 +621,13 @@
     },
     {
       "id": "CL-23",
-      "statement": "Adaptation buffer discussion and conclusion; publication date not established in this review.",
+      "statement": "Adaptation buffer discussion and conclusion",
       "source_ids": [
         "E23"
       ],
       "status": "attributed",
       "reviewed_on": "2026-09-16",
-      "as_of": null,
+      "as_of": "2025-04-05",
       "affected_locations": [],
       "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
     },
@@ -802,6 +822,30 @@
         "chapters/09-synthesis.html"
       ],
       "decision": "Replace with attributed arguments, explicit baselines, alternatives and conditions."
+    },
+    {
+      "id": "CL-34",
+      "statement": "Opening: final release of the staged process, model and detector materials.",
+      "source_ids": [
+        "E34"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "affected_locations": [],
+      "decision": "Use as attributed historical evidence; do not infer universal safety or current status.",
+      "as_of": "2019-11-05"
+    },
+    {
+      "id": "CL-35",
+      "statement": "Incident survey and conclusion; argument about observed reports, not a population-normalised safety estimate.",
+      "source_ids": [
+        "E35"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "affected_locations": [],
+      "decision": "Use as attributed historical evidence; do not infer universal safety or current status.",
+      "as_of": null
     }
   ]
 }

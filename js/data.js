@@ -30,9 +30,10 @@ OMT.chapters = [
     "part": "Foundations",
     "file": "chapters/02-foundations.html",
     "title": "Why Anyone Builds Open Models",
-    "minutes": 30,
-    "blurb": "Strategy, economics and values: Gurley's open-source strategy, Zuckerberg's Linux analogy, Catalini's innovation economics, and the case from inside Ai2.",
-    "keywords": "Gurley open source strategy Android Kubernetes Zuckerberg Linux Catalini economics complementary assets Lambert why I build Ai2 commoditize"
+    "minutes": 6,
+    "blurb": "A free download can be part of a profitable business, a research programme or a strategy against a rival. These explanations can coexist. The hard part is deciding what the evidence establishes about a particular release.",
+    "keywords": "Compare two explanations for a release decision using evidence and alternatives. Distinguish an author’s strategic argument from a documented action or private motive. Identify an observation that would change a preferred explanation.  Follow the benefit, then test the story \n Think of a fictional company, Lantern, which gives away model weights and sells managed deployment. One explanation is that wider adoption increases demand for its hosting. Another is that publication helps recruit researchers. A third is that a common model weakens a rival’s proprietary platform. None follows simply from the download button. You need evidence about customers, hiring, product integration or the competitive setting. \n Motives are not mutually exclusive. A researcher can care about scientific access while an employer values cheaper infrastructure. An organisation can change priorities after a leadership or budget change. Resist explanations that make every possible outcome count as confirmation: if both continuing and stopping releases prove the same theory, the theory needs a more specific test. \n\n Gurley: openness as corporate s",
+    "quizId": "foundations-v2"
   },
   {
     "id": "safety",
@@ -50,9 +51,10 @@ OMT.chapters = [
     "part": "History",
     "file": "chapters/04-lineage.html",
     "title": "The Lineage of Open Models",
-    "minutes": 35,
-    "blurb": "From GPT-2's staged release through Pythia, Llama, OLMo, DeepSeek R1, and the 2026 Chinese frontier: who released what, when, and why it mattered.",
-    "keywords": "Pythia EleutherAI BLOOM Llama Mistral OLMo Olmo 2 Olmo 3 DeepSeek V3 R1 Qwen Kimi K2 K3 GLM-4.5 GLM-5 GPT-OSS Nemotron Muse Spark Meta retreat timeline"
+    "minutes": 6,
+    "blurb": "The history of open models is a history of changing access to useful artefacts. A release can matter because it makes research possible, broadens deployment or demonstrates a training method—even when it does not top a benchmark.",
+    "keywords": "Compare two historical milestones using dated primary documents. Explain what an artefact release enabled and what it left unknown. Distinguish a publication date, a release date and later retrospective interpretation.  First ask what kind of date you have \n A paper submission, a product announcement and a downloadable checkpoint can appear on different days. Later revisions may document material absent from the first release. Record the event type before building a timeline. The milestones here are selected examples, not a complete lineage or a claim that later models simply descend from earlier ones. \n The dates in this chapter attach to specific documents. A paper’s first submission provides a dated public record of what its authors reported; it does not automatically prove that every linked file was available at that moment. For a legal or reproducibility assessment, inspect the particular artefact version too. \n  OpenAI’s 5 November 2019 GPT-2 announcement  identifies the final step in its staged release. This is a historical example of release as a process with changing access. It is not evidence",
+    "quizId": "lineage-v2"
   },
   {
     "id": "us-china",
@@ -60,9 +62,10 @@ OMT.chapters = [
     "part": "History",
     "file": "chapters/05-us-china.html",
     "title": "US–China Competition",
-    "minutes": 35,
-    "blurb": "How China's open-source culture was built over twenty years, why Chinese labs now lead open weights, the ATOM Project, and the congressional probes of 2026.",
-    "keywords": "China open source history Alibaba De-IOE Huawei Kaiyuanshe Kevin Xu structural advantage ATOM project Moolenaar Garbarino Airbnb Anysphere Cursor DoorDash Perplexity Thomson Reuters Apple Alibaba"
+    "minutes": 6,
+    "blurb": "A country-level lead can describe downloads, deployment, benchmark scores or revenue. Those measures can move differently. To understand US–China competition, first identify the actors and the quantity being compared.",
+    "keywords": "Critique an adoption claim by identifying its denominator, coverage and date. Compare a structural explanation with a plausible alternative. Separate nationality, capability, commercial adoption and policy status.  Xu’s history: institutions and choices \n In  “Chinese Open Source: A Definitive History” (March 2026) , Kevin Xu connects corporate technology choices, communities and the development of China’s open-source ecosystem. The historical narrative challenges the idea that open-model activity appeared from nowhere. Treat its causal interpretation as an argument: a sequence of events does not by itself isolate what caused later success. \n The unit matters. A company headquartered in one country can use research, software, people and hardware from many places. A community project can cross national boundaries. Specify whether you classify the original developer, the current maintainer, the host serving requests or the end user. The categories should follow the question, not an assumption that all these actors share a nationality. \n\n A structural explanation has limits \n Xu’s  June 2025 structur",
+    "quizId": "us-china-v2"
   },
   {
     "id": "gap",
