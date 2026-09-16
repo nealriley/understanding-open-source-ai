@@ -129,11 +129,11 @@
       const qid = s.dataset.quiz;
       let html = `<h3>Check your understanding</h3>`;
       qs.forEach((q, i) => {
-        html += `<div class="q" data-i="${i}"><p class="stem">${i + 1}. ${q.q}</p>`;
+        html += `<div class="q" data-i="${i}" role="radiogroup" aria-labelledby="${qid}-question-${i}"><p class="stem" id="${qid}-question-${i}">${i + 1}. ${q.q}</p>`;
         q.a.forEach((opt, j) => { html += `<label><input type="radio" name="${qid}-${i}" value="${j}"> <span>${opt}</span></label>`; });
         html += `<div class="explain">${q.x}</div></div>`;
       });
-      html += `<div class="score" id="${qid}-score"></div>`;
+      html += `<div class="score" id="${qid}-score" role="status"></div>`;
       box.innerHTML = html; s.replaceWith(box);
       let correct = 0, answered = 0;
       box.querySelectorAll(".q").forEach((qel, i) => {
@@ -176,7 +176,7 @@
   function buildLanding() {
     const grid = document.getElementById("chapter-cards"); if (!grid) return;
     const prog = getProgress();
-    grid.innerHTML = OMT.chapters.map(c => `<a class="card" href="${c.file}">${prog[c.id] ? '<span class="check">✓ done</span>' : ""}<span class="num">CHAPTER ${c.num} · ${c.part.toUpperCase()}</span><h3>${c.title}</h3><p>${c.blurb}</p><span class="meta"><span>≈ ${c.minutes} min</span>${prog["quiz-" + c.id] ? `<span>quiz ${prog["quiz-" + c.id]}</span>` : ""}</span></a>`).join("");
+    grid.innerHTML = OMT.chapters.map(c => `<a class="card" href="${c.file}">${prog[c.id] ? '<span class="check">✓ done</span>' : ""}<span class="num">CHAPTER ${c.num} · ${c.part.toUpperCase()}</span><h3>${c.title}</h3><p>${c.blurb}</p><span class="meta"><span>≈ ${c.minutes} min</span>${prog["quiz-" + (c.quizId || c.id)] ? `<span>quiz ${prog["quiz-" + (c.quizId || c.id)]}</span>` : ""}</span></a>`).join("");
     const cont = document.getElementById("continue-btn");
     if (cont) { const next = OMT.chapters.find(c => !prog[c.id]) || OMT.chapters[0]; cont.href = next.file; cont.textContent = (Object.keys(prog).some(k => !k.startsWith("quiz-")) ? "Continue: " : "Start: ") + next.num + ". " + next.title; }
   }
@@ -213,15 +213,51 @@
   function setupGradientWidget() {
     const w = document.getElementById("gradient-widget"); if (!w) return;
     const levels = [
-      ["Fully closed", "The model exists only inside the lab. Nobody outside can query it.", ["Google's early LaMDA; most frontier models for weeks or months before launch", "Maximum control, minimum scrutiny"]],
-      ["Gradual / staged access", "Released to selected researchers or in size-limited steps, with the full release conditional on what is learned.", ["GPT-2 (2019): 124M → 355M → 774M → 1.5B over nine months", "Thinking Machines' Inkling framework (2026): API → fine-tuning platform → weights"]],
-      ["Hosted access", "You can use the model through an interface the lab controls, but not programmatically.", ["ChatGPT before the API; Claude.ai; consumer apps", "The lab sees every prompt and can change behaviour overnight"]],
-      ["Cloud / API access", "Metered programmatic access. The dominant closed business model since GPT-3 (2020).", ["OpenAI, Anthropic, Google APIs", "Enables monitoring, and enables the 'distillation attack' detection of 2026"]],
-      ["Downloadable (open weights)", "Weights can be downloaded and run anywhere. Training data and code may be withheld; licenses vary.", ["Llama, Qwen, DeepSeek, Kimi, GLM, GPT-OSS, Mistral", "Can be fine-tuned, quantized, served by anyone; safety training can be removed"]],
-      ["Fully open", "Weights plus data, code, recipes, logs and checkpoints: enough to reproduce and study the model scientifically.", ["Pythia, OLMo, Olmo 2, Olmo 3, BLOOM", "Maximum scrutiny and reproducibility; rare above ~32B parameters"]]
-    ];
+      [
+            "Fully closed",
+            "Access remains inside the organisation.",
+            [
+                  "Ask who, if anyone, outside the organisation can inspect or query it."
+            ]
+      ],
+      [
+            "Gradual / staged access",
+            "Access changes across selected participants, stages, or conditions.",
+            [
+                  "Record the current stage and the conditions for any later release."
+            ]
+      ],
+      [
+            "Hosted access",
+            "People interact through a provider-controlled interface.",
+            [
+                  "An interface does not itself provide the underlying weights."
+            ]
+      ],
+      [
+            "Cloud / API access",
+            "A program can call a provider-operated service.",
+            [
+                  "Record the service terms and controls separately from any other release."
+            ]
+      ],
+      [
+            "Downloadable access",
+            "A release provides downloadable model artefacts such as weights.",
+            [
+                  "Check licences, runtime requirements, and missing training materials separately."
+            ]
+      ],
+      [
+            "Fully open",
+            "The access framework extends to broadly available system materials.",
+            [
+                  "List the actual artefacts and their terms; the label alone does not demonstrate reproducibility."
+            ]
+      ]
+];
     const r = w.querySelector("input"), panel = w.querySelector(".panel"), spans = w.querySelectorAll(".levels span");
-    const render = () => { const i = +r.value; spans.forEach((s, j) => s.classList.toggle("on", i === j)); const l = levels[i]; panel.innerHTML = `<b>${i + 1}. ${l[0]}</b>${l[1]}<ul>${l[2].map(x => `<li>${x}</li>`).join("")}</ul>`; };
+    const render = () => { const i = +r.value; spans.forEach((s, j) => s.classList.toggle("on", i === j)); const l = levels[i]; r.setAttribute("aria-valuetext", `${i + 1}. ${l[0]}`); panel.innerHTML = `<b>${i + 1}. ${l[0]}</b>${l[1]}<ul>${l[2].map(x => `<li>${x}</li>`).join("")}</ul>`; };
     r.addEventListener("input", render); render();
   }
 
