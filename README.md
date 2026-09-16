@@ -21,6 +21,20 @@ The spine is [Nathan Lambert's Open-Source AI & Open Models Reading List](https:
 
 Plus an interactive timeline, a glossary with hover definitions, and the annotated reading list.
 
+## Learning design
+
+The [study guide](study-guide.html) provides entry points, one application task per chapter, self-check criteria, and a final decision memo. [Chapter 1](chapters/01-what-open-means.html) is the first fully revised learning-design pilot: source review, worked example, practice, feedback, and assessment.
+
+The [authoring pack](docs/learning-design/README.md) records the intake, curriculum map, source inventory, pilot coverage, and review limits. The remaining chapters have study tasks but have not all received this source review or rewrite. The website remains plain HTML, CSS, and JavaScript with no build step.
+
+Validate local links, chapter quizzes, and curriculum mappings with:
+
+```bash
+python3 tools/check_learning.py
+node --check js/app.js
+node --check js/data.js
+```
+
 ## Features
 
 - Zero build step: plain HTML, CSS and JavaScript. Works from `file://` and on GitHub Pages.

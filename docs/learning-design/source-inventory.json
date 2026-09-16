@@ -1,0 +1,431 @@
+{
+  "baseline_commit": "bdb4ed0",
+  "extracted": "2026-09-16",
+  "scope": "All baseline chapter HTML; structural extraction is not factual verification.",
+  "chapters": [
+    {
+      "path": "chapters/00-primer.html",
+      "title": "How Language Models Work",
+      "sections": [
+        {
+          "id": "what-a-model-is",
+          "heading": "1. What a model is"
+        },
+        {
+          "id": "training",
+          "heading": "2. How a model is trained"
+        },
+        {
+          "id": "inference",
+          "heading": "3. Inference: where the money is"
+        },
+        {
+          "id": "reasoning-agents",
+          "heading": "4. Reasoning models and agents"
+        },
+        {
+          "id": "distillation-synthetic",
+          "heading": "5. Distillation and synthetic data, briefly"
+        },
+        {
+          "id": "files",
+          "heading": "6. What is actually in a release"
+        }
+      ],
+      "objectives": [
+        "Explain what a language model actually is (a function from token sequences to a probability distribution) and what its \"weights\" are.",
+        "Describe the three training stages, pretraining, post-training and reinforcement learning on verifiable tasks, and what each produces.",
+        "Explain why inference economics, not training cost, decide who wins a deployed model market.",
+        "Define distillation and synthetic data precisely enough to follow Chapter 7."
+      ],
+      "quiz_questions": 4,
+      "external_links": [],
+      "external_claim_review": "not independently verified in this pass"
+    },
+    {
+      "path": "chapters/01-what-open-means.html",
+      "title": "What 'Open' Means",
+      "sections": [
+        {
+          "id": "gradient",
+          "heading": "1. The gradient of release"
+        },
+        {
+          "id": "three-words",
+          "heading": "2. Three different things called \"open\""
+        },
+        {
+          "id": "licenses",
+          "heading": "3. Licenses"
+        },
+        {
+          "id": "why-contested",
+          "heading": "4. Why the words are contested"
+        },
+        {
+          "id": "taxonomy",
+          "heading": "5. A working taxonomy for this book"
+        }
+      ],
+      "objectives": [
+        "Place any model release on Solaiman's six-level gradient.",
+        "Distinguish open weights, open source (in the OSI sense) and fully open, and say which models are which.",
+        "Explain what the Llama license, MIT and Apache 2.0 each permit and why it matters for adoption.",
+        "Recognise when \"open\" is being used as a strategic label rather than a technical description."
+      ],
+      "quiz_questions": 4,
+      "external_links": [
+        "https://arxiv.org/abs/2302.04844"
+      ],
+      "external_claim_review": "pilot passages only; see source-audit.md"
+    },
+    {
+      "path": "chapters/02-foundations.html",
+      "title": "Why Anyone Builds Open Models",
+      "sections": [
+        {
+          "id": "four-motives",
+          "heading": "1. Four motives, four kinds of actor"
+        },
+        {
+          "id": "gurley",
+          "heading": "2. Open source as strategy: Gurley's six cases"
+        },
+        {
+          "id": "zuckerberg",
+          "heading": "3. The Linux analogy and where it broke"
+        },
+        {
+          "id": "catalini",
+          "heading": "4. The economics: direction, not level"
+        },
+        {
+          "id": "ai2",
+          "heading": "5. The scientific and values case from Ai2"
+        },
+        {
+          "id": "china-motive",
+          "heading": "6. The national motive"
+        }
+      ],
+      "objectives": [
+        "Apply Bill Gurley's \"open source strategy\" lens (commoditise, neutralise, standardise) to AI.",
+        "Reconstruct Zuckerberg's Linux argument and identify where it broke down for Meta.",
+        "Explain Catalini's claim that openness changes the  direction  of innovation, not the level.",
+        "Distinguish the strategic, economic, scientific and values cases, and say which actors hold which."
+      ],
+      "quiz_questions": 4,
+      "external_links": [
+        "https://p3institute.substack.com/p/from-open-source-software-to-open",
+        "https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/",
+        "https://www.a16z.news/p/some-simple-economics-of-open-versus",
+        "https://www.interconnects.ai/p/why-i-build-open-language-models"
+      ],
+      "external_claim_review": "not independently verified in this pass"
+    },
+    {
+      "path": "chapters/03-safety-and-data.html",
+      "title": "Risk, Safety and the Data Commons",
+      "sections": [
+        {
+          "id": "marginal-risk",
+          "heading": "1. Marginal risk"
+        },
+        {
+          "id": "nonproliferation",
+          "heading": "2. Nonproliferation and its alternative"
+        },
+        {
+          "id": "record",
+          "heading": "3. What the misuse record shows"
+        },
+        {
+          "id": "staged",
+          "heading": "4. A staged path: Thinking Machines"
+        },
+        {
+          "id": "data-commons",
+          "heading": "5. The shrinking data commons"
+        }
+      ],
+      "objectives": [
+        "Apply the marginal-risk framework of Kapoor et al. to a proposed release.",
+        "State Toner's argument against nonproliferation and the \"adaptation buffer\" alternative.",
+        "Summarise what the misuse record shows about closed versus open models.",
+        "Describe Thinking Machines' two-front framework and staged release.",
+        "Explain why the \"data commons\" is shrinking and who it hurts."
+      ],
+      "quiz_questions": 5,
+      "external_links": [
+        "https://arxiv.org/abs/2403.07918",
+        "https://helentoner.substack.com/p/nonproliferation-is-the-wrong-approach",
+        "https://florianbrand.com/posts/open-model-safety",
+        "https://thinkingmachines.ai/blog/a-safe-path-to-open-weights/",
+        "https://arxiv.org/abs/2407.14933"
+      ],
+      "external_claim_review": "not independently verified in this pass"
+    },
+    {
+      "path": "chapters/04-lineage.html",
+      "title": "The Lineage of Open Models",
+      "sections": [
+        {
+          "id": "phase1",
+          "heading": "Phase 1 (2019–2022): staged releases and open science"
+        },
+        {
+          "id": "phase2",
+          "heading": "Phase 2 (2023–2024): Llama and the Cambrian explosion"
+        },
+        {
+          "id": "phase3",
+          "heading": "Phase 3 (late 2024–2025): DeepSeek and the Chinese takeover"
+        },
+        {
+          "id": "phase4",
+          "heading": "Phase 4 (2026): the open frontier is Chinese"
+        },
+        {
+          "id": "meta",
+          "heading": "Phase 5: Meta's retreat and the missing Western champion"
+        },
+        {
+          "id": "pattern",
+          "heading": "The pattern"
+        }
+      ],
+      "objectives": [
+        "Name the key releases in each phase and explain what each changed.",
+        "Explain what Pythia and OLMo contribute that Llama does not.",
+        "Describe the DeepSeek V3/R1 moment and why it was an efficiency shock before it was a capability shock.",
+        "Summarise the 2026 Chinese frontier (GLM-5.x, Kimi K3, DeepSeek V4, Qwen 3.x) and Meta's retreat."
+      ],
+      "quiz_questions": 4,
+      "external_links": [
+        "https://arxiv.org/abs/2304.01373",
+        "https://arxiv.org/abs/2402.00838",
+        "https://arxiv.org/abs/2501.00656",
+        "https://arxiv.org/abs/2512.13961"
+      ],
+      "external_claim_review": "not independently verified in this pass"
+    },
+    {
+      "path": "chapters/05-us-china.html",
+      "title": "US–China Competition",
+      "sections": [
+        {
+          "id": "history",
+          "heading": "1. Six acts: how China learned open source"
+        },
+        {
+          "id": "advantage",
+          "heading": "2. Three structural advantages"
+        },
+        {
+          "id": "atom-report",
+          "heading": "3. What the ATOM Report measured"
+        },
+        {
+          "id": "atom-project",
+          "heading": "4. The American counter-proposal"
+        },
+        {
+          "id": "events",
+          "heading": "5. 2025–26: when a model choice became a political act"
+        }
+      ],
+      "objectives": [
+        "Narrate the six acts of Chinese open source from De-IOE to the 2025 AI generation.",
+        "State Xu's three structural advantages and evaluate each.",
+        "Describe what the ATOM Report measured and what it found.",
+        "Explain the ATOM Project's policy proposal and the Lambert–Xu case against a ban.",
+        "Recount the 2025–26 sequence of events: Perplexity, Apple–Alibaba, the House probes, Thomson Reuters."
+      ],
+      "quiz_questions": 4,
+      "external_links": [
+        "https://interconnect.substack.com/p/chinese-open-source-a-definitive",
+        "https://interconnect.substack.com/p/chinas-structural-advantage-in-open",
+        "https://www.interconnects.ai/p/notes-from-inside-chinas-ai-labs",
+        "https://arxiv.org/abs/2604.07190",
+        "https://dashboard.interconnects.ai/",
+        "https://artifactshub.ai/",
+        "http://atomproject.ai",
+        "https://www.interconnects.ai/p/banning-open-source-ai-would-be-a"
+      ],
+      "external_claim_review": "not independently verified in this pass"
+    },
+    {
+      "path": "chapters/06-measuring-the-gap.html",
+      "title": "Measuring the Gap",
+      "sections": [
+        {
+          "id": "why-hard",
+          "heading": "1. Why the number is contested"
+        },
+        {
+          "id": "semianalysis",
+          "heading": "2. SemiAnalysis: three eras, halving catch-up"
+        },
+        {
+          "id": "ihle",
+          "heading": "3. Ihle: thresholds on 17 benchmarks"
+        },
+        {
+          "id": "lambert",
+          "heading": "4. Lambert: perpetual catch-up, then compression"
+        },
+        {
+          "id": "dashboards",
+          "heading": "5. The live dashboards"
+        },
+        {
+          "id": "pareto",
+          "heading": "6. Frontier versus Pareto frontier"
+        }
+      ],
+      "objectives": [
+        "Explain SemiAnalysis's three-era method and its headline result.",
+        "Explain Ihle's threshold method and why private benchmarks show a bigger gap.",
+        "Reconcile these with Lambert's \"perpetual catch-up\" and \"different exponentials\" positions.",
+        "Explain benchmark saturation, hill-climbing and the product-versus-benchmark distinction."
+      ],
+      "quiz_questions": 4,
+      "external_links": [
+        "https://newsletter.semianalysis.com/p/are-open-models-catching-up",
+        "https://www.lesswrong.com/posts/rJcCrXyEsJKmmDpWG/how-far-behind-are-open-models",
+        "https://artificialanalysis.ai/trends#progress-in-open-weights-vs-proprietary-intelligence",
+        "https://artificialanalysis.ai/trends?country=us%2Ccn#frontier-language-model-intelligence-by-country-over-time",
+        "https://epoch.ai/benchmarks/eci?view=graph&tab=release-date&subset-view=graph&subset-tab=Software+engineering&showFrontierTrend=true&colorCategorization=Accessibility",
+        "https://dashboard.interconnects.ai/"
+      ],
+      "external_claim_review": "not independently verified in this pass"
+    },
+    {
+      "path": "chapters/07-distillation.html",
+      "title": "Distillation and Synthetic Data",
+      "sections": [
+        {
+          "id": "technique",
+          "heading": "1. The technique"
+        },
+        {
+          "id": "how-much",
+          "heading": "2. How much does it actually buy?"
+        },
+        {
+          "id": "deepseek-o1",
+          "heading": "3. The original accusation: did R1 distil o1?"
+        },
+        {
+          "id": "anthropic",
+          "heading": "4. Anthropic's disclosures"
+        },
+        {
+          "id": "traces",
+          "heading": "5. Stealing reasoning traces"
+        },
+        {
+          "id": "panic",
+          "heading": "6. The panic and the word"
+        }
+      ],
+      "objectives": [
+        "Define knowledge distillation, on-policy distillation, and synthetic-data pipelines precisely.",
+        "Explain where in the training stack distillation helps and where it cannot (RL).",
+        "Summarise Anthropic's February and September 2026 disclosures and the \"stealing reasoning traces\" attack.",
+        "State Lambert's case that the problem is jailbreaking and fraud, not distillation, and why the framing matters for open models."
+      ],
+      "quiz_questions": 5,
+      "external_links": [
+        "https://rlhfbook.com/c/12-synthetic-data",
+        "https://natolambert.substack.com/p/how-distillation-is-used-today-and",
+        "https://www.interconnects.ai/p/how-much-does-distillation-really",
+        "https://www.interconnects.ai/i/156272283/did-deepseek-distill-openais-o1-model-hint-no",
+        "https://www.anthropic.com/threat-intelligence-report-september-2026",
+        "https://arxiv.org/abs/2608.09867",
+        "https://www.interconnects.ai/p/the-distillation-panic"
+      ],
+      "external_claim_review": "not independently verified in this pass"
+    },
+    {
+      "path": "chapters/08-security-and-policy.html",
+      "title": "Security, Cyber and the Regulatory Fight",
+      "sections": [
+        {
+          "id": "incidents",
+          "heading": "1. What happened in 2026"
+        },
+        {
+          "id": "two-models",
+          "heading": "2. Two policy models"
+        },
+        {
+          "id": "instruments",
+          "heading": "3. The instruments on the table"
+        },
+        {
+          "id": "six-months",
+          "heading": "4. \"Six months to live\""
+        },
+        {
+          "id": "what-safety-work",
+          "heading": "5. What would actually reduce risk"
+        }
+      ],
+      "objectives": [
+        "Describe the 2026 cyber incidents and what they showed about autonomous capability.",
+        "Contrast the \"launch gate\" policy model with Saxe's \"observatory\" and Toner's \"adaptation buffer\".",
+        "List the policy instruments under discussion in mid-2026 and their likely effects on open models.",
+        "Assess Lambert's regulatory-capture argument and the counter-arguments."
+      ],
+      "quiz_questions": 4,
+      "external_links": [
+        "https://joshuasaxe181906.substack.com/p/the-openaihuggingface-incident-how",
+        "https://joshuasaxe181906.substack.com/p/we-urgently-need-a-coherent-national",
+        "https://www.interconnects.ai/p/6-months-to-live-for-open-models"
+      ],
+      "external_claim_review": "not independently verified in this pass"
+    },
+    {
+      "path": "chapters/09-synthesis.html",
+      "title": "Synthesis: Where This Goes",
+      "sections": [
+        {
+          "id": "exponentials",
+          "heading": "1. Different exponentials"
+        },
+        {
+          "id": "specialisation",
+          "heading": "2. The specialisation thesis"
+        },
+        {
+          "id": "equilibrium",
+          "heading": "3. The 2026 equilibrium and what breaks it"
+        },
+        {
+          "id": "questions",
+          "heading": "4. Open questions"
+        },
+        {
+          "id": "reading-next",
+          "heading": "5. Where to go from here"
+        }
+      ],
+      "objectives": [
+        "Explain Lambert's \"different exponentials\" thesis and its three model classes.",
+        "State the specialisation thesis and why the market for small specialised open models is unmet.",
+        "Identify the conditions under which the 2026 equilibrium holds or breaks.",
+        "Pose and defend a position on the open questions."
+      ],
+      "quiz_questions": 4,
+      "external_links": [
+        "https://www.interconnects.ai/p/open-and-closed-models-are-on-different",
+        "https://dashboard.interconnects.ai/",
+        "https://artificialanalysis.ai/trends",
+        "https://epoch.ai/benchmarks",
+        "https://rlhfbook.com/"
+      ],
+      "external_claim_review": "not independently verified in this pass"
+    }
+  ]
+}

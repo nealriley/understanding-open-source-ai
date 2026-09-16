@@ -1,0 +1,187 @@
+{
+  "version": "0.1",
+  "reviewed": "2026-09-16",
+  "basis_commit": "bdb4ed0",
+  "note": "Compact application of the common content model. Tasks and criteria are authored additions; source_path identifies the existing textbook unit, not independently verified external evidence. Prerequisites are recommended dependencies. Only Chapter 1 has a complete source-reviewed transformation.",
+  "units": [
+    {
+      "id": "primer",
+      "chapter": 0,
+      "title": "How Language Models Work",
+      "source_path": "chapters/00-primer.html",
+      "prerequisites": [],
+      "outcome_id": "O-00",
+      "outcome": "Explain what is learned during training and what happens during inference.",
+      "activity_id": "A-00",
+      "activity": "Draw a path from training data to weights to a generated response. Mark where a tokenizer, post-training, and inference fit.",
+      "criteria": "Your explanation distinguishes data, learned parameters, and execution. Treat reinforcement learning as a possible post-training method, not a mandatory separate stage for every model.",
+      "output_path": "study-guide.html",
+      "output_anchor": "unit-primer",
+      "status": "study_task_added_existing_chapter_not_fully_revised"
+    },
+    {
+      "id": "openness",
+      "chapter": 1,
+      "title": "What ‘Open’ Means",
+      "source_path": "chapters/01-what-open-means.html",
+      "prerequisites": [
+        "primer"
+      ],
+      "outcome_id": "O-01",
+      "outcome": "Assess access, artefacts, permissions, and missing evidence for a specific release.",
+      "activity_id": "A-01",
+      "activity": "Complete the Rowan release assessment in Chapter 1 before revealing its feedback.",
+      "criteria": "Separate what is downloadable from what is permitted. Distinguish missing materials from uninspected documents; name a concrete next check.",
+      "output_path": "study-guide.html",
+      "output_anchor": "unit-openness",
+      "status": "implemented_pilot"
+    },
+    {
+      "id": "foundations",
+      "chapter": 2,
+      "title": "Why Anyone Builds Open Models",
+      "source_path": "chapters/02-foundations.html",
+      "prerequisites": [
+        "openness"
+      ],
+      "outcome_id": "O-02",
+      "outcome": "Compare explanations for why an organisation releases a model.",
+      "activity_id": "A-02",
+      "activity": "Choose two arguments in the chapter. For each, name the actor, proposed benefit, supporting evidence, and an alternative explanation.",
+      "criteria": "Attribute an argument to its author. A plausible business motive is not proof of an organisation’s internal intention.",
+      "output_path": "study-guide.html",
+      "output_anchor": "unit-foundations",
+      "status": "study_task_added_existing_chapter_not_fully_revised"
+    },
+    {
+      "id": "safety",
+      "chapter": 3,
+      "title": "Risk, Safety and the Data Commons",
+      "source_path": "chapters/03-safety-and-data.html",
+      "prerequisites": [
+        "primer",
+        "openness"
+      ],
+      "outcome_id": "O-03",
+      "outcome": "Frame a release-risk argument against a stated baseline.",
+      "activity_id": "A-03",
+      "activity": "Choose a hypothetical release. Specify the harmful task, actor, available alternatives, added capability, proposed mitigation, and missing evidence.",
+      "criteria": "Compare like-for-like access and capability. Separate evidence of misuse from evidence of incremental risk and from a policy preference.",
+      "output_path": "study-guide.html",
+      "output_anchor": "unit-safety",
+      "status": "study_task_added_existing_chapter_not_fully_revised"
+    },
+    {
+      "id": "lineage",
+      "chapter": 4,
+      "title": "The Lineage of Open Models",
+      "source_path": "chapters/04-lineage.html",
+      "prerequisites": [
+        "primer",
+        "openness"
+      ],
+      "outcome_id": "O-04",
+      "outcome": "Explain a historical change using dated release evidence.",
+      "activity_id": "A-04",
+      "activity": "Select two releases discussed in the chapter. Inspect their original announcements or papers and compare the artefacts they made available.",
+      "criteria": "Record versions and dates. Identify one documented difference without treating later commentary as a contemporary release record.",
+      "output_path": "study-guide.html",
+      "output_anchor": "unit-lineage",
+      "status": "study_task_added_existing_chapter_not_fully_revised"
+    },
+    {
+      "id": "us-china",
+      "chapter": 5,
+      "title": "US–China Competition",
+      "source_path": "chapters/05-us-china.html",
+      "prerequisites": [
+        "foundations",
+        "lineage"
+      ],
+      "outcome_id": "O-05",
+      "outcome": "Evaluate an adoption or geopolitical claim without conflating the measures.",
+      "activity_id": "A-05",
+      "activity": "Choose one claim from the chapter and identify its measure, sampled population, date, source, and a plausible alternative interpretation.",
+      "criteria": "Distinguish downloads, usage, revenue, capability, and nationality. State when the source cannot establish causation or market-wide coverage.",
+      "output_path": "study-guide.html",
+      "output_anchor": "unit-us-china",
+      "status": "study_task_added_existing_chapter_not_fully_revised"
+    },
+    {
+      "id": "gap",
+      "chapter": 6,
+      "title": "Measuring the Gap",
+      "source_path": "chapters/06-measuring-the-gap.html",
+      "prerequisites": [
+        "primer",
+        "openness"
+      ],
+      "outcome_id": "O-06",
+      "outcome": "Explain why two estimates of a capability gap can disagree.",
+      "activity_id": "A-06",
+      "activity": "Compare two estimates in the chapter using benchmark, threshold, release dates, access conditions, and aggregation method. Identify an additional check before using either.",
+      "criteria": "A disagreement in numbers is not automatically a contradiction. Match task, evaluation conditions, and definition of the gap before drawing a trend.",
+      "output_path": "study-guide.html",
+      "output_anchor": "unit-gap",
+      "status": "study_task_added_existing_chapter_not_fully_revised"
+    },
+    {
+      "id": "distillation",
+      "chapter": 7,
+      "title": "Distillation and Synthetic Data",
+      "source_path": "chapters/07-distillation.html",
+      "prerequisites": [
+        "primer",
+        "gap"
+      ],
+      "outcome_id": "O-07",
+      "outcome": "Separate a training mechanism from an allegation and an estimate of its effect.",
+      "activity_id": "A-07",
+      "activity": "Draw the teacher-to-student information flow. Then separate one reported allegation into observed evidence, source attribution, and causal claims still needing a comparison.",
+      "criteria": "Name the training stage and the transferred information. Do not infer causal uplift, permission, or wrongdoing from similar outputs alone; check the technical source for claimed limits.",
+      "output_path": "study-guide.html",
+      "output_anchor": "unit-distillation",
+      "status": "study_task_added_existing_chapter_not_fully_revised"
+    },
+    {
+      "id": "security",
+      "chapter": 8,
+      "title": "Security, Cyber and the Regulatory Fight",
+      "source_path": "chapters/08-security-and-policy.html",
+      "prerequisites": [
+        "safety",
+        "us-china"
+      ],
+      "outcome_id": "O-08",
+      "outcome": "Compare policy proposals against the same objective and threat model.",
+      "activity_id": "A-08",
+      "activity": "Compare a release gate and an observatory: objective, covered actor, mechanism, enforcement, possible displacement, and measurable success.",
+      "criteria": "Distinguish a proposal from an enacted rule. Use the same threat baseline for both approaches and identify a trade-off and an unresolved evidence need.",
+      "output_path": "study-guide.html",
+      "output_anchor": "unit-security",
+      "status": "study_task_added_existing_chapter_not_fully_revised"
+    },
+    {
+      "id": "synthesis",
+      "chapter": 9,
+      "title": "Synthesis: Where This Goes",
+      "source_path": "chapters/09-synthesis.html",
+      "prerequisites": [
+        "foundations",
+        "safety",
+        "us-china",
+        "gap",
+        "distillation",
+        "security"
+      ],
+      "outcome_id": "O-09",
+      "outcome": "Defend a conditional model-selection recommendation using evidence and counterarguments.",
+      "activity_id": "A-09",
+      "activity": "Write the decision memo below, then revise the weakest-supported sentence.",
+      "criteria": "A strong response connects the task to release terms, evaluation, costs, risks, alternatives, and a condition that would change the decision. More than one recommendation can be defensible.",
+      "output_path": "study-guide.html",
+      "output_anchor": "unit-synthesis",
+      "status": "study_task_added_existing_chapter_not_fully_revised"
+    }
+  ]
+}

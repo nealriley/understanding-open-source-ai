@@ -18,83 +18,94 @@
       <div class="chapter-kicker">Chapter 1 · Primer</div>
       <h1>What 'Open' Means</h1>
       <div class="chapter-meta" id="chapter-meta"></div>
-<p class="lede">"Open source AI" is a phrase used by Meta's lobbyists, by Chinese state planners, by Ai2 researchers and by congressional staffers, and they do not mean the same thing. This chapter sorts the vocabulary: the release gradient, the difference between open weights and open source, licenses, and why the definitional fight is really a fight about who gets to claim the benefits.</p>
+<p class="lede">A team says its model is “open.” Can you run it yourself, change it, share it, or investigate how it was trained? Those are different questions. This chapter teaches you to turn the label into a checkable description of a particular release.</p>
 
-<div class="objectives"><h4>What you will be able to do</h4><ul>
-<li>Place any model release on Solaiman's six-level gradient.</li>
-<li>Distinguish open weights, open source (in the OSI sense) and fully open, and say which models are which.</li>
-<li>Explain what the Llama license, MIT and Apache 2.0 each permit and why it matters for adoption.</li>
-<li>Recognise when "open" is being used as a strategic label rather than a technical description.</li>
-</ul></div>
+<section class="objectives" aria-labelledby="learning-outcomes"><h2 id="learning-outcomes">What you will be able to do</h2><ul>
+<li id="o1">Describe a release's access method, available artefacts, and permissions separately.</li>
+<li id="o2">Explain why downloadable weights alone do not establish compliance with the Open Source AI Definition.</li>
+<li id="o3">Write a qualified release assessment that identifies missing evidence and a next check.</li>
+</ul></section>
+<p><b>Before you start:</b> you should be able to distinguish weights, training data, and inference code. If these are unfamiliar, revisit <a href="00-primer.html#files">Chapter 0: what is in a release</a>. Allow about 20 minutes to read, plus 10–15 minutes for the activities; these are estimates.</p>
+<nav class="on-this-page" aria-label="On this page"><b>In this chapter</b><ul>
+<li><a href="#gradient">Access</a></li><li><a href="#three-words">Artefacts and definitions</a></li><li><a href="#licenses">Permissions</a></li><li><a href="#worked-example">Worked assessment</a></li><li><a href="#practice">Your assessment</a></li>
+</ul></nav>
 
-<h2 id="gradient">1. The gradient of release</h2>
-<p>In February 2023, a few months after ChatGPT, Hugging Face's Irene Solaiman published <a href="https://arxiv.org/abs/2302.04844">"The Gradient of Generative AI Release: Methods and Considerations"</a>. Its lasting contribution was to replace a binary (open vs closed) with six levels, and to insist that each level trades off concentration of power against ability to mitigate risk. Drag the slider to see each level and examples.</p>
-
+<h2 id="gradient">1. Start with access</h2>
+<p>Irene Solaiman's <a href="https://arxiv.org/abs/2302.04844">2023 release framework</a> describes six access levels, from a system kept inside a lab to a fully open release. It helps us ask who can interact with a system and how much control the provider retains. The levels describe release arrangements, not a ranking of model quality or a licence certification.</p>
 <div class="widget" id="gradient-widget">
-<h4>Interactive: the release gradient</h4>
-<input type="range" min="0" max="5" value="4" aria-label="Release level">
+<h3>Explore the release gradient</h3>
+<p>Move the slider with the arrow keys or pointer. The descriptions below are teaching summaries; real releases can combine arrangements.</p>
+<input type="range" min="0" max="5" value="4" aria-label="Release access level" aria-describedby="gradient-panel">
 <div class="levels"><span>Fully closed</span><span>Staged</span><span>Hosted</span><span>API</span><span>Downloadable</span><span>Fully open</span></div>
-<div class="panel"></div>
+<div class="panel" id="gradient-panel" aria-live="polite"></div>
+<noscript><p>The six levels are fully closed, gradual or staged access, hosted access, cloud or API access, downloadable access, and fully open. Downloadability alone does not settle permissions or reproducibility.</p></noscript>
 </div>
+<p>A release can offer both an API and downloadable weights. Record both. If a download only works under additional hardware or access restrictions, describe those restrictions rather than forcing the release into one box.</p>
 
-<p>Solaiman's observation about who sits where has held up: "closedness among large companies for powerful systems and openness among organizations founded on principles of openness". The 2026 twist is that the most powerful downloadable models now come from companies (Alibaba, Moonshot, Z.ai, DeepSeek) whose openness is strategic rather than principled, a shift Chapter 2 examines.</p>
+<h2 id="three-words">2. Inspect the artefacts and define your terms</h2>
+<h3>Open weights: a distribution description</h3>
+<p>In this book, <dfn data-term="open-weights">open weights</dfn> means that trained parameters are available to download. Check separately whether the release includes what is needed to run them, what its terms permit, and what hardware is required. A weights file alone does not disclose the training process.</p>
+<h3>Open Source AI: a specified definition</h3>
+<p>The <a href="https://opensource.org/ai/open-source-ai-definition">OSI Open Source AI Definition 1.0</a> combines freedoms to use, study, modify, and share with access to the preferred form for modification. For machine-learning systems, it specifies data information, code, and parameters, with requirements on their terms. A permissive licence on one file does not establish that the complete release meets the definition.</p>
+<p>The data requirement is more precise than “publish every raw training file.” OSI's <a href="https://opensource.org/ai/faq">FAQ on data</a> distinguishes shareable, public, obtainable, and unshareable data. It also explains that the definition does not mandate full reproducibility. Check the actual disclosures against the definition; neither a missing raw dataset nor a marketing label is a sufficient assessment.</p>
+<h3>Research transparency: ask what can be studied</h3>
+<p>The <a href="https://arxiv.org/abs/2402.00838">OLMo paper</a> describes releasing training data and training and evaluation code alongside weights. <a href="https://arxiv.org/abs/2304.01373">Pythia</a> provides checkpoints across training and tools to reconstruct the training data order. These artefacts support investigations that final weights alone cannot support. They do not remove the need for computing resources or a reproducible environment.</p>
+<p><dfn data-term="fully-open">Fully open</dfn> is used here as shorthand for a broadly documented research release. Always list the actual artefacts. It is not a separate certification, and material transparency and permission to reuse remain separate questions.</p>
 
-<h2 id="three-words">2. Three different things called "open"</h2>
-
-<h3>Open weights</h3>
-<p>The weights can be downloaded and run. This is the working definition in nearly all 2025–26 discourse, and it is what Llama, Qwen, DeepSeek, Kimi, GLM, GPT-OSS and Mistral all are. Lambert's writing generally says "open models" or "open weights" and avoids "open source" for exactly this reason. Open weights give you most of the practical benefits: local deployment, fine-tuning on private data, no vendor lock-in, no per-token margin paid to the lab. They do not give you the ability to reproduce or fully audit the model.</p>
-
-<h3>Open source (OSI sense)</h3>
-<p>The Open Source Initiative's definition of open source software requires, among other things, that the license not discriminate against fields of endeavour and that the "preferred form for modification" be available. Applied to models, the OSI's 2024 Open Source AI Definition requires weights, code, and enough data information to substantially recreate the system. By that standard, models under the Llama license (which restricts use by companies over 700M monthly users and bans certain applications) are not open source, and neither are most open-weights models, because their data is withheld. Meta's insistence on the phrase "open source AI" for Llama is a branding choice, and the source of a running argument with the OSI and with researchers.</p>
-
-<h3>Fully open</h3>
-<p><dfn data-term="fully-open">Fully open</dfn> means weights plus the data, training code, evaluation code and <dfn data-term="checkpoint">checkpoints</dfn>: enough to reproduce the model and to study how it learned. The reference examples are EleutherAI's Pythia suite (2023), BigScience's BLOOM (2022), and Ai2's OLMo family (2024–). The OLMo paper's justification is scientific: "the most powerful models have become closed off, gated behind proprietary interfaces", and researchers need "powerful, truly open LMs" to study behaviour, bias and risk. Olmo 3 (2025) extends this to what Ai2 calls the "entire model flow", every stage and dataset from raw text to the final Think and Instruct models.</p>
-
-<div class="callout idea"><span class="label">Key idea</span><b>Open weights is a distribution decision; fully open is a science decision.</b> Most of the economic and geopolitical debate in this book is about open weights. Most of the research value, and the ability to make evidence-based claims about what training does, comes from the much smaller set of fully open models.</div>
-
-<h2 id="licenses">3. Licenses</h2>
-<p>License terms decide who can use a model commercially and whether other companies can build products on it. The 2025–26 open-weights leaders converged on permissive licenses, which is a big part of why adoption tilted toward them.</p>
+<h2 id="licenses">3. Read the permissions for the exact release</h2>
+<p>Use the licence attached to the specific version and component. A repository's code licence need not govern its weights or datasets. Read incorporated policies and additional conditions, too.</p>
 <div class="table-wrap"><table>
-<thead><tr><th>License</th><th>Used by</th><th>What it means</th></tr></thead>
+<caption>What to inspect in common licence examples</caption>
+<thead><tr><th scope="col">Example</th><th scope="col">Key reading task</th><th scope="col">What it does not establish</th></tr></thead>
 <tbody>
-<tr><td>MIT</td><td>DeepSeek V3/R1, GLM-4.5 onward, Kimi K2 (modified MIT)</td><td>Do anything, keep the notice. The most permissive common choice.</td></tr>
-<tr><td>Apache 2.0</td><td>Qwen (most sizes), GPT-OSS, Mistral 7B/Mixtral, OLMo, Pythia</td><td>Permissive, with an explicit patent grant. The default for "we want enterprises to use this".</td></tr>
-<tr><td>Llama Community License</td><td>Llama 2, 3, 4</td><td>Free for most, but restrictions on very large companies, an acceptable-use policy, and naming requirements. Not OSI-compliant.</td></tr>
-<tr><td>Gemma Terms</td><td>Google Gemma</td><td>Custom terms with usage restrictions Google can update.</td></tr>
-<tr><td>Research-only / non-commercial</td><td>Original LLaMA (2023), some Chinese models' largest sizes</td><td>Fine for papers, unusable for products.</td></tr>
+<tr><th scope="row"><a href="https://opensource.org/license/mit">MIT</a></th><td>Identify the broad grant and the requirement to retain copyright and permission notices.</td><td>That every component in a release uses MIT.</td></tr>
+<tr><th scope="row"><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a></th><td>Read the copyright and patent grants and redistribution conditions, including notices and marking changes.</td><td>That a model's training data and code are available.</td></tr>
+<tr><th scope="row"><a href="https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE">Llama 3.1 Community License</a></th><td>Inspect attribution, incorporated acceptable-use terms, and additional commercial terms. Section 2 ties its 700-million-user condition to the version release date and preceding month.</td><td>That terms for another Llama version are identical.</td></tr>
 </tbody></table></div>
-<p>Kevin Xu's history of Chinese open source (Chapter 5) notes that the 2025 generation of Chinese labs chose MIT and Apache deliberately: DeepSeek with MIT and full chain-of-thought visibility, Qwen with Apache 2.0, GLM with MIT. Combined with prompt hosting on cloud platforms, this was a "matured commercialization instinct", not a giveaway.</p>
+<p>These are reading prompts, not complete summaries of the agreements. “Free to download,” “commercial use permitted,” and “meets a named open-source definition” are different claims.</p>
 
-<h2 id="why-contested">4. Why the words are contested</h2>
-<p>The definitional fight matters because the benefits people claim for "open source AI" (transparency, auditability, security through many eyes, educational access) were established for open source <em>software</em>, where the source is the preferred form for modification and anyone can read it. Whether those benefits transfer to a 400GB weights file with no data is an empirical question, and different answers favour different actors:</p>
+<h2 id="worked-example">4. Worked example: assess a release</h2>
+<p><b>Invented teaching case:</b> Cedar-7B offers downloadable weights, inference code, and a model card. The weights and inference code each carry MIT terms. Its card lists evaluation results, but no training code or data information is provided.</p>
+<ol>
+<li><b>Access:</b> the weights are downloadable. Cedar also needs a compatible runtime and sufficient hardware to run locally.</li>
+<li><b>Artefacts:</b> weights, inference code, and a card are present. Training code and data information are explicitly absent.</li>
+<li><b>Permissions:</b> the case specifies MIT for two components. That tells us nothing about permission to reuse an undisclosed dataset.</li>
+<li><b>Conclusion:</b> describe Cedar as an open-weights release. The missing components mean this described release does not meet the OSI definition. We cannot reconstruct its training process from the supplied package.</li>
+<li><b>Next check:</b> ask whether a separate training repository and data disclosure exist; if found, reassess the complete release.</li>
+</ol>
+<p>Notice the distinction between <em>known absent</em> and <em>not yet inspected</em>. In a real review, write “not located in the material inspected” when that is all your evidence supports.</p>
+
+<h2 id="why-contested">5. Translate competing claims into questions</h2>
+<p>A developer may mean local deployment; a researcher may mean access to training artefacts; a policy writer may mean freedoms under a particular definition. Before arguing about the label, ask what each person wants to do and what evidence would support that use.</p>
+<div class="callout idea"><span class="label">A useful habit</span>Replace “Is it open?” with “What can this reader access, do, and verify with this exact release?” Openness alone does not establish safety, quality, suitability, or operating cost.</div>
+
+<h2 id="practice">6. Your turn: a release assessment</h2>
+<p><b>Invented teaching case:</b> Rowan's announcement says “fully open.” You can download weights and inspect its training code. The README links to a data document that you have not opened. Its licence permits research but prohibits commercial use. An API is also available.</p>
+<p>Write four sentences: describe access; assess the stated permission; identify what is still unknown; and name the next document or artefact you would inspect. Explain whether the phrase “fully open” settles anything.</p>
+<details class="callout think" id="practice-feedback"><summary>Compare your reasoning with the feedback</summary>
+<p>Rowan offers both downloadable and API access. Its stated commercial-use prohibition conflicts with the any-purpose freedom in the OSI definition. The data document's contents remain unknown: an unread link is not evidence of either completeness or absence. Inspect that document and the exact licence, then list the available research artefacts. The announcement does not replace those checks.</p>
+<p><b>Self-check:</b> did you keep access, permissions, and evidence separate; identify an unknown without guessing; and propose a specific next check? Correct any sentence that confuses those dimensions.</p>
+</details>
+
+<h2 id="taxonomy">7. Carry forward a precise description</h2>
 <ul>
-<li><b>Meta</b> (2024) wanted "open source" to mean Llama, so that the Linux analogy in Zuckerberg's letter applied.</li>
-<li><b>Ai2 and EleutherAI</b> want the distinction preserved, because their value proposition is the part Llama omits.</li>
-<li><b>Policymakers</b> in 2026 mostly use "open models" or "open-weight models" and are considering restrictions defined by capability thresholds, not by license (Chapter 8).</li>
-<li><b>Chinese labs</b> use "open source" freely and, as Xu notes, benefit from being judged "on merit" with "no licensing burden" in overseas markets.</li>
+<li><b>API or hosted access:</b> describe the interface and provider control.</li>
+<li><b>Open weights:</b> record downloadability, component terms, and practical dependencies.</li>
+<li><b>Open Source AI:</b> name the definition and version, and document your assessment.</li>
+<li><b>Research transparency:</b> list data disclosures, code, checkpoints, and reproducibility limits.</li>
 </ul>
+<p>Before <a href="02-foundations.html">Chapter 2</a>, explain from memory why a weights download is insufficient to answer a researcher's question about training. Then check your explanation here. Later, use the same release assessment in the <a href="../study-guide.html#capstone">book's decision memo</a>.</p>
 
-<div class="callout debate"><span class="label">Debate</span><b>Does "open" need the data to count?</b> Lambert's 2024 "Why I Build Open Language Models" argues that one for-profit company controlling the practical definition limits the genuine benefits, and that regulators need "direct access to systems" rather than demos. Meta's position is that weights are what developers need and what delivers the ecosystem benefits. The ATOM Report's adoption data (Chapter 5) suggests developers agree with Meta about usefulness, while the scientific literature almost entirely relies on the fully open models.</div>
-
-<h2 id="taxonomy">5. A working taxonomy for this book</h2>
-<p>To keep later chapters precise, the book uses these terms consistently:</p>
-<ul>
-<li><b>Closed model</b>: API or hosted only. GPT-5.x, Claude, Gemini Pro, Grok.</li>
-<li><b>Open-weights model</b>: downloadable weights, any license. Qwen, DeepSeek, Kimi, GLM, Llama, GPT-OSS, Mistral, Gemma, Nemotron.</li>
-<li><b>Fully open model</b>: weights, data, code, checkpoints. OLMo/Olmo, Pythia, BLOOM, SmolLM.</li>
-<li><b>Frontier</b>: the best model available at a moment, regardless of openness. "Open frontier" means the best open-weights model.</li>
-<li><b>Open model ecosystem</b>: the models plus the inference providers, fine-tuning tools, derivative models and datasets built on them. This is what the ATOM Report measures.</li>
-</ul>
-
-<details class="callout think"><summary>Think about it: where would you put an encrypted-weights release?</summary>
-<p>Some 2026 proposals involve releasing weights that only run on attested hardware, or "staged" releases where fine-tuning is offered before download (the Thinking Machines framework in Chapter 3). These sit between levels 4 and 5 of the gradient and show that the gradient is a spectrum of control, not six boxes.</p></details>
-
-<script type="application/json" data-quiz="openness">[
-{"q":"A model's weights are on Hugging Face under the Llama Community License. In the OSI's sense it is:","a":["Open source","Open weights but not open source","Fully open","Closed"],"c":1,"x":"Downloadable weights make it open-weights, but the license's use restrictions and the missing data mean it does not meet the Open Source AI Definition."},
-{"q":"Which release includes intermediate training checkpoints and the pretraining corpus?","a":["DeepSeek R1","Kimi K3","Olmo 3","GPT-OSS"],"c":2,"x":"Olmo 3 releases the 'entire model flow'. The others are open-weights with permissive licenses but withhold data and checkpoints."},
-{"q":"On Solaiman's gradient, an API-only model like GPT-3 in 2020 sits at level:","a":["1 (fully closed)","2 (staged)","4 (cloud/API)","5 (downloadable)"],"c":2,"x":"API access is metered, programmatic, and monitored by the provider. It became the dominant closed business model from GPT-3 onward."},
-{"q":"Why did the 2025 Chinese labs mostly choose MIT or Apache 2.0 licenses?","a":["Chinese law requires it","To maximise overseas adoption where models are judged on merit with no licensing burden","Because they could not enforce restrictions","To comply with the OSI definition"],"c":1,"x":"Kevin Xu describes the license choices as a commercialisation strategy for expanding into markets outside China."}
+<h2 id="knowledge-check">Short application checks</h2>
+<p>These short checks support the written assessment above. A quiz score records these answers, not readiness to make a deployment decision.</p>
+<script type="application/json" data-quiz="openness-v2">[
+{"q":"Cedar provides weights and inference code under MIT, but explicitly no training code or data information. Which description is supported?","a":["OSI-compliant because MIT is permissive","Open weights; the described package lacks required components for the OSI definition","Closed because it has no training data","Reproducible because inference runs"],"c":1,"x":"Downloadability and a component licence do not supply the missing training materials. Review both artefacts and terms."},
+{"q":"Rowan links a data document you have not inspected. What should your notes say?","a":["The data is absent","The data satisfies every requirement","The contents are not yet inspected; check the linked document","The marketing label is enough"],"c":2,"x":"An uninspected document is an evidence gap. Do not turn it into a claim about what the release contains."},
+{"q":"A release offers both an API and downloadable weights. How should you use the release gradient?","a":["Choose whichever level makes it look most open","Call it API-only","Record both access arrangements and their conditions","Treat the levels as a safety score"],"c":2,"x":"The gradient helps describe access and control. Mixed arrangements need an explicit description."},
+{"q":"A lab wants to study how behaviour changed during training. Which added artefact most directly helps?","a":["A marketing claim about openness","A lower API price","Intermediate training checkpoints with their training context","A larger final weights file"],"c":2,"x":"Intermediate checkpoints let the lab compare stages. Data order and training documentation help interpret changes; final weights alone cannot show the trajectory."}
 ]</script>
+<noscript><p>Interactive multiple-choice checks require JavaScript. The written case and expandable feedback above remain available.</p></noscript>
+<p class="small">Definition and licence references reviewed 16 September 2026. The Cedar and Rowan cases are invented; historical research examples refer to the linked papers. For more reading, use the <a href="../reading-list.html#openness-primary">primary sources for this chapter</a>.</p>
       <div class="complete-row" id="complete-row"></div>
       <nav class="chapter-nav" id="chapter-nav" aria-label="Chapter navigation"></nav>
     </article></main>
