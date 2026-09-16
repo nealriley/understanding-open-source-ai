@@ -1,12 +1,12 @@
 # Open Models: A Field Guide to Open-Source AI
 
-A developing, GitHub-Pages-hosted textbook on open language models. The available draft contains two foundations chapters: **How Language Models Work** and **What “Open” Means**. The rest is being rebuilt around concepts, in sections of at most three chapters.
+A developing, GitHub-Pages-hosted textbook on open language models. The available draft contains two foundations chapters and a three-chapter section on data, adaptation and evaluation. The rest is being rebuilt around concepts, in sections of at most three chapters.
 
 ## Current draft
 
-Read the chapters in order, attempt their applications and compare the feedback. The study guide, glossary and annotated sources support the available material. No coding is required for the core reading.
+Read the chapters in order: How Language Models Work → What “Open” Means → Where Model Data Comes From → How Models Are Adapted → How to Judge a Model. Attempt their applications and compare the feedback. The study guide, glossary and annotated sources support the available material. No coding is required for the core reading.
 
-The [archive index](docs/learning-design/archive-index.md) preserves the previous ten-chapter edition, its attributed essays, sources and reuse decisions. Old chapter URLs show withdrawal notices; old completion records remain stored but do not count towards the active draft. New chapters will have concept-based IDs and URLs so their order can change without transferring quiz scores.
+The [archive index](docs/learning-design/archive-index.md) preserves the previous ten-chapter edition, its attributed essays, sources and reuse decisions. Old chapter URLs show withdrawal notices; old completion records remain stored but do not count towards the active draft. New chapters have concept-based IDs and URLs so their order can change without transferring quiz scores.
 
 ## Learning design
 
@@ -43,7 +43,7 @@ Settings → Pages → Source: "Deploy from a branch" → Branch `main`, folder 
 
 ## Editing
 
-Chapter bodies are wrapped by `tools/wrap.sh`, which adds the shared header, sidebar and footer. To add a chapter, add an entry to `OMT.chapters` in `js/data.js` and create the HTML file in `chapters/`. Glossary terms and chart records also live in `js/data.js`. Run `python3 tools/render_navigation.py` and `python3 tools/render_data.py` after shared-data edits.
+Chapter bodies are wrapped by `tools/wrap.sh`, which adds the shared header, sidebar and footer. To add a chapter, add an entry to `OMT.chapters` in `js/data.js` and create the HTML file in `chapters/`. Glossary terms and chart records also live in `js/data.js`. Run `python3 tools/render_navigation.py`, `python3 tools/render_data.py` and `python3 tools/render_learning.py` after shared-data edits.
 
 
 ## Editing shared data and evidence

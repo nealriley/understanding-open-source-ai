@@ -294,3 +294,6 @@ table caption { text-align:left; font-weight:600; padding:.6rem 0; }
 @media (max-width:600px) {
   .table-scroll::before { content:"Table: scroll sideways for more columns."; display:block; font-size:.8rem; color:var(--ink-2); margin-bottom:.4rem; }
 }
+
+/* Prose comparisons keep readable columns; their labelled region scrolls on phones. */
+.prose-table table { min-width:40rem; }

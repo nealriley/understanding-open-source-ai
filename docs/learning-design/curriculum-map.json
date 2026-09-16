@@ -2,7 +2,7 @@
   "version": "1.0",
   "reviewed": "2026-09-16",
   "basis_commit": "d6a4c73a9c0be5ea5e1e8cbd652cc77b349d7558",
-  "note": "Active foundations only. Archived units are preserved at the pre-concept-rebuild tag. Learner effectiveness remains untested.",
+  "note": "Five active units: approved foundations and the researched three-chapter data/adaptation/evaluation section. Numbers express current reading order; stable concept IDs survive reordering. No learner sessions conducted.",
   "units": [
     {
       "id": "primer",
@@ -119,6 +119,159 @@
           "preparation_sections": [
             "chapters/01-what-open-means.html#why-contested"
           ]
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "chapter": 2,
+      "title": "Where Model Data Comes From",
+      "source_path": "chapters/data-and-datasets.html",
+      "prerequisites": [
+        "primer",
+        "openness"
+      ],
+      "outcome_id": "O-data",
+      "outcome": "Distinguish data used in context, training and evaluation.",
+      "activity_id": "A-data",
+      "activity": "Create a record-by-record data-use plan, a split rule and a coverage check.",
+      "criteria": "Distinguish context/training/test roles, provenance, permission and related families; do not infer performance from an inventory.",
+      "output_path": "study-guide.html",
+      "output_anchor": "unit-data",
+      "status": "revised_concept",
+      "quiz_id": "data-v1",
+      "preparation_anchor": "roles",
+      "task_anchor": "practice",
+      "feedback_anchor": "practice-feedback",
+      "outcomes": [
+        "Distinguish data used in context, training and evaluation.",
+        "Explain how selection and provenance affect a dataset’s use.",
+        "Design a data split and identify missing coverage."
+      ],
+      "learning_mappings": [
+        {
+          "outcome_id": "O-data-1",
+          "outcome": "Distinguish data used in context, training and evaluation.",
+          "preparation": "chapters/data-and-datasets.html#roles",
+          "task": "chapters/data-and-datasets.html#practice",
+          "feedback": "chapters/data-and-datasets.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-data-2",
+          "outcome": "Explain how selection and provenance affect a dataset’s use.",
+          "preparation": "chapters/data-and-datasets.html#curation",
+          "task": "chapters/data-and-datasets.html#practice",
+          "feedback": "chapters/data-and-datasets.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-data-3",
+          "outcome": "Design a data split and identify missing coverage.",
+          "preparation": "chapters/data-and-datasets.html#splits",
+          "task": "chapters/data-and-datasets.html#practice",
+          "feedback": "chapters/data-and-datasets.html#practice-feedback"
+        }
+      ]
+    },
+    {
+      "id": "adaptation",
+      "chapter": 3,
+      "title": "How Models Are Adapted",
+      "source_path": "chapters/model-adaptation.html",
+      "prerequisites": [
+        "primer",
+        "openness",
+        "data"
+      ],
+      "outcome_id": "O-adaptation",
+      "outcome": "Choose an intervention at the context, application or parameter level.",
+      "activity_id": "A-adaptation",
+      "activity": "Annotate a teacher–student pipeline and design a controlled comparison.",
+      "criteria": "Locate weight changes, keep non-training changes visible and address confounders and regressions.",
+      "output_path": "study-guide.html",
+      "output_anchor": "unit-adaptation",
+      "status": "revised_concept",
+      "quiz_id": "adaptation-v1",
+      "preparation_anchor": "diagnosis",
+      "task_anchor": "practice",
+      "feedback_anchor": "practice-feedback",
+      "outcomes": [
+        "Choose an intervention at the context, application or parameter level.",
+        "Trace demonstrations, preferences and teacher–student signals.",
+        "Design a comparison that addresses alternative explanations."
+      ],
+      "learning_mappings": [
+        {
+          "outcome_id": "O-adaptation-1",
+          "outcome": "Choose an intervention at the context, application or parameter level.",
+          "preparation": "chapters/model-adaptation.html#diagnosis",
+          "task": "chapters/model-adaptation.html#practice",
+          "feedback": "chapters/model-adaptation.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-adaptation-2",
+          "outcome": "Trace demonstrations, preferences and teacher–student signals.",
+          "preparation": "chapters/model-adaptation.html#demonstrations",
+          "task": "chapters/model-adaptation.html#practice",
+          "feedback": "chapters/model-adaptation.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-adaptation-3",
+          "outcome": "Design a comparison that addresses alternative explanations.",
+          "preparation": "chapters/model-adaptation.html#comparison",
+          "task": "chapters/model-adaptation.html#practice",
+          "feedback": "chapters/model-adaptation.html#practice-feedback"
+        }
+      ]
+    },
+    {
+      "id": "evaluation",
+      "chapter": 4,
+      "title": "How to Judge a Model",
+      "source_path": "chapters/model-evaluation.html",
+      "prerequisites": [
+        "primer",
+        "openness",
+        "data",
+        "adaptation"
+      ],
+      "outcome_id": "O-evaluation",
+      "outcome": "Specify evaluation conditions and score outputs under a rule.",
+      "activity_id": "A-evaluation",
+      "activity": "Write a 250–400 word decision note using the fictional task comparison.",
+      "criteria": "Reproduce both means, justify priorities, explain limited evidence and represent an alternative next step.",
+      "output_path": "study-guide.html",
+      "output_anchor": "unit-evaluation",
+      "status": "revised_concept",
+      "quiz_id": "evaluation-v1",
+      "preparation_anchor": "scoring",
+      "task_anchor": "practice",
+      "feedback_anchor": "practice-feedback",
+      "outcomes": [
+        "Specify evaluation conditions and score outputs under a rule.",
+        "Calculate and interpret a task-weighted comparison.",
+        "Recommend a next step with counterarguments and uncertainty."
+      ],
+      "learning_mappings": [
+        {
+          "outcome_id": "O-evaluation-1",
+          "outcome": "Specify evaluation conditions and score outputs under a rule.",
+          "preparation": "chapters/model-evaluation.html#scoring",
+          "task": "chapters/model-evaluation.html#practice",
+          "feedback": "chapters/model-evaluation.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-evaluation-2",
+          "outcome": "Calculate and interpret a task-weighted comparison.",
+          "preparation": "chapters/model-evaluation.html#weighting",
+          "task": "chapters/model-evaluation.html#practice",
+          "feedback": "chapters/model-evaluation.html#practice-feedback"
+        },
+        {
+          "outcome_id": "O-evaluation-3",
+          "outcome": "Recommend a next step with counterarguments and uncertainty.",
+          "preparation": "chapters/model-evaluation.html#uncertainty",
+          "task": "chapters/model-evaluation.html#practice",
+          "feedback": "chapters/model-evaluation.html#practice-feedback"
         }
       ]
     }
