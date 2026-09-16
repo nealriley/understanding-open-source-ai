@@ -52,4 +52,4 @@ Chapter bodies are wrapped by `tools/wrap.sh`, which adds the shared header, sid
 
 `docs/learning-design/claim-register.json` records sources, inspected passages, dates, status and affected locations. Unresolved entries must not become facts or quiz keys. Material quiz revisions require a new `quizId` in the chapter, manifest and curriculum map. Keep chapter IDs unchanged to preserve reading completion.
 
-The five review branches form a dependent stack. Merge in order: evidence foundation → technical core → strategy/history → risk/policy → synthesis/integration. No branch is auto-merged or independently deployed.
+The concept rebuild has two sequential deliveries: foundations reset, then the researched next section. Merge and deploy the reset first. No branch is auto-merged.
