@@ -263,39 +263,11 @@
 
   function setupGapWidget() {
     const w = document.getElementById("gap-widget"); if (!w) return;
-    const eras = {
-      era1: { title: "Era 1 · Early scaling (2022–24)", note: "Benchmarks: GSM8K, HumanEval, TriviaQA, MMLU-Pro. Composite scores normalised by SemiAnalysis. Open catch-up: ~18 months (Llama-3.1-405B matched GPT-4o).",
-        rows: [["GPT-3.5 Turbo", 75.7, "closed"], ["Llama-2-70B", 39.9, "open"], ["GPT-4o", 94.1, "closed"], ["Llama-3.1-405B", 94.0, "open"], ["DeepSeek V3", 95.5, "open"]] },
-      era2: { title: "Era 2 · Reasoning (2024–25)", note: "Benchmarks: AIME, Humanity's Last Exam and other reasoning tasks. Open catch-up: ~8.5 months (R1-0528 reached parity with o1-preview's successors).",
-        rows: [["o1-preview", 90.1, "closed"], ["DeepSeek R1", 77.9, "open"], ["DeepSeek R1-0528", 90.0, "open"]] },
-      era3: { title: "Era 3 · Agentic (2025–)", note: "Benchmarks: Terminal-Bench 2.1, BrowseComp-Plus, DeepSWE. Open catch-up: ~4.8–6 months (Kimi K2.6 and GLM-5.2 vs Claude Opus 4.5). Frontier labs' release cadence fell to ~51 days.",
-        rows: [["Claude Opus 4.5", 56.3, "closed"], ["Kimi K2.6", 56.3, "open"], ["GLM-5.2", 72.4, "open"]] }
-    };
-    const btns = w.querySelectorAll(".toggle-row button"), bars = w.querySelector(".bars"), note = w.querySelector(".note"), title = w.querySelector(".era-title");
-    const render = (k) => {
-      btns.forEach(b => b.classList.toggle("on", b.dataset.era === k));
-      const e = eras[k]; title.textContent = e.title; note.textContent = e.note;
-      bars.innerHTML = e.rows.map(r => `<div class="bar ${r[2]}"><span>${r[0]}</span><div class="track"><div class="fill" style="width:0"></div></div><span class="val">${r[1]}</span></div>`).join("");
-      requestAnimationFrame(() => bars.querySelectorAll(".bar").forEach((b, i) => b.querySelector(".fill").style.width = e.rows[i][1] + "%"));
-    };
-    btns.forEach(b => b.onclick = () => render(b.dataset.era)); render("era1");
+    w.innerHTML = '<p>Historical numerical series withdrawn pending provenance review. The revised exercise will distinguish reported measurements from fictional practice data.</p>';
   }
-
   function setupCatchupWidget() {
-    const w = document.getElementById("catchup-widget"); if (!w) return;
-    const data = [
-      ["SemiAnalysis, Era 1 (2022–24)", 18, "Llama-3.1-405B vs GPT-4o"],
-      ["SemiAnalysis, Era 2 (2024–25)", 8.5, "R1-0528 vs o1 line"],
-      ["SemiAnalysis, Era 3 (2025–)", 5.4, "K2.6 / GLM-5.2 vs Opus 4.5 (4.8–6 mo)"],
-      ["Ihle (LessWrong), public benchmarks", 5, "4–6 months, May 2026"],
-      ["Ihle (LessWrong), private benchmarks", 9, "8–10 months, May 2026"],
-      ["Lambert, 'perpetual catch-up' (Feb 2026)", 6, "'~6 months, stable'"],
-      ["Lambert, GLM-5.2 (Jun 2026)", 6.8, "204 days after Opus 4.5"],
-      ["Lambert, Kimi K3 (Jul 2026)", 4, "'compressed to 3–5 months'"],
-      ["Lambert, 'What comes next' (Mar 2026)", 12, "'6–18 months, likely to widen'"]
-    ];
-    const max = 18;
-    w.querySelector(".bars").innerHTML = data.map(d => `<div class="bar open"><span>${d[0]}</span><div class="track"><div class="fill" style="width:${100 * d[1] / max}%"></div></div><span class="val">${d[1]} mo</span></div><div class="small muted" style="margin:-.3rem 0 .4rem 180px;font-size:.72rem">${d[2]}</div>`).join("");
+    const w = document.getElementById("catchup-widget");
+    if (w) w.innerHTML = '<p>Do not average estimates that answer different questions. See the evidence register for the retired series.</p>';
   }
 
   /* ---- init ---- */

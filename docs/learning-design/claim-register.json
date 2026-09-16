@@ -1,0 +1,807 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-09-16",
+  "scope": "Decision-relevant claims retained in this revision and consequential retired claim families. Passage-level review, not independent replication or an exhaustive sentence inventory.",
+  "sources": [
+    {
+      "id": "E01",
+      "title": "Ouyang et al., InstructGPT",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "publication_date": "2022-03-04",
+      "passage": "Abstract: demonstrations, supervised fine-tuning, rankings and RLHF.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E02",
+      "title": "Rafailov et al., Direct Preference Optimization",
+      "url": "https://arxiv.org/abs/2305.18290v3",
+      "publication_date": "2024-07-29",
+      "passage": "Abstract: preference optimisation without the conventional reward-model/RL pipeline.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E03",
+      "title": "Hinton, Vinyals and Dean, Distilling the Knowledge",
+      "url": "https://arxiv.org/abs/1503.02531",
+      "publication_date": "2015-03-09",
+      "passage": "Abstract: ensemble-to-single-model compression.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E04",
+      "title": "Agarwal et al., On-Policy Distillation",
+      "url": "https://arxiv.org/abs/2306.13649v3",
+      "publication_date": "2024-01-17",
+      "passage": "Abstract: student-generated sequences, teacher feedback, integration with RLHF.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E05",
+      "title": "DeepSeek-AI, DeepSeek-R1",
+      "url": "https://arxiv.org/html/2501.12948v1",
+      "publication_date": "2025-01-22",
+      "passage": "Sections 1.1 and 2.1–2.3: R1-Zero, R1 cold start and distillation; author-reported methods.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E06",
+      "title": "Groeneveld et al., OLMo",
+      "url": "https://arxiv.org/abs/2402.00838v4",
+      "publication_date": "2024-06-07",
+      "passage": "Abstract and submission history: weights, data, training and evaluation code; first submission 2024-02-01.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E07",
+      "title": "Biderman et al., Pythia",
+      "url": "https://arxiv.org/abs/2304.01373v2",
+      "publication_date": "2023-05-31",
+      "passage": "Abstract and submission history: controlled model suite and checkpoints; first submission 2023-04-03.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E08",
+      "title": "Kapoor et al., On the Societal Impact of Open Foundation Models",
+      "url": "https://arxiv.org/abs/2403.07918",
+      "publication_date": "2024-02-27",
+      "passage": "Abstract: marginal-risk framework; insufficient evidence to characterise several misuse risks.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E09",
+      "title": "Longpre et al., Consent in Crisis",
+      "url": "https://arxiv.org/abs/2407.14933v2",
+      "publication_date": "2024-07-24",
+      "passage": "Abstract: longitudinal 2023–24 audit of web-domain restrictions; not a judicial finding.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E10",
+      "title": "Lambert and Brand, The ATOM Report",
+      "url": "https://arxiv.org/abs/2604.07190v2",
+      "publication_date": "2026-05-25",
+      "passage": "Abstract: adoption snapshot combining downloads, derivatives, inference share and performance; selected ecosystem.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E11",
+      "title": "Vaswani et al., Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publication_date": "2017-06-12",
+      "passage": "Abstract: attention-based transformer architecture; historical contribution only.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E12",
+      "title": "Hoffmann et al., Training Compute-Optimal Large Language Models",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "publication_date": "2022-03-29",
+      "passage": "Abstract: joint allocation of parameters and training tokens under a compute budget.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E13",
+      "title": "Bill Gurley, From Open Source Software to Open Source Strategy",
+      "url": "https://p3institute.substack.com/p/from-open-source-software-to-open",
+      "publication_date": "2026-05-09",
+      "passage": "Section Open Source Strategy: How It Works; strategic motives and historical analogies.",
+      "reviewed_on": "2026-09-16",
+      "kind": "essay",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E14",
+      "title": "Mark Zuckerberg, Open Source AI is the Path Forward",
+      "url": "https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/",
+      "publication_date": "2024-07-23",
+      "passage": "Opening Llama 3.1 announcement and Why Open Source AI Is Good for Meta.",
+      "reviewed_on": "2026-09-16",
+      "kind": "company argument",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E15",
+      "title": "Christian Catalini, Some Simple Economics of Open versus Closed AI",
+      "url": "https://www.a16z.news/p/some-simple-economics-of-open-versus",
+      "publication_date": null,
+      "passage": "Discussion of direction of innovation, diffusion, R&D incentives and complementary assets; publication date not established in this review.",
+      "reviewed_on": "2026-09-16",
+      "kind": "essay",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E16",
+      "title": "Nathan Lambert, Why I build open language models",
+      "url": "https://www.interconnects.ai/p/why-i-build-open-language-models",
+      "publication_date": "2024-10-30",
+      "passage": "Research, regulatory access and white rice research discussion.",
+      "reviewed_on": "2026-09-16",
+      "kind": "essay",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E17",
+      "title": "Kevin Xu, Chinese Open Source: A Definitive History",
+      "url": "https://interconnect.substack.com/p/chinese-open-source-a-definitive",
+      "publication_date": "2026-03-06",
+      "passage": "Opening and De-IOE/community discussion; interpretive history, not independent verification of every event.",
+      "reviewed_on": "2026-09-16",
+      "kind": "essay",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E18",
+      "title": "Kevin Xu, China’s Structural Advantage in Open Source AI",
+      "url": "https://interconnect.substack.com/p/chinas-structural-advantage-in-open",
+      "publication_date": "2025-06-25",
+      "passage": "Talent, data and academia–industry explanations; caveats about unreliable and walled-garden web data.",
+      "reviewed_on": "2026-09-16",
+      "kind": "essay",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E19",
+      "title": "SemiAnalysis, Are Open Models Catching Up?",
+      "url": "https://newsletter.semianalysis.com/p/are-open-models-catching-up",
+      "publication_date": null,
+      "passage": "How we measured; Era 1 normalization paragraph and Looking forward caveats; publication date not established in this review.",
+      "reviewed_on": "2026-09-16",
+      "kind": "measurement",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E20",
+      "title": "Håvard Tveit Ihle, How far behind are open models?",
+      "url": "https://www.lesswrong.com/posts/rJcCrXyEsJKmmDpWG/how-far-behind-are-open-models",
+      "publication_date": "2026-05-28",
+      "passage": "Methodology; Backward-looking vs forward-looking gap; provider degradation caveat.",
+      "reviewed_on": "2026-09-16",
+      "kind": "measurement",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E21",
+      "title": "Nathan Lambert, The distillation panic",
+      "url": "https://www.interconnects.ai/p/the-distillation-panic",
+      "publication_date": "2026-05-04",
+      "passage": "Opening terminology argument and discussion of extraction methods.",
+      "reviewed_on": "2026-09-16",
+      "kind": "essay",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E22",
+      "title": "Anthropic, Detecting and preventing distillation attacks",
+      "url": "https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks",
+      "publication_date": "2026-02-23",
+      "passage": "Opening allegations and named campaign sections; primary evidence of Anthropic’s allegations, not independent adjudication.",
+      "reviewed_on": "2026-09-16",
+      "kind": "company report",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E23",
+      "title": "Helen Toner, Nonproliferation is the wrong approach to AI misuse",
+      "url": "https://helentoner.substack.com/p/nonproliferation-is-the-wrong-approach",
+      "publication_date": null,
+      "passage": "Adaptation buffer discussion and conclusion; publication date not established in this review.",
+      "reviewed_on": "2026-09-16",
+      "kind": "essay",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E24",
+      "title": "Thinking Machines Lab, A Safe Path to Open Weights",
+      "url": "https://thinkingmachines.ai/blog/a-safe-path-to-open-weights/",
+      "publication_date": "2026-07-31",
+      "passage": "Model safety, ecosystem readiness, staged release, and filtering as an open research question.",
+      "reviewed_on": "2026-09-16",
+      "kind": "company proposal",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E25",
+      "title": "Joshua Saxe, We urgently need a coherent national AI cybersecurity policy",
+      "url": "https://joshuasaxe181906.substack.com/p/we-urgently-need-a-coherent-national",
+      "publication_date": "2026-08-13",
+      "passage": "Ecosystem level harms and benefits; Build an AI cybersecurity observatory.",
+      "reviewed_on": "2026-09-16",
+      "kind": "essay",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E26",
+      "title": "Nathan Lambert, 6 months to live for open models",
+      "url": "https://www.interconnects.ai/p/6-months-to-live-for-open-models",
+      "publication_date": "2026-07-12",
+      "passage": "Opening: explicitly no official information on reported executive-order discussions; subsequent ban prediction.",
+      "reviewed_on": "2026-09-16",
+      "kind": "forecast",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E27",
+      "title": "Nathan Lambert, Open and closed models are on different exponentials",
+      "url": "https://www.interconnects.ai/p/open-and-closed-models-are-on-different",
+      "publication_date": "2026-06-01",
+      "passage": "Economic argument contrasting integrated premium products and distributed adoption.",
+      "reviewed_on": "2026-09-16",
+      "kind": "forecast",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E28",
+      "title": "Irene Solaiman, The Gradient of Generative AI Release",
+      "url": "https://arxiv.org/abs/2302.04844",
+      "publication_date": "2023-02-09",
+      "passage": "Abstract: six levels of release access; prior pilot source audit S01.",
+      "reviewed_on": "2026-09-16",
+      "kind": "research",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E29",
+      "title": "OSI, Open Source AI Definition 1.0",
+      "url": "https://opensource.org/ai/open-source-ai-definition",
+      "publication_date": null,
+      "passage": "Definition 1.0: freedoms, preferred form for modification, data information; pilot audit S02.",
+      "reviewed_on": "2026-09-16",
+      "kind": "definition",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E30",
+      "title": "OSI, Open Source AI Definition FAQ",
+      "url": "https://opensource.org/ai/faq",
+      "publication_date": null,
+      "passage": "FAQ distinction between data information and full training-data access/reproduction; pilot audit S03.",
+      "reviewed_on": "2026-09-16",
+      "kind": "definition",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E31",
+      "title": "MIT License",
+      "url": "https://opensource.org/license/mit",
+      "publication_date": null,
+      "passage": "Permission grant and copyright/permission notice condition; pilot audit S04.",
+      "reviewed_on": "2026-09-16",
+      "kind": "licence",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E32",
+      "title": "Apache License 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "publication_date": null,
+      "passage": "Sections 2–4: copyright/patent grants and redistribution; pilot audit S05.",
+      "reviewed_on": "2026-09-16",
+      "kind": "licence",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    },
+    {
+      "id": "E33",
+      "title": "Llama 3.1 Community License",
+      "url": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE",
+      "publication_date": "2024-07-23",
+      "passage": "Sections 1–2, including release-specific additional commercial terms; pilot audit S06.",
+      "reviewed_on": "2026-09-16",
+      "kind": "licence",
+      "inspection": "Named passage read directly; no claim of independent replication."
+    }
+  ],
+  "claims": [
+    {
+      "id": "CL-01",
+      "statement": "Abstract: demonstrations, supervised fine-tuning, rankings and RLHF.",
+      "source_ids": [
+        "E01"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2022-03-04",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-02",
+      "statement": "Abstract: preference optimisation without the conventional reward-model/RL pipeline.",
+      "source_ids": [
+        "E02"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2024-07-29",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-03",
+      "statement": "Abstract: ensemble-to-single-model compression.",
+      "source_ids": [
+        "E03"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2015-03-09",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-04",
+      "statement": "Abstract: student-generated sequences, teacher feedback, integration with RLHF.",
+      "source_ids": [
+        "E04"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2024-01-17",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-05",
+      "statement": "Sections 1.1 and 2.1–2.3: R1-Zero, R1 cold start and distillation; author-reported methods.",
+      "source_ids": [
+        "E05"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2025-01-22",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-06",
+      "statement": "Abstract and submission history: weights, data, training and evaluation code; first submission 2024-02-01.",
+      "source_ids": [
+        "E06"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2024-06-07",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-07",
+      "statement": "Abstract and submission history: controlled model suite and checkpoints; first submission 2023-04-03.",
+      "source_ids": [
+        "E07"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2023-05-31",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-08",
+      "statement": "Abstract: marginal-risk framework; insufficient evidence to characterise several misuse risks.",
+      "source_ids": [
+        "E08"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2024-02-27",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-09",
+      "statement": "Abstract: longitudinal 2023–24 audit of web-domain restrictions; not a judicial finding.",
+      "source_ids": [
+        "E09"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2024-07-24",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-10",
+      "statement": "Abstract: adoption snapshot combining downloads, derivatives, inference share and performance; selected ecosystem.",
+      "source_ids": [
+        "E10"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-05-25",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-11",
+      "statement": "Abstract: attention-based transformer architecture; historical contribution only.",
+      "source_ids": [
+        "E11"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2017-06-12",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-12",
+      "statement": "Abstract: joint allocation of parameters and training tokens under a compute budget.",
+      "source_ids": [
+        "E12"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2022-03-29",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-13",
+      "statement": "Section Open Source Strategy: How It Works; strategic motives and historical analogies.",
+      "source_ids": [
+        "E13"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-05-09",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-14",
+      "statement": "Opening Llama 3.1 announcement and Why Open Source AI Is Good for Meta.",
+      "source_ids": [
+        "E14"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2024-07-23",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-15",
+      "statement": "Discussion of direction of innovation, diffusion, R&D incentives and complementary assets; publication date not established in this review.",
+      "source_ids": [
+        "E15"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-16",
+      "statement": "Research, regulatory access and white rice research discussion.",
+      "source_ids": [
+        "E16"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2024-10-30",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-17",
+      "statement": "Opening and De-IOE/community discussion; interpretive history, not independent verification of every event.",
+      "source_ids": [
+        "E17"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-03-06",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-18",
+      "statement": "Talent, data and academia–industry explanations; caveats about unreliable and walled-garden web data.",
+      "source_ids": [
+        "E18"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2025-06-25",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-19",
+      "statement": "How we measured; Era 1 normalization paragraph and Looking forward caveats; publication date not established in this review.",
+      "source_ids": [
+        "E19"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-20",
+      "statement": "Methodology; Backward-looking vs forward-looking gap; provider degradation caveat.",
+      "source_ids": [
+        "E20"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-05-28",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-21",
+      "statement": "Opening terminology argument and discussion of extraction methods.",
+      "source_ids": [
+        "E21"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-05-04",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-22",
+      "statement": "Opening allegations and named campaign sections; primary evidence of Anthropic’s allegations, not independent adjudication.",
+      "source_ids": [
+        "E22"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-02-23",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-23",
+      "statement": "Adaptation buffer discussion and conclusion; publication date not established in this review.",
+      "source_ids": [
+        "E23"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-24",
+      "statement": "Model safety, ecosystem readiness, staged release, and filtering as an open research question.",
+      "source_ids": [
+        "E24"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-07-31",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-25",
+      "statement": "Ecosystem level harms and benefits; Build an AI cybersecurity observatory.",
+      "source_ids": [
+        "E25"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-08-13",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-26",
+      "statement": "Opening: explicitly no official information on reported executive-order discussions; subsequent ban prediction.",
+      "source_ids": [
+        "E26"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-07-12",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-27",
+      "statement": "Economic argument contrasting integrated premium products and distributed adoption.",
+      "source_ids": [
+        "E27"
+      ],
+      "status": "attributed",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2026-06-01",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-28",
+      "statement": "Abstract: six levels of release access; prior pilot source audit S01.",
+      "source_ids": [
+        "E28"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2023-02-09",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-29",
+      "statement": "Definition 1.0: freedoms, preferred form for modification, data information; pilot audit S02.",
+      "source_ids": [
+        "E29"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-30",
+      "statement": "FAQ distinction between data information and full training-data access/reproduction; pilot audit S03.",
+      "source_ids": [
+        "E30"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-31",
+      "statement": "Permission grant and copyright/permission notice condition; pilot audit S04.",
+      "source_ids": [
+        "E31"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-32",
+      "statement": "Sections 2–4: copyright/patent grants and redistribution; pilot audit S05.",
+      "source_ids": [
+        "E32"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-33",
+      "statement": "Sections 1–2, including release-specific additional commercial terms; pilot audit S06.",
+      "source_ids": [
+        "E33"
+      ],
+      "status": "supported",
+      "reviewed_on": "2026-09-16",
+      "as_of": "2024-07-23",
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+    },
+    {
+      "id": "CL-101",
+      "statement": "Original gap bars and catch-up averages lack a complete reproducible dataset; some labels disagree with the inspected SemiAnalysis prose.",
+      "source_ids": [],
+      "status": "unresolved",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [
+        "js/app.js#setupGapWidget",
+        "js/app.js#setupCatchupWidget",
+        "chapters/06-measuring-the-gap.html"
+      ],
+      "decision": "Replace with fictional labels and authored data; retain essays as methodological comparisons."
+    },
+    {
+      "id": "CL-102",
+      "statement": "Current price/rank/parameter and sweeping adoption claims in original homepage, glossary and timeline.",
+      "source_ids": [],
+      "status": "unresolved",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [
+        "index.html",
+        "js/data.js",
+        "timeline.html",
+        "glossary.html"
+      ],
+      "decision": "Remove promotional statistics; replace with scoped historical cases and stable definitions."
+    },
+    {
+      "id": "CL-103",
+      "statement": "RL cannot be distilled / all post-training is synthetic / architecture or active parameters determine cost.",
+      "source_ids": [],
+      "status": "unresolved",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [
+        "chapters/00-primer.html",
+        "chapters/07-distillation.html",
+        "js/data.js"
+      ],
+      "decision": "Replace categorical assertions with method distinctions and controlled comparisons."
+    },
+    {
+      "id": "CL-104",
+      "statement": "Reported OpenAI/Hugging Face incident, trace-extraction counts, recent ARR and political rumours.",
+      "source_ids": [],
+      "status": "unresolved",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [
+        "chapters/08-security-and-policy.html",
+        "chapters/07-distillation.html",
+        "chapters/05-us-china.html",
+        "reading-list.html"
+      ],
+      "decision": "Unresolved in this review. Remove as factual teaching premises and quiz keys; preserve investigation topics here."
+    },
+    {
+      "id": "CL-105",
+      "statement": "Universal open-model safety, national superiority and forecast market structure.",
+      "source_ids": [],
+      "status": "unresolved",
+      "reviewed_on": "2026-09-16",
+      "as_of": null,
+      "affected_locations": [
+        "chapters/03-safety-and-data.html",
+        "chapters/05-us-china.html",
+        "chapters/09-synthesis.html"
+      ],
+      "decision": "Replace with attributed arguments, explicit baselines, alternatives and conditions."
+    }
+  ]
+}
