@@ -22,7 +22,7 @@ const server = http.createServer((req,res) => {
     page.on('pageerror',e=>errors.push(e.message));
     await page.goto(base); const chapters=await page.evaluate(()=>OMT.chapters);
     // Simulate an earlier edition's scores; completion must survive.
-    await page.evaluate(()=>localStorage.setItem('omt-progress',JSON.stringify({primer:true,openness:true,'quiz-primer':'4/4','quiz-primer-v2':'3/3','quiz-openness-v2':'4/4'})));
+    await page.evaluate(()=>localStorage.setItem('omt-progress',JSON.stringify({primer:true,openness:true,'quiz-primer':'4/4','quiz-primer-v2':'3/3','quiz-openness-v2':'4/4',gap:true,'quiz-gap-v2':'3/3',distillation:true,'quiz-distillation-v2':'3/3'})));
     await page.reload();
     assert.match(await page.locator('#chapter-cards a').first().innerText(),/done/);
     assert.doesNotMatch(await page.locator('#chapter-cards a').first().innerText(),/quiz/);
@@ -46,27 +46,46 @@ const server = http.createServer((req,res) => {
       assert.equal(await page.evaluate(id=>JSON.parse(localStorage.getItem('omt-progress'))['quiz-'+id],c.quizId),`${questions.length}/${questions.length}`);
       assert(await page.locator('.chapter-nav a').count());
     }
-    await page.goto(base+'/chapters/06-measuring-the-gap.html');
-    await page.locator('#manual-weight').focus();
-    await page.keyboard.press('ArrowRight');await page.keyboard.press('ArrowRight');await page.keyboard.press('ArrowRight');
-    assert.match(await page.locator('#gap-widget .note').innerText(),/Alder 72.0%; Birch 64.0%/);
-    assert.match(await page.locator('#gap-widget table').innerText(),/72/);
-    const wrong=page.locator('.quiz .q').first();await wrong.locator('input').first().check();
-    assert.equal(await wrong.locator('.wrong').count(),1);
-    assert(await wrong.locator('.explain').isVisible());
-    assert.equal(await page.evaluate(()=>document.activeElement.className),'explain');
+    const evaluation=chapters.find(c=>c.id==='evaluation');
+    if(evaluation){
+      await page.goto(base+'/'+evaluation.file);
+      await page.locator('#manual-weight').focus();
+      for(let i=0;i<3;i++) await page.keyboard.press('ArrowRight');
+      assert.match(await page.locator('#gap-widget .note').innerText(),/Alder 72.0%; Birch 64.0%/);
+      assert.match(await page.locator('#gap-widget table').innerText(),/72/);
+    }
+    await page.goto(base+'/'+chapters[0].file);
+    await page.locator('#complete-btn').click();
     await page.locator('#complete-btn').click();
     await page.reload();assert.match(await page.locator('#complete-row').innerText(),/marked this chapter complete/);
     const primerQuestions=JSON.parse(fs.readFileSync(path.join(root,chapters[0].file),'utf8').match(/<script type="application\/json" data-quiz="[^"]+">([\s\S]*?)<\/script>/)[1]);
     await page.goto(base);assert.match(await page.locator('#chapter-cards a').first().innerText(),new RegExp(`quiz ${primerQuestions.length}/${primerQuestions.length}`));
     await page.getByRole('button',{name:'◐ Theme'}).click();assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
     await page.reload();assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
-    await page.goto(base+'/chapters/06-measuring-the-gap.html');
-    await page.locator('#gap-widget').screenshot({path:'/tmp/book-desktop-dark.png'});
+    await page.goto(base);await page.screenshot({path:'/tmp/book-desktop-dark.png'});
     await page.getByRole('button',{name:'◐ Theme'}).click();
-    await page.locator('#gap-widget').screenshot({path:'/tmp/book-desktop-light.png'});
-    await page.goto(base+'/timeline.html');const before=await page.locator('.tl-item:not(.hidden)').count();
-    await page.getByRole('button',{name:'Models',exact:true}).click();assert(await page.locator('.tl-item:not(.hidden)').count()<before);
+    await page.screenshot({path:'/tmp/book-desktop-light.png'});
+    const retired=await page.evaluate(()=>OMT.retiredPages);
+    for(const file of retired){
+      await page.goto(base+'/'+file);
+      assert.match(await page.locator('main').innerText(),/withdrawn/);
+      assert.equal(await page.locator('.quiz .q').count(),0);
+      assert.equal(await page.locator('[data-chapter]').count(),0);
+    }
+    await page.goto(base);
+    const navLinks=await page.locator('#sidebar a').evaluateAll(a=>a.map(x=>x.getAttribute('href')));
+    for(const file of retired) assert(!navLinks.includes(file));
+    await page.getByRole('searchbox',{name:'Search',exact:true}).fill('competition');
+    const searchLinks=await page.locator('#search-results a').evaluateAll(a=>a.map(x=>x.getAttribute('href')));
+    for(const file of retired) assert(!searchLinks.includes(file));
+    // Reordering changes navigation without changing identities or saved records.
+    await page.route('**/js/data.js',async route=>{
+      const response=await route.fetch(); const script=await response.text();
+      await route.fulfill({response,body:script+'\nOMT.chapters.reverse();'});
+    });
+    await page.goto(base+'/'+chapters[0].file);
+    assert((await page.locator('#chapter-nav a').first().getAttribute('href')).endsWith(chapters[1].file));
+    await page.unroute('**/js/data.js');
     await page.goto(base+'/glossary.html#distillation');assert(await page.locator('#distillation').isVisible());
     // Opening explanations and worked documents remain readable in both themes.
     for (const c of chapters.slice(0,2)) {
@@ -84,7 +103,7 @@ const server = http.createServer((req,res) => {
     }
     // Mobile overflow, keyboard menu and disclosure.
     await page.setViewportSize({width:390,height:844});
-    for (const file of [...chapters.map(c=>c.file),'index.html','study-guide.html','timeline.html','glossary.html','reading-list.html']) {
+    for (const file of [...chapters.map(c=>c.file),'index.html','study-guide.html','glossary.html','reading-list.html']) {
       await page.goto(base+'/'+file);
       assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`mobile overflow: ${file}`);
     }
@@ -94,24 +113,23 @@ const server = http.createServer((req,res) => {
       await page.locator('#practice-feedback summary').focus();await page.keyboard.press('Enter');
       assert(await page.locator('#practice-feedback').evaluate(e=>e.open));
     }
-    await page.goto(base+'/chapters/06-measuring-the-gap.html');
+    await page.goto(base+'/'+chapters[0].file);
     await page.locator('#menu-btn').focus();await page.keyboard.press('Enter');
     assert.equal(await page.locator('#menu-btn').getAttribute('aria-expanded'),'true');
     await page.keyboard.press('Escape');assert.equal(await page.locator('#menu-btn').getAttribute('aria-expanded'),'false');
     await page.locator('#practice-feedback summary').focus();await page.keyboard.press('Enter');assert(await page.locator('#practice-feedback').evaluate(e=>e.open));
-    await page.locator('#gap-widget .table-scroll').focus();await page.keyboard.press('ArrowRight');
-    await page.waitForFunction(()=>document.querySelector('#gap-widget .table-scroll').scrollLeft>0);
-    await page.locator('#gap-widget').scrollIntoViewIfNeeded();await page.screenshot({path:'/tmp/book-mobile.png'});
+    await page.screenshot({path:'/tmp/book-mobile.png'});
     // A separate context disables JavaScript entirely.
     const plain=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const nojs=await plain.newPage();
-    for (const file of [...chapters.map(c=>c.file),'index.html','study-guide.html','timeline.html','glossary.html','reading-list.html']) {
+    for (const file of [...chapters.map(c=>c.file),'index.html','study-guide.html','glossary.html','reading-list.html']) {
       await nojs.goto(base+'/'+file);assert((await nojs.locator('main').innerText()).length>500,`empty core: ${file}`);
-      assert(await nojs.locator('#sidebar a').count()>=10,`missing static nav: ${file}`);
+      assert(await nojs.locator('#sidebar a').count()>=chapters.length+3,`missing static nav: ${file}`);
       assert(await nojs.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`no-JS overflow: ${file}`);
     }
-    await nojs.goto(base+'/chapters/06-measuring-the-gap.html');assert.equal(await nojs.locator('#gap-widget table tbody tr').count(),2);
+    if(evaluation){await nojs.goto(base+'/'+evaluation.file);assert.equal(await nojs.locator('#gap-widget table tbody tr').count(),2);}
+    await nojs.goto(base+'/'+chapters[0].file);
     await nojs.locator('#practice-feedback summary').click();assert(await nojs.locator('#practice-feedback').evaluate(e=>e.open));
     assert.deepEqual(errors,[]);
-    console.log('PASS: 10 chapter quizzes; correct/incorrect feedback; persisted versioned scores and reading records; search/navigation; keyboard disclosures, slider and mobile menu; light/dark; 15 mobile and no-JavaScript pages; tables; no page errors.');
+    console.log(`PASS: ${chapters.length} active quizzes; correct/incorrect feedback; versioned scores/completion; active search/navigation; withdrawn URLs; reordering; keyboard, mobile, themes, no-JS and tables; no page errors.`);
   } finally { await browser.close(); }
 })().catch(e=>{console.error(e);process.exitCode=1;}).finally(()=>server.close());

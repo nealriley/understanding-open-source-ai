@@ -1,0 +1,25 @@
+name: Preserve pre-rebuild archive
+on:
+  push:
+    branches: [revision/foundations-reset]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Preserve the approved book at its exact commit
+        shell: bash
+        run: |
+          archive_tag=archive/pre-concept-rebuild-2026-09-16
+          archive_sha=91925912b1818e0099442026916454365660c56a
+          if git show-ref --verify --quiet "refs/tags/$archive_tag"; then
+            test "$(git rev-parse "$archive_tag^{commit}")" = "$archive_sha"
+          else
+            git tag "$archive_tag" "$archive_sha"
+            git push origin "refs/tags/$archive_tag"
+          fi

@@ -1,8 +1,6 @@
-# Full-book learning design
+# Concept rebuild: authoring records
 
-Revision reviewed 16 September 2026, based on merged pilot commit `2e88d1d`.
-
-All ten chapters now have preparation, outcomes, application and feedback. The essay-led narrative distinguishes authors’ arguments from factual support; technical depth is optional. The original pilot records remain historical documents rather than current descriptions of whole-book status.
+The active draft contains the two approved foundations chapters. Chapters 2–9 and the full-book timeline/assessment are withdrawn. The [archive index](archive-index.md) records the immutable snapshot and reuse decisions. Earlier batch reviews below document historical editions, not the current active sequence.
 
 ## Authoring records
 

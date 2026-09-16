@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "reviewed_on": "2026-09-16",
   "scope": "Decision-relevant claims retained in this revision and consequential retired claim families. Passage-level review, not independent replication or an exhaustive sentence inventory.",
   "sources": [
@@ -465,11 +465,19 @@
       "reviewed_on": "2026-09-16",
       "as_of": "2022-03-04",
       "affected_locations": [
-        "chapters/00-primer.html#post-training",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
+        "chapters/00-primer.html#post-training"
       ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-02",
@@ -494,10 +502,14 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2015-03-09",
-      "affected_locations": [
-        "chapters/07-distillation.html#technique"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/07-distillation.html#technique"
+        }
+      ]
     },
     {
       "id": "CL-04",
@@ -508,10 +520,14 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-01-17",
-      "affected_locations": [
-        "chapters/07-distillation.html#deepseek-o1"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/07-distillation.html#deepseek-o1"
+        }
+      ]
     },
     {
       "id": "CL-05",
@@ -522,13 +538,26 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2025-01-22",
-      "affected_locations": [
-        "chapters/04-lineage.html#phase4",
-        "chapters/07-distillation.html#deepseek-o1",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/04-lineage.html#phase4"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/07-distillation.html#deepseek-o1"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-06",
@@ -539,12 +568,22 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-06-07",
-      "affected_locations": [
-        "chapters/04-lineage.html#phase3",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/04-lineage.html#phase3"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-07",
@@ -556,12 +595,23 @@
       "reviewed_on": "2026-09-16",
       "as_of": "2023-05-31",
       "affected_locations": [
-        "chapters/01-what-open-means.html#three-words",
-        "chapters/04-lineage.html#phase2",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
+        "chapters/01-what-open-means.html#three-words"
       ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/04-lineage.html#phase2"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-08",
@@ -572,12 +622,22 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-02-27",
-      "affected_locations": [
-        "chapters/03-safety-and-data.html#marginal-risk",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/03-safety-and-data.html#marginal-risk"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-09",
@@ -588,12 +648,22 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-07-24",
-      "affected_locations": [
-        "chapters/03-safety-and-data.html#data-commons",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/03-safety-and-data.html#data-commons"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-10",
@@ -604,12 +674,22 @@
       "status": "supported",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-05-25",
-      "affected_locations": [
-        "chapters/05-us-china.html#atom-report",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/05-us-china.html#atom-report"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-11",
@@ -621,11 +701,19 @@
       "reviewed_on": "2026-09-16",
       "as_of": "2017-06-12",
       "affected_locations": [
-        "chapters/00-primer.html#inside-model",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
+        "chapters/00-primer.html#inside-model"
       ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-12",
@@ -650,12 +738,22 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-05-09",
-      "affected_locations": [
-        "chapters/02-foundations.html#gurley",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/02-foundations.html#gurley"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-14",
@@ -666,13 +764,26 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-07-23",
-      "affected_locations": [
-        "chapters/02-foundations.html#zuckerberg",
-        "chapters/04-lineage.html#meta",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/02-foundations.html#zuckerberg"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/04-lineage.html#meta"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-15",
@@ -683,12 +794,22 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-08-11",
-      "affected_locations": [
-        "chapters/02-foundations.html#catalini",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/02-foundations.html#catalini"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-16",
@@ -699,12 +820,22 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2024-10-30",
-      "affected_locations": [
-        "chapters/02-foundations.html#ai2",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/02-foundations.html#ai2"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-17",
@@ -715,12 +846,22 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-03-06",
-      "affected_locations": [
-        "chapters/05-us-china.html#history",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/05-us-china.html#history"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-18",
@@ -731,12 +872,22 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2025-06-25",
-      "affected_locations": [
-        "chapters/05-us-china.html#advantage",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/05-us-china.html#advantage"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-19",
@@ -747,12 +898,22 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-08-21",
-      "affected_locations": [
-        "chapters/06-measuring-the-gap.html#semianalysis",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/06-measuring-the-gap.html#semianalysis"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-20",
@@ -763,12 +924,22 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-05-28",
-      "affected_locations": [
-        "chapters/06-measuring-the-gap.html#ihle",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/06-measuring-the-gap.html#ihle"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-21",
@@ -779,10 +950,14 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-05-04",
-      "affected_locations": [
-        "chapters/07-distillation.html#panic"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/07-distillation.html#panic"
+        }
+      ]
     },
     {
       "id": "CL-22",
@@ -793,13 +968,26 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-02-23",
-      "affected_locations": [
-        "chapters/07-distillation.html#anthropic",
-        "chapters/08-security-and-policy.html#incidents",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/07-distillation.html#anthropic"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/08-security-and-policy.html#incidents"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-23",
@@ -810,12 +998,22 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2025-04-05",
-      "affected_locations": [
-        "chapters/03-safety-and-data.html#nonproliferation",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/03-safety-and-data.html#nonproliferation"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-24",
@@ -826,12 +1024,22 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-07-31",
-      "affected_locations": [
-        "chapters/03-safety-and-data.html#staged",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/03-safety-and-data.html#staged"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-25",
@@ -842,12 +1050,22 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-08-13",
-      "affected_locations": [
-        "chapters/08-security-and-policy.html#two-models",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/08-security-and-policy.html#two-models"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-26",
@@ -858,12 +1076,22 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-07-12",
-      "affected_locations": [
-        "chapters/08-security-and-policy.html#six-months",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/08-security-and-policy.html#six-months"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-27",
@@ -874,12 +1102,22 @@
       "status": "attributed",
       "reviewed_on": "2026-09-16",
       "as_of": "2026-06-01",
-      "affected_locations": [
-        "chapters/09-synthesis.html#exponentials",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "affected_locations": [],
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/09-synthesis.html#exponentials"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-28",
@@ -961,10 +1199,15 @@
       "reviewed_on": "2026-09-16",
       "as_of": "2024-07-23",
       "affected_locations": [
-        "chapters/01-what-open-means.html#licenses",
-        "chapters/04-lineage.html#meta"
+        "chapters/01-what-open-means.html#licenses"
       ],
-      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status."
+      "decision": "Retain only the bounded statement with source attribution and review date; do not infer universal performance or current legal status.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/04-lineage.html#meta"
+        }
+      ]
     },
     {
       "id": "CL-101",
@@ -975,10 +1218,15 @@
       "as_of": null,
       "affected_locations": [
         "js/app.js#setupGapWidget",
-        "js/app.js#setupCatchupWidget",
-        "chapters/06-measuring-the-gap.html"
+        "js/app.js#setupCatchupWidget"
       ],
-      "decision": "Replace with fictional labels and authored data; retain essays as methodological comparisons."
+      "decision": "Replace with fictional labels and authored data; retain essays as methodological comparisons.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/06-measuring-the-gap.html"
+        }
+      ]
     },
     {
       "id": "CL-102",
@@ -990,10 +1238,15 @@
       "affected_locations": [
         "index.html",
         "js/data.js",
-        "timeline.html",
         "glossary.html"
       ],
-      "decision": "Remove promotional statistics; replace with scoped historical cases and stable definitions."
+      "decision": "Remove promotional statistics; replace with scoped historical cases and stable definitions.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html"
+        }
+      ]
     },
     {
       "id": "CL-103",
@@ -1004,10 +1257,15 @@
       "as_of": null,
       "affected_locations": [
         "chapters/00-primer.html",
-        "chapters/07-distillation.html",
         "js/data.js"
       ],
-      "decision": "Replace categorical assertions with method distinctions and controlled comparisons."
+      "decision": "Replace categorical assertions with method distinctions and controlled comparisons.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/07-distillation.html"
+        }
+      ]
     },
     {
       "id": "CL-104",
@@ -1017,12 +1275,23 @@
       "reviewed_on": "2026-09-16",
       "as_of": null,
       "affected_locations": [
-        "chapters/08-security-and-policy.html",
-        "chapters/07-distillation.html",
-        "chapters/05-us-china.html",
         "reading-list.html"
       ],
-      "decision": "Unresolved in this review. Remove as factual teaching premises and quiz keys; preserve investigation topics here."
+      "decision": "Unresolved in this review. Remove as factual teaching premises and quiz keys; preserve investigation topics here.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/08-security-and-policy.html"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/07-distillation.html"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/05-us-china.html"
+        }
+      ]
     },
     {
       "id": "CL-105",
@@ -1031,12 +1300,22 @@
       "status": "unresolved",
       "reviewed_on": "2026-09-16",
       "as_of": null,
-      "affected_locations": [
-        "chapters/03-safety-and-data.html",
-        "chapters/05-us-china.html",
-        "chapters/09-synthesis.html"
-      ],
-      "decision": "Replace with attributed arguments, explicit baselines, alternatives and conditions."
+      "affected_locations": [],
+      "decision": "Replace with attributed arguments, explicit baselines, alternatives and conditions.",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/03-safety-and-data.html"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/05-us-china.html"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/09-synthesis.html"
+        }
+      ]
     },
     {
       "id": "CL-34",
@@ -1046,13 +1325,23 @@
       ],
       "status": "attributed",
       "reviewed_on": "2026-09-16",
-      "affected_locations": [
-        "chapters/04-lineage.html#phase1",
-        "timeline.html#timeline",
-        "js/data.js#timeline"
-      ],
+      "affected_locations": [],
       "decision": "Use as attributed historical evidence; do not infer universal safety or current status.",
-      "as_of": "2019-11-05"
+      "as_of": "2019-11-05",
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/04-lineage.html#phase1"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "timeline.html#timeline"
+        },
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "js/data.js#timeline"
+        }
+      ]
     },
     {
       "id": "CL-35",
@@ -1062,11 +1351,15 @@
       ],
       "status": "attributed",
       "reviewed_on": "2026-09-16",
-      "affected_locations": [
-        "chapters/03-safety-and-data.html#record"
-      ],
+      "affected_locations": [],
       "decision": "Use as attributed historical evidence; do not infer universal safety or current status.",
-      "as_of": null
+      "as_of": null,
+      "archived_locations": [
+        {
+          "commit": "91925912b1818e0099442026916454365660c56a",
+          "location": "chapters/03-safety-and-data.html#record"
+        }
+      ]
     },
     {
       "id": "CL-36",
