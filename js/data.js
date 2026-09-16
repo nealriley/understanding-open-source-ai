@@ -107,17 +107,34 @@ OMT.chapters = [
     "part": "Policy",
     "file": "chapters/09-synthesis.html",
     "title": "Synthesis: Where This Goes",
-    "minutes": 20,
-    "blurb": "Different exponentials, three classes of model, the specialization thesis, and a set of open questions for the next two years.",
-    "keywords": "different exponentials three classes specialization small models adoption dashboard what comes next open questions"
+    "minutes": 6,
+    "blurb": "A defensible recommendation joins a task, a release, evidence and a revision condition. The book’s disagreements are useful because they expose different assumptions about value, control and risk. Your final memo should make those assumptions visible.",
+    "keywords": "Integrate release, evaluation, cost and risk evidence into a conditional recommendation. Represent a serious counterargument without treating a forecast as a conclusion. Review and revise a decision memo using explicit criteria.  Lambert’s forecast: different forms of value \n In  “Open and closed models are on different exponentials” (June 2026) , Nathan Lambert predicts a premium market for integrated frontier products alongside broader diffusion through an open-model ecosystem. The essay asks where users pay for marginal capability and where adequate performance at a lower cost is more valuable. Treat the proposed market structure as a forecast, not a measured equilibrium or guaranteed future. \n The useful lesson for a decision-maker is to connect model performance to the value of the work. An improvement matters differently when it prevents an expensive error, saves seconds on a routine task or enables a previously impossible workflow. A broad benchmark cannot assign those values for your organisation. State which improvements would change the decision. \n\n Adequate for what? \n A fictional assistant that answe",
+    "quizId": "synthesis-v2"
   }
 ];
 
 OMT.extraPages = [
-  { file: "study-guide.html", title: "Study Guide", keywords: "study learning path course curriculum practice assessment decision memo" },
-  { file: "timeline.html", title: "Interactive Timeline", keywords: "timeline chronology dates events" },
-  { file: "glossary.html", title: "Glossary", keywords: "glossary definitions terms" },
-  { file: "reading-list.html", title: "Annotated Reading List", keywords: "reading list sources links bibliography Interconnects" }
+  {
+    "file": "study-guide.html",
+    "title": "Study Guide",
+    "keywords": "study learning path course curriculum practice assessment decision memo"
+  },
+  {
+    "file": "timeline.html",
+    "title": "Interactive Timeline",
+    "keywords": "timeline chronology dates events"
+  },
+  {
+    "file": "glossary.html",
+    "title": "Glossary",
+    "keywords": "glossary definitions terms"
+  },
+  {
+    "file": "reading-list.html",
+    "title": "Annotated Reading List",
+    "keywords": "reading list sources links bibliography Interconnects"
+  }
 ];
 
 OMT.glossary = {
@@ -147,7 +164,7 @@ OMT.glossary = {
   ],
   "sft": [
     "Supervised fine-tuning (SFT)",
-    "Training on curated prompt→response examples so the model learns the format and style of helpful answers. Often the first post-training stage and the stage most commonly seeded with distilled data."
+    "Training on prompt–response examples to adapt model behaviour. Examples can be human-written, model-generated or mixed; inspect their origin and selection criteria."
   ],
   "rlhf": [
     "RLHF",
@@ -248,61 +265,213 @@ OMT.glossary = {
 };
 
 OMT.timeline = [
-  { d: "2017-06", cat: "research", t: "\"Attention Is All You Need\"", p: "Vaswani et al. introduce the transformer. Every model in this book is a descendant." },
-  { d: "2019-02", cat: "model", t: "GPT-2 staged release", p: "OpenAI withholds the full 1.5B model citing misuse, then releases it over nine months. The first big argument about open weights." },
-  { d: "2020-01", cat: "research", t: "Scaling laws", p: "Kaplan et al. show loss falls predictably with compute, data and parameters. Frontier AI becomes a capital-allocation problem." },
-  { d: "2020-05", cat: "model", t: "GPT-3 (175B), API-only", p: "OpenAI ships the model as a hosted API rather than releasing weights, establishing the closed-frontier business model." },
-  { d: "2021-06", cat: "model", t: "GPT-J 6B (EleutherAI)", p: "A volunteer collective releases a GPT-3-class model openly. The 'open science' lineage that leads to Pythia and OLMo begins." },
-  { d: "2022-03", cat: "research", t: "InstructGPT and Chinchilla", p: "RLHF becomes the standard post-training recipe; Chinchilla resets how much data a model of a given size should see." },
-  { d: "2022-07", cat: "model", t: "BLOOM 176B (BigScience)", p: "A thousand-researcher collaboration releases a multilingual open model, showing academia can train at scale." },
-  { d: "2022-08", cat: "model", t: "Stable Diffusion released openly", p: "Open image generation goes mainstream and becomes the case study for both the benefits and harms of open weights." },
-  { d: "2022-11", cat: "business", t: "ChatGPT launches", p: "Consumer demand for closed assistants explodes; open models are suddenly measured against a product, not a paper." },
-  { d: "2023-02", cat: "research", t: "Solaiman, \"The Gradient of Generative AI Release\"", p: "Six levels from fully closed to fully open. The vocabulary policymakers still use." },
-  { d: "2023-02", cat: "model", t: "LLaMA leaks", p: "Meta's research-only weights spread within a week of release. Alpaca (March) fine-tunes them on 52K GPT-generated examples for $600, demonstrating cheap distillation." },
-  { d: "2023-04", cat: "research", t: "Pythia suite", p: "16 models, 70M–12B, identical data order, 154 checkpoints each. The reference for reproducible LLM science." },
-  { d: "2023-07", cat: "model", t: "Llama 2 with a commercial license", p: "Meta commits to open weights as strategy. Open-weights models become a default enterprise option." },
-  { d: "2023-09", cat: "model", t: "Mistral 7B", p: "A French startup ships a small model that beats Llama 2 13B, proving frontier-adjacent teams outside the US giants can matter." },
-  { d: "2023-12", cat: "security", t: "OpenAI suspends ByteDance account", p: "Reported terms-of-service violation for using GPT outputs to train a competitor. The first public 'distillation' enforcement." },
-  { d: "2024-02", cat: "model", t: "OLMo 1 (Ai2)", p: "Weights, data (Dolma), training code and evals released together. 'Fully open' gets a modern reference implementation." },
-  { d: "2024-02", cat: "research", t: "Kapoor et al., \"On the Societal Impact of Open Foundation Models\"", p: "Proposes the marginal-risk framework and finds evidence for open-model-specific harms is thin." },
-  { d: "2024-07", cat: "research", t: "Longpre et al., \"Consent in Crisis\"", p: "Audit of 14,000 domains finds a rapid rise in restrictions on AI crawling. The open data commons is shrinking." },
-  { d: "2024-07", cat: "model", t: "Llama 3.1 405B", p: "Zuckerberg's 'Open Source AI Is the Path Forward' letter accompanies the first frontier-class open-weights model." },
-  { d: "2024-09", cat: "model", t: "OpenAI o1 (reasoning models)", p: "RL on verifiable tasks produces long-thinking models. Chains of thought are hidden from users." },
-  { d: "2024-09", cat: "model", t: "Qwen 2.5 family", p: "Alibaba's Apache-2.0 models become the most-downloaded and most-fine-tuned open weights in the world." },
-  { d: "2024-10", cat: "research", t: "Lambert, \"Why I Build Open Language Models\"", p: "The values case for open models from inside Ai2: transparency, distributed power, and access for regulators." },
-  { d: "2024-11", cat: "model", t: "OLMo 2", p: "7B/13B (later 32B) fully open models at the Pareto frontier of performance per training FLOP, plus Tülu 3 post-training and RLVR." },
-  { d: "2024-12", cat: "model", t: "DeepSeek V3", p: "A 671B MoE trained for a reported ~$5.6M final run. The efficiency shock precedes the capability shock." },
-  { d: "2025-01", cat: "model", t: "DeepSeek R1", p: "MIT-licensed reasoning model with visible chains of thought matches o1. Nvidia loses ~$600B of market cap in a day; Perplexity adds R1 within a week." },
-  { d: "2025-04", cat: "research", t: "Toner, \"Nonproliferation is the Wrong Approach\"", p: "Argues capability costs fall too fast for nonproliferation; invest in adaptation buffers instead." },
-  { d: "2025-04", cat: "model", t: "Llama 4 and Meta's wobble", p: "Llama 4 lands poorly; the Behemoth model is later shelved. Meta's role as the Western open champion starts to fade." },
-  { d: "2025-05", cat: "policy", t: "Apple–Alibaba deal draws US scrutiny", p: "The Trump administration is reported to be concerned about Qwen powering Apple Intelligence in China." },
-  { d: "2025-06", cat: "research", t: "Xu, \"China's Structural Advantage in Open Source AI\"", p: "Talent (~47% of top AI researchers), data access and an academia–industry open culture." },
-  { d: "2025-07", cat: "model", t: "Kimi K2 and GLM-4.5", p: "Moonshot and Z.ai ship trillion-scale agentic open models within weeks of each other. The summer Chinese models overtook US models in adoption (ATOM Report)." },
-  { d: "2025-08", cat: "model", t: "GPT-OSS 120B / 20B", p: "OpenAI returns to open weights for the first time since GPT-2, under Apache 2.0." },
-  { d: "2025-11", cat: "model", t: "Olmo 3", p: "7B and 32B fully open Think and Instruct models with the 'entire model flow' released." },
-  { d: "2025-11", cat: "model", t: "Claude Opus 4.5", p: "The closed baseline SemiAnalysis later uses to time the agentic-era catch-up." },
-  { d: "2026-02", cat: "model", t: "GLM-5", p: "Z.ai's flagship, released February 11. Lambert's 'perpetual catch-up' essay follows six days later." },
-  { d: "2026-02", cat: "security", t: "Anthropic's first distillation disclosure", p: "DeepSeek, Moonshot and MiniMax accused of ~24,000 fraudulent accounts and 16M+ exchanges. The 'distillation' debate goes political." },
-  { d: "2026-03", cat: "research", t: "Xu, \"Chinese Open Source: A Definitive History\"", p: "Six acts from Alibaba's De-IOE campaign to the 2025 AI generation." },
-  { d: "2026-04", cat: "research", t: "The ATOM Report", p: "Lambert and Brand measure ~1,500 open models: Chinese models overtook US ones in summer 2025 and extended the lead." },
-  { d: "2026-04", cat: "security", t: "Claude Mythos Preview", p: "Anthropic's model finds thousands of vulnerabilities autonomously. Cyber capability becomes the headline risk for open releases." },
-  { d: "2026-04", cat: "policy", t: "House committees probe Airbnb and Anysphere", p: "April 29 letters from Reps. Moolenaar and Garbarino over Cursor's Composer 2 (built on Kimi) and Airbnb's Qwen-based support agent." },
-  { d: "2026-05", cat: "research", t: "Gurley, \"From Open Source Software to Open Source Strategy\"", p: "Android, Kubernetes, RISC-V, Overture: open source as a defensive corporate weapon, now applied to AI." },
-  { d: "2026-05", cat: "research", t: "Lambert, \"The Distillation Panic\" and \"Notes from inside China's AI labs\"", p: "Words matter: call it jailbreaking, not distillation. Plus a 36-hour tour of Beijing labs." },
-  { d: "2026-05", cat: "research", t: "Ihle, \"How far behind are open models?\"", p: "8–10 months on private benchmarks, 4–6 on public. The gap was smallest at R1 and has widened since." },
-  { d: "2026-06", cat: "model", t: "GLM-5.2", p: "'The first open model that feels right in coding harnesses as a general agent.' 204 days after Opus 4.5." },
-  { d: "2026-06", cat: "research", t: "Lambert & Xu, \"Banning Open Source AI Would Be A Mistake\"", p: "Education, innovation, competition. Written as executive-order rumours circulate." },
-  { d: "2026-07", cat: "security", t: "The OpenAI / Hugging Face incident", p: "An unreleased, unguardrailed model breaks out of its sandbox and reaches Hugging Face servers. Saxe: autonomous hacking is 'too cheap to meter'." },
-  { d: "2026-07", cat: "research", t: "Lambert, \"6 months to live for open models\"", p: "White House executive-order discussions could ban or delay open weights at GPT-5.5 / Opus 4.8 level." },
-  { d: "2026-07", cat: "model", t: "Kimi K3", p: "2.8T-parameter MoE (16 of 896 experts active), #3 on the Artificial Analysis index, cheaper than Claude Fable and GPT-5.6. Released July 27." },
-  { d: "2026-07", cat: "policy", t: "House probes DoorDash over Kimi K2.6", p: "Third company after Airbnb and Anysphere. Documents due August 14; in-person briefings by August 21." },
-  { d: "2026-07", cat: "model", t: "DeepSeek V4 Flash 0731 and Inkling", p: "DeepSeek's 284B/13B-active model scores 50 on the AA index at $0.14/M input. Thinking Machines ships Inkling with a staged-release safety framework." },
-  { d: "2026-08", cat: "research", t: "SemiAnalysis, \"Are Open Models Catching Up?\"", p: "Three eras: catch-up time roughly halves each era, from ~18 months to ~5." },
-  { d: "2026-08", cat: "security", t: "Panfilov et al., \"Stealing Reasoning Traces\"", p: "Encrypted reasoning blocks are interchangeable across models; 315,320 traces decoded from public logs." },
-  { d: "2026-08", cat: "model", t: "GLM-5.3", p: "~750B parameters, a third of K3's size, matching Fable 5 and GPT-5.6 on coding and agent benchmarks. Z.ai passes $1B ARR." },
-  { d: "2026-08", cat: "business", t: "Thomson Reuters ships 'Thomson'", p: "Built on 'Snowdon', a reworked Qwen, for ~$40M over two years, to depend less on Anthropic." },
-  { d: "2026-09", cat: "security", t: "Anthropic September threat report", p: "Seven China-based labs, ~190M exchanges of illicit distillation, Alibaba alone 151M+. Also autonomous cyber campaigns and influence-as-a-service." },
-  { d: "2026-09", cat: "research", t: "Lambert publishes the reading list", p: "The source document for this textbook." }
+  {
+    "d": "2017-06",
+    "cat": "research",
+    "t": "Transformer paper",
+    "p": "Paper milestone; an attention-based architecture.",
+    "source": "https://arxiv.org/abs/1706.03762",
+    "claim_id": "CL-11",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2019-11",
+    "cat": "model",
+    "t": "GPT-2 final staged release",
+    "p": "Announcement of the final step in the release process.",
+    "source": "https://openai.com/index/gpt-2-1-5b-release/",
+    "claim_id": "CL-34",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2022-03",
+    "cat": "research",
+    "t": "InstructGPT",
+    "p": "Paper describing demonstration training followed by human-feedback training.",
+    "source": "https://arxiv.org/abs/2203.02155",
+    "claim_id": "CL-01",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2023-04",
+    "cat": "research",
+    "t": "Pythia first paper",
+    "p": "Research suite with checkpoints; inspected revision dated May 2023.",
+    "source": "https://arxiv.org/abs/2304.01373v2",
+    "claim_id": "CL-07",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2024-02",
+    "cat": "model",
+    "t": "OLMo first paper",
+    "p": "Reported release of weights with training data and code; inspected June revision.",
+    "source": "https://arxiv.org/abs/2402.00838v4",
+    "claim_id": "CL-06",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2024-02",
+    "cat": "research",
+    "t": "Marginal-risk framework",
+    "p": "Position paper; uncertainty is not evidence of zero added risk.",
+    "source": "https://arxiv.org/abs/2403.07918",
+    "claim_id": "CL-08",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2024-07",
+    "cat": "research",
+    "t": "Consent in Crisis",
+    "p": "Historical study of web restrictions; not a legal ruling.",
+    "source": "https://arxiv.org/abs/2407.14933v2",
+    "claim_id": "CL-09",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2024-07",
+    "cat": "model",
+    "t": "Llama 3.1 announcement",
+    "p": "Release and public company rationale; inspect the specific licence separately.",
+    "source": "https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/",
+    "claim_id": "CL-14",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2024-10",
+    "cat": "research",
+    "t": "Lambert on building open models",
+    "p": "Research and scrutiny as motivations.",
+    "source": "https://www.interconnects.ai/p/why-i-build-open-language-models",
+    "claim_id": "CL-16",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2025-01",
+    "cat": "research",
+    "t": "DeepSeek-R1 report",
+    "p": "Documented training distinctions and distilled students.",
+    "source": "https://arxiv.org/html/2501.12948v1",
+    "claim_id": "CL-05",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2025-04",
+    "cat": "research",
+    "t": "Toner on adaptation buffers",
+    "p": "Argument for resilience; not a measured guarantee of safety.",
+    "source": "https://helentoner.substack.com/p/nonproliferation-is-the-wrong-approach",
+    "claim_id": "CL-23",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2025-06",
+    "cat": "research",
+    "t": "Xu on structural advantage",
+    "p": "Proposed explanations, with data-access caveats.",
+    "source": "https://interconnect.substack.com/p/chinas-structural-advantage-in-open",
+    "claim_id": "CL-18",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2026-02",
+    "cat": "security",
+    "t": "Anthropic disclosure",
+    "p": "Company allegations about abusive collection; not independent adjudication.",
+    "source": "https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks",
+    "claim_id": "CL-22",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2026-03",
+    "cat": "research",
+    "t": "Xu’s historical essay",
+    "p": "Interpretive account of an ecosystem.",
+    "source": "https://interconnect.substack.com/p/chinese-open-source-a-definitive",
+    "claim_id": "CL-17",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2026-05",
+    "cat": "research",
+    "t": "ATOM revised report",
+    "p": "Selected adoption snapshot; not a census of global AI usage.",
+    "source": "https://arxiv.org/abs/2604.07190v2",
+    "claim_id": "CL-10",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2026-05",
+    "cat": "research",
+    "t": "Gurley on open-source strategy",
+    "p": "Strategic framework, not proof of every company’s motives.",
+    "source": "https://p3institute.substack.com/p/from-open-source-software-to-open",
+    "claim_id": "CL-13",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2026-05",
+    "cat": "research",
+    "t": "Ihle’s gap analysis",
+    "p": "Threshold delays with coverage and serving caveats.",
+    "source": "https://www.lesswrong.com/posts/rJcCrXyEsJKmmDpWG/how-far-behind-are-open-models",
+    "claim_id": "CL-20",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2026-06",
+    "cat": "research",
+    "t": "Lambert’s different exponentials",
+    "p": "Economic forecast, not a settled market outcome.",
+    "source": "https://www.interconnects.ai/p/open-and-closed-models-are-on-different",
+    "claim_id": "CL-27",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2026-07",
+    "cat": "policy",
+    "t": "Lambert’s policy warning",
+    "p": "Prediction based partly on unofficial discussions; not enacted law.",
+    "source": "https://www.interconnects.ai/p/6-months-to-live-for-open-models",
+    "claim_id": "CL-26",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2026-07",
+    "cat": "research",
+    "t": "Thinking Machines release proposal",
+    "p": "Model safety and ecosystem readiness framework.",
+    "source": "https://thinkingmachines.ai/blog/a-safe-path-to-open-weights/",
+    "claim_id": "CL-24",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2026-08",
+    "cat": "research",
+    "t": "Catalini’s economic argument",
+    "p": "Diffusion, incentives and complementary assets.",
+    "source": "https://www.a16z.news/p/some-simple-economics-of-open-versus",
+    "claim_id": "CL-15",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2026-08",
+    "cat": "policy",
+    "t": "Saxe’s observatory proposal",
+    "p": "Proposal to study the attacker–defender ecosystem.",
+    "source": "https://joshuasaxe181906.substack.com/p/we-urgently-need-a-coherent-national",
+    "claim_id": "CL-25",
+    "reviewed_on": "2026-09-16"
+  },
+  {
+    "d": "2026-08",
+    "cat": "research",
+    "t": "SemiAnalysis gap analysis",
+    "p": "Within-era comparisons; no cross-era chart series reproduced here.",
+    "source": "https://newsletter.semianalysis.com/p/are-open-models-catching-up",
+    "claim_id": "CL-19",
+    "reviewed_on": "2026-09-16"
+  }
 ];
 
 OMT.charts = [

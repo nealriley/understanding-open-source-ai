@@ -30,6 +30,7 @@ def check(pages):
                     if cid not in claims or claims[cid]['status']!='supported': errors.append(f'{name}: unsupported quiz key {cid}')
     manifest={c['id']:c for c in records('chapters')}
     model=json.loads((ROOT/'docs/learning-design/curriculum-map.json').read_text())
+    outcome_ids=set()
     for u in model['units']:
         c=manifest[u['id']]; page=pages[u['source_path']]
         if page.quiz_ids!=[c.get('quizId',c['id'])]: errors.append(f'{u["id"]}: manifest/quiz version mismatch')
@@ -38,6 +39,18 @@ def check(pages):
             for field in ('preparation_anchor','task_anchor','feedback_anchor'):
                 if u.get(field) not in page.ids: errors.append(f'{u["id"]}: missing {field}')
             if not u.get('outcomes'): errors.append(f'{u["id"]}: no outcomes')
+            if 'learning_mappings' in u:
+                if len(u['learning_mappings'])!=len(u['outcomes']): errors.append(f'{u["id"]}: incomplete outcome mappings')
+                for mapping in u['learning_mappings']:
+                    if mapping['outcome_id'] in outcome_ids: errors.append('Duplicate mapped outcome ID')
+                    outcome_ids.add(mapping['outcome_id'])
+                    for field in ('preparation','task','feedback'):
+                        filename,anchor=mapping[field].split('#')
+                        if filename not in pages or anchor not in pages[filename].ids: errors.append(f'{u["id"]}: broken {field} mapping')
+                valid={x['outcome_id'] for x in u['learning_mappings']}
+                for quiz in page.quizzes:
+                    for question in quiz:
+                        if not question.get('outcome_ids') or not set(question['outcome_ids'])<=valid: errors.append(f'{u["id"]}: quiz outcome mapping invalid')
     for c in records('charts'):
         if c['kind'] not in ('fictional','reported') or not c['provenance'] or not c['transformation'] or not c['unit']: errors.append('Chart provenance incomplete')
         date.fromisoformat(c['reviewed_on'])
@@ -47,6 +60,17 @@ def check(pages):
                 if not (row['total']>0 and 0<=row['manuals']<=row['total'] and 0<=row['arithmetic']<=row['total']): errors.append('Invalid task counts')
         elif c['id']=='threshold-delay':
             if any(r['meadow']<r['harbor'] for r in c['rows']): errors.append('Invalid threshold chronology')
+    for event in records('timeline'):
+        cid=event.get('claim_id')
+        if cid not in claims or claims[cid]['status'] in ('unresolved','retired'): errors.append('Timeline has unsupported claim reference')
+        if not event.get('source','').startswith('https://') or not event.get('reviewed_on'): errors.append('Timeline provenance incomplete')
+    for c in claims.values():
+        if c['status'] in ('unresolved','retired'): continue
+        if not c['affected_locations']: errors.append(f'{c["id"]}: no affected locations')
+        for location in c['affected_locations']:
+            filename,_,anchor=location.partition('#')
+            if not (ROOT/filename).is_file(): errors.append(f'{c["id"]}: missing affected file')
+            elif filename in pages and anchor and anchor not in pages[filename].ids: errors.append(f'{c["id"]}: missing affected anchor')
     # Compare committed fallback table with output of the shared-record renderer.
     import sys
     old=sys.argv;sys.argv=['render_data.py','--check']

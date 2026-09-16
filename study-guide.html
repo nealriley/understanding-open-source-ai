@@ -6,114 +6,108 @@
 <title>Study Guide · Open Models</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23b0492c'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Georgia'>O</text></svg>">
 <link rel="stylesheet" href="css/style.css">
+<noscript><style>@media(max-width:900px){.sidebar{position:static;transform:none;width:auto;display:block}.main{margin-left:0}#menu-btn{display:none}}</style></noscript>
 </head>
 <body data-depth="0">
 <a class="skip" href="#main">Skip to content</a>
 <div class="site">
-  <nav class="sidebar" id="sidebar" aria-label="Table of contents"></nav>
+  <nav class="sidebar" id="sidebar" aria-label="Table of contents"><a class="brand" href="index.html">Open Models</a><ul class="toc"><li><a href="chapters/00-primer.html">0. How Language Models Work</a></li><li><a href="chapters/01-what-open-means.html">1. What 'Open' Means</a></li><li><a href="chapters/02-foundations.html">2. Why Anyone Builds Open Models</a></li><li><a href="chapters/03-safety-and-data.html">3. Risk, Safety and the Data Commons</a></li><li><a href="chapters/04-lineage.html">4. The Lineage of Open Models</a></li><li><a href="chapters/05-us-china.html">5. US–China Competition</a></li><li><a href="chapters/06-measuring-the-gap.html">6. Measuring the Gap</a></li><li><a href="chapters/07-distillation.html">7. Distillation and Synthetic Data</a></li><li><a href="chapters/08-security-and-policy.html">8. Security, Cyber and the Regulatory Fight</a></li><li><a href="chapters/09-synthesis.html">9. Synthesis: Where This Goes</a></li><li><a href="study-guide.html">Study Guide</a></li><li><a href="timeline.html">Interactive Timeline</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="reading-list.html">Annotated Reading List</a></li></ul></nav>
   <div class="scrim" id="scrim"></div>
   <div class="main">
     <div class="topbar"><a class="brand" href="index.html"><span class="mark">O</span>Open Models</a><button class="btn" id="menu-btn">☰ Contents</button></div>
     <main id="main"><article class="content">
-<div class="chapter-kicker">Learning path</div>
-<h1>Study guide: from reading to a defensible decision</h1>
-<p class="lede">Use the book to explain a model release, evaluate a claim, and make a recommendation that someone else can check. Keep a short notebook of your answers; a completed chapter or quiz score is a reading record, not a qualification.</p>
-<h2 id="start">Choose a starting point</h2>
-<p>No coding is required for this reading path. You should be comfortable reading a table, following a citation, and explaining your reasoning in a paragraph. Begin with Chapters 0 and 1 if weights, inference, and release permissions are unfamiliar.</p>
-<ul>
-<li><b>Full course:</b> work through Chapters 0–9 and the tasks below. The chapter order builds vocabulary before comparison and judgment.</li>
-<li><b>Engineering or product focus:</b> start with 0 → 1 → 2 → 6 → 7; add 3 and 8 before completing the decision memo.</li>
-<li><b>Policy or journalism focus:</b> start with 0 → 1 → 3 → 4 → 5 → 8; use 6 to interrogate quantitative claims, then write the memo.</li>
-</ul>
-<p>These shorter routes are starting points. Use each unit's prerequisites to fill gaps. Reading-time estimates exclude investigation and written work; choose a manageable session and stop at a task boundary.</p>
-<h2 id="method">A repeatable study cycle</h2>
-<ol><li>Try explaining the central idea before reading; note what you cannot yet explain.</li><li>Read one section and record a claim, its source, and its limit.</li><li>Attempt the unit task before opening its self-check.</li><li>Correct your answer and record the reason for the change.</li><li>In a later session, revisit one earlier distinction and apply it to a new case.</li></ol>
-<p>The chapters combine technical explanations, dated reporting, and arguments. Treat those as different kinds of material. For a current decision, inspect the original document and date; an attributed claim is not independent confirmation. Chapter 1 has been revised around this method; the tasks below help you apply it across the existing book.</p>
-<nav class="on-this-page" aria-label="Study units"><b>Jump to a unit</b><ul><li><a href="#unit-primer">0. How Language Models Work</a></li><li><a href="#unit-openness">1. What ‘Open’ Means</a></li><li><a href="#unit-foundations">2. Why Anyone Builds Open Models</a></li><li><a href="#unit-safety">3. Risk, Safety and the Data Commons</a></li><li><a href="#unit-lineage">4. The Lineage of Open Models</a></li><li><a href="#unit-us-china">5. US–China Competition</a></li><li><a href="#unit-gap">6. Measuring the Gap</a></li><li><a href="#unit-distillation">7. Distillation and Synthetic Data</a></li><li><a href="#unit-security">8. Security, Cyber and the Regulatory Fight</a></li><li><a href="#unit-synthesis">9. Synthesis: Where This Goes</a></li></ul><a href="#capstone">Final decision memo</a></nav>
-<section aria-labelledby="unit-primer">
+<span class="compat-anchor" id="capstone-feedback"></span><div class="chapter-kicker">Learning path</div><h1>Study guide: from reading to a defensible decision</h1><p>No coding is required. Keep your answers in a notebook or document. Reading times are estimates for the text; allow additional time to attempt and revise each task.</p>
+<h2 id="start">Choose a route</h2>
+<p><b>Full course:</b> Chapters 0–9 in order. <b>Engineering/product first pass:</b> 0 → 1 → 6 → 7 → 2, then 3 → 4 → 5 → 8 → 9. <b>Policy/journalism first pass:</b> 0 → 1 → 2 → 3 → 4 → 5 → 8, then 6 → 7 → 9. All routes complete the preparation for the final memo; optional technical disclosures can remain closed.</p>
+
+<h2 id="method">Read, apply, explain, revisit</h2>
+<p>Try the prerequisite check before reading. After a short section, explain its main distinction without looking. Attempt the application before opening feedback. Revise one sentence and record why. In a later session, apply the same distinction to another case. Disagreement with an author is welcome when supported by evidence and a fair counterargument.</p>
+
 <h2 id="unit-primer">0. How Language Models Work</h2>
-<p><b>Preparation:</b> None; begin here. <a href="chapters/00-primer.html">Read the chapter</a>.</p>
-<p><b>Your target:</b> Explain what is learned during training and what happens during inference.</p>
-<p id="task-primer"><b>Make something:</b> Draw a path from training data to weights to a generated response. Mark where a tokenizer, post-training, and inference fit.</p>
-<details class="callout think"><summary>Self-check and revision</summary><p>Your explanation distinguishes data, learned parameters, and execution. Treat reinforcement learning as a possible post-training method, not a mandatory separate stage for every model.</p><p>Identify one sentence to improve. Return to its source or chapter section, revise it, and record what changed.</p></details>
-</section>
-<section aria-labelledby="unit-openness">
-<h2 id="unit-openness">1. What ‘Open’ Means</h2>
-<p><b>Preparation:</b> <a href="#unit-primer">0</a>. <a href="chapters/01-what-open-means.html">Read the chapter</a>.</p>
-<p><b>Your target:</b> Assess access, artefacts, permissions, and missing evidence for a specific release.</p>
-<p id="task-openness"><b>Make something:</b> Complete the Rowan release assessment in Chapter 1 before revealing its feedback.</p>
-<details class="callout think"><summary>Self-check and revision</summary><p>Separate what is downloadable from what is permitted. Distinguish missing materials from uninspected documents; name a concrete next check.</p><p>Identify one sentence to improve. Return to its source or chapter section, revise it, and record what changed.</p></details>
-</section>
-<section aria-labelledby="unit-foundations">
+<p>Preparation: None. <a href="chapters/00-primer.html">Read the chapter</a>.</p>
+<ul><li>Annotate a pipeline with data, learned parameters, post-training and inference.</li><li>Distinguish a training objective from a deployment feature.</li><li>Identify which release artefacts support running, adapting or investigating a model.</li></ul><p><a id="task-primer" href="chapters/00-primer.html#practice">Complete the chapter application</a>, then <a href="chapters/00-primer.html#practice-feedback">compare with its feedback</a>.</p>
+<p>Draw or write Alder’s pipeline: broad data → pretraining → base checkpoint → optional adaptation → released checkpoint → inference with a retrieved manual → response. Mark which steps change weights. Add a tokenizer, an evaluation step, and two artefacts needed by a researcher that an end user might never download.</p>
+
+<h2 id="unit-openness">1. What 'Open' Means</h2>
+<p>Preparation: <a href="chapters/00-primer.html">0</a>. <a href="chapters/01-what-open-means.html">Read the chapter</a>.</p>
+<ul><li>Describe access, artefacts and permissions separately.</li><li>Assess the difference between downloadable weights and the OSI definition.</li><li>Write a qualified release assessment with missing evidence and a next check.</li></ul><p><a id="task-openness" href="chapters/01-what-open-means.html#practice">Complete the chapter application</a>, then <a href="chapters/01-what-open-means.html#practice-feedback">compare with its feedback</a>.</p>
+<p>Complete the Rowan release assessment in Chapter 1 before revealing its feedback.</p>
+
 <h2 id="unit-foundations">2. Why Anyone Builds Open Models</h2>
-<p><b>Preparation:</b> <a href="#unit-openness">1</a>. <a href="chapters/02-foundations.html">Read the chapter</a>.</p>
-<p><b>Your target:</b> Compare explanations for why an organisation releases a model.</p>
-<p id="task-foundations"><b>Make something:</b> Choose two arguments in the chapter. For each, name the actor, proposed benefit, supporting evidence, and an alternative explanation.</p>
-<details class="callout think"><summary>Self-check and revision</summary><p>Attribute an argument to its author. A plausible business motive is not proof of an organisation’s internal intention.</p><p>Identify one sentence to improve. Return to its source or chapter section, revise it, and record what changed.</p></details>
-</section>
-<section aria-labelledby="unit-safety">
+<p>Preparation: <a href="chapters/01-what-open-means.html">1</a>. <a href="chapters/02-foundations.html">Read the chapter</a>.</p>
+<ul><li>Compare two explanations for a release decision using evidence and alternatives.</li><li>Distinguish an author’s strategic argument from a documented action or private motive.</li><li>Identify an observation that would change a preferred explanation.</li></ul><p><a id="task-foundations" href="chapters/02-foundations.html#practice">Complete the chapter application</a>, then <a href="chapters/02-foundations.html#practice-feedback">compare with its feedback</a>.</p>
+<p>For fictional Lantern, compare the hosting-demand explanation with the recruiting explanation. Use one named author’s framework and one limitation of it. Specify the evidence you would seek, a plausible counterargument and a condition under which you would revise your preferred explanation.</p>
+
 <h2 id="unit-safety">3. Risk, Safety and the Data Commons</h2>
-<p><b>Preparation:</b> <a href="#unit-primer">0</a>, <a href="#unit-openness">1</a>. <a href="chapters/03-safety-and-data.html">Read the chapter</a>.</p>
-<p><b>Your target:</b> Frame a release-risk argument against a stated baseline.</p>
-<p id="task-safety"><b>Make something:</b> Choose a hypothetical release. Specify the harmful task, actor, available alternatives, added capability, proposed mitigation, and missing evidence.</p>
-<details class="callout think"><summary>Self-check and revision</summary><p>Compare like-for-like access and capability. Separate evidence of misuse from evidence of incremental risk and from a policy preference.</p><p>Identify one sentence to improve. Return to its source or chapter section, revise it, and record what changed.</p></details>
-</section>
-<section aria-labelledby="unit-lineage">
+<p>Preparation: <a href="chapters/00-primer.html">0</a>, <a href="chapters/01-what-open-means.html">1</a>. <a href="chapters/03-safety-and-data.html">Read the chapter</a>.</p>
+<ul><li>Analyse a release against an explicit baseline and threat model.</li><li>Distinguish observed misuse, capability tests and marginal risk.</li><li>Evaluate data-access constraints without confusing availability with permission.</li></ul><p><a id="task-safety" href="chapters/03-safety-and-data.html#practice">Complete the chapter application</a>, then <a href="chapters/03-safety-and-data.html#practice-feedback">compare with its feedback</a>.</p>
+<p>For the fictional defect-explanation model, write a release assessment naming an actor, a harmful goal at a high level, existing alternatives, possible added capability or scale, a mitigation, and the evidence still needed. Include one potential defensive benefit and one data-permission uncertainty. Do not provide instructions for misuse.</p>
+
 <h2 id="unit-lineage">4. The Lineage of Open Models</h2>
-<p><b>Preparation:</b> <a href="#unit-primer">0</a>, <a href="#unit-openness">1</a>. <a href="chapters/04-lineage.html">Read the chapter</a>.</p>
-<p><b>Your target:</b> Explain a historical change using dated release evidence.</p>
-<p id="task-lineage"><b>Make something:</b> Select two releases discussed in the chapter. Inspect their original announcements or papers and compare the artefacts they made available.</p>
-<details class="callout think"><summary>Self-check and revision</summary><p>Record versions and dates. Identify one documented difference without treating later commentary as a contemporary release record.</p><p>Identify one sentence to improve. Return to its source or chapter section, revise it, and record what changed.</p></details>
-</section>
-<section aria-labelledby="unit-us-china">
+<p>Preparation: <a href="chapters/00-primer.html">0</a>, <a href="chapters/01-what-open-means.html">1</a>. <a href="chapters/04-lineage.html">Read the chapter</a>.</p>
+<ul><li>Compare two historical milestones using dated primary documents.</li><li>Explain what an artefact release enabled and what it left unknown.</li><li>Distinguish a publication date, a release date and later retrospective interpretation.</li></ul><p><a id="task-lineage" href="chapters/04-lineage.html#practice">Complete the chapter application</a>, then <a href="chapters/04-lineage.html#practice-feedback">compare with its feedback</a>.</p>
+<p>Compare Pythia and OLMo using the linked abstracts. Make a two-row record with initial paper date, inspected version date, reported artefacts, one enabled investigation and one remaining constraint. Then write a sentence about what changed without asserting that either project is universally more open.</p>
+
 <h2 id="unit-us-china">5. US–China Competition</h2>
-<p><b>Preparation:</b> <a href="#unit-foundations">2</a>, <a href="#unit-lineage">4</a>. <a href="chapters/05-us-china.html">Read the chapter</a>.</p>
-<p><b>Your target:</b> Evaluate an adoption or geopolitical claim without conflating the measures.</p>
-<p id="task-us-china"><b>Make something:</b> Choose one claim from the chapter and identify its measure, sampled population, date, source, and a plausible alternative interpretation.</p>
-<details class="callout think"><summary>Self-check and revision</summary><p>Distinguish downloads, usage, revenue, capability, and nationality. State when the source cannot establish causation or market-wide coverage.</p><p>Identify one sentence to improve. Return to its source or chapter section, revise it, and record what changed.</p></details>
-</section>
-<section aria-labelledby="unit-gap">
+<p>Preparation: <a href="chapters/02-foundations.html">2</a>, <a href="chapters/04-lineage.html">4</a>. <a href="chapters/05-us-china.html">Read the chapter</a>.</p>
+<ul><li>Critique an adoption claim by identifying its denominator, coverage and date.</li><li>Compare a structural explanation with a plausible alternative.</li><li>Separate nationality, capability, commercial adoption and policy status.</li></ul><p><a id="task-us-china" href="chapters/05-us-china.html#practice">Complete the chapter application</a>, then <a href="chapters/05-us-china.html#practice-feedback">compare with its feedback</a>.</p>
+<p>Rewrite the Bridge headline into a defensible two-sentence claim. Identify the measure, population and dates. Give one quality-based explanation and one alternative, then propose an observation that would help distinguish them. Explain why neither statement determines a country’s overall technical lead.</p>
+
 <h2 id="unit-gap">6. Measuring the Gap</h2>
-<p><b>Preparation:</b> <a href="#unit-primer">0</a>, <a href="#unit-openness">1</a>. <a href="chapters/06-measuring-the-gap.html">Read the chapter</a>.</p>
-<p><b>Your target:</b> Explain why two estimates of a capability gap can disagree.</p>
-<p id="task-gap"><b>Make something:</b> Compare two estimates in the chapter using benchmark, threshold, release dates, access conditions, and aggregation method. Identify an additional check before using either.</p>
-<details class="callout think"><summary>Self-check and revision</summary><p>A disagreement in numbers is not automatically a contradiction. Match task, evaluation conditions, and definition of the gap before drawing a trend.</p><p>Identify one sentence to improve. Return to its source or chapter section, revise it, and record what changed.</p></details>
-</section>
-<section aria-labelledby="unit-distillation">
+<p>Preparation: <a href="chapters/00-primer.html">0</a>, <a href="chapters/01-what-open-means.html">1</a>. <a href="chapters/06-measuring-the-gap.html">Read the chapter</a>.</p>
+<ul><li>Calculate a score and a threshold delay from a small documented example.</li><li>Explain how evaluation and aggregation choices change a comparison.</li><li>Specify evidence needed before applying a benchmark result to a decision.</li></ul><p><a id="task-gap" href="chapters/06-measuring-the-gap.html#practice">Complete the chapter application</a>, then <a href="chapters/06-measuring-the-gap.html#practice-feedback">compare with its feedback</a>.</p>
+<p>Recalculate the equal and 80%-manual averages for Alder and Birch. Calculate both threshold delays. Explain why “Birch wins” and “Alder fits our manual-heavy workload better” can both follow from these data. Propose one further evaluation and one limitation that would enter your memo.</p>
+
 <h2 id="unit-distillation">7. Distillation and Synthetic Data</h2>
-<p><b>Preparation:</b> <a href="#unit-primer">0</a>, <a href="#unit-gap">6</a>. <a href="chapters/07-distillation.html">Read the chapter</a>.</p>
-<p><b>Your target:</b> Separate a training mechanism from an allegation and an estimate of its effect.</p>
-<p id="task-distillation"><b>Make something:</b> Draw the teacher-to-student information flow. Then separate one reported allegation into observed evidence, source attribution, and causal claims still needing a comparison.</p>
-<details class="callout think"><summary>Self-check and revision</summary><p>Name the training stage and the transferred information. Do not infer causal uplift, permission, or wrongdoing from similar outputs alone; check the technical source for claimed limits.</p><p>Identify one sentence to improve. Return to its source or chapter section, revise it, and record what changed.</p></details>
-</section>
-<section aria-labelledby="unit-security">
+<p>Preparation: <a href="chapters/00-primer.html">0</a>, <a href="chapters/06-measuring-the-gap.html">6</a>. <a href="chapters/07-distillation.html">Read the chapter</a>.</p>
+<ul><li>Trace teacher–student information flow and locate the training stage.</li><li>Separate a company allegation from demonstrated causal uplift.</li><li>Design a controlled comparison of teacher-assisted training.</li></ul><p><a id="task-distillation" href="chapters/07-distillation.html#practice">Complete the chapter application</a>, then <a href="chapters/07-distillation.html#practice-feedback">compare with its feedback</a>.</p>
+<p>Draw two Willow → Juniper workflows: teacher-written answers and teacher feedback on student-written answers. Label the training stage. Design one controlled test of the benefit of teacher explanations. Then write one sentence accurately attributing the Anthropic report without converting its allegations into a proved effect size.</p>
+
 <h2 id="unit-security">8. Security, Cyber and the Regulatory Fight</h2>
-<p><b>Preparation:</b> <a href="#unit-safety">3</a>, <a href="#unit-us-china">5</a>. <a href="chapters/08-security-and-policy.html">Read the chapter</a>.</p>
-<p><b>Your target:</b> Compare policy proposals against the same objective and threat model.</p>
-<p id="task-security"><b>Make something:</b> Compare a release gate and an observatory: objective, covered actor, mechanism, enforcement, possible displacement, and measurable success.</p>
-<details class="callout think"><summary>Self-check and revision</summary><p>Distinguish a proposal from an enacted rule. Use the same threat baseline for both approaches and identify a trade-off and an unresolved evidence need.</p><p>Identify one sentence to improve. Return to its source or chapter section, revise it, and record what changed.</p></details>
-</section>
-<section aria-labelledby="unit-synthesis">
+<p>Preparation: <a href="chapters/03-safety-and-data.html">3</a>, <a href="chapters/05-us-china.html">5</a>. <a href="chapters/08-security-and-policy.html">Read the chapter</a>.</p>
+<ul><li>Classify an incident report, proposal, enacted rule and forecast separately.</li><li>Compare two policy approaches against the same objective.</li><li>Specify success measures, displacement risks and a revision trigger.</li></ul><p><a id="task-security" href="chapters/08-security-and-policy.html#practice">Complete the chapter application</a>, then <a href="chapters/08-security-and-policy.html#practice-feedback">compare with its feedback</a>.</p>
+<p>Write a two-column comparison of the fictional release gate and observatory for the public-service objective. Include the actor, mechanism, baseline, enforcement, likely displacement, one cost and two success measures. Recommend one approach or a combination, then name the strongest objection and a trigger for revising it.</p>
+
 <h2 id="unit-synthesis">9. Synthesis: Where This Goes</h2>
-<p><b>Preparation:</b> <a href="#unit-foundations">2</a>, <a href="#unit-safety">3</a>, <a href="#unit-us-china">5</a>, <a href="#unit-gap">6</a>, <a href="#unit-distillation">7</a>, <a href="#unit-security">8</a>. <a href="chapters/09-synthesis.html">Read the chapter</a>.</p>
-<p><b>Your target:</b> Defend a conditional model-selection recommendation using evidence and counterarguments.</p>
-<p id="task-synthesis"><b>Make something:</b> Write the decision memo below, then revise the weakest-supported sentence.</p>
-<details class="callout think"><summary>Self-check and revision</summary><p>A strong response connects the task to release terms, evaluation, costs, risks, alternatives, and a condition that would change the decision. More than one recommendation can be defensible.</p><p>Identify one sentence to improve. Return to its source or chapter section, revise it, and record what changed.</p></details>
-</section>
-<section aria-labelledby="capstone"><h2 id="capstone">Final task: a one-page decision memo</h2>
-<p><b>Invented scenario:</b> a small organisation needs an assistant to draft answers from internal manuals. Every answer will be reviewed by a staff member. Its sensitive documents must remain on its own servers; approved public documents may be sent to a hosted service. The organisation has limited operations capacity. It has not yet tested answer accuracy on its own questions.</p>
-<div class="table-wrap"><table><caption>Fictional options — exercise facts, not real products</caption><thead><tr><th scope="col">Option</th><th scope="col">Known</th><th scope="col">Unknown</th></tr></thead><tbody>
-<tr><th scope="row">A: hosted service</th><td>API access; provider runs the system</td><td>Task accuracy, contractual retention terms, total usage cost</td></tr>
-<tr><th scope="row">B: downloadable model</th><td>Weights and inference code; terms expressly permit this internal use; no training data supplied</td><td>Task accuracy, required hardware, maintenance effort</td></tr>
-<tr><th scope="row">C: research release</th><td>Weights, training code, data documentation, and checkpoints; terms permit this internal use</td><td>Task accuracy, deployment effort, whether additional transparency benefits this task</td></tr>
+<p>Preparation: <a href="chapters/02-foundations.html">2</a>, <a href="chapters/03-safety-and-data.html">3</a>, <a href="chapters/05-us-china.html">5</a>, <a href="chapters/06-measuring-the-gap.html">6</a>, <a href="chapters/07-distillation.html">7</a>, <a href="chapters/08-security-and-policy.html">8</a>. <a href="chapters/09-synthesis.html">Read the chapter</a>.</p>
+<ul><li>Integrate release, evaluation, cost and risk evidence into a conditional recommendation.</li><li>Represent a serious counterargument without treating a forecast as a conclusion.</li><li>Review and revise a decision memo using explicit criteria.</li></ul><p><a id="task-synthesis" href="chapters/09-synthesis.html#practice">Complete the chapter application</a>, then <a href="chapters/09-synthesis.html#practice-feedback">compare with its feedback</a>.</p>
+<p>Write the memo for the study-guide case, score it against the rubric and revise its weakest-supported sentence. Add a paragraph explaining how the revision did or did not change your recommendation. Include one competing argument from the named authors without using their authority as a substitute for task evidence.</p>
+
+<h2 id="capstone">Final case: an internal-manual assistant</h2>
+<p><b>Fictional case.</b> An organisation wants an assistant for public and sensitive internal manuals. Sensitive documents must remain inside its environment. Public documents may be sent to a hosted provider. The team has limited operations capacity and has not run a task-specific evaluation. No model is known to meet its quality threshold.</p>
+<div class="table-scroll" role="region" aria-label="Scrollable data table" tabindex="0"><table><caption>Fictional options: knowns and unknowns</caption><thead><tr><th scope="col">Option</th><th scope="col">Known</th><th scope="col">Unknown</th></tr></thead><tbody>
+<tr><th scope="row">A · hosted service</th><td>Available through an API; no local weights in this offer. Can be considered for public material only.</td><td>Task quality, full service terms and retention settings, price for the workload, failure handling.</td></tr>
+<tr><th scope="row">B · local weights</th><td>Weights and inference software available. The fictional terms permit the intended internal use.</td><td>Hardware fit, quality, operating cost, support burden and data-handling design.</td></tr>
+<tr><th scope="row">C · research release</th><td>Weights, training code, data documentation and checkpoints available. Fictional terms permit internal use.</td><td>Quality, deployment requirements, support burden and whether extra research materials improve this task.</td></tr>
+</tbody></table></div><p>Write approximately 500–800 words. Choose a bounded next step, not an unsupported production launch. Include an evidence ledger, comparison of at least two options, an evaluation plan, strongest counterargument and a revision trigger. You may recommend delaying a component while testing another. All quantities you introduce must be labelled assumptions or proposed acceptance criteria, not measured results.</p>
+
+<h2 id="memo-rubric">Review rubric</h2>
+<p>Score each dimension 0 (missing or contradicted), 1 (present but incomplete), or 2 (specific and justified). The maximum is 12, but this is a feedback tool, not a validated grading scale. Any violation of the sensitive-data constraint requires revision regardless of score.</p>
+<div class="table-scroll" role="region" aria-label="Scrollable data table" tabindex="0"><table><caption>What a strong memo demonstrates</caption><thead><tr><th scope="col">Dimension</th><th scope="col">2 · Specific and justified</th><th scope="col">1 · Needs work</th><th scope="col">0 · Missing/contradicted</th></tr></thead><tbody>
+<tr><th scope="row">Task and constraints</th><td>Defines users, scope and sensitive-data boundary.</td><td>Names task but leaves a key boundary unclear.</td><td>Ignores or violates a constraint.</td></tr>
+<tr><th scope="row">Evidence and attribution</th><td>Separates knowns, assumptions, author arguments and unknowns; cites decisive claims.</td><td>Some distinctions or sources are vague.</td><td>Treats unsupported claims as facts.</td></tr>
+<tr><th scope="row">Comparison and reasoning</th><td>Connects at least two options to the same task, quality and full-cost criteria.</td><td>Compares unevenly or relies on one proxy.</td><td>Selects by label, nationality or rank alone.</td></tr>
+<tr><th scope="row">Risk and counterargument</th><td>States baseline, likely failure and strongest objection fairly.</td><td>Mentions risks without mechanism or alternative.</td><td>Dismisses opposition or assumes no risk.</td></tr>
+<tr><th scope="row">Evaluation and uncertainty</th><td>Proposes representative held-out tests, review, resources and stopping criteria.</td><td>Says “test it” without a useful decision rule.</td><td>Asserts unmeasured quality or cost.</td></tr>
+<tr><th scope="row">Conditional action and revision</th><td>Chooses a feasible next step and a concrete reversal trigger; revises a weak claim.</td><td>Recommendation or trigger remains vague.</td><td>No actionable choice or revision.</td></tr>
 </tbody></table></div>
-<p>Recommend an option, a staged comparison, or a justified deferral. Separate sensitive and public-document uses. Do not invent missing prices, performance, or contract terms.</p>
-<ol><li>State the intended task, constraints, and recommendation.</li><li>Describe the release and permissions without relying on a label.</li><li>Propose a task-specific evaluation and an acceptable-result criterion before comparing models.</li><li>Compare operating effort, cost information needed, and risk controls.</li><li>Give the strongest counterargument and a condition that would change your recommendation.</li><li>Cite at least two relevant primary sources from the book; explain which principle each supports. Record the document date and any limits. Keep scenario facts separate from external evidence.</li></ol>
-<details class="callout think" id="capstone-feedback"><summary>Review criteria and example reasoning</summary>
-<p>A sensible response could test B locally first for sensitive documents while checking whether available hardware and maintenance capacity suffice. C deserves comparison if research transparency serves a defined requirement; it is not automatically better. A may be considered for approved public documents, subject to evaluation and contract review. Deferring deployment can be reasonable if the task or operating constraints cannot be met.</p>
-<p>None of these choices earns credit by itself. Review whether the memo respects the data constraint, describes the evidence accurately, defines a useful comparison, addresses an alternative, and makes its uncertainty actionable. If a criterion is missing, revise before considering the task complete.</p>
-</details>
-<p><b>Revisit:</b> after another chapter or a later reading session, change one assumption (for example, available hardware or document sensitivity) and explain whether your recommendation changes.</p></section>
+<h2 id="memo-examples">Two contrasting defensible responses</h2>
+<p>These compact examples illustrate reasoning rather than complete evidence gathering. Neither reports a real experiment. Read them after drafting your own memo.</p>
+<details><summary>Example A: begin with a bounded local pilot of B</summary>
+<p>I recommend a limited local pilot of B, with production use deferred. Sensitive-manual access is central to the intended task, so A cannot cover the complete scope under the case constraint. B has the minimum stated artefacts and permission for a local trial. C remains a fallback if its research materials help diagnose a failure; those materials do not establish superior answers.</p>
+<p>The strongest objection is the team’s limited operations capacity. Before involving sensitive material, an operator should test hardware fit, access controls and recovery using synthetic manuals. If the team cannot support that environment within an agreed staffing budget, stop this route. No benchmark in the book establishes B’s quality or cost.</p>
+<p>For evaluation, define critical errors with domain reviewers, hold out representative questions and compare answers against an existing manual-search workflow. Include unanswerable questions and require source references and escalation. As a proposed pilot gate, any critical unsafe instruction blocks expansion until investigated; this is a criterion, not an observed result. Record latency, review effort, failures and total operating cost.</p>
+<p>Revise or abandon B if the operational gate fails or held-out performance is unacceptable. My initial sentence, “Local weights are cheaper,” was unsupported. Replacing it with “Local weights satisfy the location requirement if the deployment enforces it” narrows the rationale without changing the bounded pilot recommendation.</p></details>
+<details><summary>Example B: pilot A on public manuals; defer sensitive use</summary>
+<p>I recommend a public-manual-only pilot of A while deferring the sensitive-document assistant. Limited operations capacity makes a hosted trial a plausible way to learn about the task quickly. This does not resolve the full internal-manual goal, and no sensitive text should enter the service. Confirm the service terms and retention configuration before beginning even the public-content pilot.</p>
+<p>The strongest objection is that the pilot may teach us little about local deployment or sensitive tasks. I accept that limit. Keep its claims narrow: it can reveal question types, review effort and usability issues on public material, not prove B or C will work locally. Assign a separate owner to assess local operational feasibility; do not let the partial pilot quietly become the complete solution.</p>
+<p>Use held-out public-manual questions, include unanswerable cases, compare with ordinary search and have reviewers identify consequential errors. Record cost per acceptable answer including review. A proposed gate is that any critical misleading answer pauses expansion for diagnosis. Evaluate exportability of the test set and results so that B and C can later be compared on suitable material under matched conditions.</p>
+<p>Change course if service terms are unacceptable, error criteria fail or the local option becomes supportable. My initial claim, “The hosted model is more accurate,” had no case evidence. I replaced it with “Hosted access may reduce initial operational work, subject to testing.” That changes the justification and leaves accuracy explicitly unresolved.</p></details><p>Compare the examples on the rubric. A prioritises learning whether local deployment can meet the central constraint; B prioritises a smaller feasible trial while acknowledging deferred scope. Both must earn their evaluation and operational claims through later work. A blanket claim that all options are equivalent would avoid the decision rather than justify it.</p>
+
+<h2 id="review">Final review</h2>
+<p>Check every decision-relevant factual sentence. Name its source and passage or label the assumption. Confirm that no forecast became a present fact, no fictional number became a real comparison and no uninspected term became a permission. Re-score the weakest rubric dimension after revision. Learner effectiveness remains unproven until the separate pilot is conducted.</p>
+
+
 </article></main>
     <footer class="footer">Open Models: A Field Guide · <a href="index.html">Home</a> · <a href="reading-list.html">Reading list</a></footer>
   </div>
