@@ -78,11 +78,31 @@ def check(pages):
             if '<!-- teaching:next-token -->' not in (ROOT/'chapters/00-primer.html').read_text(): errors.append('Missing static teaching table')
     for c in claims.values():
         if c['status'] in ('unresolved','retired'): continue
-        if not c['affected_locations']: errors.append(f'{c["id"]}: no affected locations')
+        if not c['affected_locations'] and not c.get('archived_locations'): errors.append(f'{c["id"]}: no affected locations')
         for location in c['affected_locations']:
             filename,_,anchor=location.partition('#')
             if not (ROOT/filename).is_file(): errors.append(f'{c["id"]}: missing affected file')
             elif filename in pages and anchor and anchor not in pages[filename].ids: errors.append(f'{c["id"]}: missing affected anchor')
+    for c in claims.values():
+        for location in c.get('archived_locations',[]):
+            if not re.fullmatch(r'[0-9a-f]{40}',location.get('commit','')) or not location.get('location'):
+                errors.append(f'{c["id"]}: invalid archived location')
+        for location in c['affected_locations']:
+            if location.split('#')[0] in records('retiredPages'):
+                errors.append(f'{c["id"]}: active claim points to withdrawn content')
+    from collections import Counter
+    counts=Counter(c['part'] for c in manifest.values())
+    if any(n>3 for n in counts.values()): errors.append('A section exceeds three chapters')
+    ordered=list(manifest)
+    if len({c['num'] for c in manifest.values()})!=len(manifest): errors.append('Duplicate display numbers')
+    for u in model['units']:
+        if any(ordered.index(dep)>=ordered.index(u['id']) for dep in u['prerequisites'] if dep in ordered):
+            errors.append(f'{u["id"]}: prerequisite follows chapter')
+    for name in records('retiredPages'):
+        page=pages.get(name)
+        if not page or page.chapter or page.quizzes: errors.append('Withdrawn page contains active learning content: '+name)
+    from render_navigation import outputs
+    if any(p.read_text()!=value for p,value in outputs().items()): errors.append('Static navigation differs from active manifest')
     # Compare committed fallback table with output of the shared-record renderer.
     import sys
     old=sys.argv;sys.argv=['render_data.py','--check']
