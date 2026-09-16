@@ -131,6 +131,8 @@ def main():
 
     for uid in units:
         visit(uid)
+    from check_evidence import check
+    errors.extend(check(pages))
     if errors:
         print('\n'.join(errors), file=sys.stderr)
         return 1

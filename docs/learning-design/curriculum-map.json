@@ -11,13 +11,22 @@
       "source_path": "chapters/00-primer.html",
       "prerequisites": [],
       "outcome_id": "O-00",
-      "outcome": "Explain what is learned during training and what happens during inference.",
+      "outcome": "Annotate a pipeline with data, learned parameters, post-training and inference.",
       "activity_id": "A-00",
-      "activity": "Draw a path from training data to weights to a generated response. Mark where a tokenizer, post-training, and inference fit.",
-      "criteria": "Your explanation distinguishes data, learned parameters, and execution. Treat reinforcement learning as a possible post-training method, not a mandatory separate stage for every model.",
+      "activity": "Draw or write Alder’s pipeline: broad data → pretraining → base checkpoint → optional adaptation → released checkpoint → inference with a retrieved manual → response. Mark which steps change weights. Add a tokenizer, an evaluation step, and two artefacts needed by a researcher that an end user might never download.",
+      "criteria": "Pretraining and adaptation change weights; ordinary inference and retrieval do not. The tokenizer maps text to model inputs. Evaluation measures behaviour rather than necessarily updating weights. Training-data documentation and intermediate checkpoints help investigate development. If you put RL after every post-training stage, revise it to a possible method within adaptation. If your diagram labels the entire assistant “the model,” separate retrieval and permissions.",
       "output_path": "study-guide.html",
       "output_anchor": "unit-primer",
-      "status": "study_task_added_existing_chapter_not_fully_revised"
+      "status": "revised",
+      "quiz_id": "primer-v2",
+      "preparation_anchor": "learning-outcomes",
+      "task_anchor": "practice",
+      "feedback_anchor": "practice-feedback",
+      "outcomes": [
+        "Annotate a pipeline with data, learned parameters, post-training and inference.",
+        "Distinguish a training objective from a deployment feature.",
+        "Identify which release artefacts support running, adapting or investigating a model."
+      ]
     },
     {
       "id": "openness",
@@ -34,7 +43,14 @@
       "criteria": "Separate what is downloadable from what is permitted. Distinguish missing materials from uninspected documents; name a concrete next check.",
       "output_path": "study-guide.html",
       "output_anchor": "unit-openness",
-      "status": "implemented_pilot"
+      "status": "revised_pilot_retained",
+      "quiz_id": "openness-v2",
+      "preparation_anchor": "learning-outcomes",
+      "task_anchor": "practice",
+      "feedback_anchor": "practice-feedback",
+      "outcomes": [
+        "Assess access, artefacts, permissions, and missing evidence for a specific release."
+      ]
     },
     {
       "id": "foundations",
@@ -117,13 +133,22 @@
         "openness"
       ],
       "outcome_id": "O-06",
-      "outcome": "Explain why two estimates of a capability gap can disagree.",
+      "outcome": "Calculate a score and a threshold delay from a small documented example.",
       "activity_id": "A-06",
-      "activity": "Compare two estimates in the chapter using benchmark, threshold, release dates, access conditions, and aggregation method. Identify an additional check before using either.",
-      "criteria": "A disagreement in numbers is not automatically a contradiction. Match task, evaluation conditions, and definition of the gap before drawing a trend.",
+      "activity": "Recalculate the equal and 80%-manual averages for Alder and Birch. Calculate both threshold delays. Explain why “Birch wins” and “Alder fits our manual-heavy workload better” can both follow from these data. Propose one further evaluation and one limitation that would enter your memo.",
+      "criteria": "Equal means are Alder 60 and Birch 70. Manual-heavy means are 0.8×80+0.2×40=72 and 0.8×60+0.2×80=64. Delays are 4−0=4 and 7−1=6 months. The ranking depends on the task weights; the delays answer another question entirely. Test held-out manuals representative of your organisation, inspect consequential errors and repeat unstable runs. The invented sample cannot justify a claim about real models or market trends.",
       "output_path": "study-guide.html",
       "output_anchor": "unit-gap",
-      "status": "study_task_added_existing_chapter_not_fully_revised"
+      "status": "revised",
+      "quiz_id": "gap-v2",
+      "preparation_anchor": "learning-outcomes",
+      "task_anchor": "practice",
+      "feedback_anchor": "practice-feedback",
+      "outcomes": [
+        "Calculate a score and a threshold delay from a small documented example.",
+        "Explain how evaluation and aggregation choices change a comparison.",
+        "Specify evidence needed before applying a benchmark result to a decision."
+      ]
     },
     {
       "id": "distillation",
@@ -135,13 +160,22 @@
         "gap"
       ],
       "outcome_id": "O-07",
-      "outcome": "Separate a training mechanism from an allegation and an estimate of its effect.",
+      "outcome": "Trace teacher–student information flow and locate the training stage.",
       "activity_id": "A-07",
-      "activity": "Draw the teacher-to-student information flow. Then separate one reported allegation into observed evidence, source attribution, and causal claims still needing a comparison.",
-      "criteria": "Name the training stage and the transferred information. Do not infer causal uplift, permission, or wrongdoing from similar outputs alone; check the technical source for claimed limits.",
+      "activity": "Draw two Willow → Juniper workflows: teacher-written answers and teacher feedback on student-written answers. Label the training stage. Design one controlled test of the benefit of teacher explanations. Then write one sentence accurately attributing the Anthropic report without converting its allegations into a proved effect size.",
+      "criteria": "Your diagrams should identify prompts, generated material or feedback, and the student weight update. For the test, use a shared base, matched training conditions and held-out tasks; compare explanations with an answer-only control, reporting token-budget differences. “Anthropic alleged abusive collection by named labs” is supportable as attribution. “That collection caused their capability gain” requires additional evidence. Reward a clear alternative explanation and an explicit uncertainty, not agreement with either company or commentator.",
       "output_path": "study-guide.html",
       "output_anchor": "unit-distillation",
-      "status": "study_task_added_existing_chapter_not_fully_revised"
+      "status": "revised",
+      "quiz_id": "distillation-v2",
+      "preparation_anchor": "learning-outcomes",
+      "task_anchor": "practice",
+      "feedback_anchor": "practice-feedback",
+      "outcomes": [
+        "Trace teacher–student information flow and locate the training stage.",
+        "Separate a company allegation from demonstrated causal uplift.",
+        "Design a controlled comparison of teacher-assisted training."
+      ]
     },
     {
       "id": "security",

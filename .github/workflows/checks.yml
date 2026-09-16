@@ -1,0 +1,15 @@
+name: Book checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Structure, evidence, learning maps and chart parity
+        run: python3 tools/check_learning.py
+      - name: JavaScript syntax
+        run: |
+          node --check js/data.js
+          node --check js/app.js
