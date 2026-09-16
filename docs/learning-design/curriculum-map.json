@@ -88,13 +88,22 @@
         "openness"
       ],
       "outcome_id": "O-03",
-      "outcome": "Frame a release-risk argument against a stated baseline.",
+      "outcome": "Analyse a release against an explicit baseline and threat model.",
       "activity_id": "A-03",
-      "activity": "Choose a hypothetical release. Specify the harmful task, actor, available alternatives, added capability, proposed mitigation, and missing evidence.",
-      "criteria": "Compare like-for-like access and capability. Separate evidence of misuse from evidence of incremental risk and from a policy preference.",
+      "activity": "For the fictional defect-explanation model, write a release assessment naming an actor, a harmful goal at a high level, existing alternatives, possible added capability or scale, a mitigation, and the evidence still needed. Include one potential defensive benefit and one data-permission uncertainty. Do not provide instructions for misuse.",
+      "criteria": "A good answer might compare novice access before and after release, including hosted alternatives, and ask whether independent deployment meaningfully changes skill requirements or monitoring. A staged evaluation can test an uncertain capability; defensive access may improve auditing. Neither benefit cancels the risk automatically. Data provenance and terms require their own review. Grade the explicit baseline, mechanism, evidence and uncertainty, not a predetermined release-or-withhold conclusion.",
       "output_path": "study-guide.html",
       "output_anchor": "unit-safety",
-      "status": "study_task_added_existing_chapter_not_fully_revised"
+      "status": "revised",
+      "quiz_id": "safety-v2",
+      "preparation_anchor": "learning-outcomes",
+      "task_anchor": "practice",
+      "feedback_anchor": "practice-feedback",
+      "outcomes": [
+        "Analyse a release against an explicit baseline and threat model.",
+        "Distinguish observed misuse, capability tests and marginal risk.",
+        "Evaluate data-access constraints without confusing availability with permission."
+      ]
     },
     {
       "id": "lineage",
@@ -214,13 +223,22 @@
         "us-china"
       ],
       "outcome_id": "O-08",
-      "outcome": "Compare policy proposals against the same objective and threat model.",
+      "outcome": "Classify an incident report, proposal, enacted rule and forecast separately.",
       "activity_id": "A-08",
-      "activity": "Compare a release gate and an observatory: objective, covered actor, mechanism, enforcement, possible displacement, and measurable success.",
-      "criteria": "Distinguish a proposal from an enacted rule. Use the same threat baseline for both approaches and identify a trade-off and an unresolved evidence need.",
+      "activity": "Write a two-column comparison of the fictional release gate and observatory for the public-service objective. Include the actor, mechanism, baseline, enforcement, likely displacement, one cost and two success measures. Recommend one approach or a combination, then name the strongest objection and a trigger for revising it.",
+      "criteria": "Both options must target the same harm and time horizon. A gate needs a meaningful capability threshold and review process; an observatory needs access to useful evidence and authority or funding to act. A combined recommendation is defensible only if you explain the role of each. A single approach is defensible if it addresses its strongest limitation. Treat a forecast as a forecast and reward explicit revision conditions, not the preferred politics of any author.",
       "output_path": "study-guide.html",
       "output_anchor": "unit-security",
-      "status": "study_task_added_existing_chapter_not_fully_revised"
+      "status": "revised",
+      "quiz_id": "security-v2",
+      "preparation_anchor": "learning-outcomes",
+      "task_anchor": "practice",
+      "feedback_anchor": "practice-feedback",
+      "outcomes": [
+        "Classify an incident report, proposal, enacted rule and forecast separately.",
+        "Compare two policy approaches against the same objective.",
+        "Specify success measures, displacement risks and a revision trigger."
+      ]
     },
     {
       "id": "synthesis",

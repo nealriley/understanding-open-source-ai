@@ -41,9 +41,10 @@ OMT.chapters = [
     "part": "Foundations",
     "file": "chapters/03-safety-and-data.html",
     "title": "Risk, Safety and the Data Commons",
-    "minutes": 30,
-    "blurb": "Marginal risk, the nonproliferation debate, staged releases, whether open models are actually less safe, and the shrinking pool of training data.",
-    "keywords": "marginal risk Kapoor societal impact Toner nonproliferation adaptation buffer Thinking Machines safe path Brand myth unsafe Consent in Crisis robots.txt data commons"
+    "minutes": 7,
+    "blurb": "“Is it safe to release?” is incomplete until we specify a capability, an actor, a setting and an alternative. Open access can change both misuse opportunities and the ability to inspect or defend systems. The comparison is the substance of the argument.",
+    "keywords": "Analyse a release against an explicit baseline and threat model. Distinguish observed misuse, capability tests and marginal risk. Evaluate data-access constraints without confusing availability with permission.  Start with the alternative world \n  Kapoor and colleagues’ 2024 position paper  proposes analysing the marginal risk of open foundation models: the additional risk relative to existing technologies. Its abstract reports insufficient evidence to characterise several misuse risks effectively. That is a reason to improve evidence, not a finding that the added risk is zero. \n Suppose a fictional community is considering releasing a model that helps explain software defects. A relevant baseline might include existing search, prior downloadable models and hosted services. Compare the same actors and tasks in both worlds. If the new model makes a difficult task easier for novices, that matters even when experts could already perform it. If a service already supplies similar help, the incremental effect of downloadable weights may concern scale, cost or removal of monitoring rather than entirel",
+    "quizId": "safety-v2"
   },
   {
     "id": "lineage",
@@ -95,9 +96,10 @@ OMT.chapters = [
     "part": "Policy",
     "file": "chapters/08-security-and-policy.html",
     "title": "Security, Cyber and the Regulatory Fight",
-    "minutes": 30,
-    "blurb": "The OpenAI/Hugging Face incident, autonomous hacking, Saxe's observatory proposal, executive-order threats, and Lambert's 'six months to live'.",
-    "keywords": "cybersecurity OpenAI Hugging Face incident Saxe observatory autonomous hacking Mythos executive order entity list six months to live vibe regulation ban"
+    "minutes": 7,
+    "blurb": "A policy can sound decisive while targeting the wrong mechanism. Compare proposals by the harm they aim to reduce, the actors they can reach and the evidence that would show whether they work.",
+    "keywords": "Classify an incident report, proposal, enacted rule and forecast separately. Compare two policy approaches against the same objective. Specify success measures, displacement risks and a revision trigger.  From a report to a policy claim \n An incident report can document a failure, an attribution or a suspected mechanism. Before building a policy conclusion on it, ask what the reporting organisation observed directly, which parts are inferred and whether other investigators can corroborate them. A persuasive narrative is not a substitute for those distinctions. \n For example,  Anthropic’s February 2026 disclosure  reports alleged abusive collection of model outputs. That establishes a concrete subject for investigation. It does not, on its own, measure the net social benefit of a proposed restriction. The same evidence can be relevant to access enforcement, commercial interests and broader security debates, which need different additional premises. \n A high benchmark score, a demonstrated failure in a controlled test and a measured increase in real-world harm are also distinct. Each can j",
+    "quizId": "security-v2"
   },
   {
     "id": "synthesis",
